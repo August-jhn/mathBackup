@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{mathtools}
+\usepackage{polynom}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\thm}{\fbox{theorem}}
+\newcommand{\infsum}{\sum_{n = 1}^{\infty}}
+\newcommand{\pf}{\fbox{proof}}
+\newcommand{\cor}{\fbox{corollary}}
+\newcommand{\psum}{\sum_{n = 0}^N}
+\newcommand{\prop}{\fbox{proposition}}
+
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+\newcommand{\ab}[1]{\color{red}{#1}\normalcolor}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+
+\fbox{proposition} $\int_{0}^{\infty}\frac{dx}{x^2 + 1} = \pi/2$.\\
+
+\fbox{proof} First, we consider the function $f(z) = \frac{1}{z^2 + 1} = \frac{1}{(z-i)(z+i)}$. Notice that $f(z)$ has singular points at $z = i$ and $z = -i$. Now we consider a semicircle in the upward direction so that it encloses $i$, with radius $R > |i| = 1$. Let the upper part be denoted $C_R$ and let the lower line segment that extends from $-R$ to $R$ be denoted $L_R$, and call $C = C_R + L_R$, the whole semicircle. Since there is only one singularity, to find the integral by means of the Cauchy Residue theorem, we need only find the residue around $z = i$. Notice that $f(z)$ can be written $f(z) = \phi(z)/(z-i)$, where $\phi(z) = 1/(z+i)$, which is clearly nonzero and analytic at $i$. Hence the residue, by the theorem in the chapter concerning poles and zeros, is just $\phi^{0}(i)/0! = \phi(i) = 1/(2i) = -i/2$. Hence by the Cauchy Residue theorem,
+$$\int_Cf(z)dz = 2\pi i(-i)/2 = \pi.$$
+
+Now we notice that $$\lim_{R\to \infty}\int_Cf(z)dz = \lim_{R\to \infty} \pi = \pi = \lim_{R\to \infty}\Big[\int_{R_R}f(z)dz + \int_{L_R}f(z)dz\Big] = \lim_{R\to \infty}\int_{C_R}f(z)dz +  \lim_{R\to \infty}\int_{L_R}f(z)dz.$$
+Now, since $i$ and $-i$ are the only singularities, it follows that there is a region around $L_R$, call it $D$ throughout which $f(z)$ is analytic. Hence the integral around any closed contour should be zero, and by the antiderivative theroem it follows that $\int_{L_R}f(z)dz = \int_{-R}^Rf(z)dz$ is path independent. Hence by definition of the principle value of an integral, since $L_R$ lies entirely on the real axis, $\int_{L_R}f(z)dz = \int_{-\infty}^\infty \frac{dx}{x^2 + 1}$. Substituting back into the equation, we have $$\pi = \lim_{R\to \infty}\int_Cf(z)dz + \int_{-\infty}^\infty \frac{dx}{x^2 + 1}.$$ The rest of this proof now amounts to showing that $\lim_{R\to \infty}\int_Cf(z)dz = 0$. \\
+
+Notice that by an extension of the triangle inequality $|z^2 + 1| \ge \big||z^2|-1\big| = \big||z|^2-1\big| = |R^2 -1| = R^2 - 1$, when $z\in C_R$. Hence, taking the reciprocal, we find that $|f(z)| \le \frac{1}{R^2 - 1}.$ Furthermore, since the curve is a semicircle of radius $R$, the length of the curve $C_R$ is $\pi R$. Hence, by a previous theorem,
+$$\Big|\int_{C_R}f(z)dz\Big|\le \frac{\pi R}{R^2 -1}.$$ Since, as clearly $ \frac{\pi R}{R^2 -1} \to 0$ as $R\to \infty$, it follows that 
+$$\lim_{R\to \infty}\int_{C_R}f(z)dz. $$
+Hence 
+$$\int_{-\infty}^{\infty}\frac{dx}{x^2 + 1} = \pi.$$
+Since the integrand is even, it follows that $$\int_0^\infty \frac{dz}{x^2 +1} = \pi/2.$$\\
+\newpage
+
+\fbox{proposition} Show that $\int_0^{\infty}\frac{dx}{(x^2 + 1)^2} = \pi/4$.\\
+
+\fbox{proof} This proof will pretty much be the same as the last one. Consider the function $f(z) = \frac{1}{(z^2 + 1)^2} = \frac{1}{(z-i)^2(z+ i)^2}$. This function is analytic everywhere besides the two points $z = i$ and $z = -i$. Now consider a semicircle constructed exactly the same as the last one. We now want to find the residue around $C$, which is the same as defined in the last problem. To find the residue at this point, notice that $f(z) = \frac{\phi(z)}{(z-i)^2}$ where $\phi(z) = \frac{1}{(z+2)^2}$. Hence we have that $ \phi(z) = \frac{1}{(z+ i)^2} $, which is clearly analytic and nonzero at $z = i$. Hence the residue is the first derivative of this by a previous theorem. Taking the first derivative we have $\pi'(z) = \frac{-2}{(z-i)^2}$. Since $\phi'(i) = -2/(2i)^3 = -2(-8i) = -i/4$. Since this is the only singular point enclosed by $C$, by the Cauchy residue theorem it follows that $\int_Cf(z)dz = 2\pi i(-i)/4 = \pi/2$. This is good.\\
+
+Notice that, for the exact same reason in last time, $\lim_{R\to \infty}\int_{L_R}f(z)dz = \int_{-\infty}^\infty \frac{dx}{(x^2 + 1)^2}$. 
+
+\end{document}

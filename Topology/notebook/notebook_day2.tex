@@ -1,0 +1,109 @@
+
+\documentclass{article}
+\usepackage{listings}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{ stmaryrd }
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\title{Topology}
+\author{August bergquist}
+
+
+\begin{document}
+
+\maketitle
+\large
+\fbox{problem 0}
+Consider the set $S = \{a, b, c, d, e\}$ with open sets $\emptyset$, $S$, $\{a\}$, $\{a, b\}$, $\{a, b, c\}$,
+$\{a, b, c, d\}$, $\{a, c, d\}$, $\{c, d\}$
+As given, these open sets do not satisfy the conditions for a topology. Which
+two sets must be added to the list above to make it a topology on $S$?\\
+
+\fbox{solution} To find the other two sets that need to be added, we first note that by rule 2 of the definition of a topology, the intersection of any two of these sets must be in the topology. Since $\{a,b,c\}\cap \{c,d\} = \{c\}$, $\{c\}$ must be one of the missing sets. Furthermore, since by rule 3 the union of any family of sets in the topology must also be the topology, and since $\{a\}\cup \{c\} = \{a,c\}$ must be in the set (since we've just shown that $\{c\}$ must be), it follows that $\{a,c\}$ is the other missing set.\\
+
+
+\fbox{problem 1} For this problem, I want to create a quick python program that checks for topologies on small sets like this one.\\
+
+The general idea is that to check if its a topology, you just gotta mess around a bunch with the possible subsets. See if the empty sets in there, and so on, to make sure that all the rules are met. \\
+
+So far I haven't managed to get this to work. Here's what I've got so far. I know, its pretty awful:
+\begin{lstlisting}
+
+S = set({'a','b','c'})
+
+def check_topology(X,T):
+
+    for u1 in T:
+        if not u1.issubset(X):
+            return False
+
+    length = len(X)
+    for 
+    def make_union_iteration(i,d):
+
+\end{lstlisting}
+
+\fbox{theorem 2.1} Let $\{U_i\}^n_{i = 1}$ be a finite collection of open sets in a topological space $(X,T)$. Then $\bigcup^n_{i = 1}U_i$ is open.\\
+
+\fbox{proof} Let $\{U_i\}^n_{i = 1}$ and $(X,T)$ be instantiated as in the proposition. We proceed by induction.\\
+
+For the base case, consider an arbitrary family of two open sets in $(X,T)$, $\{U_i\}^2_{i =1}$. Consider the intersection $U_1\cup U_2$. We know by construction of $\{U_i\}^2_i$ that both $U_1$ and $U_2$ are in $T$. By definition of an open set in a topology we know that $U_1,U_2\in T$. Notice that by property three of the definition of a topology, since $T$ is a topology of which both $U_1$ and $U_2$ are members, $U_1\cap U_2$ must also be a member of $T$. Hence by definition of an open set, $\{U_i\}^2_i$ is open in $(X,T)$. Since $\{U_i\}^2_{i =1}$ was an arbitrary family of two open sets in $(X,T)$, it follows that for all indexed families of open sets in $(X,T)$, the intersection of all of them is also open. \\
+
+Now for the induction hypothesis, suppose that for all indexed families of $n$ open sets in $(X,T)$ for some natural number $n$, the intersection is open. Now let $\{U_i\}^n_{i = 1}$ be one such indexed family of sets. For brevity, let $\bigcup^n_{i = 1}U_i = U$. By definition of an open set, and since by construction of $U$ and the induction hypothesis we know that $U$ is open, it follows that $U\in T$. Now let $U_{n+1}$ be an arbitrary open set in $(X,T)$. By definition of an open set $U_{n+1} \in T$. Furthermore, since $U\in T$ and $U_{n+1}\in T$, we know by property 3 of topologies that $U\cup U_{n+1}\in T$. Hence by definition of an open set, the intersection of the indexed family of sets, $\{U_i\}^{n+1}_{i = 1} = \{U_i\}^{n}_{i = 1}\cup \{U_{n+1}\}$ is also open in $(X,T)$. Since $\{U_i\}^{n}_{i = 1}$ is an arbitrary indexed family of open sets in $(X,T)$ of $n$ members, and since $U_{n+1}$ is an arbitrary open set in $(X,T)$, it follows that $\{U_i\}^{n+1}_{i = 1}$ is also arbitrary. Since it's arbitrary, it follows that for all indexed families of n+1 open sets in $(X,T)$, the intersection is also open.\\
+
+Hence, by induction, given some indexed family of $n$ open sets in $(X,T)$, the intersection is also open, for all $n\in \N$.\\
+
+\fbox{exercise 2.2} Why does the proof of the previous theorem not imply that the infinite intersection of open sets is also open?\\
+\fbox{solution} Consider the countable compliment on $\R$ , call it $C$. This gives the topological space $(\R,C)$. Now consider a set that has all the non-integer reals, $\R - \Z$. Clearly $\R - (\R - \Z) = \Z$ is countable, hence $\R-\Z \in C$. Define the collection of sets $\{\Z - \llbracket-n,n \rrbracket\}_{n\in \N-1}$ Clearly the set difference $\R-  (\R - (\Z - \llbracket-n,n \rrbracket)) = \Z - \llbracket-n,n \rrbracket$ is countable, hence each $\Z - \llbracket-n,n \rrbracket \in C$. However, the infinite intersection (call it $I$) of all of these sets is simply $\Z - (\Z - \{1\}) = \{1\}\ne \emptyset$. Furthermore $\R - I = \R - \{1\}$, which is not countable. Hence by definition of the countable compliment on $\R$, the infinite intersection is not in $C$, and is not open.\\
+
+\fbox{exersize 2.7} Describe an example of a topological space such that the infinite intersection of a collection of sets is not open.\\
+
+\fbox{solution} Any family of sets is itself a set. The definition of a finite set is that given a set $S$, $S$ is finite if there is some $n\in \N$ such that $|S| = n$. The previous theorem only deals with the intersection of a family of $n$ sets. By definition of a finite set, this family is finite. The proposition mentioned here is concerning the intersection of an infinite family of sets, which is not treated in the proof of theorem 2.1.\\
+
+\fbox{theorem 2.3} A set $U$ in a topological space $(X, T )$ is open if and only if
+for every $x \in U$ there exists an open set $U_x$ such that $x \in U_x \subseteq U$.\\
+
+\fbox{proof} [instantiate stuff just in case]\\
+
+Suppose that $U$ is open in $(X,T)$. Let $x$ be an arbitrary element in $U$. By definition of an open set $U\in T$. Consider $U_x = U$. Clearly, by construction of $x$, $x\in U_x$. Furthermore, $U_x\subseteq U$ because $U$ is a subset of itself. And by supposition $U_x$ is open in $(X,T)$, since $U$ is. Hence there exists some $U_x$ such that $U_x$ is open in $T$ and $x\in U_x \subseteq U$.\\
+
+Suppose that for all $x\in U$ there exists some open set $U_x$ such that $x\in U_x \subseteq U$. Let $\{U_\alpha\}_{\alpha\in U}$ denote the family of such sets. Then clearly $\bigcup_{\alpha\in U}U_\alpha = U$. Furthermore, by construction each $U_\alpha$ is open in $(X,T)$, hence by definition of an open set, each $U_\alpha\in T$. Or to be pretentious, $ \{U_\alpha\}_{\alpha\in U}\subseteq T$. Since by property 3 of the definition of a topology (or 4 in the textbook) the union of any arbitrary indexed family of sets is a member of $T$, we have $\bigcup_{\alpha\in U}U_\alpha\in T$. But as we have shown, $\bigcup_{\alpha\in U}U_\alpha = U$. Hence $U\in T$. It follows by definition of an open set that $U$ is open in $(X,T)$.\\
+
+\fbox{definition} Given a topological space $(X,T)$, given a set $A$, and a point $p\in X$, $p$ is a limit point of $A$ iff for all open sets $U$ containing $p$, $(U - \{p\}\cap A \ne \emptyset$. 
+
+\fbox{2.8} Let $X = \R$ and $A = (1,2)$. Then $0$ is a limit point of $A$ in the indiscrete topology (1) and the finite complement topology (2), but not in the standard topology (3) nor the discrete topology (4) on $\R$.\\
+
+\fbox{proof} 
+\begin{enumerate}
+    \item The indescrete topology contains $\R$ and $\emptyset$. The empty set does not contain $0$, so we don't have to worry about this one. We only have to worry about $\R$. Since $(\R-\{0\})\cap (1,2) = (1,2) \ne \emptyset$, it follows that $p$ is a limit point of $A$.
+    \item The finite compliment topology on $\R$ only contains subsets $U$ of $\R$ such that the set difference $\R - U$ is finite. Suppose $0\in U$ such that $U$ is in the finite compliment topology, and that $(U-\{0\}) \cap (1,2) = \emptyset$. Since $0\not \in (1,2)$, if follows that $U \cap (1,2) = \emptyset$. Hence $U-(1,2) = U$. But then $(1,2) \subseteq \R - U $, hence $\R - U$ cannot be finite, as it is in fact uncountable. Hence by contradiction we conclude that there is not instance of some open set $U$ containing $0$ in the finite compliment topology on $\R$ such that $ (U-\{0\}) \cap (1,2) = \emptyset$. In other words, for all open sets in the finite compliment, $U$, such that $0\in U$, $(U-\{0\})\cap (1,2) \ne \emptyset$. Hence, by definition of a limit point, $0$ is a limit point of $(1,2)$ in the finite compliment topology on $\R$.
+    \item Now to show $0$ is not a limit point of $(1,2)$ in the standard topology on $\R$, consider the open set $(-1,1)$. (We're taking for granted that this is open, as open sets in topology are an abstraction of the notion of an open set in calculus, hence open sets in calculus should be open sets in topology). Since $0\in (-1,1)$, and since $((-1,1)-\{0\})\cap (1,2) = \emptyset$, we have a counter example that shows that $0$ is not a limit point of $(1,2)$ in the standard topology on $\R$.
+    \item Since $(-1,1)\subseteq \R$, it follows by definition of the powerset that $(-1,1)\in 2^\R$. Hence by definition of the discrete topology on $\R$, $(-1,1)$ is an open set in the discrete topology on $\R$. So we can use this as the same counterexample used in part 3.
+\end{enumerate}
+
+\fbox{remark on the definition of a topology} There's something beautiful about what's happened here with the definition of a topology. At first it seemed so obscure, like what on earth could such an abstract definition lead to?! Now, after seeing it put to use on a familiar set like the reals, it really does become apparent that this definition is a powerful one. There's something elegant about definitions such as these. It reminds me of how the definition of a group seemed so abstract and arbitrary at first, but its consequences grew into something beautiful, into almost an entire universe, full of many different intricate and surprising results. On an even deeper level, it's things like this that can inspire someone to see math as discovered as opposed to created. If its completely created, and just part of our minds somehow, then it seems strange that it could surprise us. It feels as though  if math were not part of the outside world we would be able to control the results of the definitions more. Of course, to some extent we did make the definition SO THAT it leads to certain results. We held in mind that it was supposed to re-create what we already knew about the real numbers and calculus, as well as other familiar sets. But as is already becoming apparent, using different topologies on the reals with which we're less used to, we find hidden structures we couldn't see before. \\
+
+\end{document}

@@ -1,0 +1,171 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\title{Topology}
+\author{August bergquist}
+
+
+\begin{document}
+
+\maketitlea
+\fbox{Theorem 4.47} The quotient topology defines a topology.\\
+
+\fbox{Proof} Let $X$ and $Y$ be topological spaces, and let $f$ be a surjective function $f:X\rightarrow Y$. Let $\topT = \{U\in \mathcal{P}(Y): \inv{f}(U) \in \topT_X \}$, where $\topT_X$ denotes topology on $X$. We will need to show that $\topT$ meets all of the requirements as provided by the definition of a topology.
+\begin{enumerate}
+    \item To show that $Y\in \topT$, note by definition of a function, $\inv{f}(Y) = X$. Otherwise not every point in $X$ would map to some point in $Y$ under $f$, which violates the definition of a function. Furthermore, by definition of a topology, $\inv{f}(Y) = X$ must be open in $\topT_X$, hence $Y\in \topT$.
+    \item To show that $\emptyset\in \topT$, consider $\inv{f}(\emptyset)$. Suppose by way of contradiction that some $x\in \inv{f}(\emptyset)$. Then $x$ gets mapped to nothing, contradiction the supposition that $f$ is a function. Hence there is nothing in $\inv{f}(\emptyset)$. In other words, $\inv{f}(\emptyset) = \emptyset$, which is open in $X$ by definition of a topology. Hence $\emptyset\in \topT$.
+    \item Now suppose that $U$ and $V$ are elements of $\topT$. Then by definition of $\topT$, $\inv{f}(U)$ and $\inv{f}(V)$ are open in $X$. Furthermore, since by definition of a topology the union of open sets is open, $\inv{f}(U)\cap \inv{f}(V)$ must also be open in $X$. Recall from Foundations that $\inv{f}(U\cap V) = \inv{f}(U)\cap \inv{f}(V)$. Hence $\inv{f}(U\cap V)$ must be open in $X$. Hence by definition of the quotient topology, $U\cap V\in \topT$.
+    \item Let $\{U_\alpha\}_{\alpha\in A}$ be an arbitrary collection of sets in $Y$ such that $U_\alpha\in \topT$ for all $\alpha\in A$. Then by construction of $\topT$, $\inv{f}(U_\alpha)$ is open in $X$ for all $\alpha\in A$. Recall from Foundations that the inverse image of an arbitrary union is the union of the inverse images, hence $\inv{f}\big(\bigcup_{\alhpa\in A}U_\alpha\big) = \bigcup_{\alpha\in A}\inv{f}(U_\alpha)$. Since each $\inv{f}(U_\alpha)$ is open in $X$, and since by definition of a topology the arbitrary union of open sets must also be open, we conclude that $\inv{f}\big(\bigcup_{\alhpa\in A}U_\alpha\big)$ is open in $X$ as well. Hence by definition of the quotient topology, $\bigcup_{\alpha\in A} U_\alpha\in \topT$.
+\end{enumerate}
+Having shown that all four requirements of a topology are met in the case of the quotient topology on $Y$ induced by $f$, we conclude that the quotient topology really is a topology. Q.E.D.
+
+\end{document}

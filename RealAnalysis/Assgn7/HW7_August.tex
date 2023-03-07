@@ -1,0 +1,110 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate, diagbox, tcolorbox, esvect, tikz, adjustbox}
+
+
+\graphicspath{{./images/}}
+
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+
+%geometry/topology
+\newcommand{\bndry}{\partial}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\theoremstyle{definition}
+
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+
+\title{Real Analysis}
+\author{August Bergquist}
+
+\begin{document}
+
+\maketitle
+
+\section{Problem D.2.4}
+
+\begin{lemma}
+Let $\mathbf{x} = (x_1,\dots,x_n)$, $\mathbf{y} = (y_1,\dots, y_n)\in \R^n$. Then for each $i\in \mathbf{n}$, $|x_i-y_i| \le d(\mathbf{x},\mathbf{y})$, where $d$ is the euclidean metric on $\R^n$.
+\end{lemma}
+\begin{proof}
+This follows immediately from the fact (which I also proved) that the square root function is monotonic on the non-negative reals, and positive definiteness of a metric (and the fact that the euclidean metric is one). The details are in my second to last assignment.
+\end{proof}
+
+\begin{proposition}
+Suppose that we have a sequence $\mathbf{\sigma:}\N\to \R^m$ such that for each $k$, $\mathbf{\sigma}(k) = (\sigma_1(k), \dots, \sigma_m(k))$ for $\sigma_i:\N\to \R$ for all $i\in \mathbf{m}$. Then $\mathbf{\sigma}$ converges to $\mathbf{x} = (x_1,\dots,x_m)$ if and only if $\sigma_i$ converges to $x_i$ for each $x$. 
+\end{proposition}
+\begin{proof}
+First suppose for contrapositive that for some $j\in \mathbf{m}$, we have $\sigma_j$ not converging to $x_j$ in $\R$. Then there exists some $\epsilon> 0$ so that for all $N\in \N$, there is at least one $n > N$ so that $|\sigma_j(n) - x_j| \ge \epsilon$. Now consider that very same $\epsilon$, and let $N$ be any natural number. Then for that $N$ and $\epsilon$, there must exist some $n > N$ so that $|\sigma_j(n) - x_j| \ge \epsilon$. But since by the first lemma we have $d(\mathbf{\sigma}(n), \mathbf{x}) \ge |\sigma_j(n) - x_j| \ge \epsilon$. So for any positive $\epsilon$, and for any natural number $N$, we can produce some natural number larger than it so that the distance between $\mathbf{\sigma}(n)$ and $\mathbf{x}$ is not less than that $\epsilon$, and $\sigma$ fails to converge to $\mathbf{x}$. \\
+
+Now suppose that each of the $\sigma_j$ converge for $j\in \mathbf{m}$. Let $\epsilon > 0$. Since the square root function is monotonic, and since $\sqrt{0} = 0$ and $m > 0$, it follows that $\sqrt{m} > 0$. Hence $\epsilon/\sqrt{m} > 0$. From this, and the convergence of each of the $\sigma_j$, it follows that for each $j\in \mathbf{m}$ there exists some $N_j\in \N$, such that for each $n > N_j$, $|\sigma_j(n) - x_j| < \epsilon/\sqrt{m}$. Now let $N = \max{N_1, \dots, N_m}$, and let $n>N$. Since $N$ is the maximum, it follows that for each $j\in \mathbf{m}$, $ |\sigma_j(n) - x_j| < \epsilon / \sqrt{m} $. \\
+
+Now by definition of the euclidean metric and since $\sqrt{\cdot}$ is monotonic, for this same $n$, we have 
+$$d(\mathbf{\sigma}(n), \mathbf{x}) = \sqrt{\sum_{j\in \mathbf{m}} |\sigma_j(n) - x_j|^2} < \sqrt{\sum_{j\in \mathbf{m}}\epsilon^2/m} = \sqrt{\epsilon^2} = \epsilon.$$
+To reiterate, we have shown that for all $\epsilon > 0$, there exists some natural number $N$, such that for all $n> N$, the distance between $\sigma(n)$ and $\mathbf{x}$ is less than $\epsilon$. By definition of convergence, $\sigma$ converges to $\mathbf{x}$.
+
+Q.E.D.
+\end{proof}
+
+\section{Problem 3.4.9}
+
+\begin{proposition}
+Suppose that $a_n$ converges to $a$ in $\R$, and let $k\in \R$. Then $ka_n$ converges to $ka$ in $\R$. 
+\end{proposition}
+
+\begin{proof}
+
+Notice that if $k = 0$, then each term in the sequence $ka_n$ is zero, so the sequence is constant at zero. We have shown that constant sequences converge to their value, hence the sequence converges to $ka = 0$ in this case.\\
+
+Now suppose that $k \ne 0$. By properties of absolute value (or positive definateness when viewed as a distance function, where $|k| = |k-0|$), it follows that $|k| > 0$, hence by a previous exercise $1/|k| > 0$. Let $\epsilon > 0$. Then $\epsilon/|k| > 0$. By definition of convergence, and since $a_n$ converges to $a$, it follows that there exists some $N\in \N$ such that for all $n> N$, we have $|a_n - a| < \epsilon/|k|$, and let $n$ be any such $n> N$. Then it follows that 
+\[|k| |a_n - a| = |k(a_n - a)| = |ka_n - ka| < \epsilon\]. So then, for all $\epsilon > 0$ there is some $N\in \N$ such that for all $n > N$, $|ka_n - ka| < \epsilon$. From this it follows by definition of convergence that $ ka_n $ converges to $ka$.
+\end{proof}
+
+\begin{proposition}
+Suppose that $b_n$ is a non-zero real sequence which converges to  a non-zero real number $b$, and that $a_n$ is a real valued sequence which converges to $a$. Then the sequence of quotients $a_n/b_n$ converges to $a/b$. 
+\end{proposition}
+
+\begin{proof}
+We begin by finding a positive lower bound for terms of the sequence $|b_n|$, which we will use. Since $b \ne 0$, it follows that $|b|> 0$. Hence $|b|/2 > 0$. Since (as we have shown in a previous exercise) the convergence of $b_n$ to $b$ implies the convergence of $|b_n|$ to $|b|$, it follows by definition of convergence that there must exist some natural number $N$, such that for all natural numbers $n$ greater than it, $||b_n| - b| < |b|/2$. But recall from exercise () that this implies $|b_n| \in (|b|/2, 3|b|/2)$ for all $n > N$. By definition of an open interval, it follows that $ 0<|b|/2 < |b_n|$. Moreover, the set of terms of $|b_n|$ of index not exceeding $N$ is finite, hence it must have a minimum element; call it $|b_m|$ for some $m \le N$. Moreover, since each term of $b_n$ is non-zero, it follows that $|b_n| > 0$. Let $L$ be the smaller of $|b_m|$ and $|b|/2$. So then, we have that all terms of $ |b_n|$ are greater than or equal to $L$, and $L$ is greater than $0$. So we have a positive lower bound, $L$, for the terms of the sequence $|b_n|$.\\
+
+Now let $\epsilon >0$. Since $L$ is positive, and since $1 + \frac{|a|}{|b|}$ is positive, it follows that $\epsilon' =\frac{\epsilon L}{1 + \frac{|a|}{|b|}} > 0$. By definition of convergence, it follows that there exists $N\in \N$ such that for all natural $n> N'$, $|a_n - a| < \epsilon'$, as well as $N''\in \N$ such that for all $n>N''$, $|b_n - b| < \epsilon '$. So let $N = \max{N',N''}$, and let $n > N$ be arbitrary.\\
+
+Now we examine $|\frac{a_n}{b_n} - \frac{a}{b}|$, and algebrize the hell out of it (using the established relationships between division, absolute value, and inequality):
+
+\[
+\begin{array}{c}
+|\frac{a_n}{b_n} - \frac{a}{b}| \\
+= |\frac{a_n b - ab_n}{b_n b}|\\
+= \frac{|a_n b - ab_n|}{|b_n||b|}\\
+= \frac{|(a_n b - ab) + (ab - ab_n)|}{|b_n||b|} \\
+\le \frac{|a_nb - ab|}{|b_n|b} + \frac{|ab - b_na|}{|b_n|b}\\
+ = \frac{|b(a_n - a)|}{|b_n|b} + \frac{|a(b - b_n)|}{|b_n|b}\\
+ = \frac{|b||a_n - a|}{|b_n|b} + \frac{|a||b - b_n|}{|b_n|b}\\
+ < \frac{1}{L}(|a_n - a| + \frac{|a|}{|b|}|b_n - b|)\\
+ < \frac{\epsilon'}{L}(1 + \frac{|a|}{|b|}) = \frac{\epsilon L}{1 + \frac{|a|}{|b|}}\frac{1 + \frac{|a|}{|b|}}{L}  = \epsilon
+ 
+\end{array}
+\]
+So $|\frac{a_n}{b_n} - \frac{a}{b}| < \epsilon$. Since $n$ was arbitrary greater than $N$, it follows that this inequality holds for all such $n$ greater than $N$. So then, for all $\epsilon > 0$, there exists a natural number $N$, such that for all $n> N$, $|\frac{a_n}{b_n} - \frac{a}{b}| < \epsilon$. By definition of a limit, it follows that $\frac{a_n}{b_n}$ converges to $\frac{a}{b}$. 
+\end{proof}
+
+
+
+\end{document}

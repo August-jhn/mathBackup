@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+\begin{document}
+
+\fbox{2a} Show that $Re(z) = Im(iz)$.\\
+\fbox{proof} Let $z = a + bi$ for arbitrary $a,b$. Then $Re(z) = a.$ Furthermore, by substitution we see that $iz = i(a+bi) = ia+bi^2 = -b+ia$, hence $Im(iz) = a = Re(z).$\\
+\fbox{2b} Show that $Im(iz) = Re(z)$.\\
+\fbox{proof} By definition of complex numbers, there exists real numbers $a$ and $b$ such that $z = a+bi$. Furthermore, by substitution, and the basic algebraic properties of complex numbers such as the commutative law, $iz = i(a+bi) = ai-b.$ Hence we have $$Im(iz) = Im(ai-b) = a = Re(a+bi) = Re(z).$$
+
+\cs{2 has two parts (maybe a change from 8th to 9th edition?). Let me know when you're ready for me to look at part (a).}
+
+\cs{3/5}
+
+\cs{Ta-da! 5/5}
+
+\\
+\fbox{5} Multiplication of the complex numbers is commutative.\\
+\fbox{proof} Let $z_1 = a_1+b_1i$ and $z_2 = a_2+b_2i$. Then by definition of multiplication of complex numbers and the commutative properties of addition and multiplication in the reals, 
+$$\begin{array}{cc}
+     & z_1z_2 = (a_1+b_1i)(a_2+b_2i) = (a_1a_2 - b_1b_2) + (a_1b_2 + a_2b_1)i \\
+     &= (a_1a_2 - b_1b_2) + (a_2b_1 + a_2b_1)i = (a_2+b_2i)(a_1+b_1i) = z_2z_1. \\
+     & 
+\end{array}$$
+
+\cs{5/5}
+
+\sout{\cs{8/10}} \cs{10/10}
+
+
+\end{document}

@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+\fbox{Cauchy's theorem for derivatives}
+Let $F$ be analytic on and in side a simpe closed contour $C$. If $z$ is interior to $C$  then 
+$f^{(n)}(z) = n!/(2\pi i)\int_Cf(W)/(w-z)dw.$\\
+
+\fbox{cor} If $f$ is analytic at a point, then it has derivatives of all orders at that point. These derivatives are analytic are analytic as well.\\
+
+\fbox{proof} Let $f$ be analytic at $z_0$ Then there is some $\epsilon$ such that $f'(z)$ exists throughout $|z-z_0|<\epsilon Thus $f
+ is analytic on and inside $C$ defiend by $\epsilon/2 .$ By the CIFD, $f$ has derivatives of all orders inside of $C$. \\
+ 
+ \fbox{cor} If $f(z) = u(x,y) + iv(x,y)$ is analytic at a point, then $u$ and $v$ have partial derivatives of all orders at that point. \\
+ \fbox{Morera's theorem} Let $f$ be continuous on a domain $D$. If $\int_Cf(z)dz = 0$ for all closed contours $C\subseteq D$, then $f$ is analytic on $D$. \\
+ 
+ \fbox{proof} We know that if $\int_Cf(z)dz = 0$ for all closed contours $C\subseteq D$, then $f(z)$ has an antiderivative $F$ on $D$ by the 3-part theorem. But then $F' = f$. But we know $F^{(n)}$ is analytic on $D$. This follows from the corrolary to Cauchy integral formula for derivative. In particular, $f$ is analytic on $D$. \\
+ 
+ 
+ 
+ \\
+ 
+ \fbox{cor} Let $f$ be continuous on a simply connected domain $D$, then $f$ is analytic on $D$ iff $\int_Cf(z)dz = 0$ for all closed curves $C\subseteq D$. \\
+ 
+ \fbox{Cauchy's Inequality} Let $f$ be analytic on and inside a positively oriented circle, $C_R:|z-z_0| = R$, and let $M_R$ be the maximum of $|f(z)|$ on $C_R$. Then $|f^{(n)}(z_0)| \le n!M_R/R^n.$\\
+ 
+ \fbox{proof} I can do the proof.\\
+ 
+ \fbox{liousulle's theorem} Every bounded entire function is constant.\\
+ \fbox{proof} By Cauchy's inequality $|f'(z_0)|\le M/R$, where $M$ is the maximum of $|f(z)|$ and $R$ is the an arbitrary radius. Since this holds for all $R\in \R^+$, and the limit as $R$ approaches infinity is zero, we must have the limit as $R$ approaches infnity is zero $|f'(z_0)| = 0$. $z_0$ is also arbitarry so $|f'(z)| = 0$ for all $z\in \C$. Hence $f$ is constant on $\C$
+ \end{document}
+

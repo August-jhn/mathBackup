@@ -1,0 +1,109 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\title{Abstract Algebra}
+\author{August}
+
+
+\begin{document}
+\maketitle
+\fbox{problem 10: proposition} If $A$ and $B$ are ideals of a ring $R$, show that the sum of $A$ and $B$,
+$A + B = {a +b | a \in A, b \in B}$, is an ideal.\\
+
+\fbox{proof} (This proof I decided to do at an extremely formal level, just to review a whole bunch of random stuff at once. If it seems a bit over-done, that's because it probably is.) Let $A$ and $B$ and $R$ be instantiated as above, and let $A+B$ be defined as above. We proceed by the ideal test. 
+
+\begin{enumerate}
+    \item Let $x$ and $y$ be arbitrary elements in $A+B$ and let $r$ be an arbitrary element in $R$. Then by definition of $A+B$, $x = a + b$ and $y = a' + b'$ for some $a,a'\in A$ and $b,b'\in B$. So by substitution and by definition of subtraction notation $x - y = (a + b) - (a' + b') = (a + b) + (-(a'+ b')).$ By the socks shoes property on addition and the commutative property of "addition" on rings, $-(a' + b') = -b' + (-a') = -a' + (-b')$. Substituting back in we find $x - y = a + b + (-a') + (-b').$ Once again using the subtraction notation, and by the associative and commutative properties of the additive operation in a ring, $x-y = (a -a') + (b - b').$ Since rings are closed under addition (by virtue of the operation being a function from the ring's set to the ring's set), we know that $a'' = a-a'\in A$ and $b'' = b-b'\in B$ So by definition of $A+ B$ it follows that $x- y = a'' +b'' \in A + B$. Elements $x$ and $y$ are arbitrary in $A+B$, hence for all $x,y\in A+B$, $x-y\in A +B$ 
+    \item Now re-instantiate $x$ and $y$ As we have shown, $x = a + b$ for elements $a\in A$ and $b\in B$. Hence by substitution we have $rx = r(a +b)$. By the distributive properties of rings, $r(a+ b) = ra + rb$. Furthermore, since $A$ and $B$ are both ideals of $R$ we know that $ra = a' \in A$ and $rb = b' \in B$. Hence $rx = a' + b'$ for elements $a'\in A$ and $b' \in A$, so $rx \in A+ B$ by definition of $A+ B$. Furthermore, we note similarly that $xr = a'' + b''$ for elements $a''\in A$ and $b'' \in B$. Hence 
+\end{enumerate}
+
+
+\fbox{problem 11} In the ring of integers $\Z$, find a positive integer $a$ such that 
+\begin{enumerate}
+    \item $<a> = <2> + <3>$
+    \item $<a> = <6> + <8>$
+    \item $<a> = <m> + <m>$.
+\end{enumerate}
+
+\fbox{solution} I will start with the third one, as this is the more general case, the solution of which comes naturally from problem 10 and number theory. As defined in the last problem, the ideal $<m> + <n> $ is the ring of elements $x + y$ such that $x\in <m>$ and $y\in <n>$. Furthermore, by definition of a principle domain $<m> = \{e\cdot m: e\in \Z\}$, and similarly for $<n>$. So, if we let $b$ be an arbitrary element in $<a>$, by definition of $<a>$ as $<m> + <n>$ we know that $b$ has the form $x + y$ for $x\in <m>$ and $y \in <n>$. Hence $b = e\cdot m + f\cdot n = em + fn$ for $e,f\in \Z$. Using Bezout's identity we can prove that any linear combination of two integers (or any number of integers for that matter) is a multiple of their greatest common divisor. Let $d = \gcd(m,n)$. Then $b = em + fn = g\cdot d$ for some $g\in \Z$. Since $b$ is arbitrary in $<a>$, all elements in $<a>$ have the form $g\cdot d$ for some $g\in \Z$. So by definition of a the principle domain, $<a>$ is the principle domain of the greatest common divisor of $m$ and $n$, $<\gcd(m,n)>$. In other words $\gcd(m,n)$ is a positive integer such that $<\gcd(m,n)> = <m>  + <n>$. \\
+
+Since $\gcd(2,3) = 1$ and $\gcd(6,8) =2$, it follows that the solutions to questions 1 and 2 are 1 and 2 respectively, and their respective principle ideals are $<1> = \Z$ and $<2> = 2\Z$.\\
+
+
+\fbox{problem 51} Let $\Z_2[x]$ be the ring of all polynomials with coefficients in $\Z_2$. Then $\Z_2[x]/<x^2 + x + 1>$ is a field.\\
+
+
+\fbox{proof} Since by theorem 14.4 we know that $\Z_2[x]/<x^2 + x + 1>$ is a field if and only if $<x^2 + x + 1>$ is maximal, this proof reduces to showing that $<x^2 + x + 1>$ is maximal. To do so, let $B$ be an arbitrary ideal of $\Z_2[x]$ such that $<x^2 + x + 1>\subseteq B \subseteq \Z_2[x]$. Suppose that $<x^2 + x + 1> \ne B$. Since $<x^2 + x + 1> \susbeteq B$, it follows that $B \not \subseteq <x^2 + x + 1>$. hence there exists some $P(x)\in B$ such that $P(x) \not \in <x^2 + x + 1>$. Since we know that \\
+
+
+\fbox{problem 60} Let $R$ be a commutative ring with unity, and let $I$ be a proper ideal with the property that every element of $R$ that is not in $I$ is a unit of $R$. Then $I$ is the unique maximal ideal of $R$.\\
+
+
+
+\end{document}

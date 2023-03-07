@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+\fbox{musings} Suppose $w = f(w+i)\in\C$ is a function of the complex variable $z = x + iy$ and $w = u + iv\in \C$ for $z$ in the domain of $f$. Then $f(z) = u(x,y)+iv(x,y)$ where $u$ and $v$ are real-valued functions. In other words, we have two multivariable funcitons together.\\
+
+\fbox{example} $f(z) = z^2 = (x+iy)^2 = (x^2-y^2)+i(2xy)$. Hence $u(x,y) = x^2-y^2$ and $v(x,y) = 2xy$.
+\\
+\fbox{definition} We say that the limit of a function, $f(z)$ as $z$ approaches $z_0$ is $w_0$ written $ \lim_{z \to z_0} f(z) = w_0$ if for all $\epsilon > 0$ there exists some $\delta > 0$ such that $|f(z)-w_0| < \epsilon$ whenever $|z-z_0| < \delta$.\\
+
+\fbox{theorem} If $\lim_{z\to z_0}$ exists, it is unique.\\
+\fbox{proof} Suppose $w_0$ and $w_1$ are both limits of $f$ as $z$ approaches $z_0$. Then for all $\epsilon_0 > 0$ there exists $\delta_0 > 0$ such that $|z-z_0| < \delta_0\rightarrow |f(z) - w_0| < \epsilon_0$. And, for all $\epsilon_1 > 0$ there exists $\delta_1 > 0$ such that $|z-z_0| < \delta_1\rightarrow |f(z) - w_1| < \epsilon_1$. Let $\epsilon > 0$ be given. Let $\epsilon_0 = \epsilon_1 = \epsilon/2$. Then there exists $\delta_0$ and $\delta_1$ such that $|z_1 - z_0| < \delta_0$ implies that $|f(z) - w_0|< \epsilon_0$ and $|z-z_0|<\delta_1$ implies $|f(z) - w_1| < \epsilon_1$. Let $\delta = \min{\delta_0,\delta_1}$. Now for $|z-z_0|< \delta$, we get $|w_0 - w_1| = |w_0-f(z)+ f(z_0) - w_1|$. Now, applying the triangle inequality,  $|w_0 - w_1| = |w_0-f(z)+ f(z_0) - w_1| \le |w_0-f(z_0)| + |f(z_0) - w_1| < \epsilon/2 + \epsilon/2 = \epsilon$. Thus $|w_0 - w_1| = 0$, so $w_0 = w_1.$ Alternatively, $\epsilon = |w_0 - w_1|$. Hence $\epsilon < \epsilon$, which is a contradiction. \\
+
+\fbox{theorem} Suppose $f(z) = u(x,y) + iv(x,y)$, $z_0 = x_0 + iy_0$, $w_0= u_0+iv_0$. Then $$\lim_{z\to z_0} f(z) = w_0$$ iff
+$\lim_{(x,y)\to (x_0,y_0)}u(x,y) = u_0$ and $\lim_{(x,y)\to (x_0,y_0)}v(x,y) = v_0$.\\
+\fbox{proof} Suppose that $\lim_{z\to z_0}f(z) = w_0$. Let $\epsilon > 0$. Then there exists some $\delta > 0$ such that $0<|z-z_0|<\delta$, hence $|f(z) - w_0| < \delta$. Thus if $0<\sqrt{(x-x_0)^2+(y-y_0)^2}<\delta$. But $|u(x,y)- u_0| = |Re(f(z)- w_0)|.$ By previously proven theorem, $\ge|f(z)-w_0|< \epsilon$. The $v$ argument is similar.\\
+
+Let $\epsilon > 0$. Then there exists $\delta_1,\delta_2> 0$ such that 
+
+if $0<\sqrt{(x-x_0)^2+(y-y_0)^2}<\delta_1 = \epsi$, then $|u(x,y) - u_0| < $ and if $0<\sqrt{(x-x_0)^2+(y-y_0)^2}<\delta_2$, then $|v(x,y) - v_0| < $. Let $\delta = \min{\delta_1,\delta_2}$
+thus $$|f(z) - w_0| = |u(x,y)+v(x,y) - (u_0-v_0)| \le|u(x,y) - u_0| + |iv(x,y)-iv_0| = |u(x,y) - u_0| + |v(x,y)-v_0|.$$ Hence the $\delta_1,\delta_2$  arguments are satified.\\
+
+\fbox{theorem} Suppose $\lim_{z\to z_0} f(z) = w_0$  and $\lim_{z\to z_0} F(z) = W_0$, then 1) $\lim_{z\to z_0}f(z)F(z) = w_0W_0$, 2) $\lim_{z\to z_0}f(z) + F(z) = w_0 + W_0$, 3)  $\lim_{z\to z_0}f(z) / F(z) = w_0 / W_0$. \\
+
+2) Why not have $\delta_1 = \epsilon/2 = \delta_2$, hence $|f(z) - w_0| < \epsilon/2$ and $|F(z) - W_0| < \epsilon/2$. Let $\delta = \min{\delta_1,\delta_2}. $ Then since $0< |z-z_0| < \delta$. So it follows by the triangle inequality $|(f(z) + F(z)) - (w_0+W_0)| \le |f(z)-w_0| + |F(z) - W_0| < \epsilon/2+\epsilon/2 = \epsilon.$\\
+
+\fbox{definition} A nieghborhood of infinity has the form $|z| > 1/\epsiloon$ for a given $\epsilon$.\\
+
+\fbox{thm} let $z_0,w_0\in \C$. Then 
+\begin{enumerate}
+    \item $\lim_{z\to z_0}f(z) = \infinity$ iff $\lim_{z\to z_0}1/f(z) = 0$.
+    \item $\lim_{z\do \infinity}f(z) = w_0$ iff $\lim_{z\to 0}f(1/z) = w_0$\\
+    copy from book rest
+\end{enumerate}
+
+\fbox{definition} A function $f$ on $\C$ is continuous on $z_0 \in \C$ if 
+\begin{itemize}
+    \item $\exists w_0 \in \C$ such that $\lim_{z\toz_0}f(z) = w_0$.
+    \item $f(z_0)$ is defined.
+    \item $\lim_{z\to z_0}f(z) = f(z_0)$.
+\end{itemize}
+If $f$ is continuous for each point in a region $R$, then we say that $f$ is continuous on $R$.\\
+
+\fbox{theorem} If $f$ and $g$ are continuous at some point $z_0 \in \C$. Then so is $f\pm g$, $f/g$ ($g(z_0) \ne 0$) $fg$ at $z_0$.\\
+
+
+\fbox{theorem} Compositions of functions are continuous. \\
+\fbox{proof} Let $f$ be continuous at $z_0$ and let $g$ be continuous at $w_0 = f(z_0)$. We wish to show that $f\circ g$ is continuous at $z_0$. Let $\epsilon > 0$. Then there exists some $\delta > 0$ such that $0<|z-w_0| < \delta$ hence $|g(z)- g(w_0)| <  \epsilon$. Also, there exists some $\gamma > 0$ such that $0< |z-z_0| < \gamma$ so $|f(z) - f(z_0)| < \delta$. Thus for $0 < |z - z_0|< \gamma$ we have $|f(z)-w_0| < \delta$ so $|g(f(z)) - g(w_0)| < \epsilon$ hence $|g(f(z)) - g(f(z_0))|  < \epsilon$. Then $\lim_{z\to z_0}g\circ f(z) = (g\circ f)(z_0)$\\
+
+\fbox{theorem} If $f$ is continuous at $z_0$ and $f(z_0)\ne 0$ then there exists a neighborhood $N$ of $z_0$ such that $0\not \in f(N)$\\
+\fbox{proof} Let $\epsilon  = |f(z_0)|/2$. Then there exists some $\delta>0$ such that $|z-z_0| < \delta$ so $|f(z) - f(z_0)| < \epsilon$. Let $z$ be such that $|z-z_0|< \delta$. Then $|f(z) - 0| = |f(z)-f(z_0)+ f(z_0)|$. Using our other triangle inequality,  $||f(z)-f(z_0)| -  |f(z_0)||$. Using the value of $\epsilon$, we know that $|f(z_0)| - |f(z)-f(z_0)| > 2\epsilon - \epsilon = \epsilon > 0$.\\
+
+\\
+\fbox{definition} Let $f$ be a function whosee domain includes a neighborhood of a point $z_0$. The derivative of $f$ at $z_0$ is $z'(z_0) = \lim_{\Delta z \to 0} \frac{f(z + \Delta z) - f(z)}{\Delta z} = .$ We say $f$ is differentiable on a point if the domain exists, on a region if for every point int htat region.\\
+
+\fbox{theorem} If $f$ is differentiable at $z_0$ then $f$ is continuous at $z_0$.\\
+\fbox{proof} We know that $\lim_{\Delta z \to 0}\frac{f(z) - f(z_0)}{z-z_0} = f'(z_0).$ Hence we have $\lim_{z\to z_0}\frac{f(z) - f(z_0)}{z-z_0}(z-z_0) = f'(z_0)(0).$ Hence the limit $\lim_{z\to z_0}f(z) = f(z_0).$\\
+
+\fbox{theorem} (chain rule) Suppose $f$ is differentiable at $z_0$, and $g$ is differentiable at $z_0$. Then $h g\circ f$ is differentiable at $z_0$. Then $h = g \circ f$ is differentiable at $z_0$ and $h'(z_0) = g'(f(z_0))f'(z_0).$
+
+\fbox{theorem} (Cauchy Reiman eqns) If $f$ is differentiable at $z_0$, then $v_x(x_0,y_0) = v_y(x_0,y_0)$ and $v_x(x_0,y_0) = -u_y(x_0,y_0).$\\
+
+\fbox{theorem} Let $f(z) = u(x,y) + iv(x,y)$ be defined in a neighborhood, $N_\epsilon(z_0 = x_0 + iy_0)$. Assume $u_{x,y}$ and $v_{x,y}$ in $N_\epsilon(z_0).$ If they are continuous at $(x_0,y_0)$ and satisfy the Cauchy Reimann equations, then it follows that $f$ is differentiable at $z_0$.\\
+\fbox{proof} Assume $\Delta z$ is such that $z_0 +\Delta z \in N_\epsilon(z_0).$ Let $\Delta w = f(z_0 + \Delta z) - f(z_0) =  \Delta u + i \Delta v.$  Recall from multivariable calculus that $u$ and $v$ are differential functions of two real values. Hence this can be expressed as $u_x(x_0,y_0)(x- x_0) + u_y(x_0,y_0)(y- y_0) + \epsilon_1 \Delta x + \epsilon_2 \Delta y
+ i(v_x(x_0,y_0)(x- x_0) + v_y(x_0,y_0)(y- y_0) + \epsilon_3 \Delta x + \epsilon \Delta y)$, where $\epsilon_1,\dots\epsilon_4$ approaching zero as $(\Delta x, \Delta y)$ approaches $(0,0)$. 
+ Therefore $\frac{\Delta w}{\Delta z} = \frac{(u_x+iv_x)(x-x_0) + u_y+iv_y}(y- y_0){\Delta z} + (\epsilon_1 + i\epsilon_3)\frac{\Delta x}{Delta z} + (\epsilon_2 + i\epsilon_4)\frac{\Delta y}{\Delta z}$. Observe that $\Delta y/\Delta z$ has modulus less than or equal to $1$. So these both approach $0$. Supposing that these satisfy the Cauchy Reimann equations, we substitute, $\frac{(u_x+iv_x)(x-x_0) + (-v_x+iv_x}(y- y_0){\Delta z} = \frac{u_x(x-x_0) + iu_x(y-y_0) + iu_x(x-x_0) - v_x(y-y_0)}{\Detla z} = \frac{u_x(\Delta z- i\Delta y) + iv_x(\Delta z + i\Delta y)}{\Delta z} = u_x + iv_x$.
+ 
+\fbox{theorem} Let $f(z) = u(r,\theta)+ iv(r,\theta)$ such that $u_r, v_r, u_\theta, v_\theta$ exist throughout $N_\epsilon(z_0)$. If theyare continuous at $r u_r = v_\theta $ and $u_\theta = -rv_r$, then $f'(z_0)$ exists and $f'()$\\
+
+\fbox{definition} A function $f$ is analytic in an open set if it is differentiable at each point of the set. It is analytic at a pont if it is analytic in some neighborhood of that point. It is entire if it is analytic on $\C$.\\
+
+\fbox{definition} If $f$ is analytic at every point in $N_\epsilon(z_0)$ except $z_0$, then we call $z_0$ a singular point of $f$.\\
+
+\fbox{theorem} Let $f,g$ be analytic on a domain $D$. Then $f+g,f/g$ are analytic on $D$, (assuming for the last part that $0\not \in g(D)$).\\
+
+\fbox{theorem} If $f$ is analytic on $D$ and $g$ is analytic on a domain containing $f(D)$, then $f\circ g$ is analytic on $D$. \\
+
+\fbox{theorem} If $f'(z) = 0$ on a domain $D$, then $f(z)$ is containt in $D$. \\
+
+\fbox{proof} Let $z_0 = f(x_0+iy_0)$ for smoe $(x_0+ iy_0)\in D$, and let $z_1 = f(a + a)$. Since $D$ is a domain, it is connected, hence there is a polygonal path $P = P_1\cup...\cup P_n$, where each $P_j$ is a line segment and $P$ goes in the order $P_1,P_2,\dots, P_n$, joining $x_0 + iy_0$ to $a+bi$. Thus it suffices to show that if $L$ is any line segment in $D$, then $f$ has the same value at the endpoint of $L$, Parametrize $L$ by $\mathbf{r} = (x_0+t(x_1-x_0), y_0+ t(y_1- y_1))$ on $[0,1]$. Let $f(z) = u(x,y + iv(x,y))$ on $L$. Then we have $u(x,y) = u(x(t),y(t)) = u(x_0+ t(x_1-x_0), y_0+(y_1-y_0)).$ 
+
+Then We have $du/dt = u_x(dx/dt) + u_y(dy/dt) = u_x(x_1)$ But look! By the Cauchy Reimann equations it follows that $f'(z) = u_x + iv_x = 0 = v_y- iu_y.$ Hence $u_y = u_x = 0$ on $D$. Then $U$ is constant on $[0,1].$ That makes $f(z)$ is also constant. \\
+
+\fbox{theorem} A function $u:\R^2\rightarrow \R$ is called \textbf{harmonic} in a domain $D\subseteq\R^2$ if its first and second partials are continuous on $D$ and $u_{xx} + u_{yy} = 0$ (Laplaces equation). 
+
+\end{document}
+

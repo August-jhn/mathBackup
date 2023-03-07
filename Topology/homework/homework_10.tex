@@ -1,0 +1,226 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\TT}{\mathbb{T}^2}
+\newcommand{\RPT}{\mathbb{RP}^2}
+\newcommand{\ST}{\mathbb{S}^2}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\title{Topology}
+\author{August bergquist}
+
+
+\begin{document}
+
+\maketitle
+
+\fbox{12.5} If $\alpha$, $\alpha'$, $\beta$, $\beta'$, are paths in a space $X$ such that $\alpha\sim \alpha'$ and $\beta\sim \beta'$, and $\alpha(1) = \beta(0)$, then $\apha\cdot\beta \sim \alpha'\cdot\beta'$.\\
+
+\fbox{proof}
+
+For path equivalence to even make sense in this context, we will have to verify that $\alpha\cdot\beta(0) = \alpha'\cdot\beta'(0)$ and $\alpha\cdot\beta(1) = \alpha'\cdot\beta'(1)$. This is pretty much trivial, as by definition of the concatenation of paths and construction of $\alpha,\alpha',\beta$ and $\beta'$, $\alpha\cdot\beta(0) = \alpha(0) = \alpha'(0) = \alpha'\cdot\beta'(0)$ and $\alpha\cdot\beta(1) = \beta(2-1) = \beta(1) = \beta'(1) = \beta'(2-1) - \alpha'\cdot\beta'(1)$. \\
+
+By definition of path equivalences, there exists homotopies $H_\alpha$ and $H_\beta$ from $\alpha$ to $\alpha'$ and from $\beta$ to $\beta'$ respectively. We must construct a homotopy from $\alpha\cdot\beta$ to $\alpha'\cdot\beta'$. Consider the function $H:[0,1]^2\rightarrow X$ defined
+$$
+    H(s,t) = \begin{dcases}
+    H_\alpha(2s,t) & 0\le s \le 1/2\\
+    H_\beta(2s-1,t) & 1/2 \le s \le 1
+    \end{dcases}.
+$$
+First, we will show that $H$ is continuous. Since $H_\alpha$ and $H_\beta$ are both continuous functions from $[0,1]^2$ to $X$, all that we need to show is that they agree at $s = 1/2$. For the first case of the definition of $H$, we have $H(1/2,t) = H_\alpha(2(1/2),t) = H_\alpha(1,t)$. Since $H_\alpha$ is a homotopy from $\alpha$ to $\alpha'$, it follows by definition of a homotopy that $H_\alpha(1,t) = \alpha(1)$. Furthermore, by the second definition, $H(1/2,t) = H_\beta(2(1/2) - 1,t) = H_\beta(0,t)$ for all $t\in [0,1]$. Also, since $H_\beta$ is a homotopy from $\beta$ to $\beta'$, it follows that $H_\beta(0,t) = \beta(0)$. Furthermore, by construction $\beta(0) = \alpha(1)$. So both of the piecewise definitions of $H$ agree on their overlap.\\
+
+We must now show that the remaining requirements of a homotopy from $\alpha\dcot\beta$ to $\alpha'\cdot\beta'$ are met.
+\begin{itemize}
+    \item First, we must show that $H(s,0) = \alpha'\cdot\beta'(s)$ for all $s\in [0,1]$. By our definition of $H$, we have 
+    $$H(s,0) = \begin{dcases}
+    H_\alpha(2s,0) & 0\le s \le 1/2\\
+    H_\beta(2s-1,0) & 1/2 \le s \le 1
+    \end{dcases}.$$
+    Furthermore, by construction of $H_\alpha$ as a homotopy from $\alpha$ to $\alpha'$ (I'm getting tired of writing this sentence lol), $H_\alpha(2s, 0) = \alpha(2s)$ for all whenever $2s \in [0,1]$ (which is true whenever $0\le s\le 1/2$). Similarly, $H_\beta(2s-1,0) = \beta(2s-1)$ whenever $2s-1\in [0,1]$ (which happens if and only if $1/2\le s\le 1$). Hence, substituting back into $H(s,0)$, we have 
+    $$H(s,0) = 
+    \begin{dcases}
+    \alpha(2s) & 0\le s\le 1/2\\
+    \beta(2s-1) & 1/2\le s \le 1
+    \end{dcases}.$$
+    This is just the definition of $\alpha\cdot\beta$, hence
+    $H(s,0) = \alpha\cdot\beta(s)$ for all $s\in [0,1]$.
+    \item Now we want to show that $H(s,1) = \alpha'\cdot\beta'(s)$ for all $s\in[0,1]$. Plugging in $t = 1$, we have $$
+    H(s,1) = \begin{dcases}
+    H_\alpha(2s,1) & 0 \le s \le 1/2\\
+    H_\beta(2s - 1, 1) & 1/2\le s \le 1/2
+    \end{dcases}.
+    $$
+    Similar to as before, we recall that by definition of a homotopy from $\alpha$ to $\alpha'$, $H_\alpha(2s, 1) = \alpha'(2s)$ whenever $2s \in [0,1]$ (which, as we have already pointed out, happens when $0\le s \le 1/2$). Similarly, since $H_\beta$ is a homotopy from $\beta$ to $\beta'$, $H_\beta(2s-1,1) = \beta'(2s-1)$ whenever $2s-1\in[0,1]$ (which, as we have noted, happens when $1/2\le s \le 1$). Hence $$H(s,1)
+    = \begin{dcases}
+    \alpha'(2s) & 0\le s \le 1/2\\
+    \beta'(2s-1) & 1/2 \le s \le 1
+    \end{dcases}.$$
+    This is just the definition of $\alpha'\cdot\beta'$ over the domain $[0,1]$, hence $H(s,1) = \alpha'\cdot\beta'(s)$ for all $s\in [0,1]$.
+    \item Now we must show that $H(0,t) = \alpha\cdot \beta(0)$ for all $t\in [0,1]$. By construction of $H$, and since the only first piecewise condition on the definition of $H$ is satisfied by $s = 0$, we have $H(s,1) = H_\alpha(2(0), t) = H_\alpha(0,t)$. But since $H_\alpha$ is a homotopy from $\alpha$ to $\alpha'$, it follows by definition of a homotopy that $H_\alpha(0,t) = \alpha(0)$ for all for all $t\in [0,1]$. Furthermore, by definition of the concatenation of paths, $\alpha(0) = \alpha\cdot\beta(0)$ for all $t\in[0,1]$, hence $H(0,t) = \alpha\cdot\beta(0) = \alpha'\cdot\beta'(0)$.
+    \item Finally, we must show that $H(1,t) = \alpha\cdot\beta(1) = \alpha'\cdot\beta'(1)$. Since $s = 1$ only satisfies the second requirements for the second case of the definition of $H$, we know that $ H(1,t) = H_\beta(2(1) - 1, t) = H_\beta(1,t)$. Moreover, since $H_\beta$ is a homotopy from $\beta$ to $\beta'$, we know that $H_\beta(1,t) = \beta'(1) = \beta(1)$. Finally, by definition of the concatenation of paths, $H_\beta(1,t) = \beta(1) = \alpha\cdot\beta(1) = \alpha'\cdot\beta'(1)$, which is our desired result.
+\end{itemize}
+Having shown that $H$ meets all of the requirements for being a homotopy from $\alpha\cdot\beta$ to $\alpha'\cdot\beta'$, it follows that 
+\\
+
+\fbox{Exercise 12.4} Let $\alpha$ and $\beta$ be paths in $\R$ such that $\alpha(0) = \beta(0)$ and $\alpha(1) = \beta(1)$. Show that $\alpha\sim \beta$.\\
+
+\fbox{proof} Consider the function $H:[0,1]^2 \rightarrow \R$, defined $H(s,t) = (1-t)\alpha(s) + t\beta(s)$ for all $(s,t\in [0,1]^2).$ We will show that $H$ is a homotopy from $\alpha$ to $\beta$.\\
+
+First, we notice that since $\alpha$ and $\beta$ are continuous functions of $s$, and since $(1-t)$ and $t$ are continuous functions of $t$ (in $\R_{std}$), and since the product and sum of continuous real functions is always continuous, $H(s,t) = (1-t)\alpha(s) + t\beta(s)$ really is continuous. It remains to be shown that $H$ meets the other requirements for a homotopy.
+
+\begin{itemize}
+    \item First, we must verify that $H(s,0) = \alpha(s)$ for every $s\in [0,1]$. By our definition of $H$, $H(s,0) = (1-0)\alpha(s) + (0)\beta(s) = \alpha(s)$ for all $s\in [0,1]$, which is the desired result.
+    \item Now we must show that $H(s,1) = \beta(s)$ for all $s\in [0,1]$. By our definition of $H$ we have $H(s,1) = (1-1)\alpha(s)  + (1)\beta(s) = \beta(s)$ for all $s\in [0,1]$, which is our desired result.
+    \item Now we must show that $H(0,t) = \alpha(0)$ for all $t\in [0,1]$. Recall that $\alpha(0) = \beta(0)$. Hence by our definition of $H$ we have $H(0,t) = (1-t)\alpha(0) + t\beta(0) = \alpha(0)- t\alpha(0) + t\alpha(0) =\alpha(0) = \beta(0)$ for all $t\in [0,1]$, which is our desired result.
+    \item Finally, we must show that $H(1,t ) = \alpha(1) = \beta(1)$. Recall that $\alpha(1) = \beta(1)$, hence by definition of $H$, we have $H(1,t) = (1-t)\alpha(1) + t\beta(1) = \alpha(1) - t\alpha(1) + t\beta(1) = \alpha(1) - t\alpha(1) + t\alpha(1) = \alpha(1) = \beta(1)$. 
+\end{itemize}
+Having shown that $H$ meets all of the requirements for being a homotopy from $\alpha$ to $\beta$, it follows that $\alpha\sim \beta$. Q.E.D. 
+
+\end{document}

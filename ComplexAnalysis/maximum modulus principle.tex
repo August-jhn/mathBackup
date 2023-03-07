@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+\newcommand{\ab}[1]{\color{red}{#1}\normalcolor}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+\fbox{maximum modulus principle}\\ If $f$ is non-constant and analytic on a domain $D$, then $f(z)$ has no max in $D$. \\
+
+\fbox{202}\\
+
+\fbox{corollary} Suppose $f$ is continuous on a closed, bounded region $R$ and $f$ is nonconstant and analytic in $\int R$. Then $\max|f(z)|$ occurs in $\partial R$ and not in $\int R$. \\
+
+\fbox{corollary} If $u$ is harmonic on the closed and bounded region $R\subseteq \C$, and non-constant interior to $R$, then its maximum occurs on $\partial R$. \\
+
+\fbox{proof} Let $v$ be the harmonic conjugate of $u$ on $\R$. Then $z = u(x,y) + iv(x,y)$ is analytic and non-constant on $\int R$. Therefore $e^z$ is also analytic interior to $R$, and non-constant. Therefore $|e^z|$ has its maximum on $\partial R$ by MMP. Since $e^x$ must be increasing, the max of $e^u$ occurs at the same points as the max of $u$. Therefore the max of $u$ is on $\partial R$. \\
+
+
+\end{document}

@@ -1,0 +1,198 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\title{Topology}
+\author{August bergquist}
+
+
+\begin{document}
+
+\maketitle
+
+\fbox{theorem 2.22} Let $A$ and $B$ be subsets of a topological space $X$. Then:
+\begin{enumerate}
+    \item $A\subseteq B$ implies that $\overline{A}\subseteq \overline{B}$
+    \item $\overline{A\cup B} = \overline{A}\cup \overline{B}.$
+\end{enumerate}
+
+\fbox{proof}
+\begin{enumerate}
+    \item Suppose by way of contradiction that $A\subseteq B$ and $\overline{A}\not\subseteq \overline{B}$. Then there exists some $x\in \overline{A}$ that is not in $\overline{B}$. Since $x$ being in $A$ would imply that $x\in B$ by supposition, we know that $x\not \in A$, hence $x\in \lim A$. Furthermore, $x$ cannot be a limit point of $B$, otherwise it would be in $\overline{B}$. Hence, negating the definition of a limit point, there must exist some open set $U$ containing $x$ such that $(U-\{x\})\cap B$ is empty. Furthermore, since $x\not\in B$, it follows that $U\cap B$ is also empty. \\
+    
+    Since $x$ is a limit point of $A$, and since $U$ is an open set containing $x$, we know by definition of a limit point that $(U-\{x\})\cap A \ne \emptyset$. Hence there must be some $y\in (U-\{x\})\cap A$, and by intersection it follows that $y\in A$ and $y\in U$. Since $A\subseteq B$, we know that $y\in B$. Since $y\in U$ and $y\in B$, it follows by intersection that $y\in U\cap B$, contradicting that $U\cap B$ is empty.
+    \item Now to show that $\overline{A\cup B} = \overline{A}\cup \overline{B}$.
+    \begin{itemize}
+        \item[$\subseteq$] Let $x\in \overline{A\cup B}$ be arbitrary. By definition of the closure it follows that (1) $x$ is a limit point of $A\cup B$ but not in $A\cup B$ or (2) $x$ is in $A\cup B$.
+        \begin{enumerate}
+            \item Suppose that $x \in A\cup B$. Then $x\in A$ or $x\in B$. If $x\in A$, then $x\in \overline{A}$ as well. Likewise, if $x\in B$, then $x\in \overline{B}$ as well. Hence $x\in \overline{A}$ and $x\in \overline{B}$. Hence by union, $x\in \overline{A}\cup \overline{B}$.
+            \item Suppose that $x$ is a limit point of $A\cup B$ and $x\not\in A\cup B$. Since $x\not\in A\cup B$, $x\not\in A$ and $x\not\in B$ as follows from the negation of union.  \\
+            
+            
+            Let $U$ be an arbitrary open set that contains $x$. Since $x$ is a limit point of $A\cup B$ it follows by definition of a limit point that $(U - \{x\})\cap (A\cup B)\ne \emptyset$, so there must be something in it: call it $y$. Since $y\in (U-\{x\})\cap (A\cup B)$ it follows by intersection that $x\in U-\{x\}$ and $x\in A\cup B$. Hence by union and set compliment it follows that $x\in U$ and $x\in A$ or $x\in B$. Since $x\not\in A$ (for if it were, $x\in U\cap A$ since $x\in U$ as well), it follows that $x\in B$. Since $x\in B$, it follows that $x\in \overline{B}$ by definition of the closure. 
+        \end{enumerate}
+        Since in either case, $x\in \overline{A}\cup \overline{B}$, it follows that $x\in \overline{A}\cup \overline{B}$. Since $x$ was arbitrary in $\overline{A\cup B}$, it follows that all elements in $\overline{A\cup B}$ are also in $\overline{A}\cup \overline{B}$, hence $\overline{A\cup B} \subseteq \overline{A}\cap \overline{B}$.
+        \item[$\supseteq$] Now let $x$ be arbitrary in $\overline{A}\cup \overline{B}$. Then by union it follows that $x\in \overline{A}$ or $x\in \overline{B}$. Suppose without loss of generality (since there's nothing special about $A$ that distinguishes it from $B$), that $x\in \overline{A}$. Then there are two cases as follow from the definition of the closure: (1) $x\in A$ or (2) $x\in \lim A$. If $x\in \lim A$ and $x\in A$, the nit is covered by the first case. As a result, we can for case (2) assume that $x\not\in A$.
+        \begin{enumerate}
+            \item Suppose that $x\in A$. Then $x\in A\cup B$ as well, hence by definition of the closure $x\in \overline{A\cup B}$.
+            \item Suppose that $x\in \lim A$ but $x\not\in A$. 
+            
+            \\Let $U$ be an arbitrary open set containing $x$. Since $x$ is a limit point of $A$, it follows by definition of a limit point that $(U-\{x\})\cap A\ne \emptyset$. Hence there's something in it, why not call it $y$. By intersection $y\in A$, hence by union $y\in A\cup B$. Hence $y\in (U-\{x\})\cap (A\cup B)$, and $ (U-\{x\})\cap (A\cup B) \ne \emptyset$. Since $U$ was an arbitrary open set containing $x$, it follows that for all open sets $V$ containing $x$, $(V-\{x\})\cap (A\cup B) \ne \emptyset$, hence $x$ is a limit point of $A\cup B$. Since $x$ is a limit point of $A\cup B$, it follows by definition of the closure that $x\in \overline{A\cup B}$.
+            
+        \end{enumerate}
+        Having shown that in either case, $x\in \overline{A\cup B}$, and since $x$ was arbitrary in $\overline{A} \cup \overline{B}$, it follows that $\overline{A} \cup \overline{B} \subseteq \overline{A\cup B}. $
+        
+    \end{itemize}
+    Since $ \overline{A\cup B} \subseteq \overline{A}\cap \overline{B}$ and $\overline{A} \cup \overline{B} \subseteq \overline{A\cup B}$, it follows that $\overline{A\cup B} - \overline{A}\cap \overline{B}$. 
+\end{enumerate}
+Q.E.D
+\end{document}
+

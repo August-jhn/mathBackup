@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+\begin{document}
+
+\hfill August Bergquist
+
+\fbox{2a: proposition} Given complex constants $a,b\in \C$,
+$$\lim_{z\to z_0}(az+b) = az_0 + b.$$
+\\
+\fbox{proof} Let $\epsilon$ be an arbitrary positive real number. Suppose that $|z-z_0| < \epsilon/|a|$. Then it follows that $|a||z-z_0| < \epsilon$. Furthermore, by previously proven properties of moduli, it follows that 
+$$|a||z-z_0| = |a(z-z_0)| = |az-az_0 +b -b| = |(az+b) - (az+b)|.$$ Substituting, we have $|(az+b) - (az+b)| < \epsilon$. By definition of a complex limit, it follows that $$\lim_{z\to z_0}(az+b) = az_0 + b.$$ Q.E.D.\\
+
+\cs{5/5}
+
+\fbox{8: proposition} Given a complex number $z_0$, and let $\Delta z = z- z_0$ for all $z\in \C$,
+$$\lim_{z\to z_0}f(z_0+\Delta z) = w_0 \Leftrightarrow \lim_{\Delta z \to 0}f(z) = w_0.$$\\
+\fbox{proof} This proof seems almost trivial. Anyway, suppose that for some $z_0\in \C$, $\lim_{z\to z_0}f(z) = w_0$. Then by the definition of limits we have that for all $\epsilon > 0$, there exists some $\delta\cs{>0}$ such that $\cs{0<}|z-z_0| < \delta$ implies that $|f(z)- w_0| < \epsilon$. Then suppose that for some arbitrary $\epsilon > 0$ there exists some $\delta$ such that $|z-z_0| < \delta$ implies that $|f(z) - w_0| < \epsilon$. Suppose that $|z-z_0|< \delta$ \cs{You want this to be $|\Delta z|<\delta$}. Then by supposition it follows that $|f(z) - w_0| < \epsilon$. Furthermore, observe that $z = \Delta z + z_0$. Substituting, we have that $|z-z_0| = |\Delta z| = |\Delta z - 0|$, hence $|\Delta z - 0| < \delta$. \cs{This is what you want to assume to start with.} Furthermore, substituting once again, notice that $|f(z)-w_0| = |f(z_0 + \Delta z) - w_0|$, hence $|f(z_0 + \Delta z) - w_0| < \epsilon$. Since $\epsilon$ is arbitrary, it follows that this applies to all $\epsilon > 0$. Hence we have the limit, $$\lim_{\Delta z \to 0}f(z_0+\Delta z)  = w_0.$$
+Suppose now that $\lim_{\Delta z \to 0} f(z_0 + \Delta z) = w_0$. Then it follows that for all $\epsilon > 0$, there exists some $\delta$ such that $|\Delta z - 0| < \delta$ implies that $|f(z_0 + \Delta z) - w_0| < \epsilon$. Let $\epsilon > 0$ be some such $\epsilon$, and let $\delta$ be that $\delta$. Suppose $|\Delta z - 0| < \delta$. \cs{Similar issue: you want to start with $0<|z-z_0|<\delta.$} Observe that $|\Delta z - 0| - |z-z_0|$. Hence $|z- z_0| < \delta$. Furthermore, notice that $|f(z_0 + z) - w_0| = |f(z) - w_0|$. Hence $|f(z)- w_0| < \epsilon$. Since $\epsilon$ is arbitrary, it follows that this holds for all $\epsilon > 0$. Hence by definition of a limit, 
+$$\lim_{z\to z_0} f(z_0) = w_0.$$ Q.E.D.
+
+\cs{5/5}
+
+\cs{10/10}
+
+\end{document}

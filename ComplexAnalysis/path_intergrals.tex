@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+\fbox{thm} Let $w:\R\rightarrow \C$ and $t\mapsto u(t) + iv(t).$ Then $w(t) = u(t) + iv(t)$, $w = <u,v>$. ALso $u,v:\R\rightarrow \R$ This parametrizes a curve in $\C$. Also, to find the derivative we just do $w'(t) = u'(t) + iv'(t).$ Also $ d/dt(z_0w(t)) = d/dt((x_0 + iy_0)(u(t)+iv(t))) = x_0u'(t) - y_0 v'(t) + i(y_0u'(t) + x_0v'(t)) = z_0w'(t).$\\
+
+\fbox{remark} so we have a constant multiple rule for parametrized curves on the complex plain!\\
+
+\fbox{thm} How about $d/dt e^{z_0 t} = d/dt(\exp(x_0 t + iy_0t)) = d/dte^{x_0 t}(\cos y_0t + i\sin y_0t) = d/dt(\mbox{them we just apply the product rule})$.\\
+
+A whole bunch of stuff happens, and then we get $z_0 e^{z_0 t}.$ We could just do this ourself, and its very tedious to write in Latex.\\
+
+\fbox{thm} The mean value theorem fails.\\
+
+\fbox{proof} Consider $e^{it}$ for $t\in [0,2\pi].$ The mean value here would be $0$. But the derivative of $e^{it}$ can never be zero.\\
+
+\fbox{now for integrals}\\
+
+\fbox{definition} Let $x = x(t)$, $y  = y(t)$ be cont on $[a,b]$. The set of points $C : z = x(t) + iy(t)$ is an arc in $\C$. C is a Jordan arc if $z : [a,b] \rightarrow \C$ is 1-1. If $z(a) = z(b)$ but otherwise $z$ is 1-1. C is a jordan curve (simplified curve.).\\
+
+\fbox{defn} Suppose $C:z(t) = x(t) = iy(t)$ has a derivative on $[a,b]$, and $x'$ and $y'$ are continuous on that interval. Then $C$ is a differentiable arc. Its length is defined $\int_a^b |z'(t)| dt$. The unit tangent $T$ is just the derivative divided by the magnitude of the derivative. \\
+
+\fbox{defn} A contour is a piecewise smooth curve. A simicircle is a piecewise smooth curve, a non-example would be a fractal.\\
+
+\fbox{thm} If $C$ is a simple closed contour, then $C$ partitions $\C$ into three sets: $C$, $D_1$ and $D_2$ such that 
+\begin{itemize}
+    \item $D_1$ and $D_2$ are domains with boundaries $C$
+    \item One of $D_1$ and $D_2$ is boudned and the other is not. 
+\end{itemize}
+
+Let $C:z=z(t)$ on $[a,b]$ be a contour from $z_1 = z(a)$ to $z_2= z(b)$. Assume $f$ is a function that is piecewise continuous on $C$. The contour integral of $f$ along $C$ is 
+
+$$\int_Cf(z)dz = \int_a^bf(z(t))z'(t)dt$$
+
+Suppose $t = \phi(\tau)$ on $[\alpha,\beta]$. Assume $\phi$ and $\phi'$ are continuous. Suppose $\phi'(\tau) > 0$.\\
+
+
+\fbox{theorem} $|\int_a^bw(t)dt| \le \int_a^b|w(t)|dt$.\\
+
+\fbox{theorem} Suppose that on a contour $C$ of length $L$, $|f(z)|\le M$ and $f$ is piecewise continuous on $C$. Then $|\int_Cf(z)dz|\le ML$.\\
+
+\fbox{proof} Assume $C:z = z(t)$. Then $|\int_Cf(z)dz| = |\int_Cf(z(t))z'(t)dt| \le \int_C|f(z(t))||z'(t)|dt \le \int_CM|z'(t)|dt = ML$.\\
+
+
+\fbox{theorem} Recall: $F$ is an antideriative of a continuous function $f$ if $F' = f$ throughout some domain $D$, where $F$ is analytic on $D$. TFAE
+\begin{enumerate}
+    \item $f$ has an antiderivative on $D$
+    \item For all contours $C_1$, $C_2\subseteq D$ joining fized points $z_1$ and $z_2$ in $D$, then $\int_{C_1}f(z)dz = \int_{C_2}f(z)dz$.
+    \item If $C\subseteq D$ is a closed contour, then $\int_Cf(z)dz = 0$
+\end{enumerate}
+\fbox{proof} Let $C\subseteq D$ be a contour. Then there exist arcs $C_1,C_2,...,C_n$ that are smooth.\\
+
+
+\end{document}
+
+

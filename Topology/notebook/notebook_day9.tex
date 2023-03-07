@@ -1,0 +1,124 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+\newcommand{\clos}[1]{\overline{#1}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\title{Topology}
+\author{August bergquist}
+
+
+\begin{document}
+
+\fbox{Theorem 6.3} If $X$ is a compact topological space, every infinite subset of $X$ has a limit point.\\
+
+\fbox{proof} If $X$ is finite, then there are no infinite subsets and the statement is vacuosly true. Assume then that $X$ is infinite.\\
+
+Let $A$ be an infinite subset of $X$. Suppose by way of the contrapositive that $A$ does not have a limit point. Then for every point $p\in A$ there exists an open set $U_p$ containing $p$ such that $(U_p-\{p\})\cap A = \emptyset$. Let $S$ be the set of all such $U_p$'s.\\
+
+Since $A$ does not have a limit point, it must be closed., hence by 2.14 $X-A$ is open. Consider the cover $\mathcal{C} = \{X-A\}\cup S$. By construction, the union of all elements in $\mathcal{C}$ must be a superset of $X$, since all elements in $A$ are accounted for, and all elements not in $A$.\\
+
+Since $X$ is compact, we know that $\mathcal{C}$ must contain a finite subcover, call it $\mathcal{C}'$. Since each $U_p$ accounts for exactly one element of $A$ (or else the intersection would not be empty), we must have each $U_p$ in every subcover in order for $A$ to be covered (and $X$ can't be covered unless all its subsets are). So every subcover $\mathcal{C}'$ must be infinite. Hence there is some open cover of $X$, namely $\mathcal{C}$, which does not contain a finite subcover. Hence $X$ is not compact.\\
+
+\fbox{Theorem ??} In a Hausdorff space $X$, every compact subset $A$ is closed.\\
+
+\fbox{proof} Suppose that $X$ is a hausdorff suppose that $A$ is compact. Let $p$ be a point of $X$ not in $A$.\\
+
+Let $q$ be an arbitrary element of $A$ Since $p\not\in A$, we know $p\ne q$, hence by definition of a hausdorff space we know that there exists open sets $U_p$ and $V_q$ such that $U_p\cap V_q = \emptyset$ and $p\in U_p $ and $q\in V_q$. Since $q$ was arbitrary in $A$, we can generate the collections of sets $C_1 = \{U_p\}_{p\not\in A}$ and $C_2= \{V_p\}_{p\in A}$ where $U_p$ and $V_p$ are the same as in the particular case.\\
+
+We will now proceed to show that these collections of sets are finite. Notice that $C_2$ forms an open cover of $A$. Since $A$ is compact, there must be a finite sub-cover (call it $S_A$) of $A$, whose elements (since its a subset of $C_2$) are of the form $V_p $ where each $V_p$ contains some element of $p$ and has a counterpart $U_p$ in $C_1$ such that $V_p \cap U_p = \emptyset$. Call the set of all usuch counterparts $S_p$. Furthermore, let $f$ be the function mapping each $V_p$ in $S_A$ to its corresponding $S_p$, and notice that this is a bijection. Since its a bijection, and since by construction $S_A$ is finite, so must $S_p$ be. Since the elements of $S_p$ are open, we know that $U = \cap_{\alpha\in S_p} U_\alpha$ must be open (since the finite intersection of open sets must be open). Furthermore, each one of these contains $p$, and is disjoint with some $V_q$ in $A$, for all such $V_q$, hence $U\cap A = \emptyset$. Hence we have an open set contianing $p$, namely $U$, such that $(U-\{p\})\cap A = \emptyset$, and $p$ cannot be a limit point of $A$.\\
+
+Since $p$ was an arbitrary point outside of $A$, it follows that all points outside of $A$ are not limit points. Hence $A$ is closed.\\
+
+
+So far, my favorite theorem in terms of usefulness has been Theorem 2.14. As a result, I hope to extend it's usefulness to span across topological spaces. This result from set theory will help to do this.\\
+
+\fbox{lemma/theorem} Given sets $X$ and $Y$ and a susbet $B$ of $Y$, and given a function $f:X\rightarrow G$, $ \inv{f}() $
+
+\fbox{Theorem 7.1} Let $X$ and $Y$ be topological spaces, and let $f: X\rightarrow Y$ be a function. The the following are equivalent:
+\begin{enumerate}
+    \item The function $f$ is continuous.
+    \item For every clsoed set $K$ in $Y$, the inverse image $ \inv{f}(K)$ is closed in $X$.
+    \item For every limit point $p$ of a set $A$ in $X$, the image $f(p) $ belongs to $ \clos{f(A)}$.
+    \item For every $x\in X$ and open set $V$ containing $f(x)$, there is an open set $u$ containing $x$ such that $f(U)\subseteq V$.
+\end{enumerate}
+
+\fbox{proof} We will prove the following chain of implications which will collapse into the equivalence of all of these properties: $$1\rightarrow 2\rightarrow3\rightarrow4\rightarrow1 $$
+\begin{itemize}
+    \item Suppose that $f$ is continuous, and let $K$ be an arbitrary closed set in $Y$. Since $K$ is closed in $Y$, it follows by Theorem 2.14 that $Y-K$ is open in $Y$. Since $Y-K$ is open, and since $f$ is continuous from $X$ to $Y$, it follows that $\inv{f}(Y-K)$ is open in $X$. Recall from foundations that $\inv{f}(Y-K) = \inf{f}(Y) - \inv(f)(K)$. Since $\inf{f}(Y) = X$, it follows by substitution that $X - \inv{f}(K)$ is open, hence by Theorem 2.14 $\inv{f}(K)$ is closed.
+    \item Now suppose that for all closed sets $K$ in $Y$, the inverse image is also closed. Let $p$ be a limit point of a set $A$ in $X$. Since $A$
+\end{itemize}
+
+\end{document}

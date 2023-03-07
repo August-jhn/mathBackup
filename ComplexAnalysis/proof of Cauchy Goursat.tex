@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+\newcommand{\ab}[1]{\color{red}{#1}\normalcolor}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+\fbox{theorem} Caucy Integral Formula\\
+
+Let $C$ be a pos. or. sc contour and let $f$ be analytic on and inside $C$. If $z_0$ is interior to $C$ then $f(z_0) = \frac{1}{2\pi i}\int_C\frac{f(z)}{z-z_0}dz$. \\
+
+\fbox{theorem} Riemann's thm:\\
+
+Let $g$ be continuous on the contour $C$. Then $F_n(z) = \int_Cg(w)/(w-z)^ndw$ is analytic on the set difference $\C-C$. Furthermore, $F_n'(z) = nF_{n+1}(z)$. \\
+
+\fbox{proof} Let $z_0 \in \C-C$ and choose $d$ such that $|z-z_0|<d$ does not meet $C$. If $|z-z_0| < d/2$ then for $w\in C$ $|w-z|> d/2$. We shall proceed by induction.\\
+
+Consider $F_1$. The modulus of the difference $$|F_1(z) - F_1(z_0)| = \Big|\int_Cg(w)/(w-z)dz - \int_Cg(w)/(w-z_0)dz\Big|.$$
+These are integrals over the same path, hence we have this equal to
+
+$$\Big|\int_C\frac{g(w)(w-z_0)-g(w)(w-z)}{(w-z)(w-z_0)}dw\Big|\le \int_C\frac{|g(w)||z-w_0|}{|w-z||w-z_0|}|dw|.$$ This will be less than $2M|z-z_0|/d^2$. 
+
+\\Let $\epsilon > 0$. Then for $\delta = \min{ \epsilon^2/(2M), d}$, $|F_1(z) - F_1(z_0)| < \epsilon$ when $|z-z_0| < \epsilon$. 
+\end{document}
+
+

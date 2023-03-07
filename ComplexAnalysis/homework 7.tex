@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+\fbox{proposition} The function $f(z) = e^x \cos y + ie^x \sin y$ has the property $\overline{f(z)} = f(\overline{z})$ for all $z\in \C$.\\
+
+\fbox{definition} According to google, the finite plane is just $\C$, as opposed to $\C\cup \{\infty\}$ as we might use with the Riemann sphere and limits concerning infinity. \\
+
+\fbox{proof} This can be thrown \cs{Thrown?} in two ways. First, we can use the reflection principle:\\
+
+Let $D = \C$. To use the reflection principle, we need to show three things. First, that the domain $D$ is symmetric about the real axis. Second, that there is some segment of the real axis $S\subset D$ where $f(z) \in \R$ for all $z\in S$.\\ \cs{Third?}
+
+Clearly $D$ is symmetric about the $x$ axis, as this follows directly from the definition of the finite plane, as each element in $\C$ has a conjugate. Furthermore, consider the set $S = \R \subset \C$. Let $z\in S$ be arbitrary. Also, let $z = x + i0$ for some $x\in \R$, since $z$ is real. Then we have $f(z) = e^x\cos(0) + ie^x \sin(0) = e^x \in \R$. Hence $f(z)\in \R$. Having shown that $f(z)\in D$ meets all the necessary conditions, it follows that $\overline{f(z)} = f(\overline{z})$ for all $z\in D = \R$. \\
+Q.E.D.\\
+
+We can also prove this directly:\\
+
+Let $z = x+ iy$ be an arbitrary complex number. Then $\overline{z} = x - iy$ and $f(\overline{z}) = e^x\cos{-y}+ie^x\sin{-y}$. Using basic trig identities, we have $f(\overline{z}) = e^x \cos y - ie^x\sin y$. But this is just $\overline{f(z)}.$\\
+Q.E.D.\\
+
+\cs{5/5}
+
+
+
+\fbox{proposition} For all $z\in \C$, $|\exp{z^2}|\le \exp{|z|^2}$.\\
+
+\fbox{lemma} If $a\in \R$ such that $a \ge 1$, and if $n < m$ for some $n\in \R$, then $a^n < a^m$.\\
+
+\fbox{proof} Assume the lemma holds. Let $z = x + iy$ be an arbitrary elmeent in $\C$. Then $z^2 = (x + iy)^2 = (x^2 - y^2) + (2xy)i$. Then substituting and using an identity for the complex exponential functions, we have $e^{x^2} = e^{x^2 - y^2}e^{2xyi}.$ Then we have $e^{z^2}$ in expressed in polar form, where $\theta = 2xy$ and $r = e^{x^2 - y^2}$. Then the modulus of $e^{z^2}$ is just $r = e^{x^2 - y^2}$. Furthermore, observe that $|z|^2 = x^2 + y^2$, so substituting we have $e^{|z|^2} = e^{x^2+y^2}$.\\
+
+\cs{ I realize now that this was a clunky way of verifying this }Using the triangle inequality (the complex inequality is just a generalization of the real one I think), we have $|x^2 + (-y^2)| \le[|x^2| + |-y^2| = x^2 + y^2]$. Then there are two cases. If $x^2 \ge y^2$ then $|x^2 - y^2| = x^2 + y^2$ and $x^2 - y^2 \le x^2 + y^2$. If $x^2> y^2$ then $x^2 -y^2$ is negative and $x^2 + y^2$ is positive, and this also holds.\\
+
+\cs{this way was better} It is clear that $-2y^2 \le 0$. Adding $x^2 + y^2$ on both sides, we get $x^2 - y^2 \le x^2 + y^2$\\ \cs{Agreed. I also would have just accepted it as clear. :)}
+
+
+
+Substituting and applying the lemma, $|e^{z^2}| \le e^{|z|^2}$.
+
+\cs{5/5}
+
+\end{document}
+

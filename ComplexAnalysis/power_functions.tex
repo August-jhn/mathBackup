@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+\newcommand{\pv}{\mbox{P.V. }}
+\newcommand{\Log}{\mbox{Log}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+We already have some notions of how to do rational powers. So let's make a definition:\\
+\fbox{definition}
+$z^c \equiv e^{c\log z}$.\\
+
+
+Using this we can easilty find $i^i$\\
+
+If we take a branch cut $\alpha < \theta < \alpha + 2\pi$, where $z = re^{i\theta}$, then $z^c = e^{c\log z}$ is analytic there.\\
+
+\fbox{theorem} $\deriv z^c = \deriv e^{c\log z} = e^{c\log z}c/z = cz^{c-1}.$\\
+
+\fbox{definition} The principal value of $z^c$ is called $\pv z^c = e^{c\Log{z}}$\\
+
+\fbox{remark} Once we take a specific branch cut for the logarithm, there are no surprises.
+
+
+\end{document}
+

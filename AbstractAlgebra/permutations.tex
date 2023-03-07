@@ -1,0 +1,99 @@
+\documentclass{article}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\title{Abstract Algebra}
+\author{August, Evelyn}
+\date{9/21/2021}
+
+\begin{document}
+\maketitle
+
+
+
+\fbox{definition} A permutation of a set $A$ is a bijection from $A\rightarrow A$. \\
+
+\fbox{remark} This is not interesting yet.\\
+
+\fbox{notation} Function notation: $\sigma(1) = 1$, $\sigma(2) = 3$ et cetera. Then there is array notation: $\begin{array}{cccc}
+     1 & 2 & 3 & 4 \\
+     1 & 3 & 4 & 2 \\
+\end{array}$, and then there is cylce notation $(1234)(1)$\\
+
+\fbox{theorem} Every permutation can be written as a product of disjoint cycles.\\
+
+\fbox{theorem} Disjoint cycles commute.\\
+
+\fbox{theorem} the order of a single cycle permutation is just the length of the cycle.\\
+
+\fbox{theorem} Given a permutation, the order is the lcm of all the disjoint factors.\\
+
+\fbox{definition} The set of permutations on n-elements under function composition is a group called the symmetric group of degree $n$. It is denoted $S_n$. \\
+
+\fbox{theorem} $|S_n| = n!$.\\
+
+\fbox{theorem} (Cayley's theorem) Every group is isomporhpic to a group of permutations. If $G$ is a finite group, then subgroup isomorphic $S_n$ for osme number $n$. \\
+
+\fbox{theorem} Every permutation can be written as a product of 2-cycles aka transpositions.\\
+
+\fbox{theorem}(it's always even in $A_n$) Given a permutation $\sigma$, the number of two cycles in any 2-cycle representation of $\sigma$ must have the same parity. \\
+
+\fbox{proof} Lemma: the identity element is a product of an even number of 2-cycles. Proof: lets not. Actual proof: Let $\sigma$ be an arbitrary element in $S_n$ and let $\sigma = \alpha_1\alpha_2\dots \alpha_k = \beta_1\dots\beta_l$. We not that $\sigma\sigma^{-1} = (\alpha_1\dots\alpha_k)(\beta_1\dots\beta_l)^-1$ by socks shes propety good stuff happens. So you get an even number. \\
+
+\fbox{definition/theorem} The set of even permutations forms a subgroup of $S_n$ called the Alternating Group of degree $n$, denoted $A_n$. \\
+
+\fbox{proof that $A_n \le S_n$}. Since $A_n$ is by definition a subgroup, and $|S_n| = n!$, we have that $A_n$ is a subset of a finite group. Then it suffices to show that $A_n$ is closed. The identity can be represented as the product of an even number of two cycles, hence $A_n$ is never empty. Let $\alpha \in A_n$ be an element of $A_n$ with the cyclic representation$ (a_11,a_12)(a21, a22)...(a_n1,an2)$ for some even number $n$. Likewise let $\beta \in A_n$ be represented as $\beta = (b_11,b_12)(b21, b22)...(b_m1,bm2)$. Then $\alpha\beta = (a_11,a_12)(a21, a22)...(a_n1,an2)(b_11,b_12)(b21, b22)...(b_m1,bm2)$ for some even number $m$. This representation will be composed of $m+n$ subgroups. Since the sum of two even numbers is even, we can represent $\alpha\beta$ as an even number of two cycles, hence $\alpha\beta$ is even. By definition of $A_n$ it follows that $\alpha\beta \in A_n$. Since $\alpha,\beta$ are both arbtirary elements in $A_n$, this applies to all elements in $A_n$ and $A_n$ is closed under its operation. Since $A_n$ is both nonempty and closed under the operation, by the finite subgroup test it follows that $A_n\le S_n$.\\
+
+\fbox{theorem} $|A_n| = n!/2$. \\
+\fbox{proof} Let $\alpha$ be an arbtirary element in $S_n$. If $\alpha$ is odd,  
+\end{document}

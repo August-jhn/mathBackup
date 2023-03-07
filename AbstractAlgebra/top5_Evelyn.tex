@@ -1,0 +1,101 @@
+\documentclass{article}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\title{Abstract Algebra, top 5}
+\author{Evelyn}
+\date{9/14/2021}
+\maketitle
+\begin{document}
+
+1. What are the five most important ideas/definitions/theorems we have seen so far in this course?\\
+
+a. A group $\mathcal{G}=(G,*)$ is a non-empty set G and an operation * defined on the elements of G, satisfying all the following:
+\begin{itemize}
+    \item * is a binary, closed operation on G (i.e. for all $a, b \in G, a*b \in G$)
+    \item there exists an element $e \in G$, s.t. for all $a \in G:  a*e=e*a=a$. This element is called the *-identity of $\mathcal{G}$.
+    \item For all $a \in G$ there exists $a^{-1} \in G$, s.t.  $a*a^{-1}=a^{-1}*a=e$. $a^{-1}$ is called the inverse of a. 
+    \item * is associative on G (i.e. for all $a,b \in G, a*(b*c)=(a*b)*c$)
+    \item If * is commutative on G, we say $\mathcal{G}$ is Abelian. 
+\end{itemize}\\
+
+b. The symmetries of a regular n-gon with composition from a group is called the Dihedral group of order 2n (denoted $D_n$). \\
+
+c. $U(n)=(\{[a] \in \mathbb{Z}_{n\mathbb{}Z}: gcd(a,n)=1\}, x)$ forms a group called "the units mod n". \\
+
+d. Given two groups $\mathcal{G}=(G,*)$ and $\mathcal{H}=(H,+)$, we say $\mathcal{G}$ and $\mathcal{H}$ are isomorphic, if and only if there exists a bijection $\phi: G \longrightarrow H$ that preserves the group operation, i.e. $\phi(a*b)=\phi(a)+\phi(b)$ for all $a,b \in G$.\\
+
+e. Given a group $\mathcal{G}=(G, *)$ and a non-empty subset H of G, if $(H, *)$ forms a group on its own right, we say $\mathcal{H}=(H, *)$ is a subgroup of $\mathcal{G}$, denoted $\mathcal{H}\leq \mathcal{G}$.\\
+
+
+
+2. Which of these five do you think you understand best and why?\\
+
+I think I best understand the definition of a group, which again forms the basis for all further definitions to come. We have already tackled the topic of groups in my last math classes, so that is why I am already quite familiar with this definition. \\
+
+\newpage
+
+3. Which do you think you understand the least and why? \\
+
+I guess the definition of the isomorphism is still very abstract to me. I do understand the definition of it and the general concept behind it, but I have not yet fully grasped the use or necessity of it. \\ 
+
+4. Propose a problem for the upcoming group exam and explain why you think it would be a good problem.\\
+
+Which of the following sets forms a group under multiplication? Proof your answer! Can you make a general statement about sets mod n forming groups?\\
+\begin{itemize}
+    \item $\{1, 2, 3\}$ mod 4
+    \item $\{1, 2, 3, 4\}$ mod 5
+\end{itemize}
+
+I believe that this problem encourages us to first analyze sets concerning properties of groups, second proof our supposition, and third make a general statement about our findings. 
+
+\end{document}

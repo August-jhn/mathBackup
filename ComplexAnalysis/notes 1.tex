@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\documentclass{article}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+
+\bold{Section 1}: sums and products\\
+
+\fbox{definition} The complex numbers, $\C = [(x,y):x,y\in \R]$. Since these can be thought of as ordered pairs, we can thing of them geometrically as well. \\
+Equality: let $z_1 = (x_1,y_1),z_2 = (x_2,y_2)$. Then these are equal iff the corresponding components are equal.\\
+Sum: Componentwise\\
+Multiplication: $z_1z_2 = (x_1x_2 - y_1y_2, x_1y_1 + x_2y_2)$
+\\
+\bold{Section 1}:\\
+\fbox{theorem} $(\C,+,*$ forms a field. Associative, commutative, distributive, additive identity, multiplicative identity, additive inverse, and every nonzero element of $\C$ has a multiplicative inverse. 
+\\
+
+\fbox{theorem} $(0,0)$ is the unique additive identity. $1/z$ is the unique multiplicative identity. \\
+
+First homework assignment, p.4 keep 1,4, turn in 2,5.\\
+
+\bold{section 3} Normal real stuff works.\\
+\fbox{theorem} binomial theorem works. Yay.\\
+\bold{section 4} The modulous of a complex number $z\in \C$ is $|z| = |x+y| = \sqrt{x^2+y^2}.$ This can be viewed geometrically as the distance from the complex number to the origin. Note that there is a nice little circle around it. Also, the modulus of a square is the same as the sum of the square of its components. Furthermore, the real part of $z$ is less than or equal to the modulus of z, likewise for the imaginary. \\
+
+\bold{section 5}\\
+\fbox{theorem} The triangle inequality. If $z_1,z_2 \in \C$, then $|z_1+z_2| \le |z_1|+|z_2|$. \\
+\fbox{proof} Let $z_1 a_1+b_1i$ and $z_2 = a_2+b_2i$ be complex numbers. Then $|z_1+z_2| = |(a_1+a_2)+(b_1+b_2)i| = \sqrt{(a_1+a_2)^2+(b_1+b_2)^2}$\\
+\fbox{thm}
+$$\frac{|z_1|}{|z_2|} = |\frac{z_1}{z_2}|$$
+\\
+\fbox{section 6} Complex cojugates. If $z = x+iy$, then $\bar{z}$ is $\bar{x+iy} = x-iy$,\\
+
+
+
+\end{document}

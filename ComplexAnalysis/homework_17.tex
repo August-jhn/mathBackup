@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\thm}{\fbox{theorem}}
+\newcommand{\infsum}{\sum_{n = 1}^{\infty}}
+\newcommand{\pf}{\fbox{proof}}
+\newcommand{\cor}{\fbox{corollary}}
+\newcommand{\psum}{\sum_{n = 1}^N}
+\newcommand{\prop}{\fbox{proposition}}
+
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+\newcommand{\ab}[1]{\color{red}{#1}\normalcolor}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+\prop (3) If $\lim_{n\to \infty}z_n = z$, then $\lim_{n\to \infty}|z_n| = |z|$.\\
+
+\pf Suppose that $\lim_{n\to \infty}z_n = z$. By definition of the limit of a sequence, we know that for all $\epsilon > 0$ there exists some $N\in \N$ such that for all integers $n>N$, $|z_n - z| < \epsilon$. Let $\epsilon$ and $N$ be instantiated as such, and let $n$ be an arbitrary integer greater than $N$. Given this, we apply a previously proven inequality to find $\big| |z_n| - |z| \big| \le |z_n-z|$. Since less than or equal to is a transitive relation, it follows that $\big| |z_n| - |z| \big| \le \epsilon$ \cs{You can have $<$ here}. Since $\epsilon$ and $n$ are arbitrary, it follows that for all $\epsilon > 0$ there exists some $N\in \N$ such that for all integers $n> N$ $\big| |z_n| - |z| \big| < \epsilon$. By definition of the limit of a sequence, $\lim_{n\to \infty}|z_n| = |z|$. Q.E.D.\\
+
+\cs{5/5}
+
+\prop (3) Given a convergent sequence of complex numbers $\{z_n\} = \{x_n + y_n i\}$, the limit of this sequence is unique.\\
+
+\pf(appealing to calculus) Let $z_1$ and $z_2$ be two arbitrary limits of the sequences. Let $z_1 = x_1 + iy_1$ and $z_2 = x_2 + iy_2$. By the theorem (page 180), it follows that $\{x_n\}$ and $\{y_n\}$ converge to $x_1$ and $y_1$ respectively, as well as $x_2$ and $y_2$ respectively. But recall from calculus that limit of a real valued sequence is unique, hence $x_1 = x_2$ and $y_1 = y_2$. By definition of equality for complex numbers, $z_1 = z_2$. Since $z_1$ and $z_2$ are arbitrary limits of convergence, it follow that all limits of convergence are equal to each other. Hence the limit of a sequence is unique. \\
+
+\pf(without using assumptions from calculus) Suppose that $z_1$ and $z_2$ are distinct limits of convergence for the sequence $\{z_n\}$. Let $\epsilon > 0$. By definition of the limit of convergence, there exists positive integers $N_1$ and $N_2$ such that for all $n > N_1$, $|z_n - z_1| < \epsilon$ and for all $n> N_2 $ $|z_n - z_2| < \epsilon$. Let $n > \max\{N_1,N_2\}$. Then $n> N_1,N_2$, hence $|z_n - z_1| < \epsilon$ and $|z_n - z_2| < \epsilon$. Assume without loss of generality that $|z_n - z_2| \le |z_n - z_1| $ Since $|z_n - z_1|$ and $|z_n - z_2|$ are both positive$|z_n - z_1| - |z_n - z_2| < \epsilon$, and $|z_n - z_1| - |z_n - z_2|$ is non-negative so $\big||z_n - z_1| - |z_n - z_2|\big| = |z_n - z_1| - |z_n - z_2|$. By a previously used inequality, $\big||z_n - z_1| - |z_n - z_2|\big| \le [|(z_n - z_1) - (z_n - z_2)| = |z_2-z_1|].$ From this it follows that $|z_2-z_1| < \epsilon$.\\
+
+Since $\epsilon$ can be made arbitrarily small, it follows that $|z_2 - z_1| = 0$. Hence $z_2 = z_1$, and the limit of the sequence is unique. Q.E.D.
+
+\cs{TWO proofs?!? Fancy! 5/5}
+
+\cs{10/10}
+
+\end{document}

@@ -1,0 +1,118 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\thm}{\fbox{theorem}}
+\newcommand{\infsum}{\sum_{n = 1}^{\infty}}
+\newcommand{\pf}{\fbox{proof}}
+\newcommand{\cor}{\fbox{corollary}}
+\newcommand{\psum}{\sum_{n = 1}^N}
+
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+\newcommand{\ab}[1]{\color{red}{#1}\normalcolor}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+
+\defn A sequence of complex numbers, denoted $\{z_n\}_{n\in \N}$ is said to converge to a limit $z$ if for all $\epsilon > 0\in \R$ there exists some $N\in \N$ such that for all $n> N\in \N$ such that $|z-z_n| < \epsilon$. In this case we write,
+$$\lim_{n\to \infty}z_n = z.$$
+
+\thm If $z = x + iy$ for some $z\in \C$ and $x,y\in \R$, and $\{z_n\} = \{x_n + iy_n\}$, then 
+$$\lim_{n\to\infty}z_n = z \Leftrightarrow (\lim_{n\to\infty}x_n = x \wedge \lim_{n\to\infty}y_n = y). $$
+
+\defn An infinite series $\sum_{n = 1}^{\infty}z_1 = z_1 + \dots$, converges to the sum $S$ if the sequence of partial sums $S_N = \sum_{n = 1}^N z_n$ converges to $S$. If so, we write $\sum_{n = 1}^\infty = S$. Otherwise the series diverges.\\
+
+\thm Let $z_n = x_n + iy_n$, $S = X + iY$. Then $\infsum z_n = S$ iff $\infsum x_n = X$ and $\infsum y_n = Y$. \\
+\pf Let $x_N = \psum x_n$ and $Y_N = \psum y_n$, $S_n = \psum z_n$. \\
+
+if $\infsum z_n = S$, then $S_n = X_n + iY_n$ hence $S = X $\\ fill in later.
+
+\\
+
+\thm (convergence test) If $\infsum z_n$ converges, then $\lim{n\to\infty} z_n = 0$.\\
+
+\pf Let $S_n = \infsum z_n$. Then $S_{N+1} = \sum_{n = 1}^{N+1}z_n$. Then the limit $\lim{n\to \infty} S_{n+1} - S_n = \lim{n\to \infty}z_{n+1}$. Hence the limit is zero.\\
+
+\cor If $\infsum z_n $ converges, then there exists $M$ such that $|z_n|\le M$ forall $n\in \Z^+$.\\
+
+\pf Eventually, $|z_n|\le 1$, say for $n> N$. Then for all $n\in \Z^+$, $|z_n| \le \max\{z_n : n\le N\}$.
+
+\defn $\infsum z_n$ is \textbf{absolutely convergent} if $\infsum |z_n|$ is convergent. If its convergent but not absolutely convergent then we call it conditionall convergent. \\
+
+\thm $\infsum x_n$ and $\infsum y_n$ are absolutely convergent when $\infsum z_n$ is absoltely convergent, where $z_n = x_n + iy_n$.\\
+
+\pf Recall the comparison test. Suppose $\infsum b_n$ converges and $b_n \ge 0$ for all $n$. If $0 \le a_n \le b_n$ for all $n$, then $\infsum a_n$ converges. Note that $|x_n|\le |z_n|$ for all $n$, so $\sum |x_n|$ converges. Similarly for $|y_n|$.\\
+
+\thm If $\infsum z_n$ is absolutely convergent, then $\infsum |z_n|$ is convergent as well. $z\in \R$\\
+
+\pf Consider $\infsum 2|z_n|$. Note that $0\le z_n + |z_n|\le 2|z_n|$. If $\infsum 2|z_n|$ converges, so does $\sum 2|z_n|$ converges. By the comparison test, $\infsum z_n + |z_n|$ converges. But this is $\infsum z_n$.\\
+
+\thm This also works for complex $z$.\\
+
+\pf Since $\infsum z_n$ is absolutely convergent, $\infsum |z_n|$ is convergent. Hence $\infsum |x_n|$ and $\infsum |y_n|$ are convergent as well. Hence $\infsum z_n$ is convergent. 
+
+\defn we often denote the partial sum as $S_N$, the convergence of the series as $S$, and define a quantity called the remainder, defined $\rho_N = S-S_n$, which represents the difference between the final value of the series and the partial sum.\\
+
+\defn A series converges iff the remainders converge to zero. That is,
+$\lim_{N\rightarrow \infty}\rho_N = 0$. \\
+
+\pf Suppose the series $\infsum a_n$ converges to $S$.\\
+$\lim_{N\to \infty}\rho_N = \lim_N{S- S_N}$
+
+\\
+suppose the sequence $\rho_N$ converges to zero.
+
+\defn A power series is a series of the form 
+
+$$\infsum a_n(z - z_0)^n$$.\\
+
+\thm $\infsum z^n = 1/(1-z)$.\\
+
+\defn The largest circle centered at $z_0$ such that $\sigma a_n$ converges everywhere inside the circle is called the circle of convergence of the series. \\
+
+
+\defn A series $\sigma a_n(z-z_0)^n$ is said to converge uniformly on its COC $D:|z-z_0|<R$ if $\forall \epsilon > 0 \exists N_\epsilon > 0: n> N_\epsilon\rightarrow |\rho_N(z)|<\epsilon\forall z\in D$. \\
+
+\thm if $z_1\in COC$ of $\infsum a_n(z-z_0)^n$, $COC : |z-z_0| = R$, then the series converges uniformly on $COC$.\\
+
+\thm A ps $\infsum a_n (z-z_0)^n$ is continuous $\forall z\in COC$ $D: R> |z-z_0|$.\\
+
+Let $z\in D$. Let $\epsilon > 0$. Let $S(z) = \infsum a_n (z-z_0)^n$. WTS $|S(z) - S(z_1))|<\epsilon$. But $|S(z)-S(z_1)| = |S_N(z)+\rho_N(z) - S(z_1)-\rho_N(z_1)| = |(S_N(z)-S_N(z_1)) + (\rho_N(z)-\rho_N(z_1))|\le |S_N(z)- S_N(z_1)|+ $
+
+\end{document}

@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\thm}{\fbox{theorem}}
+\newcommand{\infsum}{\sum_{n = 1}^{\infty}}
+\newcommand{\pf}{\fbox{proof}}
+\newcommand{\cor}{\fbox{corollary}}
+\newcommand{\psum}{\sum_{n = 1}^N}
+\newcommand{\lemma}{\fbox{Lemma}}
+
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+\newcommand{\ab}[1]{\color{red}{#1}\normalcolor}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+\thm Given a function $f$ that is analytic throughout the disk $|z-z_0| < R_0$ for $z_0\in \C$ and $R_0 \in \R$, $f(z)$ can be represented as the series 
+$$f(z) = \infsum a_n(z-z_0)^n$$
+where $a_n = \frac{f^{(n)}(z_0)}{n!}$, for $n\in \N$.\\
+
+
+\lemma In the case where $z_0 = 0$, Taylor's theorem holds. In other words if $f$ is analytic throughout $R$, where $R$ is the region defined by the disk $|z| < R_0$ for some $R_0\in \R$, it follows that $f(z) = \infsum \frac{f^{(n)}(z_0)}{n!}z^n$ for all $z\in R$.\\
+
+\pf Let $z$ be an arbtirary point in $R$, and suppose that $f$ is analytic throughout $R$. Let $C_0$ be an arbitrary positively oriented simple closed contour contained within $R$. Since $f$ is by construction analytic on $C_0$, the Cauchy integral formula appplies,
+$$f(z) = \frac{1}{2\pi i}\int_{C_0}\frac{f(s)ds}{s-z}$$
+
+
+
+\end{document}

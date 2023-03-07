@@ -1,0 +1,87 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\title{Abstract Algebra: Individual Celebration of Knowledge}
+\author{Evelyn}
+\date{11/02/2021}
+\begin{document}
+\maketitle
+
+\fbox{problem 1} Prove for every subgroup H of a cyclic group G: $\phi(H)=H$ for all $\phi \in Aut(G)$. \\
+
+\fbox{proof} Let $G=<g>$ for some $g \in G$ and $H \leq G$. Let $\phi$ be an arbitrary automorphism in $Aut(G)$. By the fundamental theorem of cyclic groups it follows that $H=<h>$ for some $h \in H$. Let us consider the cases $|G|=n$ and $|G|=\infty$ separately. Let us first suppose $|G|=n$. By the FTCG it follows that $|H|=m \big| |G|=n$. By properties of element order and isomorphisms, we know that $|h|=|<h>|=|H|$ and furthermore $|H|=|\phi(H)|$. Since, by properties of isomorphisms $H \leq G$ implies that $\phi(H) \leq G$, we know by the FTCG that $\phi(H)$ is the only subgroup of order $m$ in $G$, and hence $\phi(H)=H$. \\
+
+Let us now consider the case $|G|=|H|=\infty$. We know by classification theorems that $H$ is then isomorphic to $\Z$, since $H$ is cyclic. And by exercise 2 in chapter 6 we know that $Aut(\Z)=\{\phi_1(x)=x, \phi_2(x)=-x|x \in \Z\}$, thus every element in $\Z$ is either mapped to itself or to its inverse by any element $\phi \in Aut(\Z)$. Since $H$ is a cyclic subgroup, it fulfills the inverse property. This means that for every element $x \in H$ there exist  both the element $x$ itself and its inverse $x^{-1}$ in $H$, such that $\phi_1(x)=x \in H$ or $\phi_2(x)=x^{-1} \in H$. Thus, it follows that $\phi(H)=H$ for every $\phi \in Aut(H)$. \\
+
+\fbox{problem 3} Given a group $G$. If $H \leq G$ and $K \leq G$ such that $gcd(|H|,|K|)=1$, prove $H \cap K = \{e\}$. \\
+
+\fbox{proof} Let $G, H$ and $K$ be defined as above. By exercise 32 in chapter 3 we know that $H \cap K \leq G$, but since $H \cap K$ is a subset of $H$ and $K$, it follows that $H \cap K \leq H$ and $H \cap K \leq K$ as well. By Lagrange's Theorem, it follows that $|H \cap K|$ divides the orders of $H$ and $K$. But since $gcd(|H|,|K|)=1$, the only possible divisor is $1$. As $|H \cap K|=1$, we know that $H \cap K = \{e\}$ by properties of groups. qed. \\
+
+\fbox{problem 5} Prove that there are exactly 3 cyclic subgroups of order 6 in $Aut(\Z_{35})$. 
+
+\fbox{proof} We know by Theorem 17 that $Aut(\Z_{35})$ is isomorphic to $U(35)=U(5\cdot7)$, which by a corollary to Sun Tsu's Theorem is isomorphic to $U(5)\bigoplus U(7)$. By determining the orders of these groups of units ($|U(5)|=4$ and $|U(7)|=6$), it follows by Theorem 13 that $|U(35)|=|U(5)|\cdot|U(7)|=4\cdot 6=24$. Thus by Theorem 12, we have elements of order 1, 2, 3, 4, 6, 8, 12 and 24 in $U(35)$. By Theorem 13 we know that $|(x,y)|=lcm(|x|,|y|)$. We need to find elements $x \in U(5)$ and $y \in U(7)$ such that $lcm(|x|,|y|)=6$. In $U(5)$ we have elements of orders 1, 2 and 4; in $U(7)$ we have elements of orders 1, 2, 3 and 6. For $|x|=1$, we have to choose $|y|=6$, and for $|x|=2$, we have either $|y|=3$ or $|y|=6$. These are the only options for $|(x,y)|=6$. Thus, we have three elements of order 6, and by Theorem 3 we have three cyclic subgroups of order 6, generated by these elements. By properties of isomorphisms, this is also true for $Aut(\Z_{35})$. qed. \\
+\end{document}

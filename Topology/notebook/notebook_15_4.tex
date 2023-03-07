@@ -1,0 +1,224 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\title{Topology}
+\author{August bergquist}
+
+
+\begin{document}
+
+\maketitle
+
+\fbox{Theorem 12.8: proposition} Given a path $\alpha:[0,1]\rightarrow X$ with $\alpha(0) = x_0$, define $\inv{\alpha}(s) = \alpha(1-s)$ for all $s\in [0,1]$. Then the product $\alpha\cdot \inv{\alpha} \sim \epsilon_{x_0} $.\\
+
+
+\fbox{proof} First, let's verify that $\alpha\cdot \inv\alpha$ will look like. By definition of the path product, 
+$$ \alpha\cdot\inv\alpha(s) = 
+\begin{dcases}
+\alpha(2s) & 0\le s \le \frac{1}{2} \\
+\inv{\alpha}(2s-1) = \alpha(2-2s) & \frac{1}{2} \le s \le 1.
+\end{dcases}$$
+
+To show that $\alpha\cdot\inv{\alpha} \sim \epsilon_{x_0}$, we will need to construct a continuous map $H : [0,1]\times[0,1]\rightarrow X$ that satisfies the following requirements:
+\begin{enumerate}
+    \item $H(s,0) = \alpha\cdot\inv{\alpha}(s)$ $\forall s\in [0,1]$,
+    \item $H(s,1) = \epsilon{1}$ $\forall s\in [0,1]$,
+    \item $H(0,t) = \alpha\cdot\inv{\alpha}(0) = \epsilon_{x_0}(0)$ $\forall t\in [0,1]$
+    \item $H()$.
+\end{enumerate}
+
+Using intuition and a whole lot of scratch work on paper (draw out lines in presentation), consider the function 
+$$
+H(s,t) = 
+\begin{dcases}
+\alpha(2s) & 0\le s \le \frac{1-t}{2}\\
+\alpha(1-t) & \frac{1-t}{2} \le s \le \frac{1+t}{2}\\
+\inv{\alpha}(2s - 1) & `\frac{1+t}{2} \le s \le `1.
+\end{dcases}$$
+
+We now need to show that $H$ really does satisfy the requirements of a homotopy listed above, and that it's continuous. Since linear functions are continuous, and $\alpha$ and $\inv{\alpha}$ are continuous, and since compositions of continuous functions are continuous, it follows that each case for the definition of $H$ is also continuous. The only place where this fella might not be continuous is in-between cases: when $s = \frac{1-t}{2}$, $s = \frac{t+1}{2}$. If $ s = \frac{1-t}{2}$ we have $H(s,t) = \alpha(1-t)$, by either definition. If $s = \frac{t + 1}{2}$, for the first definition we have $H(s,t) = \alpha(1-t)$. For the second definition we have $\inv{\alpha}(1 + t - 1) = \alpha(1-t)$, by definition of the inverse path. good!\\
+
+Now to show that each of the requirements of a homotopy are met. 
+\begin{enumerate}
+    \item Set $t = 0$. Then our inequalities become $0 \le s \le 1/2$, $1/2\le s \le 1/2$, and $1/2 \le s \le 1$. Since the middle inequality has only one solution, namely $s = 1/2$, and the cases for the other two inequalities agree there, we can collapse this one (write out on board). This leaves us with 
+    $$H(s,1) = \begin{dcases}
+    \alpha(2s) & 0\le s\le 1/2\\
+    \inv{\alpha(2s - 1)} & 1/2\le s \le 1
+    \end{dcases} = \alpha\cdot\inv{\alpha}(s).$$ GOOD!
+    \item Now set $t = 1$. Our inequalities become $0 \le s \le 0$, $0\le s \le 1$, and $1\le s \le 1$. Since the first and last inequalities have only one solution, at which the definitions for $H(s,t)$ agree, we can collapse these cases leaving us with $H(s,1) = \alpha(1-1) = \alpha(0) = x_0 = \epsilon_0$. GOOOOOOOOD!
+    \item Now set $ s = 0$. The only inequality in our definition of $H$ which accounts for $s = 0$ will be the first one, so we have $H(0,t) = \alpha(0)$. GOOOOOOOOOOOOOOOD!
+    \item Now set $s= 1$. Only the last two cases for the definition of $H$ account for cases where $s = 1$. In the first case, the only option is for $t = 1$, which gives us $\alpha = (1-1) = \alpha(0) = x_0 = \epsilon_{x_0}(0)$. In the other case we have any old $t$ just fine, but plugging in we have $\inv{\alpha}(2(1) - 1)= \inv{\alpha}(1) = \alpha(1-1) = \alpha(0) = x_0 = \epsilon_{x_0}(0)$. GOOOOOOOOOOOOOOOOOOOO\\OOOOOOOOOOOOOOOOOOOOOOOOOOOOO\\OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\\OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\\OOOOOOOOOOOOOOOOOOOOOOOOO\\OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOD!!
+\end{enumerate}
+
+\fbox{12.7} Draw out the box, see picture on phone. Consider a path $\alpha$ from $x_0$ to $x_1$. Then $\epsilon_{x_0}\cdot \alpha \sim \alpha$ and $\alpha \cdot \epsilon_{x_0} \sim \alpha$. \\
+
+We first must show that $\epsilon_{x_0} \sim \alpha$. DRAW ON BOX ON PAPER TO PRESENT, SHOW PROPORTIONS. See hand-written notes.
+
+\fbox{12.9} Prove that the fundamental group is really a group.\\
+
+\fbox{proof} Let $[\alpha]$ and $[\beta]$ and $[\gamma]$ be arbitrary equivalence classes on the set of all loops represented by $\alpha $, $\beta$, and $\gamma$, centered at $x_0$.\\
+
+The closure of the fundamental group is assured by the fact that all loops in any equivalence class have the same start and end point, hence the operation $[\alpha]\cdot[\beta] = [\alpha\cdot\beta]$ is a well defined function from the set of all equivalence classes of loops starting at $x_0$, to the same set.\\
+
+To show that there is an identity, consider $[\epsilon_{x_0}]$. As we have shown $\epsilon_{x_0}\sim \alpha $, hence by the transitivity and symmetry of equivalence relations, $[\epsilon_{x_0}]\cdot [\alpha] = [\epsilon_{x_0}
+\cdot \alpha] = [\alpha]$. Similarly, note that in this case "$x_1$" is $x_0$, since $\alpha$ is a loop, hence $\alpha\cdot \epsilon_{x_0}\sim \alpha$ as well. Hence $[\alpha]\cdot[\epsilon_{x_0}] = [\alpha] = [\epsilon_{x_0}]$. Hence $\epsilon_{x_0}$
+ acts as the identity on $\alpha$. Since $[\alpha]$ was arbitrary, $[\epsilon_{x_0}]$ acts as the identity on every $\sim$-equivalence class of loops starting at $x_0$.\\
+ 
+Now we must show that $[\alpha]$ has an inverse. Consider $ [\inv{\alpha}] $. As we have shown, $\alpha\cdot\inv{\alpha} = \epsilon_{x_0} = \inv{\alpha}\cdot \alpha$, hence by the transitivity and symmetry of equivalence relations, $[\alpha]\cdot[\inv{\alpha}] = [\alpha\cdot \inv{\alpha}] = [\alpha\cdot\inv{\alpha}] = [\epsilon_{x_0}]$. Hence $[\inv{\alpha}]$ acts as the inverse of $[\alpha]$. Since $[\alpha]$ was arbitrary, every equivalence class of loops starting at $x_0$ has an inverse.\\
+
+Finally, we must verify that transitivity holds. This is already done, as this is Theorem 12.6.
+
+Q.E.D.
+
+
+ \end{document}

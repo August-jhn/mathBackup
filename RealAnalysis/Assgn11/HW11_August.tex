@@ -1,0 +1,208 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate, diagbox, tcolorbox, esvect, tikz, adjustbox}
+
+
+\graphicspath{{./images/}}
+
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+
+%geometry/topology
+\newcommand{\bndry}{\partial}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\theoremstyle{definition}
+
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+
+\title{Real Analysis}
+\author{August Bergquist}
+
+\begin{document}
+
+\maketitle
+
+\section{A closed subspace of a complete space is complete}
+
+\begin{proposition}
+Let $X$ by complete, and let $Y\subset X$ be closed. Then $Y$ is complete.
+\end{proposition}
+\begin{proof}
+Suppose $\sigma$ is a Cauchy sequence in $Y$. Then, regarding $\sigma$ as a sequence in $X$S, $\sigma$ is still Cauchy, and $X$ is complete, therefore $\sigma$ converges to some value $x\in X$. Suppose then that $x\not\in Y$. Since $\sigma$ is contained within $Y$, it follows that $\sigma$ never assumes the value $x$ to which it converges. By definition of a limit point, it follows that $x$ is a limit point of $Y$. But $Y$ is closed, so it contains all it's limit points, hence $x\in Y$, a contradiction. Hence $x\in Y$. Since $\sigma\to x\in Y$, $\sigma$ converges in $Y$. Since $\sigma$ was an arbitrary Cauchy sequence in $Y$, it follows that each Cauchy sequence in $Y$ converges. Hence $Y$ is complete. 
+
+\end{proof}
+
+\section{Real-space is complete}
+
+\begin{proposition}
+For $n\in \N$, $\R^n$ is complete.
+\end{proposition}
+
+\begin{proof}
+Let $\sigma$ be Cauchy in $\R^n$. Then we have $n$ sequences in $\R$, formed by projecting $p_i:\R^n \to \R$, sending $\mathbf{x}\to x_i$. To see that each of the $p_i\sigma = \sigma_i$ is Cauchy, recall that for $\mathbf{y} = (y_1,\dots, y_n)$ and $\mathbf{x} = (x_1,\dots, x_n)$, and for all $i\in \mathbf{n}$, we have $|x_i - y_i| \le d(\mathbf{x}, \mathbf{y})$. Chose any $i\in \mathbf{n}$. Now let $\epsilon > 0$. Then there is some $N\in \N$ so that for $n,m>N$, $d(\sigma(n), \sigma(m)) < \epsilon$. Hence for $m,n > N$, we also have $ |\sigma_i(m), \sigma_i(n) | < d(\sigma(n), \sigma(m)) < \epsilon $. Hence $\sigma_i$ is Cauchy for each of the $\sigma_i$. Since each of the $\sigma_i$ are Cauchy, and sequences in $\R$ which is complete, it follows that for each $i$ there is an $x_i\in \R$ such that $\sigma_i \to x_i$. Consider the point $\mathbf{x} = (x_1, \dots, x_n)\in \R^n$. We will see that $\sigma\to \mathbf{x}$.\\
+
+To see this, let $\epsilon > 0$. Then $\epsilon/\sqrt{n} > 0$. Hence by convergence of each $\sigma_i$ to $x_i$, it follows that for each $i$ there is an $N_i$ such that for $n> N_i$, $|\sigma_i(n) - x_i| < \epsilon/\sqrt{n}$. Let $N = \max\{N_i\}_{i\in \mathbf{n}}$. Suppose $n> N$. Then for each $i$, $n > N_i$, hence $|\sigma_i (n) - x_i| < \epsilon/\sqrt{n}$, so obviously $(\sigma_i (n) - x_i)^2 < \epsilon^2/n$. Hence by definition of the Euclidean metric on $\R^n$, we have
+\[
+\begin{array}{c}
+d(\sigma(n) , \mathbf{x} ) = \sqrt{\sum_{i = 0}^n(\sigma_i ( n) - x_i)^2 } \\
+
+< \sqrt{\epsilon^2/n + \dots + \epsilon^2/n} = \epsilon
+\end{array}
+\]
+as desired. Hence for all $\epsilon > 0$, there is some $N\in \N$, such that for all $n > N$ , $d(\sigma(n) , \mathbf{x} ) < \epsilon$. By definition of convergence, $\sigma\to \mathbf{x}$ in $\R^n$. Since $\sigma$ was arbitrary as a Cauchy sequence in $\R^n$, it follows that all Cauchy sequences converge. Hence $\R^n$ is complete.
+\end{proof}
+
+\section{Arithmetic and Limits of Functions are Nice to Each Other}
+
+\begin{lemma}
+Let $f:K\to Y$ be a function between metric spaces with $K\subset X$ a metric space, and let $ a $ be a limit point of $K$. Then the following are equivalent:
+\begin{itemize}
+\item $ \lim_{x\to a}f(x) = L $
+\item for any sequence $ \sigma \to a $, we have $ f\sigma\to L $.
+\item If $g$ non-zero on $K$ and $M$ is non-zero, then $\lim_{x\to a} f(x) / g(x) = L/M$.
+\end{itemize}  
+\end{lemma}
+
+This gives us the following theorem:
+
+\begin{theorem}
+Let $X$ be a metric space, and let $a$ be a limit point of $X$. Suppose we have $f,g:X\to \R$ such that $\lim_{x\to a} f(x) = L$ and $ \lim_{x\to a}g(x) = M $. Then the following hold:
+
+\begin{itemize}
+\item $\lim_{x\to a} f(x) + g(x) = L + M$
+\item $ \lim_{x \to a}f(x)g(x) = LM $
+\end{itemize}
+\end{theorem}
+
+\begin{proof}
+
+First, suppose we have any $\sigma\to a$. Since $\sigma\to a$, and since $f(x)\to L$ as $x\to a$, by the above lemma we have $f\sigma\to L$. By an identical argument, we have $ g\sigma \to L $. 
+\begin{itemize}
+\item First, that $g\sigma + f\sigma \to L + M$ comes immediately from the parallel result about limits of sequences. 
+\item Second, that $(g\sigma)(f\sigma) \to LM$ comes immediately from the parallel result about limits of sequences.
+\item Now declare that $g$ is non-zero on $K$, and that $M$ is non-zero. Well then, the sequence $g\sigma$ is non-zero, for each $\sigma(n)\in K$ whence $g\sigma(n)\ne 0$, since $g$ is non-zero on $K$. It immediately follows from the parallel result about limits of sequences that $ f\sigma/g\sigma \to L/M $.
+\end{itemize}
+Generalizing, since $\sigma$ was an arbitrary sequence which converged to $a$, the composition of any such  and since $a$ is a limit point of $K$, it follows that $ \lim_{x\to a} f(x) + g(x) = L + M $, $\lim_{x\to a}f(x) g(x) = LM$, and $\lim_{x\to a} f(x) /g(x) = L/M $ in the case where $g$ is non-zero on $K$ and $M$ is non-zero. This is what we set out to show.
+
+
+\end{proof}
+
+Trivially, since the function $x\to -x$ is continuous on the reals, and since composition of functions is continuous, we can show that $f-g$ is continuous.
+
+\begin{corollary}
+Let $f:X\to \R$ and $g:X\to \R$ be continuous. Then the point-wise defined functions $f + g$, $fg$ are continuous. Moreover, if $g$ is non-zero on $X$, then $f/g$ is continuous thereon. 
+\end{corollary}
+
+\begin{proof}
+Let $a\in X$. If $a$ isn't a limit point, we are done in each case. Now suppose that it is. Well then, we better show that $f+ g\to f(a) + g(a)$, $ fg \to f(a)g(a) $ as $x\to a$. Since $f$ and $g$ are continuous, and since $a$ is a limit point, we have $ f\to f(a) $ and $g\to g(a)$ as $x\to a$. So we have by the above theorem that $f+g\to f(a) + g(a)$. Now let $g$ be non-zero on $X$. Then $g(a)$ is non-zero. So then, by the theorem, $ f/g \to f(a)/g(a) $.
+
+This was sufficient in proving that each of these functions is continuous.
+\end{proof}
+
+\section{Dense sets and continuous functions}
+
+
+
+\begin{lemma}
+Let $f:D\to Y$ be uniformly continuous, and let $x\in X\supset D$, $D$ and $Y$ be metric spaces, and let $ Y $ be complete. Then if we have two $\sigma, \sigma'\to x$, then $f\sigma$ and $f\sigma'$ converge to the same value $y\in \R$.  
+\end{lemma}
+
+\begin{proof}
+First that they converge. Notice that $\sigma$ and $\sigma'$ are both convergent in $X$, and therefore Cauchy therein. Moreover, $f$ is uniformly continuous, therefore $f\sigma$ and $f\sigma'$ are Cauchy. But $\R$ is complete, hence $f\sigma$ and $f\sigma'$ converge to some $y $ and $y'$ in $\R$ respectively. It suffices to show that $f\sigma'\to y$.
+
+Let $\epsilon> 0$. Then $\epsilon/2 > 0$. Hence there exists some $\delta > 0$ such that for $a,b\in D$, $d(a,b)< \delta $ means $d(f(a), f(b) ) < \epsilon /2$. Moreover, since $f\sigma\to y$, there must exist some $N' \in \N$ so that for $n >N'$, $d(f\sigma(n) , y) < \epsilon/2$.\\
+
+ Since $\delta/2 > 0$, by convergence of $\sigma$ and $\sigma'$ to $x$, there must exist some $N''\in \N$ such that for $n>N$, $d(\sigma(n), x) < \delta/2$ and $d(\sigma'(n) , x) < \delta/2$. Now suppose $n> N''$. Then $d(\sigma'(n), x),d(\sigma(n), x) < \delta/2$.  By the triangle inequality we have $d(\sigma(n), \sigma'(n) ) < d(\sigma'(n), x) + d(\sigma(n), x) < \delta/2 + \delta/2 = \delta$. But since $\sigma(n),\sigma'(n) \in D$, by construction of $\delta$ it follows that $ d(f\sigma(n), f\sigma'(n) ) < \epsilon /2. $ Generalizing, it follows that for $n> N'$, we have $d(f\sigma(n) , f\sigma'(n) ) < \epsilon/2$.\\
+ 
+ 
+Now consider $N = \max\{N', N''\}$. Suppose we have $n> N$. Then $n> N'$ and $n> N''$, so, as we have shown, $d(f\sigma'(n) , f\sigma(n) ) < \epsilon /2$ and $ d(f\sigma(n), y) < \epsilon /2$. By the triangle inequality it follows that $ d(f\sigma'(n) , y ) <  d(f\sigma'(n) , f\sigma(n) ) + d(f\sigma(n), y) < \epsilon /2 + \epsilon /2 = \epsilon$
+
+But $\epsilon$ was arbitrary, hence for $\epsilon > 0$, there is some $N\in \N$ so that for $n > N$, $d(f\sigma'(n) , y) < \epsilon$. So by definition of the limit of a sequence, $f\sigma' \to y$. Since $f\sigma' \to y'$, it follows by uniqueness of the limit of a sequence (should it exist, which it does), that $y = y'$. 
+\end{proof}
+
+\begin{theorem}
+Let $D$ be a dense set in a metric space $X$. Let $f: D\to Y$ be uniformly continuous on any bounded subset of $D$, and let $Y$ be complete. There exists a unique continuous extension of $f$ to $X$. 
+\end{theorem}
+
+\begin{proof}
+
+
+
+We shall define $F: X\to Y$ as such. Let $x\in X$. Since $D$ is dense, it follows that there exists some sequence $\sigma_x : \N\to D$ such that $\sigma_x \to x$ in $X$. Moreover, since $\sigma$ converges, it is bounded, therefore there exists some $ r > 0 $ so that $D' = B_r(\sigma(1) )\supset \sigma(\N)$. Then $f|_{D'}$ is uniformly continuous, hence by the lemma $f\sigma$ converges to some $y$. Moreover, for any other sequence $\sigma'$ converging to $x$, we define $r'$ such that $ \sigma'(\N) \subset B_{r'}(\sigma(1)) $, so choosing the maximum radius between $r$ and $r'$, we find that $\sigma'$ and $\sigma$ both converge to $y$, since $f$ is uniformly convergent on this ball as well (and $Y$ is complete), and the lemma applies. Setting $F(x) = y$, we note that the definition of $F(x)$ is independent of the sequence used to define $F(x)$.\\
+
+To see that $F$ is a restriction of $f$, suppose $d\in D$. Select a ball of radius $r$ around $d$, for some $r$. Clearly $\sigma_d$, the constant sequence at $d$, converges to $D$, and stays within $B_r(d)\cap D$. Then $B_r(d)\cap D$ is a bounded subset of $D$. Clearly $f\sigma\to f(d)$, for this sequence too is constant. Moreover, by our previous discussion, this is independent of our choice of sequence in $D$. Hence $F(d) = f(d)$. So $F$ is an extension of $f$. \\
+
+Now we show that $F$ is uniformly continuous on any bounded set of $X$. Let $\epsilon > 0$. Then $\epsilon/3 > 0$. Let $X'$ be any such bounded subset of $X$. Since $X'$ is bounded, there must exist some $r>0$ and $x\in X$ $ X'\subset B_r(x) $. Moreover, $D' = D\cap B_r(x)$ is bounded, from which it follows that $f$ is uniformly continuous on $D'$. Since $f$ is uniformly continuous on $D'$, there exists some $\delta > 0$ such that for $a,b\in D'$, $d(a,b) < \delta$ implies $d(f(a), f(b)) < \epsilon /3$.\\
+ 
+Now set $\delta' = \delta/3$. Suppose we have $ d(a,b) < \delta' $ for some $ a,b\in X' $. We aim to show that $d(F(a), F(b) ) < \epsilon$. By density of $D$, there exist sequences $\sigma_a$, $\sigma_b$ which converge in $X$ to $a$ and $b$ respectively. By the generalized triangle inequality, for all $n\in \N$, we have $ d(F(a), F(b) ) < d(F(a) , f\sigma_a(n)) + d(f\sigma_a(n) , f\sigma_b(n) ) + d(f\sigma_b(n) , F(b))$. We will construct some natural number $n$ such that 1) $\sigma_a(n), \sigma_b(n) \in D'$, 2) such that $d(F(a), f\sigma_a(n)) < \epsilon /3$ and $d(f\sigma_b(n) , F(b)) < \epsilon /3$, and finally 3) such that $ d(\sigma_a(n) ,\sigma_b(n)  ) < \delta$. To keep things tidy, let us keep a bag, $\mathcal{N}$, of natural numbers handy. We shall be adding to it, and taking the largest of them afterwards.
+
+\begin{enumerate}
+\item Since $ X'\subset B_r(x) $, and $a,b\in B_r(x)$, we have $ d(a,x) < r$  and $ d(b,x) < r $, whence $ r - d(a,x) > 0 $ and $ d(b,x) - r > 0$, and let $r'$ be the smaller of them. Since $r' > 0$, by convergence of $\sigma_a$ and $\sigma_b$ to $a,b$ respectively, there must exist some $N$ such that for $n> M$, $d(a,\sigma_a(n) ) < r'$ and $d(b,\sigma_b(n) ) < r'$. Since $a$ and $b$ are arbitrary, we need only address $\sigma_a$. Let $n > M$. Then $d(a, \sigma_a(n) ) < r'$. By the triangle inequality we have $ d(\sigma_a(n) , x) \le d(\sigma_a(n), a) + d(a,x) < r' + d(a,x) \le r - d(a,x) + d(a,x) = r$. So for $n> N$, $ \sigma_a(n) \in B_r(x) $. Since $\sigma_a(n) \in D$, we have $ \sigma_a(n) \in B_r(x)\cap D = D' $. The same argument applies for $\sigma_b(n)$. Add this to the bag $\mathcal{N}$ of natural numbers.
+\item Since we have in fact shown that $f\sigma_b \to F(b)$ and $f\sigma_a \to F(a)$, we have by convergence of sequences some $N'\in \N$ such that for $n> N$, $d(f\sigma_a(n) , F(a)), d(f\sigma_b(n), F(b)) < \epsilon /3 $ Append this $N'$ to the bag $ \mathcal{N}$ of natural numbers!
+\item Finally, we must find a natural number threshold $N$ such that for $n$ beyond it $d(\sigma_b(n), \sigma_a(n) ) < \delta$. By the generalized triangle inequality, we have $ d(\sigma_b(n), \sigma_a(n) ) \le d(\sigma_b(n) b) + d(a,b) + d(\sigma_a(n), a)$. We have supposed that $d(a,b) < \delta/3$. Moreover, by convergence of $\sigma_a$ and $\sigma_b$ to $a$ and $b$ respectively in $X$, it follows that we can find a threshold $N''$ such that for $n$ beyond it, $d(\sigma_a(n), a ), d(\sigma_b(n), b) < \delta/3$. Then if $n> N''$, we $ d(\sigma_a(n), \sigma_b(n)) \le  d(\sigma_b(n) b) + d(a,b) + d(\sigma_a(n), a) < \delta/3 + \delta/3 + \delta/3 = \delta$. So for $n > N''$, we have $d(\sigma_a(n), \sigma_b(n)) < \delta$. Append $N''$ to $\mathcal{N}$. 
+\end{enumerate}
+
+So then, we have $\mathcal{N} = \{N, N', N'' \}$. Let $M = \max\mathcal{N}$. By the archimedian principle, there must exist some natural number $n > M$. This is the natural number which I set out to construct. Now I will show that it does it's job.
+
+Since $n>N$, we have by (1) that $ \sigma_a(n), \sigma_b(n) \in D' $. Since $n> N''$, we have that $ d(\sigma_a(n) , \sigma_b(n)) < \delta $. By construction of $\delta$, and by uniform continuity of $f$ on $D'$, it follows that $ d(f\sigma_a(n) , f\sigma_b(n) ) < \epsilon /3 $. 
+
+Sine $n> N'$, we have by (2) that $d(f\sigma_a(n) , F(a)), d(f\sigma_b(n), F(b)) < \epsilon /3$. 
+
+By the triangle inequality, it follows that $ d(F(a), F(b) ) < d(F(a) , f\sigma_a(n)) + d(f\sigma_a(n) , f\sigma_b(n) ) + d(f\sigma_b(n) , F(b)) < \epsilon/3 + \epsilon/3 + \epsilon /3 = \epsilon$. So whenever $a,b\in X'$ such that $ d(a,b) < \delta' $, we have $ d(F(a), F(b)) < \epsilon $. But $a,b$ were arbitrary in $X'$, and $\epsilon$ was arbitrary greater than $0$ in $\R$, so it follows that for any $\epsilon > 0$, there exists some $\delta$ such that whenever $a,b\in X'$ such that $d(a,b) < \delta$, $d(F(a), F(b)) < \epsilon$. Hence $F$ is uniformly continuous on $X'$. But $X'$ was just any bounded subset of $X$, so it follows that $F$ is uniformly continuous on any bounded subset of $X$.
+
+
+Having shown that $F$ is uniformly continuous on every bounded subset of $X$, we now proceed to show that $F$ is continuous on $X$. Let $a\in X$ be arbitrary. Let $\epsilon > 0$. Chose any $r>0$. Clearly $ B_r(x)$ is a bounded subset of $X$, hence $F$ is uniformly continuous on $B_r(x)$. Hence there exists some $\delta' > 0$ such that for any $a,b\in B_r(x)$, $ d(a,b) < \delta' $ implies that $ d(F(a), F(b)) < \epsilon $. Set $\delta = \min\{r, \delta'\}$. Suppose we have some $y\in X$ such that $ d(x,y) < \delta $. Then since $ \delta \le r $, we have $d(x,y) < r$, hence $y\in B_r(x)$. Moreover, since $\delta \le \delta'$, we have $ d(x,y) < \delta' $, and that $ x,y\in B_r(x)$, so by construction of $\delta'$ we have that $ d(F(x), F(y)) < \epsilon $. So for all $y\in X$, if $d(x,y) < \delta$, then $d(f(x), f(y)) < \epsilon$. We have shown before that this is an equivalent condition for continuity of $F$ at $x$ on $X$. Since $x$ was arbitrary in $X$, it follows that for all $x\in X$, $F$ is continuous there. So $F$ is continuous on $X$ as desired.
+
+
+Thus far, we have constructed a continuous extension of $f$ on $X$, namely $F$. It remains to show that this extension is unique. Suppose we have $F'$ a function which extends $f$, and which differs from $F$. Since $F'$ differs from $F$, and since both agree with $f$ on $D$, we must have some $a\in X\setminus D$ such that $ F(a) \ne F'(a) $. We can show that $F'$ is in fact not continuous. By density of $D$, it follows that we have a sequence in $D$, $\sigma_a$, which converges to $a$, and such that $f\sigma\to F(a)$. Moreover, for each term $\sigma(n)$, we have $\sigma(n)\in D$, so since $F'$ extends $f$ whose domain is $D$, it follows that $f\sigma(n) = F'\sigma(n)$. So $F\sigma(n) \to F'(a)$. Since $F'(a) \ne F(a)$, and the limit of a sequence is unique, it follows that $F'\sigma$ does not converge to $F'(a)$. By Theorem 4.3.3 of the textbook, it follows that $F'(a)$ is not continuous at $a$. Therefore $F'(a)$ is not continuous.  
+
+After all of this, we have shown that there exists a unique continuous extension of $f$ to $X$. In my opinion, this is actually quite remarkable.
+
+\end{proof}
+
+\begin{lemma}
+$\Q$ is dense within $\R$.
+\end{lemma}
+
+\begin{proof}
+Let $s\in \R$. We must construct a sequence of rationals which converges to $s$. Pick any $r> 0$. We shall define $\sigma_s: \N\to \Q$ inductively, and show that it converges to $s$. First, since $s+ r > s$, as we have proven before, there must exist a rational $q_1\in \Q$ such that $s < q_1< s+r$. So set $\sigma_s(1) = q_1$. 
+
+Now suppose that, up until $N$, we have defined $\sigma_s$ such that for all $n < N$, we have $\sigma_s(n)\in \Q$ such that $ s < \sigma_s(n) < s + r/n $. Notice that since $N\in \N\subset \R^+$, $r/N > 0$, so $ s < s+ r/N $, hence there must exist some $q_N\in \Q$ such that $ s < q_N < s+ r/N $. Set this to be $\sigma_s(N)$.
+
+So we have inductively defined a sequence of rational numbers such that for all $n\in \N$, $s< \sigma_s(n) < s + r/n $. It remains to show that $ \sigma_s \to s$. This is easy, for set $\epsilon > 0$. Then clearly $\epsilon / r > 0$. By a corollary to the Archimedian principle there must exist some $N\in \N$ such that $1/N < \epsilon /r$. Moreover, for $n> N$, it clearly follows that $1/n  < 1/N$, whence $1/n < \epsilon /r$, so $r/n < \epsilon$. So pick $n> N$. Then $\epsilon < s - r/n < s < \sigma_s(n)< $
+
+
+\end{proof}
+
+\section{Miscellaneous Conjectures about Complete Metric Spaces and Density}
+
+\begin{conjecture}
+Density is a transitive relation. If $D_n \subset \dots \subset D_1\subset D_0$ is a chain of dense subspaces, then $D_0$ is dense within $D_n$.
+\end{conjecture}
+
+\begin{conjecture}
+If $Y$ is complete, and $Y$ is dense within $Z$, then $Y = Z$. 
+\end{conjecture}
+
+\begin{conjecture}
+Given a metric space $X$, there exists a poset of dense subspaces, which we shall call $\mathcal{D}(X)$. If $X$ is complete, this poset is not a sub-poset for any other metric space. There exists some complete $Y$ such that $\mathcal{D}(X)\le \mathcal{D}(Y) $. Moreover, $\mathcal{D}(X)$ is bounded below if and only if $X$ is trivial and $\mathcal{D}(X)$ has only one element.
+\end{conjecture}
+
+\end{document}

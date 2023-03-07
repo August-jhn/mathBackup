@@ -1,0 +1,162 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{birrell2007knot}{article}{}
+      \name{author}{1}{}{%
+        {{hash=77042d9bb7925bba89859ce6a1c37e74}{%
+           family={Birrell},
+           familyi={B\bibinitperiod},
+           given={Eleanor},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{77042d9bb7925bba89859ce6a1c37e74}
+      \strng{fullhash}{77042d9bb7925bba89859ce6a1c37e74}
+      \strng{bibnamehash}{77042d9bb7925bba89859ce6a1c37e74}
+      \strng{authorbibnamehash}{77042d9bb7925bba89859ce6a1c37e74}
+      \strng{authornamehash}{77042d9bb7925bba89859ce6a1c37e74}
+      \strng{authorfullhash}{77042d9bb7925bba89859ce6a1c37e74}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Instructions for Authors. All submissions should}
+      \field{title}{The knot quandle}
+      \field{year}{2007}
+      \field{pages}{33}
+      \range{pages}{1}
+    \endentry
+    \entry{ehrman2008toward}{article}{}
+      \name{author}{4}{}{%
+        {{hash=85a6b649949bd20121b1daf46f032869}{%
+           family={Ehrman},
+           familyi={E\bibinitperiod},
+           given={Geoff},
+           giveni={G\bibinitperiod}}}%
+        {{hash=3c8b6c2b8a5197858cb0c506ea29bf7b}{%
+           family={Gurpinar},
+           familyi={G\bibinitperiod},
+           given={Ata},
+           giveni={A\bibinitperiod}}}%
+        {{hash=5841208f124eb85b248cdf6b899a93fa}{%
+           family={Thibault},
+           familyi={T\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod}}}%
+        {{hash=520a15dd0b62bc9d9c0625d21d48f93c}{%
+           family={Yetter},
+           familyi={Y\bibinitperiod},
+           given={DN},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {World Scientific}%
+      }
+      \strng{namehash}{d1a89f3138746b02f254108e05d046e7}
+      \strng{fullhash}{00d214fb7be90d182c91ab3972ad61ef}
+      \strng{bibnamehash}{d1a89f3138746b02f254108e05d046e7}
+      \strng{authorbibnamehash}{d1a89f3138746b02f254108e05d046e7}
+      \strng{authornamehash}{d1a89f3138746b02f254108e05d046e7}
+      \strng{authorfullhash}{00d214fb7be90d182c91ab3972ad61ef}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Knot Theory and Its Ramifications}
+      \field{number}{04}
+      \field{title}{Toward a classification of finite quandles}
+      \field{volume}{17}
+      \field{year}{2008}
+      \field{pages}{511\bibrangedash 520}
+      \range{pages}{10}
+    \endentry
+    \entry{joyce1982classifying}{article}{}
+      \name{author}{1}{}{%
+        {{hash=d4b64da77c7904d1514f3138aff8cf9b}{%
+           family={Joyce},
+           familyi={J\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{d4b64da77c7904d1514f3138aff8cf9b}
+      \strng{fullhash}{d4b64da77c7904d1514f3138aff8cf9b}
+      \strng{bibnamehash}{d4b64da77c7904d1514f3138aff8cf9b}
+      \strng{authorbibnamehash}{d4b64da77c7904d1514f3138aff8cf9b}
+      \strng{authornamehash}{d4b64da77c7904d1514f3138aff8cf9b}
+      \strng{authorfullhash}{d4b64da77c7904d1514f3138aff8cf9b}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Pure and Applied Algebra}
+      \field{number}{1}
+      \field{title}{A classifying invariant of knots, the knot quandle}
+      \field{volume}{23}
+      \field{year}{1982}
+      \field{pages}{37\bibrangedash 65}
+      \range{pages}{29}
+    \endentry
+    \entry{saki2021complemented}{article}{}
+      \name{author}{2}{}{%
+        {{hash=bbed8118aaba2eeb5509057a6990c6fb}{%
+           family={Saki},
+           familyi={S\bibinitperiod},
+           given={A},
+           giveni={A\bibinitperiod}}}%
+        {{hash=789ebfc0b3009cc97d89ce61d7d51eba}{%
+           family={Kiani},
+           familyi={K\bibinitperiod},
+           given={D},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{2fbcfc243b920165c7b6e6d9069351c2}
+      \strng{fullhash}{2fbcfc243b920165c7b6e6d9069351c2}
+      \strng{bibnamehash}{2fbcfc243b920165c7b6e6d9069351c2}
+      \strng{authorbibnamehash}{2fbcfc243b920165c7b6e6d9069351c2}
+      \strng{authornamehash}{2fbcfc243b920165c7b6e6d9069351c2}
+      \strng{authorfullhash}{2fbcfc243b920165c7b6e6d9069351c2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Algebraic Combinatorics}
+      \field{number}{2}
+      \field{title}{Complemented lattices of subracks}
+      \field{volume}{53}
+      \field{year}{2021}
+      \field{pages}{455\bibrangedash 468}
+      \range{pages}{14}
+    \endentry
+    \entry{wikipediaKnotGroup}{article}{}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labeltitlesource}{title}
+      \field{title}{Wikipedia: Knot Groups}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

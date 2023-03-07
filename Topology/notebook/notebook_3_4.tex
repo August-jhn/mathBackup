@@ -1,0 +1,183 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\title{Topology}
+\author{August bergquist}
+
+
+\begin{document}
+
+\maketitle
+
+\fbox{definition} Let $f:X\rightarrow Y$ be a continuous function. Then $f_* : \pi_1(X,x_0)]\rightarrow \pi_1(Y, f(x_0))$ defined by $f_*([\alpha]) = [f\circ \alpha]$ is called the induced homomorphism on fundamental groups.\\
+
+\fbox{Exercise 12.23} Check that for a continuous function $f:X\rightarrow Y$, the induced homomorphism $f_*$ is well-defined (that is, the image of an equivalence class is independent of the chosen representative). Show that it is indeed a group homomorphism.\\
+
+\fbox{proof} First, suppose that $\alpha$ and $\beta$ are homotopic loops in $X$ based at $x_0$, that is, $[\alpha] = [\beta]$. We will show that the images of $[\alpha]$ and $[\beta]$ are equal. In other words, that $f([\alpha]) = f([\beta])$. Or, as is equivalent from the definition of $f_*$, that $[f\circ \alpha] = [f\circ \beta]$.\\
+
+Before we jump in, let's make sure that $f\circ \beta$ and $f\circ \alpha$ are actually loops based at $x_0$, and hence that $f_*([\alpha])[f\circ\alpha]\in \pi_1(Y,,)$. Otherwise the codomain of $f$ is not even what it is claimed to be. Since $f$ is a continuous function from $X$ to $Y$, and $\alpha$ and $\beta$ are continuous functions from $[0,1]$ to $X$, it follows that the compositions $f\circ\alpha$ and $f\circ \beta$ are well defined. Furthermore, the composition of continuous functions is continuous, hence $f\circ \alpha$ and $f\circ \beta$ are continuous functions from $[0,1]$ to $Y$. It remains to be shown that $f\circ \alpha(0) = f\circ \alpha(1) = f(x_0)$ and $f\circ \beta(0) = f\circ \beta(1) = f(x_0)$. By composition, and since $\alpha(0) = x_0$, it follows that $f\cric\alpha(0) = f(\alpha(0)) = f(x_0)$. Similarly, by composition and since $\alpha(1) = x_0$, it follows that $f\circ \alpha(1) = f(\alpha(1)) = f(x_0)$. Hence $f\circ \alpha$ really is a loop in $Y$ based at $f(x_0)$, thus $f_*([\alpha]) = [f\circ\alpha]\in \pi_1(Y,f(x_0))$. That is, any element in the domain $\pi_1$ Since $\alpha$ and $\beta$ are arbitrary, the same argument applies to $f_*(\beta)$ as well.\\
+
+Having shown that $f_*([\alpha])$ and $f_*(\beta)$ really are elements of $\pi_1(Y, f(x_0))$, and since path equivalence is an equivalence relation, it follows that in proving that $f_*([\alpha]) = [f\circ \alpha] f_*([\beta]) = [f\circ \beta]$, it suffices to show that $f\circ \alpha \sim f\circ \beta$. To show this, we must find a homotopy. \\
+
+We can do something nifty here. Since $\alpha\sim \beta$ in $X$, there must exist some homotopy between $\alpha$ and $\beta$. Call this homotopy $H: [0,1]\times[0,1]\rightarrow X$. Consider the composition $F 
+\coloneqq f\circ H : [0,1]\times [0,1]\rightarrow Y$. We will show that $F$ is in fact a homotopy between $f\circ \alpha$ and $f\circ \beta$, and hence $f\circ\alpha\sim f\circ \beta$, and thus by transitivity of equivalence relations $[f\circ \alpha] = [f\circ \beta]$ (that is, $f_*([\alpha]) = f_*([\beta])$). This is actually super straightforward:
+\begin{enumerate}
+    \item Since by definition of a homotopy, $H(s, 0) = \alpha(s)$ for all $s\in [0,1]$, it follows that $F(s,0) = f\circ H(s,0) = f(H(s,0)) = f(\alpha(s)) = f\circ \alpha(s)$ for all $s\in [0,1]$. This satisfies the first requirement.
+    \item Since by definition of a homotopy, $H(s,1) = \beta(s)$ for all $s\in [0,1]$, it follows that $F(s, 1) = f\circ H(s,1) = f(H(s,1)) = f(\beta(s)) = f\circ \beta(s)$ for all $s\in [0,1]$. This satisfies the second requirement.
+    \item Since by definition of a homotopy, $H(0,t) = \alpha(0) = \beta(0)$ for all $t\in [0,1]$, it follows by construction of $F$ that $F(0,t) = f\circ H(0,t) = f(H(0,t))$. Hence by substitution $F(0,t) = f(\alpha(0)) = f\circ \alpha(0) = f(x_0) = f\circ \beta(0)$ (since $f\circ \alpha$ and $f\circ \beta$) are loops in $Y$ based at $f(x_0)$, as we have shown in the first part of this proof.) This satisfies the third requirement.
+    \item Since by definition of a homotopy, 
+\end{enumerate}
+
+
+
+ \end{document}

@@ -1,0 +1,178 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate, diagbox, tcolorbox, esvect, tikz, adjustbox}
+
+
+\graphicspath{{./images/}}
+
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+
+%geometry/topology
+\newcommand{\bndry}{\partial}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\theoremstyle{definition}
+
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+
+\title{Real Analysis}
+\author{August Bergquist}
+
+\begin{document}
+
+\maketitle
+\section{Problem 2.2.4}
+
+
+\begin{proposition}
+Let \(r:K\to \R\), with \(K\subset \R\) a "D-domain." Then if 
+\[
+\lim_{x\to a}\frac{r(x)}{a-x} = 0,
+\]
+then
+\[
+\lim_{x\to a}r(x) = 0.
+\]
+\end{proposition}
+
+\begin{proof}
+Supposing the first limit holds, we have that for any \(\epsilon > 0\), there exists some \(\delta>0\) such that whenever \(0 < |x-a| =|a-x| < \delta\), 
+\[
+ \Big| \frac{r(x)}{a-x} \Big| = \frac{|r(x)|}{|x-a|} < \epsilon.
+\]
+
+Well, let \(\epsilon > 0\). Then there exists a specific \(\delta' > 0\) corresponding to \(\epsilon \) as above. Now consider \(\delta = \min\{1, \delta'\}\). Suppose \(0<|x-a|< \delta\). Then \(0 < |x-a| < 1\), \(0 < |x-a| < \delta'\), so 
+\[
+|r(x)| < \frac{|r(x)|}{|x-a|} < \epsilon.
+\]
+In short, for any \(\epsilon > 0\) there exists some \(\delta\) such that whenever \(0 <|x - a| < \delta\), we have \(|r(x)| < \epsilon\). By definition of a limit,
+
+\[
+\lim_{x\to a}r(x) = 0.
+\]
+
+\end{proof}
+
+\section{Chain Rule}
+
+My assignment was to fill in the proofs of the textbook, so unfortunately my proof isn't all that creative. That said, I do like the way they prove it in there (though the largest hole in the proof is, I think, unnoticed by the authors).
+
+\begin{lemma}
+Suppose \(f:K\to \R\) and \(g:K'\to \R\) are continuous and differentiable on their domains, and let \(K\) be a "D-domain", such that $f(K) \subset K'$. Then for any \(a\in K\), there exists a doubly suggestively and doubly named real number
+\((g\circ f)'(a) = g'(f(a))f'(a)\), and a continuous function $R:K\to \R$, such that for any $x\in K$, $g\circ f(x) = g'(f(a))f'(a)(x- a) + g(f(a)) + R(x).$
+\end{lemma}
+
+\begin{proof} 
+
+Chose any \(a\in K\). Then \(f(a)\in K'\), and \(f\) is differentiable at \(a\), while \(g\) is differentiable at \(f(a)\). Since \(f\) is differentiable on its domain, there exists (By Theorem 9.2.2 of the textbook) some continuous function \(r:K\to \R\) such that for any $x\in K$, $f(x) = f'(a)(x-a) + f(a) + r(x)$, and $\lim_{x\to a}r(x)/(x-a) = 0$. Similarly, since $g$ is differentiable at $f(a)$, by the same theorem there must exist some continuous function $e:\R\to\R$ such that 
+$g(x) = g'(f(a))(x- f(a)) + g(f(a)) - e(x)$, and $\lim_{x\to f(a)}e(x)/(x-f(a)) = 0$ (all of this by the same theorem).
+\\
+
+Applying the second equation (which holds for all real numbers, $f(a)$ included, we obtain
+
+\begin{align}
+ g\circ f(x) = g(f(x)) = g'(f(a))(f(x) - f(a)) + g(f(a)) + e(f(x)) \\
+ = g'(f(a))(f'(a)(x-a) + f(a) - f(a) + r(x)) + g(f(a)) + e(f(x))\\
+ = g'(f(a))f'(a)(x - a) + g(f(a)) + [e(f(x)) + g'(f(a))r(x)]\\
+ = g'(f(a))f'(a)(x-a) + g(f(a)) + R(x),
+\end{align}
+
+where $R(x) = e(f(x)) + g'(f(a))r(x)$. So, we have the desired expression; it remains to be shown that $\lim_{x\to a}R(x)/(x-a) = 0$. Since 
+\[
+\frac{R(x)}{x-a} = \frac{e(f(x))}{x-a} - g'(f(a))\frac{r(x)}{x-a}, 
+\]
+
+and applying the theorem (which are in the textbook) which relates constant multiplication to limits, and since $\lim_{x\to a} \frac{r(x)}{x-a}$ exists, we have that $\lim_{x\to a} g'(f(a))\frac{r(x)}{x-a} = g'(f(a))\lim_{x\to a} \frac{r(x)}{x-a} = 0$.
+\\
+
+Moreover, by the same theorem (the part of it relating to arithmetic, it suffices to show that $\lim_{x\to a}e(f(x))/(x-a) = 0$ (for then it exists, and the theorem which allows us to split limits over arithmetic applies).\\
+
+To prove this limit, consider any sequence $\sigma:\N \to K$ which converges to $a$. We want to show that the sequence defined $ ef\sigma(n)/(\sigma(n) - a)$ converges to zero. Luckily, we don't have to actually get our hands dirty with lots of epsilons. Instead, first notice that
+
+\[
+\frac{ef\sigma(n)}{\sigma(n) - a} = \frac{ef\sigma(n)}{\sigma(n) - a}\frac{f\sigma(n) - f(a)}{f\sigma(n) - f(a)} = \frac{e(f\sigma(n))}{f\sigma(n) - f(a)}\frac{f\sigma(n) - f(a)}{\sigma(n) - a}.
+\]
+This is where the textbook's cheekiness comes in (I'm pretty sure they knew I was going to do this, there's no way they didn't mean this to be how I figure this out). Since $f$ is continuous (since differentiability, as we have proven in class, implies continuity), it follows (by the big theorem relating lots of equivalences about continuity) that $f\sigma$ converges to $f(a)$! By construction of $e$, and by the theorem relating limits of functions to limits of sequences, it follows that
+\[
+\lim_{n\to \infty}\frac{e(f\sigma(n))}{f\sigma(n) - f(a)} = 0.
+\]
+
+Similarly, since, by definition of a derivative, $\lim_{x\to a}(f(x) - f(a))/(x-a) = f'(a)$, and since the sequence $\sigma$ converges to $a$, it follows that $\lim_{n\to \infty}(f\sigma(n) - f(a))/(\sigma(n)-a) = f'(a)$. 
+ \\
+ 
+ Since both limits exist, by the theorem relating limits of sequences to multiplication, it follows that 
+ 
+ \[\lim_{n\to \infty}\frac{R(\sigma(n))}{\sigma(n) - a} = \lim_{n\to \infty}\frac{e(f\sigma(n))}{f\sigma(n) - f(a)}\lim_{n\to \infty}\frac{f\sigma(n) - f(a)}{\sigma(n) - a} = (0)f'(a) = 0.
+ \]
+ 
+ Since $\sigma$ was an arbitrary sequence in $K$ converging to $a$, it follows that for any such sequence, the same limit holds. By the theorem relating limits of functions to limits, it follows that
+ 
+ \[
+ \lim_{x\to a}\frac{R(x)}{x-a} = 0.
+ \]
+ 
+ Having proven this limit is zero, all of the claims of the lemma have been verified.
+
+\end{proof}
+
+
+\begin{lemma}
+Given a function $f$ from a D-domain $K$ into $\R$, and $f$ is differentiable, there is a unique real number $m(a)$ for each real number $a$, such that $f(x) = m(a)(x-a) + f(a) + r(x)$, for a continuous function $r: K\to \R$ such that $\lim_{x\to a}r(x)/(x-a)$. It also so happens that $m(a) = f'(a)$ for all $a$. 
+\end{lemma}
+
+\begin{proof}
+First, we will prove the uniqueness of this real number associated with each $a\in K$. The proof will be direct. Suppose that we have $m_1$ and $m_2$, $r_1$ and $r_2$ both continuous functions $K\to \R$, such that (1) $f(x) = m_1(x-a) + f(a) + r_1(x) = m_2(x-a) + f(a) - r_2(x)$ for all $x\in K$, and 
+\[
+\lim_{x\to a}\frac{r_1(x)}{x-a} = 0 = \lim_{x\to a}\frac{r_2(x)}{x-a}.
+\]
+
+Welp, by (1) we have 
+\begin{align}
+m_1(x-a) + f(a) + r_1(x) - (m_2(x-a) + f(a) - r_2(x)) = \\
+(m_1 - m_2)(x-a) + r_1(x) - r_2(x) = 0
+\end{align}
+
+Hence $r_2(x) = (m_1 - m_2)(x-a) - r_2(x)$. Substituting into the second limit above, we have
+\begin{align}
+0 = \lim_{x\to a} \frac{r_2(x)}{x-a}  \\
+=\lim_{x\to a}\frac{(m_1 - m_2)(x-a) + r_1(x)}{x-a}\\
+= \lim_{x\to a}(m_1 - m_2) + \lim{r_1(x)}{x-a}\\
+= m_1 - m_2
+\end{align}
+
+since the first and last limit exist, the first by previous lemmas, and the last by assumption. Hence $m_1 = m_2$. This proves that the real number $m(a)$ described in the lemma is unique.\\
+
+It remains to show that this is the derivative. It suffices, by the first part of this proof, that the derivative satisfies the conditions of Theorem 9.2.2 of the textbook. Here, $f'(a)$ is specified to be the derivative at $a$.\\
+
+Consider $r(x) = f'(a)(x-a) + f(a) - f(x)$. Since the first, last, and middle terms are continuous, the whole thing is. Moreover, upon taking the limit, we have
+\[
+\lim_{x\to a}\frac{r(x)}{x-a} = f'(a) - \lim_{x\to a}\frac{f(x) - f(a)}{x-a} = f'(a) - f'(a) = 0
+\]
+by definition of the derivative (and of course applying the sum rule for limits). This establishes that, not only is the $m(a)$ of the lemma unique, it is the derivative.
+
+\end{proof}
+
+\begin{theorem}
+Let $K,K'$ be $D$-domains, and let $f:K\to \R$ and $g:K'\to \R$ with $f(K)\subset K'$, and such that $f$ and $g$ are differentiable on their domains. Then $g\circ f$ is differentiable, and $(g\circ f)'(a) = g'(f(a))f'(a)$ for all $a\in K$. 
+\end{theorem}
+
+\begin{proof} By Proposition 1 and Theorem 2.2.2 of the textbook, it follows that $g\circ f$ is differentiable on its domain (for any $a\in K$. By the same proposition, and by Lemma 2, it follows that for any point $a\in K$, the derivative of the composition is what the statement of the theorem claims.  
+\end{proof}
+\end{document}

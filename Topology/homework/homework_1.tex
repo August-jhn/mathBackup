@@ -1,0 +1,99 @@
+
+\documentclass{article}
+\usepackage{listings}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{ stmaryrd }
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\title{Topology}
+\author{August bergquist}
+
+
+\begin{document}
+
+\fbox{useful fact 1} Given sets $X$ $A$ and $B$, $X-(A\cup B) \subseteq X-A$.
+
+\fbox{proof} Let $x$ be an arbitrary element in $X-(A\cup B)$. By definition of the set difference, $x\in X$ and $x\not\in A\cup B$. Suppose by way of contradiction that $x\in A$. Then $x\in A$ or $x\in B$, hence by definition of the union $x\in A\cup B$. This contradicts $x\not\in A\cup B$, hence $x\not \in A$. Since $x\in X$ and $x\not\in A$, it follows by definition of the set difference that $x\in X-A$. Since $x$ is arbitrary in $X- (A\cup B)$, it follows that all elements in $X- (A\cup B)$ are also in $X-A$. Hence by definition of a subset $X-(A\cup B) \subseteq X-A$.
+\\
+
+\fbox{useful fact 2} I'm not entirely sure how to prove this rigorously, but if we take the set of trans-finite numbers along with $N_0$ as an ordered set, where $0< 1< 2<...<10^{100} < ...  < \aleph_0 < 2^{\aleph_0}$ and so on, then we could say something like this: Given any sets $A$ and $B$, $A\subseteq B$ implies that $|A| \le |B|$. \\
+
+
+\fbox{theorem/exercise 2.5} The discrete (1), indiscrete (2), finite compliment (3), and countable compliment (4) topologies are indeed topologies.\\
+Let $X$ be an arbitrary set.\\
+\fbox{proof for 1} Let $X$ be an arbitrary set. We want to show that the power set $2^X$ forms a topology on $X$. To verify this, we will prove that each axiom of the definition of a topology are satisfied.
+\begin{enumerate}
+    \item First, we need to show that $\emptyset\in 2^X$. Since $\emptyset\subseteq X$, and since $2^X$ is the set of all subsets of $X$, it follows by definition of $2^X$ that $\emptyset \in 2^X$.
+    \item Second, we need to show that $X\in 2^X$. Since $X$ is a subset of itself, $X\in 2^X$ by definition of the power set.
+    \item Third, we need to show that the intersection of any elements of $2^X$ is itself in $2^X$. To do this, let $A$ and $B$ be arbitrary members of the power set $2^X$. By definition of the power set $A\subseteq X$ and $B\subseteq X$. To show that $A\cap B\in 2^X$, it will suffice to show that $A\cap B\subseteq X$. Now let $a$ be an arbitrary element in the intersection, $A\cap B$. We know that $a\in A$ and $b\in B$ by definition of the intersection. Since $A\subseteq X$ (it could have just as well been $B$), we know by definition of a subset that $a\in X$. Since $a$ is arbitrary in $A\cap B$, it follows that all members of $A$ are also members of $X$, hence $A\cap B\subseteq X$. Since $A\cap B\subseteq X$, $A\cap B$ is in $2^X$ by definition of $2^X$.
+    \item Let $\{U_\alpha\}_{\alpha\in A}$ be some arbitrary family of sets in $2^X$. In other words, each member of $\{U_\alpha\}_{\alpha\in A}$ is a subset of $2^X$. Let $x\in \bigcup_{\alpha\in A}$ be arbitrary. Then by definition of the union of an indexed family of sets $x\in U_x$ for some $U_\beta \in \{U_\alpha\}_{\alpha\in A}$ and some $\beta \in A$. Since each member of $\{U_\alpha\}_{\alpha\in A}$ is a subset of $X$, $U_\beta$ is no exception. Hence by definition of a subset, and since $x\in U_\beta$, $x\in X$. Since $x$ was arbitrary in $\bigcup_{\alpha\in A}$, we conclude that all elements of $\bigcup_{\alpha\in A}$ are also in $X$, so $\bigcup_{\alpha\in A} \susbeteq X$ by definition of a subset. Since $\bigcup_{\alpha\in A}\susbeteq X$, $\bigcup_{\alpha\in A}\in 2^X$ as follows by definition of the power set. Since $\{U_\alpha\}_{\alpha\in A}$ was an arbitrary collection of sets in $2^X$, it follows that the union of any collection of sets in $2^X$ is also in $2^X$.
+\end{enumerate}
+Having shown that $2^X$ meets all of the requirements for a topology on $X$, we conclude that $2^X$ is a topology on $X$.\\
+
+\fbox{proof 2} Let $I$ denote the indiscrete (supposed) topology, $I = \{\emptyset , X\}$
+\begin{enumerate}
+    \item By definition of $I$, $\emptyset\in I$.
+    \item By definition of $I$, $ X\in I$.
+    \item Since there is only one possible intersection between two sets, we just have to consider this one (I suppose the intersection between itself and itself could count too, but this really is getting trivial, if I might slip up and use that word). This is $\emptyset \cap X = \emptyset$, which is, by definition of $I$, in $I$. Since this is the only one, all intersections of any two sets in $ I $ is in $I$.
+    \item There are three possible collections of sets:  (1) just $\emptyset$, (2) just $X$, and (3) $\emptyset$ and $X$. (1) From foundations, we know that the union of the empty set with itself is just the empty set, which is still in $I$. (2) Likewise, $ X \cup X = X$, which is in $I$. (3) Finally, $X\cup \emptyset = X$, which is in $I$. So all unions of any collection of sets in $I$ is also in $I$.
+\end{enumerate}
+Having shown that all of the requirements for a topology are satisfied, we conclude that $I$ is a topology on $X$.\\
+
+\fbox{proof 3} Now to prove that the finite compliment topology ($F$) is indeed a topology.
+\begin{enumerate}
+    \item Since the definition of $F$ is the set of all subsets of $A\subseteq X$ such that $X-A$ is finite or $\emptyset$, it follows by definition of the finite compliment topology that $\emptyset \in F$.
+    \item Since $X -X = \emptyset$, which is finite, it follows by definition of the finite compliment topology that $X\in F$.
+    \item Consider two arbitrary elements $A$ and $B$ of $F$. There are two cases: (1) $A = \emptyset$ while $X-B$ is countable, (2) vice versa, (3) $A = \emptyset = B$, (4) and $X-A$ and $X-B$ are both finite. In case 1, $A\cap B = A\cap \emptyset = \emptyset$, which by definition of the finite compliment topology is in the finite compliment topology. We can without loss of generality ignore case 2, because $A$ and $B$ are arbitrary. In case 2, $A\cap B = \emptyset\cap \emptyset = \emptyset$, which is in $F$. Case 4 will require some more work. (Note that these cases are not mutually exclusive, but they do cover all possibilities provided by the definition of the finite compliment topology.)
+    
+    Suppose that $X-A$ and $X-B$ are both finite. Then $X-A$ and $X-B$ are both finite by definition of the finite compliment. By theorem 1.2, $X-(A\cap B) = (X-A)\cup (X-B)$. Recall from foundations that the union of a finite number of finite sets in finite, hence $(X-A)\cup (X-B)$ is finite. Since $(X-A)\cup (X-B) = X-(A\cap B)$, $ X-(A\cap B) $ is finite. Then by definition of the finite compliment, $A\cap B \in F$. Since $A$ and $B $ are arbitrary elements in $F$, the intersection of any two elements in $F$ is also in $F$.
+    \item Let $\{U_\alpha\}_{\alpha\in A}$ be an arbitrary collection of sets in $F$. There are two cases. Either the only set we've got here is the empty set, in which case the union is also the empty set which is in the finite compliment topology, or there is some non-empty set in this family. Suppose that the latter is the case (1). \\
+    
+    From theorem 1.2 we know that $X - \bigcup_{\alpha\in A}U_\alpha = 
+    \bigcap_{\alpha\in A}(X-U_\alpha)$. Let $x\in \bigcap_{\alpha\in A}(X-U_\alpha)$ be arbitrary. By definition of the intersection of an indexed family of sets it follows that $x\in X-U_x$ for any old non-empty $U_x\in \{U_\alpha\}_{\alpha\in A}$ (the existence of which is guaranteed by our supposition(1)). Since $U_x\in \{U_\alpha\}_{\alpha\in A}$, $U_x$ is a non-empty set in the finite compliment topology and $X-U_x$ is finite. Furthermore, since $x$ was arbitrary in $\bigcup_{\alpha\in A}(X- U_\alpha)$, and we have shown that $x\in X-U_x$, it follows that all elements in $\bigcap_{\alpha\in A}(X-U_\alpha)$ are also elements in $U_x$, so $\bigcap_{\alpha\in A}(X-U_\alpha)\subseteq X-U_x$. But by useful fact 2,  we know that $\big | \bigcap_{\alpha\in A}(X-U_\alpha)\big | \le  |X-U_x| $, and since $X-U_x$ is finite, $\bigcap_{\alpha\in A}(x_U_\alpha) = X - \bigcup_{\alpha\in A}U_\alpha$ must be finite as well. Finally, since  $X - \bigcup_{\alpha\in A}U_\alpha$ is finite, it follows by definition of the finite compliment topology that $\bigcup_{\alpha\in A}U_\alpha$ is in the finite compliment topology. \\
+    
+    Since $\{U_\alpha\}_{\alpha\in A}$ was an arbitrary collection of sets in the finite compliment topology, and we have shown that in all cases its union is in the finite compliment topology, it follows that any collection of sets in the finite compliment topology is also in the finite compliment topology. 
+\end{enumerate}
+
+
+\newpage
+
+
+\fbox{proof 4} Finally, now to prove that the countable compliment topology (call it $C$) is indeed a topology on a set $X$. This proof will follow almost identically from the proof for the finite compliment topology.
+\begin{enumerate}
+    \item Since the definition of $C$ is the set of all subsets of $U\subseteq X$ such that $X-U$ is finite or $\emptyset$, it follows by definition of the countable compliment topology that $\emptyset \in C$.
+    \item Since $X -X = \emptyset$, which is countable, it follows by definition of the countable compliment topology that $X\in C$.
+    \item Consider two arbitrary elements $U_1$ and $U_2$ of $C$. There are two cases: (1) $U_1 = \emptyset$ while $X-U_1$ is countable, (2) vice versa, (3) $U_1 = \emptyset = U_2$, (4) and $X-U_1$ and $X-U_2$ are both countable. In case 1, $U_1\cap U_2 = U_1\cap \emptyset = \emptyset$, which by definition of the countable compliment topology is in the countable compliment topology. We can without loss of generality ignore case 2, because $U_1$ and $U_2$ are arbitrary. In case 2, $U_1\cap U_2 = \emptyset\cap \emptyset = \emptyset$, which is in $C$. Case 4 will require some more work. (Note that these cases are not mutually exclusive, but they do cover all possibilities provided by the definition of the countable compliment topology [yes, I did copy and paste this from proof 3 and replace "finite" with countable].)
+    
+    Suppose that $X-U_1$ and $X-U_2$ are both countable. By theorem 1.2, $X-(U_1\cap U_2) = (X-U_1)\cup (X-U_2)$, which is countable as follows from theorem 1.11. 
+    \item Let $\{U_\alpha\}_{\alpha\in A}$ be an arbitrary collection of sets in $C$. There are two cases. Either the only set we've got here is the empty set, in which case the union is also the empty set which is in the countable compliment topology, or there is some non-empty set in this family. Suppose that the latter is the case (1). \\
+    
+    From theorem 1.2 we know that $X - \bigcup_{\alpha\in A}U_\alpha = 
+    \bigcap_{\alpha\in A}(X-U_\alpha)$. Let $x\in \bigcap_{\alpha\in A}(X-U_\alpha)$ be arbitrary. By definition of the intersection of an indexed family of sets it follows that $x\in X-U_x$ for any old non-empty $U_x\in \{U_\alpha\}_{\alpha\in A}$ (the existence of which is guaranteed by our supposition(1)). Since $U_x\in \{U_\alpha\}_{\alpha\in A}$, $U_x$ is a non-empty set in the finite compliment topology and $X-U_x$ is finite. Furthermore, since $x$ was arbitrary in $\bigcup_{\alpha\in A}(X- U_\alpha)$, and we have shown that $x\in X-U_x$, it follows that all elements in $\bigcap_{\alpha\in A}(X-U_\alpha)$ are also elements in $U_x$, so $\bigcap_{\alpha\in A}(X-U_\alpha)\subseteq X-U_x$. But by useful fact 2,  we know that $\big | \bigcap_{\alpha\in A}(X-U_\alpha)\big | \le  |X-U_x| $, and since $X-U_x$ is countable, $\bigcap_{\alpha\in A}(x_U_\alpha) = X - \bigcup_{\alpha\in A}U_\alpha$ must be countable as well. Finally, since  $X - \bigcup_{\alpha\in A}U_\alpha$ is finite, it follows by definition of the countable compliment topology that $\bigcup_{\alpha\in A}U_\alpha$ is in the countable compliment topology. \\
+    
+    Since $\{U_\alpha\}_{\alpha\in A}$ was an arbitrary collection of sets in the countable compliment topology, and we have shown that in all cases its union is in the countable compliment topology, it follows that any collection of sets in the countable compliment topology is also in the countable compliment topology. 
+\end{enumerate}\\
+
+\end{document}

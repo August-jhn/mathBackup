@@ -1,0 +1,145 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\title{Topology}
+\author{August bergquist}
+
+
+\begin{document}
+
+\fbox{theorem 2.30}
+Let $A$ be a subset of the topological space $X$, and let $p$ be a point in $X$. If the set $\{x_i\}_{i\in \N}\subseteq A$ and $x_i \rightarrow p$, then $p$ is in the closure of $A$. \\
+
+\fbox{proof} Let $U$ be an arbitrary open set containing $p$. Then there are two cases: $x_i \ne p$ for all $i\in \N$ (case 1), or there is some $j\in \N$ such that $x_j = p$ (case 2). These cover all cases, because one case is the logical negation of the other.
+\begin{itemize}
+    \item[Case 1: ] Suppose that $x_i \ne p$ for all $i\in \N$. Let $U$ be an arbitrary open set containing $p$. Since $x_i \rightarrow p$, it follows by definition of the limit of a sequence that for every open set $V$ containing $p$, there exists some $M\in \N$ such that for all $j > M$ the point $x_i\in V$. Since $U$ is an open set containing $p$, it follows that there is some $N \in \N$ such that for all $i > N$ each $x_i\in U$. Let $x_a$ be one such $x_i$. Since all $x_i$ in the sequence are not equal to $p$ by supposition of case 1, it follows that $x_a \ne p$. Since $x_a \ne p$, $x_a \not \in \{p\}$. Furthermore, as we've shown, $x_a\in U$. Hence by definitino of the set compliment it follows that $x_a \in U - \{p\}$. Furthermore, since $\{x_i\}_{i\in \N} \susbeteq A$, and sicne $x_a\in\{x_i\}_{i\in \N} $, it follows by definition of a subset that $x_a \in A$. Since $x_a\in A$ and $x_a\in U-\{p\}$, it follows by intersection that $x_a \in (U -\{p\})\cap A$. Since there's an element in $(U -\{p\})\cap A$, we know $(U -\{p\})\cap A \ne \emptyset$. Since $U$ was an arbitrary open set containing $p$, it follows that for all open sets $W$ containing $p$, $(W-\{p\})\cap A \ne \emptyset$. Hence by definition of a a limit point, $p$ is a limit point of $A$. Since $\overline{A}$ contains all of the limit points of $A$, it follows that $p\in \overline{A}$.
+    \item Now suppose that there exists some $j\in \N$ such that $x_j = p$. Since $x_j = p\in \{x_i\}_{j\in \N}$, and since $\{x_i\}_{j\in \N}\subseteq A$, it follows that $p$ is in $A$. Since the closure of $A$ is $A$ together with $A$'s limit points, it follows that $p\in \overline{A}.$
+\end{itemize}
+Since in either case $p\in \overline{A}$, it follows that $p\in \overline{A}$. Q.E.D.\\
+
+
+ 
+
+
+\fbox{theorem 2.31} In the standard topology on $\R^n$, if $p$ is a limit point of a set $A$, then there is a sequence of points in $A$ that converges to $p$. \\
+
+\fbox{proof} Suppose that $p$ is a limit point of the set $A$ in $\R^n$ with the standard topology. Then for every open set $U\in \standtop$ containing $p$ $U-\{p\}\cap A \ne \emptyset$. Let $B_1(p,\epsilon_1)$ be an arbitrary open ball around $p$ for some $\epsilon_1\in \R$. Since $p\in B_1(p,\epsilon_1)$, we know that $B_1(p,\epsilon_1) - \{p\}\cap A \ne \emptyset$, hence there exists some $x_1 \in \{p\}\cap A$. By intersection we know that $x_i\in A$. Now define the sequence of real numbers $\{\epsilon_i\}_{i \in \N}$ as $\epsilon_i = \epsilon_1/i$, where $\epsilon_1$ is as defined above. Now for each open ball $B_1(p,\epsilon_i)$, since $p\in B_1(p,\epsilon_i)$, and since $p$ is a limit point of $A$, we know by definition of a limit point that $(B_1(p,\epsilon_i) - \{p\})\cap A\ne \emptyset $. Hence there must exist some $x_i\in (B_1(p,\epsilon_i) - \{p\})\cap A$ for each of these, and $x_i\in A$ by intersection. Furthermore, each of these $i$-th balls is a subset of $B(p,\epsilon_1)$, and also a subset of each $B(p,\epsilon_j)$ for all $j\le i$. \\
+
+Now let $U$ be an arbitrary open set containing $p$. Since $U$ is an open set in the standard topology on $\R_n$, and since $p\in U$, it follows by definition of the standard topology on $\R^n$ that there exists some open ball $B(p,\epsilon)$ contained within $\R^n$ for some $\epsilon > 0 \in \R$. Since $\epsilon,\epsilon_1$ are both positive real numbers, and since the positive reals form a group under multiplication, it follows by properties of groups that $n\epsilon = \epsilon_1$ for some $n\in \R$. Let $N$ be the nearest integer above or equal to $n$. Then $\epsilon_1/N < \epsilon$, hence $B(p,\epsilon_1/N)\subseteq B(p,\epsilon)$. \\
+
+\newpage
+
+\fbox{fancy proof} Let $\epsilon $ be an arbitrary positive real number. Consider the function $f: \N \rightarrow \standtop$, defined $f(i) = B(p,\epsilon/i)$. Define the image of $\N$ under $f$ to be $\mathcal{B}$. Notice that for any $i\in \N$, $B(p,\epsilon/j)\subseteq B(p,\epsilon/i)$ for all $j\ge i\in \N$. In fact, it would be pretty easy to show that for any real numbers  $B(p,\epsilon/x) \subseteq B(p,y)$ whenever $y\ge x$. Call this observation "useful fact 1". \\
+
+Let $B(p,\epsilon/i)\in \mathcal{B}$ be arbitrary. Since $B(p,\epsilon/i)$ is open and contains $p$, and since $p$ is a limit point of $A$, it follows by definition of a limit point that $(B(p,\epsilon/i)-\{p\})\cap B(p)$ is non-empty. So there must be something in it, call it $x_i$. Using rules of set theory, we see that $x_i\in B(p,\epsilon/i)$ and $x_i\in A$. Since $B(p,\epsilon/i)$ was arbitrary in $\mathcal{B}$, we note that for each element $B_i$ in $\mathcal{B}$ there is some $x_i$ such that $x_i\in B_i$ and $x_i\in A$. Define the function $g : \mathcal{B}\rightarrow X$ as the function that maps each $B_i$ in $\mathcal{B}$ to its corresponding $x_i$ as we have shown.\\
+
+Now consider the composition $h = g\circ f: \N \rightarrow X$. This is well defined, as $\mathcal B$ is the image of $\N$ of $g$, and the domain of $f$. We can view this as the sequence $(x_i)_{i\in \N}$. Since each $x_i$, as defined, must be an element of $A$, it follows that the image of this sequence, $\{x_i\}_{i\in \N}\subseteq A$. \\
+
+Now let $U$ be an arbitrary open set containing $p$. By definition of open sets in the standard topology on $\R^n$ there exists some open ball $B(p,\delta)$ for some real $\delta > 0$ that is entirely contained within $U$. Using supposedly valid properties of the positive real numbers, there must exist some natural number $n$ such that $\epsilon \ge \delta/n$. Then, by useful fact 1, it follows that $f(n) = B(p,\epsilon/n) \susbeteq B(p,\delta ) \susbeteq U$. Now let $i> n\in \N$ be arbitrary. Re-applying useful fact $1$, it follows that $f(i) = B(p,\epsilon/i) \subseteq B(p,\epsilon/n) $ Hence, since $x_i\in B(p,\epsilon/i)$ by definition of $i$, it follows by definition of a subset that $x_i\in U$.  Since $i$ is arbitrary, for all $i> n$ $x_i\in U$. Since $U$ was an arbitrary open set containing $p$, it follows that for any open set $V$ containing $p$ there exists a natural number $n$ such that for all natural numbers greater than $n$ $x_i \in U$. So by definition of the a of a sequence, $x_i \rightarrow p$. Furthermore, as we have shown, each $x_i\in A$.\\
+
+Therefore, whenever $p$ is a limit point of a set $A$ in the standard topology on $\R^n$, there exists a sequence of points in $A$ that converges to $p$.
+\\
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[scale=0.5]{in}}
+\caption{what this proof looks like in $\R^2$}
+\label{fig}
+\end{figure}
+
+\newpage
+
+
+\fbox{theorem 3.1} Let $(X,\topT)$ be a topological space, and let $\mathcal{B}$ be a collection of subsets of $X$. Then $\mathcal{B}$ is a basis for $\topT$ if and only if
+\begin{itemize}
+    \item $\mathcal{B}\subseteq \topT$
+    \item for each set $U$ in $\topT$ and point $p$ in $U$ there is a set $V$ in $\mathcal{B}$ such that $p\in V\subseteq U$. 
+\end{itemize}
+
+\fbox{proof}
+\begin{itemize}
+    \item[$\Rightarrow$] Suppose that $\mathcal{B}$ is a basis for $\topT$. We get the fact that $\mathcal{B}\subseteq \topT$ directly from the definition of a basis. It remains to be shown that for each set $U$ in $\topT$ and point $p\in U$ there is a set $V$ in $\mathcal{B}$ such that $p\in V\subseteq U$. Since $U$ is an open set in $\topT$, it follows by definition of the basis that $U = B_1\cup ...\cup B_n$ for $B_1,\dots,B_n\in \mathcal{B}$. Since $p\in U$, it follows by definition of the union that $p\in B_i$ for some $B_i\in \{B_1,\dots,B_n\}$. Furthermore, since elements of a basis are open, we know that $B_i$ is open. \\
+    
+    Having shown that $B_i$ is an open set containing $p$, it remains to be shown that $B_i\susbeteq U$. Suppose by way of contradiction that $B_i$ is not a subset of $U$. Then there must be some element $x\in B_i$ such that $x\not \in B_i$. But then by definition of the union $x\in B_1\cup\dots\cup B_i\cup \dots\cup B$. But since $x\not \in U$ we know that $B_1\cup \dots\cup B_n \not\susbeteq U$, contradicting the fact that $U = B_1\cup \dots\cup B_n$. Hence $B_i$ must be a subset of $U$, and we have found an open set $V$ such that $p\in V \subseteq \topT$.
+    
+    \item[$\Rightarrow$] Now we suppose that $B\subseteq \topT$ and that for each open set $U$ and point $p\in U$ there exists a set $V$ in $\mathcal{B}$ such that $p\in V\subseteq U$. We now suppose by way of contradiction that $\mathcal{B}$ does not form a basis of $\topT$. Then it ain't the case that every open set $U$ is the union of sets in $\mathcal{B}$. In other words, there exists some $W\in \topT$ such that $W$ is not the union of sets in $\mathcal{B}$. But the only way for this to happen is for there to be some element $x\in W$ such that $x$ is not in any member of $\mathcal{B}$.\\
+    
+    But by our supposition, since $W$ is an open set containing $x$ there must exist some $A\in \mathcal{B}$ such that $x\in A\subseteq W$. This contradicts the assumption that there is no member of $\mathcal{B}$ containing $x$. Hence every element of $\topT$ must be the union of elements in $\mathcal{B}$. Furthermore, since its also supposed that $\mathcal{B}\subseteq \topT$, it follows by definition of a basis that $\mathcal{B}$ is a basis for $\topT$.
+    
+    
+    
+\end{itemize}
+\end{document}
+

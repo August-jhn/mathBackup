@@ -1,0 +1,102 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\title{Topology}
+\author{August bergquist}
+
+
+\begin{document}
+
+\fbox{Lesbegue Number Theorem} Given a compact susbet $A$ of a metrizeable space $X$, and given an open cover $\{U_\alpha\}_{\alpha\in \lambda}$, there exists some real number $\delta > 0$ such that for all $x\in A$ there exists an open ball $B(x,\delta)$ such that $B(x,\delta)\subseteq U_\alpha$ for some $\alpha\in \lambda$.\\
+
+\fbox{Lemma 12.17 a} Let $\gamma:[0,1] \rightarrow X$ be a path in $X$. Given an open cover of $X$, we can divide $[0,1]$ into $N$ intervals of the form $I_i = [\frac{i-1}{N}, \frac{i}{N}]$ $i = 1, 2, \dots, N$ such that $\gamm(I_i)$ lies completely in one set of the cover.\\
+
+\fbox{proof} Let $\{U_\alpha\}_{\alpha\in \lambda}$ be an open cover of $[0,1]$. Since $[0,1]$ is a compact metric space, by the Lebesgue Number Theorem there exists some $\deta > 0$ such that for all $x\in [0,1]$ the open ball around $x$ of radius $\delta$ is entirely contained within the preimage of some $U_\alpha$ under $\gamma$ for some $\alpha\in \lambda$. That is $B(x,\delta)\subseteq \inv{\gamma}(U_\alpha)$. Since $\delta > 0$, by the Archimedian principle there must exist some natural number $N$ such that $\frac{1}{N}$ is strictly less than $\delta$. But since $\frac{1}{N}$ is less than $\delta$, it follows that $B(x,\frac{1}{N})\subseteq B(x,\delta)$. Hence by transitivity of subsetes, $B(x,\frac{1}{N})\subseteq \inv{\gamma}(U_\alpha)$. Hence since $\gamma(U_\alpha) \subseteq \gamma(\inv{\gamma}(U_\alpha))$, each $\gamma(I_i)\susbeteq U_\alpha$. This completes the proof.\\
+
+\fbox{lemma 12.17 b} Let $H:[0,1]^2\rightarrow X$ be continuous. Given an open cover of $X$, $[0,1]^2$ can be broken in to squares of side length $1/N$ such that the image of each square is entirely in one set of the cover.\\
+
+\fbox{proof} Let $\{U_\alpha\}_{\alpha\in \lambda}$ be an open cover of $X$. Then $\{\inv{H}(U_\alpha)\}_{\alpha\in \lambda}$ is an open cover of the compact metric space $[0,1]^2$. By the Lebesgue Number Theorem, there must exist some $\delta > 0$ such that for all $w\in [0,1]^2$, $B(w,\delta)\subseteq \inv{H}(U_\aplha)$ for some $\alpha\in \lambda$. Since $\delta > 0$ hence $\delta/2 > 0$, it follows by the Archimedean principle that there must exist some natural number $N$ such that its reciprocal is strictly less than $\delta/2$, hence $B(x,\frac{1}{N})\subseteq $\\
+
+\fbox{Theorem} The fundamental group of the sphere is $1$.\\
+
+\fbox{proof} Let $\gamma$ be any loop on $S^2$ based at $(0,0,-1)$ (the south pole). There are two cases, either $\gamma$ is space filling or it isn't (alternatively, $\gamma$ either is or isn't onto). Suppose it isn't. Then there is some point $p$ on $S^2$ which is not in $\gamma([0,1])$. We then find the angles $\theta$ and $\phi$ which specify the angular distance from $p$ to $(0,0,1)$, and transform $R_{\theta,\phi}$ so that $p \mapsto (0,0,1)$. Then notice that $\gamma$ is also a path on $S^2 -\{0,0,1\}$, which is homeomorphic via the stereographic projection $S$ to $\R^2$. Hence the path $S\circR_{\theta, \phi}\circ\alpha$ is equivalent to Moreover, $H\S$ and $R_{\theta,\phi}$ are continuous maps, hence by a theorem $H\circ R_{\theta, \phi}$\\
+
+
+
+
+
+
+\end{document}

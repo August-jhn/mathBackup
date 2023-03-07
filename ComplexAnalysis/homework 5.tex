@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+\begin{document}
+  
+\hfill August Bergquist
+
+\fbox{proposition} Let $P(z) \in \C[z]$, where 
+$$P(z) = a_0 + a_1 z + \dots + a_n z^n$$. Then 
+$$P'(z) = a_1 + 2a_2z^2 + ... + na_nz^{n-1}.$$
+\fbox{proof} This problem can be reduced to a very simple one. By a previously proven theorem, we differentiate each term seperately as well as factor out the constants, hence 
+$$ \deriv P(z) = \deriv(a_0 + a_1 z + \dots + a_n z^n) = 
+\deriv(a_0) + \dots + \deriv(a_nz^n) = a_0\deriv(1)+a_1\deriv(z) + \dots + a_n\deriv(z^n).$$
+Furthermore, by previously proven properties of derivatives, we have 
+$$\deriv P(z) = 0 + a_1 + 2a_2z + \dots na_nz^{n-1},$$ which is defined at all points $z\in \C$, hence the derivative exists and $P(z)$ is differentiable.\\
+Q.E.D.\\
+
+\cs{Could be induction. 5/5}
+
+\fbox{proposition} The coefficients in the polynomial $P(z)$ $a_0 = P(0), \dots, a_n = \frac{P^{(n)}}{n!}$.\\
+
+\fbox{proof} \\We shall proceed by induction. For the base case, consider the arbitrary polynomial of degree 0, $a_0$. It is clear that $P(0) = P^{(0)}(0)= a_0 = a_0/1!$. Hence the base case holds. \\
+For the induction hypothesis, suppose that there exists some $n$ such that an arbitrary polynomial of degree $n$ has the properties, $P^{(n)}(z)= n!a_n$ and $P^{(n)}(0) = n!a_n$. Now add one more arbitrary term to this polynomial, call it $a_{n+1}$. Taking the $n$th derivative, we have by previously proven results that $P^(n)(z)= P^(n)(z) + d^n/dz^n(a_n z^n+1) = (n+1)!a_nz.$ Taking the $n+1$th derivative we have 
+$P^{(n+1)}(z) = (n+1)!a_{n+1},$ hence $P^{(n+1)}(0) = (n+1)!a_{n+1}$ and $a_{n+1} = P^{(n+1)}(0)/(n+1)!$. Hence by induction it follows that $P^{(n)}(0) = n!a_n$ for all $n$.\\ Q.E.D.
+
+\cs{5/5}
+
+\\
+\fbox{proposition} Let $f$ and $g$ be functions on the complex plane such that $f(z_0) = g(z_0) = 0$, and such that $f'(z_0)$ and $g'(z_0)$ exist, and such that $g'(z_0) \ne 0$. Then 
+$$\lim_{z\to z_0}\frac{f(z)}{g(z)} = \frac{g'(z_0)}{f'(z_0)}.$$\\
+
+\\
+\fbox{proof} (I'm trying to start instantiating everything again for a different professor, so I'll practice here as well) Let $f$ and $g$ be arbitrary analytic functions such that $f(z_0) = g(z_0) = 0$ for some $z_0$, and such that $f'(z_0)$ and $g'(z_0)$ both exist, and such that $g'(z_0) \ne 0$. Also, let $\Delta z = z- z_0$ By definition of the derivative for analytic functions, and by the supposition that $f(z_0)$ and $g(z_0)$ are zero, we have 
+$$\begin{array}{cc}
+     &f'(z_0) = \lim_{\Delta z \to 0}\frac{f(z_0 + \Delta z) - f(z_0)}{\Delta z} =\lim_{\Delta z \to 0}\frac{f(z_0 + \Delta z)}{\Delta z}, \\
+     & \\
+     &g'(z_0) = \lim_{\Delta z \to 0}\frac{g(z_0 + \Delta z) - g(z_0)}{\Delta z} = \lim_{\Delta z \to 0}\frac{g(z_0 + \Delta z)}{\Delta z}.
+\end{array} $$
+Note that $F(\Delta z) = (f(z_0 + \Delta z_0) - f(z_0))/\Delta z$ and $G(\Delta z) = (g(z_0 + \Delta z_0) - g(z_0))/\Delta z$ can be viewed as individual functions. Since by a previously proven theorem (10 of section 18 I think), and since $g'(z_0)$ is nonzero, it follows that 
+$$\begin{array}{cc}
+     &  f'(z_0)/g'(z_0) = \frac{\lim_{\Delta z \to 0}\frac{f(z_0 + \Delta z)}{\Delta z}}{\lim_{\Delta z \to 0}\frac{g(z_0 + \Delta z)}{\Delta z}} = \frac{\lim_{\Delta z \to 0}F(\Delta z)}{\lim_{\Delta z\to 0}G(\Delta z)}  \\
+     & \\
+     & = \lim_{\Delta z \to 0}F(\Delta z)/G(\Delta z) = \lim_{\Delta z \to 0}\frac{\frac{f(z_0 + \Delta z)}{\Delta z}}{\frac{g(z_0 + \Delta z)}{\Delta z}} = \lim_{\Delta z\to 0}f(z_0 + \Delta z)/g(z_0 + \Delta z).
+\end{array}$$
+Furthermore, by a previously proven theorem from last assignment, it follows that this is just $\lim_{z\to z_0}f(z)/g(z)$. Substituting, we have our desired result:
+$$\lim_{z\to z_0}\frac{f(z)}{g(z)} = \frac{f'(z_0)}{g'(z_0)}.$$ Q.E.D.\\
+\mathwitch
+
+\fbox{remark} Isn't this just part of L'Hopital's rule for complex numbers? \cs{Yes! :)}
+
+\cs{5/5}
+
+\cs{15/15}
+
+\end{document}

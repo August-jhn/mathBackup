@@ -1,0 +1,17 @@
+[1] Config.pm:306> INFO - This is Biber 2.18
+[2] Config.pm:309> INFO - Logfile is 'presentation.blg'
+[691] biber-MSWIN64:340> INFO - === 
+[890] Biber.pm:418> INFO - Reading 'presentation.bcf'
+[1350] Biber.pm:978> INFO - Found 5 citekeys in bib section 0
+[1401] Biber.pm:4401> INFO - Processing section 0
+[1470] Biber.pm:4592> INFO - Looking for bibtex file 'presentation.bib' for section 0
+[1628] bibtex.pm:1713> INFO - LaTeX decoding ...
+[1679] bibtex.pm:1518> INFO - Found BibTeX data source 'presentation.bib'
+[1979] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1980] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1981] Biber.pm:4221> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[1982] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
+[2002] bbl.pm:654> INFO - Writing 'presentation.bbl' with encoding 'UTF-8'
+[2012] bbl.pm:757> INFO - Output to presentation.bbl
+[2013] Biber.pm:130> WARN - BibTeX subsystem: C:\Users\augus\AppData\Local\Temp\biber_tmp_5_UA\34d5c13b83743c835fb1206c50156c75_15048.utf8, line 60, warning: undefined macro "https://en.wikipedia.org/wiki/Knot_group"
+[2014] Biber.pm:132> INFO - WARNINGS: 1

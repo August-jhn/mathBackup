@@ -1,0 +1,23 @@
+\documentclass{article}
+\newcommand{\pder}[]{\frac{\partial}{\partial}}
+\usepackage[utf8]{inputenc}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+\fbox{theorem} Suppose $f$ is analytic in a domain $D$ that contains a segment of the real axis $S$, and that $D$ is symmetric about the real axis. Then $\overline{f(\overline{z})} = f(\overline{z})$ for all $z\in D$, iff $f(z)$ is real for all $x\in S$ \\
+\fbox{proof} \\
+
+Let $F(z) = \overline{f(\overline{z})}$. Let $f(z) = u(z,y) + iv(x,y)$ and $F(z) = U(x,y)+i V(x,y)$. Then $\overline{F(z)} = u(x,y) - iv(x,y)$. \\
+
+Suppose now that $F(z) = f(z)$. Let $F(x+i0) = u(x,0)- iv(x,0) = f(x+i0) = u(x,0) + iv(x,0).$ But since $F(x) = f(x)$ it follows that $v(x,0) = 0$. So $f(x)$ is real for all $x\in S$.\\
+
+Suppose $f(x)$ is real for all $x\in S$. Since $f$ is analytic, it must satisfy the Cauchy Reimann equatinos, hence
+$$u_x(x,y) = v_y(x,y)\mbox{ and }u_x(x,y) = v_x(x,y).$$ Then 
+$$ \pder{x}$$
+So $F$ must be analytic because it satisfies the CR equations.\\
+By assumption, $F(x) = f(x)$ for all $x\in S$. Then by uniqueness, $F(z) = f(z)$ in $D$, hence $\overline{f(x)} = \overline{F(z)} = f(\overline{z})$
+\end{document}
+

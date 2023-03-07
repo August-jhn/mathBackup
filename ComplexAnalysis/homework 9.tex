@@ -1,0 +1,97 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+
+\fbox{6} Show that if $z\ne 0$ and $a\in \R$, then $|z^a| = \exp(a\ln|z|) = |z|^a$.\\
+
+\fbox{solutoin} \\
+By definition of the principle value of complex powers we have $z^a = e^{a\Log z}$. Furthermore, $\Log z = \ln|z|-i\Arg{z}$. \cs{Whoops! $\ln|z|+i\Arg{z}.$} Substituting, $z^a = e^{a\Log z} = e^{a(\ln|z| - i\Arg|z|)} = e^{a\ln|z|}e^{a\Arg|z|i}.$ Interpreting $e^{a\ln{|z|}}$ as our radius in exponential form, we have $|z^a| = e^{a\ln|z|}.$ Furthermore, since $\ln|z|$ is just the same natural logarithm for real valued functions that we are familiar with, $a\ln|z| = \ln|z|^a$. Substituting, $|z^a| = e^{a\ln|z|} = e^{\ln|z|^a} = |z|^a$.\\
+
+\cs{5/5}
+
+\fbox{8b} Proposition, $\frac{z^{c_1}}{z^{c_2}} = x^{c_1-c_2}$.\\
+
+\fbox{proof} Let $z\ne 0\in \C$ and $c_1,c_2\in \C$. By definition of the power function of complex numbers, the principle value of $z^{c_1} = e^{c_1\Log{z}} = e^{c_1(\ln{|z|} + i\Arg{z})}.$ Likewise for $z^{c_2} = e^{c_2(\ln{|z|} + i\Arg{z})}$. Substituting and using already known properties of the exponential function and the principle value of the complex logarithm, we have 
+$$\frac{e^{c_1(\ln{|z|} + i\Arg{z})}}{e^{c_2(\ln{|z|} + i\Arg{z})}} = \exp({(c_1-c_2)(\ln{|z|} + i\Arg{z})}) = \exp((c_1-c_2)(\Log{z})).$$
+By by definition of the principle value of the power function, this is just P.V. $z^{c_1-c_2}$.\\
+
+\cs{5/5}
+
+\cs{10/10}
+
+\fbox{exercise} Use equations 13 and 14: 
+$$\begin{array}{cc}
+     & \sin z = \sin x\cosh y + i \cos x  \sinh y \\
+     & \cos z = \cos x \cosh y - i \sin x \sinh y,
+\end{array}$$
+where $z = x + iy$, to derive equations 15 and 16:
+$$\begin{array}{cc}
+     &  |\sin z|^2 = \sin^2x+\sinh^2y\\
+     & |\cos z|^2 = \cos^2x+\sinh^2y.
+\end{array}$$
+\fbox{derivation} Let's start with equation 15. Substituting in equation 13, we have 
+$|\sin z|^2 = |\sin x \cosh y + i\cos x \sinh y|.$
+ Then by definition of the complex modulus, we have $|\sin z|^2 = \sin^2 x\cosh^2 y + \cos^2 x\sinh^2 y$. Furthermore, recall that the Pythagorean identity for the hyperbolic trig functions is just $\cosh^2y - \sinh^2y = 1$, so equivalently $\cosh^2 y = 1 + \sinh^2 y$. Substituting this in we have 
+ $$\begin{array}{cc}
+      &  |\sin z|^2 =  \sin^2 x\cosh^2 y + \cos^2 x\sinh^2 y\\
+      &  = \sin^2 x(1+\sinh^2 y) + \cos^2 x\sinh^2 y\\
+      & = \sin^2 x + \sinh^2 y(\sin^2x + \cos^2x).
+ \end{array}$$
+ By then by the Pythagorean identity for trig functions we have $\sin^2 x + \cos^2 x = 1$. Substituting in, we have $|\sin z|^2 = \sin^2 x + \sinh^2 y$.\\
+ \\
+
+Now for equation 16 take a similar approach. Substituting equation 14 into 16, we have 
+$$|\cos z| = |\cos x \cosh y - i \sin x \sinh y|^2 = \cos^2 x \cosh^2 y + \sin^2 x \sinh^2 y.$$ Using the hyperbolic Pythagorean identity and making pretty much the exact same substitutions we have 
+$$
+\begin{array}{cc}
+     &  \cos^2x(1+\sinh^2 y) + \sin^2x\cosh^2 y\\
+     & = \cos^2x +\sinh^2y(\cos^2x+\sin^2 x)\\
+     & = \cos^2x + \sinh^2 y.
+\end{array}
+$$
+
+\cs{5/5}
+
+
+\end{document}
+
+

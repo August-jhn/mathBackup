@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Topology}
+\author{ajbergquist }
+\date{January 2022}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+In topology, we want to abstract the notion of continuity so that it does not depend on distance.\\
+
+What is continuity in calculus? \\
+
+Figure 1\\
+
+\fbox{definition} A function is continuous when the preimages of open sets are open. \\
+
+\fbox{definition} A set $X$ and a collection of subsets $T\subset X$ form a topology on $X$ provided that
+\begin{enumerate}
+    \item $\emptyset,X\in T$\\
+    \item $U,V\in T \rightarrow U\cap V \in T$
+    \item If $\{U_\alpha\}_{\alpha\in A}$ is a family of subsetse of $X$ with $U_\alpha\in T$, then $\Cup_{\alpha\in A}U_\alpha \in T$.
+\end{enumerate}
+
+Consider a set $X = \{1,2,4,3\}$, and consider $T = \{\emptyset , \{1,2,3,4\},\{2,4\},\{1.2\}\}$. What can we add to the set to make $T$ into a topology on $X$, according to the rules? \\
+
+\fbox{notice} property 2 says that $T$ must be closed under finite intersection. Property 2 says that $T$ must be closed udner arbitrary union.\\
+
+
+\fbox{definition} Given a set $U\subseteq \R$, $U$ is open iff $\forall p\in U \exists \epsilon_p > 0$ such that $(p- \epsilon_p,p+\epsilon_p) \subseteq U$.
+\end{document}

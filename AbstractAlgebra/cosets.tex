@@ -1,0 +1,114 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+
+\title{Abstract Algebra}
+\author{August, Evelyn}
+\date{10/05/2021}
+
+\begin{document}
+\fbox{definition} Let $G$ be a group and $H$ be a subgroup of $G$, and $a\in G$, 
+\begin{itemize}
+    \item the left coset $aH = \{ah | h\in H\}$
+    \item the right coset $Ha = \{ha| h\in H\}$
+    \item the conjugate of $H$ is $aHa^{-1} =\{aha^{-1}|h\in H\}$ .
+
+\end{itemize}\\
+
+\fbox{theorem}(properties of cosets) Given a group $G$, $H\le G$ and $a,b\in G$
+\begin{itemize}
+    \item $a\in aH$
+    \item $aH\le G$ if and only if $a\in H$ if and only if $aH = H$
+    \item $aH = bH$ if and only if $a^{-1}b\in H$ if and only if $b^{-1}a\in H$ if and only if $a\in bH$ if and only if $b\in aH$.
+    \item $aH = Ha$ if and only if $aHa^{-1} = H$
+    \item The set of equivalence relations $[a]_~$ partitions $H$. That is, $aH$ partitions $H$.
+    \item $|aH| = |Ha| = |H|$
+\end{itemize}
+
+\fbox{definiiton} Define the relation $a~b$ iff $aH= bH$. Is an equivalence relation.\\
+
+\fbox{Lagrange's theorem} Given a finite group $G$ and a subgroup $H$, the order of $H$ divides the order of $G$. Furthermore, the number of distinct left or right cosets of $H$ in $G$, called the index of $H$ in $G$, denoted $|G:H| = \frac{|G|}{|H|}$.\\
+\fbox{proof} We have essentially already shwon this. We have already shown that the distinct left coses of $H$ partition $G$. This of course implies that $G = a_1H\cup\dots\cup a_nH $, and since these are disjoint, $|G| = |a_1H| + \dots + |a_n H| = |H|+\dots+|H| = k|H|.$ Hence $|H|$ divides $|G|$. And also, $|G|/|H| = k = |G:H|.$\\
+
+\fbox{corollaries}
+\begin{itemize}
+    \item For all $g\in G$, $|g|/|G|.$
+    \item If $|G|$ is prime then $G$ is cyclic.
+    \item Fermat's little theorem. For all $a\in \Z$,  and a prime $p$, $a^p\equiv a\pmod(p)$
+\end{itemize}
+
+\fbox{definition} Let $G$ be a group of permutations on a set $S$ and let $x\in S$. The orbit of $x$, denoted $\orb(x) = \{g(x):g\in G\}$. The stabalizer of $x$. denoted $\stab(x) = \{g\in G: g(x) = x\}$. \\
+
+\fbox{theorem} (orbit stabalizer theorem) Given a finite group $G$ of permutations on a set $S$, then for all $x\in S$, $|G| = |\orb_G(x)||\stab_G(x)|$.\\
+
+\fbox{proof} On the homeowrk we proved that $\stab_G(x)\le G$. Then by Lagrange's theorem $|\stab_G(x)|\big | |G|$. Then $|G|/|\stab_G| = |G:\stab_G(x)|$. Hence all we need to show is that the size of the index is the size of the orbit. So we need a bijection.\\
+
+$|G:\stab_G(x)|$ counts the number of unique left cosets of $\stab_G(x)$. Let $D$ denote the set of distinct left cosets of $\stab_G(x)$. For brevity, let $\stab_G(x) = H$. Then $D$ can be expressed as $D = \{\sigma H : \sigma\in G\}$. Define a function $\phi:D\rightarrow \orb_G(x)$ by $\phi(gH) = g(x)$ for all $gH\in D$.\\
+
+We need to show that $\phi$ is well defined. Suppose $g\stab_G(x) = k\stab_G(x)$.  Then by properties of costs, $g\in k\stab_G(x)$ implies that this is $k\circ s$ for some $s\in k\stab_G(a)$. Consider $g(x) = k\circs(x) = k(s(x)) = k(x)$. So then $\phi(g\stab_G(x)) = \phi(k\stab_g(x))$. Hence the functin is well defined. \\
+
+It remains to be shown that $\phi$ is a bijection. So we need to show that $\phi$ is both injective and surjective.\\
+
+To show that $\phi$ is injective, let $g_1(\stab_G(x)) = g_2(\stab_G(x))$ be arbitrary elements in $D$ such that $\phi(g_1(\stab_G(x))) = \phi(g_2\stab_G(x)).$  Then by definition of $\phi$, $g_1(x) = g_2(x)$. Since $g_1$ and $g_2$ are permutations, so then $g_1^{-1}$ and $g_2^{-1}$ are in $G$, so we have $g_1^{-1}\circ g_1(x) = g_2^{-1}\circ g_2(x) = e(x) = x$. So then $g_1^{-1}$\\
+\end{document}

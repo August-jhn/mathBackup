@@ -1,0 +1,192 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate, diagbox, tcolorbox, esvect, tikz, adjustbox}
+
+
+\graphicspath{{./images/}}
+
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+
+%geometry/topology
+\newcommand{\bndry}{\partial}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\theoremstyle{definition}
+
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+
+\title{Real Analysis}
+\author{August Bergquist}
+
+\begin{document}
+
+\maketitle
+
+\section{A Generalization that The Reader Could Ignore, Should They Please}
+
+\begin{definition}
+Let $\alpha,\beta:A\to X$, $(A, \le)$ a totally ordered set. Then $\alpha$ is a \textbf{subsequence} of $\beta$ if and only if there exists some monomorphism of order $\sigma:\N\to\N$ such that $\alpha = \beta\circ \sigma$. In this case, we could (dare I say should) write 
+$\alpha \ll \beta$. 
+\end{definition}
+
+\begin{remark}
+This sub-ness definition looks a lot like divisibility, though the analogy does break down. It's certainly cute.
+\end{remark}
+
+\begin{proposition}
+Given $\alpha,\beta:A\to X$ as above, then $A$ is a $(X^A,\ll)$ is a not a poset, though reflexivity and transitivity hold regardless.
+\end{proposition}
+
+\begin{proof}
+
+We first show that transitivity and reflexivity hold regardless of whether or not $A$ has either a least or greatest element. \\
+
+\begin{itemize}
+\item
+Notice that $1_A$ is clearly a morphism of order, and also injective. Since for any sequence $\alpha$, we have $\alpha = \alpha\circ 1_A$, it follows that any sequence is a subsequence of itself. So $\ll$ is reflexive.
+
+\item 
+Now suppose that $\alpha\ll\beta\ll \gamma$. Then there exists monomorphisms of order $\sigma,\kappa:A\to A$ such that $\alpha\circ \sigma = \beta$, and $\beta\circ\kappa = \gamma$. Substituting, we find $\alpha\circ \sigma\circ \kappa  = \gamma$. By the associativity of function composition, $\gamma = \alpha\circ(\sigma\circ\kappa)$. Because the composition of monic functions is monic, and because the composition of morphisms of order is also a morphism of order, it follows that $\sigma\circ \kappa$ is a monomorphism of order. So $\alpha\ll \gamma$. Hence $\ll$ is transitive.
+
+\end{itemize}
+
+So far, we have shown that reflexivity and transitivity hold regardless. We can show a condition in which antisymmetry fails horribly. Consider $\alpha:\N\to \N$ defined $\alpha(n) = n\mod 2$, and $\beta:\N\to \N$ defined $\beta(n) = n+1\mod 2$. Let $\tau_1:\N\to \N$ be the sequence $\tau_1(n) = n + 1$. Notice that $\alpha = \beta\circ \tau_1 $ and $\beta = \alpha\circ \tau_1$, so $\alpha\ll \beta$ and $\beta \ll \alpha $, but $\alpha\ne \beta$. Not only that, but they are in fact subsequences by the same $\tau_1$ !. 
+
+\end{proof}
+
+\begin{remark}
+Subsequences are not really sub-sequences, as two distinct sequences can be subsequences of each other. They are not sub-things like subgroups are sub-groups, or subrings are sub-rings, or subspaces are sub-spaces. They have the name sub-sequence without deserving it.
+\end{remark}
+
+\begin{proposition}
+Although sequences do not usually form a poset, as antisymmetry fails horribly, we can restrict them to make it succeed by demanding that $A$ have either a lower or upper bound, and that each sequence be injective (i.e. distinct).
+\end{proposition}
+
+\begin{conjecture}
+The subsequences of a convergent sequence in $\R$ form a poset. I have a sort of outline for how this might be proven if it's true. It's truly marvelous, such that the margins of my computer's ability to compile LaTeX could not contain it (may be a slight bluff).
+\end{conjecture}
+
+\section{The Beginning of the Actual Assignment: Problem 0.4.5}
+
+\begin{proposition} Let $(A,\le)$ be a totally ordered set. Let $s:\N\to A$ be a sequence. If $s$ has no decreasing subsequence, then $s$ has a smallest term, that is, $s(\N)$ is bounded below in $A$. 
+\end{proposition}
+\begin{proof}
+Suppose that $s$ has no smallest term, that is, that $S(\N)$ is not bounded below, that is, that for all $a\in S(\N)$, there exists some $a'\in S(\N)$ so that $a'< a$. We now proceed to construct a decreasing subsequence. We first must construct a strictly increasing sequence of natural numbers which yields this sub-sequence, and we shall denote it by $\nu$. For ease of description, I shall describe two other function. Let $a\in s(\N)$. The function $i:s(\N)\to \N$ sends $a$ to the first index of $a$ in $s$. Let $n$ be a natural number. The function $\mu: \N \to A$ is defined as follows:\\
+Let $n\in \N$. Let $\mathbf{n}$ denote the set of naturals up to $n$. Then $ s_*(\mathbf{n})$ is a finite set of elements in $A$. Therefore it must have a minimum: call it $b$. Since $b\in s(\N)$, which is not bounded below, there must exist some $b'\in s(\N)$ so that $b'$ is less than $b$. Let this be defined as $\mu(n)$. 
+
+
+\begin{itemize}
+\item For the base case, let $\nu(1) = 1$. Since there is only one element, $\nu$ is strictly increasing up to $1$. Moreover, $s\circ\nu$ is decreasing up to $1$. 
+\item Now let $\nu(n)$ be defined, as suppose that $\nu$ is strictly increasing up to $n$. Suppose also that $s\circ \nu$ is decreasing up to $n$. 
+\item Now let $\nu(n+1) = i\circ \mu\circ \nu(n)$. By the principle of recursion, $\nu$ is uniquely determined. It remains to show that $\nu$ is strictly increasing up to $n+1$, and that $s\circ \nu$ is decreasing up to $n+1$.
+It suffices to show 1) that $\nu(n+1) > \nu(n)$, and that $s\circ\nu(n+1) \le s\circ \nu(n)$. Since $\nu(n+1) = i(\mu(\nu(n))$, it follows that $\nu(n+1)$ is the index of a term which is less than all the terms indexed up to $\nu(n)$. Hence $\nu(n+1) > \nu(n)$. Moreover, since $\nu(n+1)$ is the index of all terms indexed up to $\nu(n)$, it follows $s\circ \nu(n+1)$ is less than all terms below $\nu(n)$. Hence $s\circ\nu(n+1) < s(n)$. 
+\end{itemize}
+By the principle of strong induction, it follows that $\nu$ is strictly increasing, and that $s\circ \nu$ is decreasing. Hence $s\circ \nu$ is a decreasing subsequence, so $s$ has a decreasing subsequence. By contrapositive, the proposition follows.\\
+
+\end{proof}
+
+\begin{proposition}
+If $s$ has no increasing subsequence, then it has a greatest term.
+\end{proposition}
+
+\begin{proof}
+Just replace every instance of $>$ with $<$ and vice versa, and swap the words greatest and least, and increasing and decreasing, in the previous proof.
+\end{proof}
+
+
+\begin{proposition}
+Every sequence has a monotone subsequence.
+\end{proposition}
+\begin{proof}
+Let $s:\N\to A$. If $s$ has a decreasing subsequence, then we're done. Suppose then that it doesn't. So by the second to last proposition above we have that $s$ has a least term. Moreover, by the transitivity of the subsequence relation, it follows that neither does any subsequence of $s$ have a decreasing subsequence, hence every subsequence of $s$ has a smallest term. Particularly, every subsequence induced by a sequence of the form $\tau_m:\N\to \N$ mapping $n\to n+m$ has a lest element. Also, smallest elements are unique. \\
+
+This in mind, we can define a sequence $\alpha: \N\cup \{0\} \to A$ which sends $n$ to the minimum term of  $s\circ \tau_n$. In fact, let $\N^\N$ be the set of functions $\N\to \N$. Then we can define $\tau(n)$ to be the function which maps $n\mapsto \tau_{n+1}$. We also have the same index function from the last proof, $i:A\to \N$. Now we can define another function, $\phi:\N\cup \{0\}\to \N$ which takes $n\mapsto i\circ \alpha(n)$. We can use this function to construct an increasing sequence. \\
+
+Note that, simply put, $\phi$ maps $n$ to the first index of the minimum element of the $n$-th tail of $s$.
+
+\begin{itemize}
+\item Let $\nu(1) = \phi(0)$ (it is the index of the minimum term of the sequence.) Notice that $\nu(1)$ is strictly increasing (vacuously) up to $1$, and that $s\circ \nu$ is increasing so far.
+\item Now suppose that $\nu(n)$ has been defined, and suppose also that $s\circ\nu$ has been increasing up to $n$, and that $\nu$ has been strictly incrasing up to $n$. We need only show that $\nu(n+1) > \nu(n)$ (the rest follows by transitivity), and that $s\circ \nu(n+1) \ge s\circ \nu(n).$
+\item Now let $\nu(n+1) = \phi\circ \nu(n)$. Then $\nu(n+1)$ is the first index of the minimum term of the $\nu(n)$th tail of $s$, as it appears in $s$, so it must be a greater index than all of the terms before it. \\
+
+Notice also that, by construction, $s\circ \nu(n)$ is greater than each of the terms before it (since these were minimums, each including the terms of the next tail).
+\end{itemize}
+By the principle of strong induction, it follows that $\nu$ is stringly increasing, hence that $s\circ\nu\ll s$, and that $s\circ \nu$ is increasing. Hence $s\circ \nu$ is a monotonic subsequence. \\
+
+From this it follows that any sequence either has a decreasing or increasing subsequence sequence. Hence any sequence has a monotonic subsequence.
+\end{proof}
+
+\section{Problem 3.1.3}
+
+\begin{proposition}
+Let $(X,d)$ be a metric space and let $x\in X$. Then $X\setminus \{x\}$ is open. 
+\end{proposition}
+
+\begin{proof}
+Recall that if a subset $U\subset X$ in a metric space has the property that for all points in $U$, there is an open ball around that point which is entirely contained within $U$, then $U$ is open. Thus it suffices to show that for any point other than $x$, there is an open ball around it which does not contain $x$.\\
+
+Let $y\in X\setminus \{x\}$. Then $y\ne x$. By positive definiteness, it follows that $d(x,y) \ne 0$, and by positivity it follows that $\epsilon = d(x,y)>0$. Consider the open ball $B_\epsilon(y)$. Now let $z\in B_\epsilon(y)$. Then $d(z,x)< \epsilon = d(x,y)$, so $d(z,x) \ne d(x,y)$. Obviously, this means that $z\ne x$, by well definiteness of $d$. Hence $z\in X\setminus \{x\}$. But $z$ was arbitrary, so $B_\epsilon(y)\subset X\setminus \{x\}$. So then, for any point $y\in X\setminus\{x\}$, there exists an open ball around it entirely contained within $X\setminus\{x\}$. Hence $ X\setminus\{x\} $ is open.
+\end{proof}
+
+\section{Problem 3.1.8}
+
+\begin{proposition}
+Let $x\in X$, a metric space, such that there exists some $r>0$ so that $B_r(x)$ is finite. Then $x$ is isolated. 
+
+\end{proposition}
+
+\begin{proof}
+Instantiate everything as in the proposition. Since it is finite, we can enumerate the points of $B_r(x)$ which are not $x$, as $x_1, \dots, x_n$. Moreover, for each $i\in \mathbf{n}$, we have $X\setminus \{x_i\}$ open, as follows by the last proposition. For ease of reference, denote each such set as $C_i$, indexing them each by $i\in \mathbf{n}$. Since open sets are closed under finite intersection we have $I = \bigcap_{i\in \mathbf{n}} C_i$ open. Moreover, this intersection must contain none of the $x_i$. Now intersect $I\cap B_r(x)$. Then this is itself an open set, which contains only $x$. Hence the singleton $\{x\}$ is open. Hence $x$ is isolated.
+\end{proof}
+
+\begin{proposition}
+Every metric space $X$ endowed with the trivial metric is discrete. 
+\end{proposition}
+
+\begin{proof}
+For let $X$ be a metric space endowed with the trivial metric. Let $x\in X$. Consider $ r = 1/2$ and $B_{r}(x)$. Since $d(x,x) = 0 < 1/2$, we have $x\in B_r(x)$. Now consider $y\in X$ such that $y\ne x$. Then by definition of the trivial metric, $d(x,y ) = 1 > 1/2$, hence $y\not \in B_r(x)$. Hence $B_r(x) = \{x\}$. Since open balls are open, $\{x\}$ is open. But $x$ was arbitrary, so every signleton containing any point in $X$ is open. So every point is isolated. So $X$ is discrete.
+\end{proof}
+
+\begin{proposition}
+There exists an infinite discrete metric space.
+\end{proposition}
+\begin{proof}
+The proposition is trivial. Consider the natural numbers endowed with the discrete metric. Since I'm not allowed to use the trivial metric, consider an equally trivial metric, $d$, which maps $(x,x) \mapsto 0$ and $(x,y) \mapsto 2$ for all $x\ne y$. Now replace $1$ with $2$, $1/2$ with $1$ in the last proof, and everything else follows trivially. If this is too trivial, consider another trivial construction:
+
+Consider $\Z^2$ viewed as a subset of $\R^2$, with the restriction of the euclidean metric, $d|_{Z^2}$ as the metric. All of the properties of a metric are immediately inherited from $d$. Notice that for any $(m,n)$, distances to non-equal points can never be less than $1$. Any radius $0<r<1$ will yield an open ball $B_r((m,n))$ which contains only $(m,n)$. This really isn't all that interesting either. \\
+
+By the way, consider $\Z$ as a subspace of $\R$, with the restriction of the distance function as the metric. To really prove it, let $z\in \Z$. Consider $r = 1/2$. The minimum distance between non-equal integers is $1$, so the open ball around $z$ contains only $z$ itself, so it is the singleton $\{z\}.$ So $z$ is isolated. This applies to all $z$, so all integers are isolated. Hence $\Z$ is discrete under the described metric. This kind of is interesting, though not really.
+\end{proof}
+
+\begin{proposition}
+Every subset of a discrete metric space is open.
+\end{proposition}
+
+\begin{proof}
+Let $X$ be a discrete metric space, and let $S\subset X$. Since each $\{x\}$ for $x\in S$ is open, by a theorem of the textbook, the union $\bigcup_{x\in S}\{x\}$ is open. Hence every subset is open. In other words, discrete metric spaces are boring as topological spaces. Q.E.D.
+\end{proof}
+
+\begin{remark}
+While discrete metric spaces are incredibly lame and boring as metric spaces, the metrics that make them lame are often Euclidean norms, which have interesting applications in algebra in relation to divisibility. In my opinion constructions are only interesting in the way they relate to other things like multiplication and divisibility. 
+\end{remark}
+
+
+
+\end{document}

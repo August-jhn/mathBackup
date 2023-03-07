@@ -1,0 +1,99 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate, diagbox, tcolorbox, esvect, tikz, adjustbox}
+
+
+\graphicspath{{./images/}}
+
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+
+%geometry/topology
+\newcommand{\bndry}{\partial}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\theoremstyle{definition}
+
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+
+\title{Real Analysis}
+\author{August Bergquist}
+
+\begin{document}
+
+\maketitle
+
+\begin{proposition} Suppose we add in the mostly meaningless symbol $\infty$ into $\R$ to create the set $\R^\infty$. We might as well give the singleton $\{\infty\}$ either the name "the north pole" or "hell": for infinity has much in common with both santa and satan, and in at least four ways. Anyway, either will do just as well. We can view "$\sup$" as a function $\sup_\infty:2^\R\setminus \{\emptyset\} \to \R^\infty$, which takes a nonempty subset of $\R$ either to it's usual definition of the supremum if it's bounded, or to hell/the north pole, also known as the mostly meaningless symbol $\infty$. The claim that the supremum is unique could be refrased as the claim that this function $\sup_\infty$ is well defined. I will use this, though lightly, later in a proof for a generalized theorem that proves the last four bits of the problem as a corollary.
+\end{proposition}
+\begin{proof}
+Suppose $A$ is a nonempty subset of $\R$. Then by the law of the excluded middle, either $A$ is bounded or it aint. Suppose it aint. Then it goes to "hell," and there is no place like it: hence there is a unique image for $A$ under $\sup_\infty$ in this case. Suppose that $A$ is bounded. Then it has a supremum by the Least Upper Bound Axiom, and by Theorem () of the textbook, this upper bound is unique. So there is a unique image for $A$ under $\sup_\infty$ in this case. In either case, and this is all of them, $A$ has a unique image. $A$ was just any non-empty subset of $2^\R\setminus \{\emptyset\}$, the domain of $\sup_\infty$, thus $\sup_\infty$ is well defined.
+\end{proof}
+
+Consider the set $S$ of all bounded sequences of real numbers. For each pair $\mathbf{x},\mathbf{y}\in S$ the distance between them is defined $d(\mathbf{x},\mathbf{y}) = \sup\{|x_i - y_i|: i\in \N\}$.
+\begin{itemize}
+\item The distance between the sequences $\mathbf{x} = (1,0,\dots)$ and $\mathbf{y} = (0,1,0,\dots)$ is $1$. This is because for all $i>2$, we have $ x_i = y_i = 0$ so $|x_i - y_i|= |0-0| = 0$. For $i = 1$, we have $x_1 = 1$, $y_1 = 0$, so $|x_1-y_1| = |1-0| = |1| = 1$. Similarly, we find $|x_2-y_2| = |0-1| = |-1| = 1$. So we only have two elements in our set of distances between terms, in which case the supremum is just the maximum of them: not very interesting. $d(\mathbf{x},\mathbf{y}) = 1$ in this case.
+
+\item Now for the sequences $(1,0,1,0,\dots)$ and $(0,-1,0,-1,\dots)$, we have the distance between them as $1$. This is because the elements of the set of distances between terms is even smaller! For the even terms of the first sequence are all $0$, and the even terms of the second are all $-1$, so the distance between these terms is $|0-(-1)| = 1$. Similarly, for the odd terms of the first sequence are all $1$, and the odd terms of the second are all $0$, so the distance between each of these terms is $|1-0| = 1$. So we have the set of distances between terms as $\{1\}$. There is only one element; obviously the supremum is $1$. These sequences might be even less interesting than the last, because the set of distances is as small as it can be.
+
+\item Now how about the sequences $(1,2,3,1,2,3,\dots)$ and $(-1,-2,-3,-1,-2,-3)$. Rather than giving an answer, it would be so much nicer to prove something general. Suppose we have a sequence $\mathbf{x} = (x_1,\dots,x_n,\dots)$. The negative of the sequence could be defined as $-\mathbf{x} = (-x_1,\dots,-x_n,\dots)$. Now suppose that $\mathbf{x}$ is bounded. In other words, $\{x_i\}$ is bounded below and above. So there must exist a supremum (and an infimum), call it $\sup \mathbf{x}$. Then $\sup |\mathbf{x}|$, if we define $|\mathbf{x}|$ to be the sequence of absolute values, is also bounded. Hence $\sup|\mathbf{x}|$ exists by the upper bound axiom. I claim that $d(\mathbf{x},-\mathbf{x}) = 2\sup|\mathbf{x}|$ for any sequence bounded sequence $\mathbf{x}$. This part of a problem is a special case of this.
+\begin{proof}
+Let $i\in \N$. Then $|x_i-(-x_i)| = 2|x_i|$
+\end{proof}
+
+\item How about $(1/2.1/3,1/4,\dots)$, $(1/2,2/3,3/4,\dots)$? This one is nice. We show that $\sup\{|1/n - ((n-1)/n\} = 1$. First notice that, upon algebrizing, we have $1/n - (n-1)/n = (1-n+1)/n = (2-n)/n$, so we need to find the supremum of the set $\{|(2-n)/n| = (n-2)/n:\in \N\}$. How about $1$. Suppose that we have some 
+\end{itemize}
+
+After the following incoherent ramble, I will finally adress the second bit of the problem, just more generally.
+
+In topology sequences were just defined to be functions from $\N$ to a topological space $X$. Even more generally, they could be defined to be functions from $\N$ to a set $X$. Thus a set is countable if and only if it is the image of a sequence. The fact that the real numbers are "more infinite" than the naturals, could be stated that the real numbers are not the image of any sequence. We could, though perhaps we shouldn't, generalize the space this problem defined even further. Let $(X,d)$ be a metric space. A sequence $\sigma$ to $X$ is bounded if $\sigma(\N)$ is a bounded subset of $X$ (under the metric $d$). Then $L_X^\infty$ could be defined as $(S(x),\delta)$ where $S(x) = \{\sigma:\N\to X\|\{\sigma(\N)\}\mbox{ is bounded }\}\subset \N^X$ and $\delta:$ is the function $\delta:S^2\to \R$ defined $d(\kappa,\sigma) = \sup\{\delta(\kappa(i), \sigma(i): i\in \N\}$. It seems reasonable that this would be another metric space. If it were, we could of course extend this as far as we want, but is there a coherent way of extending it to infinity? Anyway, let's prove this before the clouds get too far in our head. 
+
+\begin{lemma}
+Let $\sigma,\kappa:\N\to X$, $X$ a metric space with metric $d$. If both $\sigma $ and $\kappa$ are bounded with respect to the metric $d$, then the induced sequence $\lambda$ defined $\lambda(i) = d(\sigma(i), \kappa(i))$ is also bounded.
+\end{lemma}
+
+\begin{lemma}
+Let $A = \{a_\lambda\}_{\lambda \in\Lambda}$ and $\{b_\lambda\}_{\lambda\in \Lambda}$ be sets of real numbers, indexed by a suitable set $\Lambda$, and let them both be bounded above. Then the following are true: 
+\begin{itemize}
+\item $a_\lambda\le b_\lambda \forall \lambda\in \Lambda$ implies $\sup A \le \sup B$
+\item $ \sup(A+ B) = \sup A + \sup B $ where $A + B = \{a_\lambda + b_\lambda\}_{\lambda\in \Lambda}$
+\end{itemize}
+
+\end{lemma}
+
+\begin{proof}
+
+First suppose by way of contradiction that for all $\lambda\in \Lambda$, $a_\lambda \le b_\lambda$, while at the same "time" (perhaps branch of logical precedence is a better term) we have 
+\end{proof}
+
+
+\begin{proposition}
+$\ell^1_\infty(X)$ is a metric space. Hence $\ell^n_\infty(X)$ is a metric space for all $n\in \N$. As a consequence, $\ell_\infty = \ell^1_\infty(\R)$ is a metric space. As a consequence, $d$ as defined in the problem is a metric. As a result, $d$ is positive, positive definite, symmetric, and respectfully triangular (this should be a word).
+\end{proposition}
+
+First, the fact that this is positive follows from the fact that $d$ is positive, hence the supremum of its images must be positive. \\
+
+Second, we shall verify positive definiteness. Suppose first that $\delta(\sigma, \kappa) = 0$. Then $\sup\{d(\sigma(i),\kappa(i))\} = 0$, for this is how $\delta$ is defined. Hence $d(\sigma(i), \kappa(i)) \le 0$ for all $i\in \N$, since $0$ is an upper bound by definition of a supremum. Now chose arbitrary $i\in \N$. Since $d$ is a metric on $X$ by assumption, we have by positivity $0\le d(\sigma(i), \kappa(i))$. By antisymmetry of the relation $\le$, we have $d(\sigma(i),\kappa(i)) = 0$. Since $d$ is a metric, by positive definiteness we have $\sigma(i) = \kappa(i)$. Since $i$ was arbitrary, we have $\sigma(i) = \kappa (i)$ for all $i\in \N$. Since $\N$ is the domain of both $\sigma$ and $\kappa$, and since both $\sigma$ and $\kappa$ both have codomain $X$, it follows by definition of function equality that $\sigma = \kappa$. Since $\sigma$ and $\kappa$ were arbitrary, it follows that for all $(\sigma,\kappa)\in S(X)^2$, $\delta(\sigma,\kappa) = 0$ implies $\sigma = \kappa$ as desired. Suppose now that $\sigma = \kappa$. Well then $\sigma(i) = \kappa(i)$ for all $i\in \N$ by definition of function equality. Hence $d(\sigma(i),\sigma(i)) = 0$ by the assumed positive definiteness of $d$. Then the set $\{d(\sigma(i), \kappa(i):i\in \N\}$ is just the singleton $0$, and hence it's supremum is also $0$. Thus, as $\delta$ is defined, we have $\delta(\sigma,\kappa) = 0$. So the implication follows as desired. Hence $\delta$ is positive definite.\\
+
+Now we can verify symmetry. Consider any $\sigma,\kappa\in S(X)$. Consider now the set $A = \{d(\sigma(i), \kappa(i):i\in \N\}$. Consider also the set $B = \{d(\kappa(i), \sigma(i)\}$. We will show that $A = B$. Consider any element $x = d(\sigma(i), \kappa(i))\in A$ for some $i\in \N$. By symmetry of $d$ (as a metric) we have $d(\sigma(i), \kappa(i)) =d(\kappa(i), \sigma(i))$. Hence $x\in B$ by definition of $B$. So $A\subseteq B$. By symmetry of the argument, we lose no generality in only proving this direction. Hence $A = B$. Since $\sup_\infty$ is a well defined function on $2^\R\setminus\{\emptyset\}$, and since neither $A$ nor $B$ is empty, and since $A,B\subseteq \R$, it follows by well definedness that $\sup_\infty(A) = \sup_\infty(B)$. Since $A$ and $B$ are bounded by construction of $\sigma$ and $\kappa$
+
+Now we can verify respectful triangularity! This is the part I've been looking forward to!! Consider $\sigma,\kappa, \gamma\in S(X)$. 
+
+
+
+\end{document}

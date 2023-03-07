@@ -1,0 +1,120 @@
+
+\documentclass{article}
+\usepackage{listings}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{ stmaryrd }
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\topT}{\mathcal{T}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+
+\title{Topology}
+\author{August bergquist}
+
+
+\begin{document}
+
+\maketitle
+
+\fbox{exercise 2.11} Give examples of sets $A$ in various topological spaces $(X,T)$ with
+\begin{enumerate}
+    \item a limit point of $A$ that is an element of $A$;
+    \item a limit point of $A$ that is not an element of $A$;
+    \item an isolated point of $A$;
+    \item a point not in $A$ that is not a limit point of $A$.
+\end{enumerate}
+
+\fbox{solution} 
+\begin{enumerate}
+    \item Consider $10$ as a limit point in $2\N$ (the even natural numbers) in the indiscrete topology. There's only one open set containing $10$, and that's $\N$. Removing $10$ from $\N$, there's all other even numbers are still in the intersection $(\N - \{10\})\cap 2\N$, so it isn't $\emptyset$ and $10$ is a limit point. It's also even, so $10$ is a limit point in the set $2\N$ in the topological space $(\N, \{\emptset, \N\})$.\\
+    
+    Another example: Consider some deleted epsilon neighborhood for some $\epsilon > 0$ of $z_0$ on the complex plane, defined $D = \{z:|z - z_0| < \epsilon\}.$ Topologically, $\C$ should look like $\R^2$ so long as complex numbers are viewed as ordered pairs of real numbers. We can use the standard topology for $\R^2 $, $\standtop$, making the topological space $(\C,\standtop)$. Note that $z\not\in D.$ Suppose there is some open set $U$ in $\standtop$ such that $z_0\in U$ but $(U- \{z_-\})\cap D = \emptyset$. This can't be, because $z_0$ would need some cushion around it. SO $z_0$ is a limit point of $D$ not in $D$. It's kind of interesting, I think the sets we learned about in complex analysis come from topology. 
+    
+    \item Consider $1$ in the open interval $(1,10)$ on the reals with the standard topology. Notice that $1\not \in (1,10)$ Suppose there were an open set $U$ containing $1$ such that $(U - \{1\})\cap (1,10) = \emptyset$. This can't be the case, as there must be some margin $\epsilon_1$ such that $(1-\epsilon_1 , 1 + \epsilon_1)\subseteq U$. But the subset $(1,1 + \epsilon_1)$ is also a subset of $(1,10)$, and it cannot be empty because $\epsilon_1 > 0$. In fact, the intersection must be uncountable.
+    \item Consider a non-empty set $X$ and a non-empty subset $A\subseteq X$, along with the discrete topology $2^X$. Then any point $p\in A$ is isolated. This is because $\{p\}$ is an open set of $(X,2^X)$ since $\{p\}\substeq X$ and $2^X$ is the set of all subsets of $X$.
+    \item Consider the point $3$ in the set $\{1\} $ in the finite compliment topology, $F$,in the topological space $(\Z, F)$. The set $\Z- \{1\}$ is open in the finite compliment topology because $\Z - (\Z-\{1\}) = \{1\}$ is clearly finite. But $((\Z- \{1\}) - \{3\} )\cap \{1\} = \emptyset$, so 3 is not a limit point of $\{1\}$, and $3\not \in \{1\}$ either.
+\end{enumerate}
+
+
+\fbox{exercise 2.12} Which sets are closed in a set $X$ with the
+\begin{enumerate}
+    \item discrete topology;
+    \item indiscrete topology;
+    \item finite compliment topology?
+\end{enumerate}
+
+\fbox{solution}
+\begin{enumerate}
+    \item In the discrete topology $2^X$, all sets $A\subseteq X$ are closed. Let $p$ be an arbitrary point in $X$. Then $\{p\}\in 2^X$ is open because $\{p\}\subseteq A$. The set $(\{p\} - \{p\})\cap A$ is the empty set, hence $p$ is not a limit point. Since $p$ was arbitrary in $A$, all points in $A$ are not limit points of $A$. This means that $A$ contains all of its limit points, because it has none. Hence all sets $A\subseteq X$ are closed.
+    \item $X$ and $\emptyset$ is the only closed subset of $X$ under the indiscrete topology. Suppose there were a proper subset $A\subset X$. Then there exists some $p\in X$ such that $p\not \in A$. Since $X$ is the only open set containing $p$ 
+    \item These will be sets $A$ such that $X-A$ includes all elements of $X$ but a finite collection points. Call this set $U$. Then $X-U$ will be a finite collection of points in $X$, so it will be open by definition of the finite compliment topology. Since $X-U$ is finite, $U$ is open in $(X,T)$. Since $U = X-A$ which is open in $(X,T)$, we know by theorem 2.14 that $A$ is closed. If $X-A$ includes all but a finite number of points, then $A$ is finite. In other words, all finite sets $A$ are closed. 
+\end{enumerate}
+
+\fbox{Theorem 2.13} For any topological space $(X,\topT)$ and $A\subseteq X$, the set $\overline{A}$ is closed. That is, $\overline{\overline{A}} = \overline{A}$.\\
+
+\fbox{proof (warning! this proof is invalid so far)} Let $(X,\topT)$ and $A$ be instantiated as above. We first want to show than any limit point of $\overline{A}$ is also a limit point of $A$. This will then lead almost immediately to the proof of this theorem.\\
+
+Suppose by way of contradiction that $p$ is a limit point of $\overline{A}$, but not a limit point of $A$. Then there exists some open set $U$ containing $p$ such that $(U- \{p\})\cap A = \emptyset$ but $(U- \{p\}) \cap \overline{A} \ne \emptyset$. Since $(U- \{p\}) \cap \overline{A}$ is not the empty set, it follows that there exists some element $x\in (U- \{p\}) \cap \overline{A}$. By intersection we know that (sentence 3) $x\in U- \{p\}$ and $x\in \overline{A}$. By definition of the set difference it follows that $x\in U$ and $x\not \in \{p\}$. Furthermore, we know that it is not the case that $x\in (U- \{p\})\cap A$. Then by intersection it is not the case that both $x\in (U-\{p\})$ and $x\in A$ are true. Then one of them must not be true: either $x\not\in A$ or $x\not \in U-\{p\}$. Since from sentence 3 we know that $x\in U-\{p\}$, we conclude that $x\not \in A$. Since $x\in \overline{A}$ and $x\not\in A$, we know that $x$ must be limit point of $A$, $\overline{A}$ is the set $A$ together with all of $A$'s limit points. This contradicts the supposition that $A$ is not a limit point of $A$. Hence any limit point of $\overline{A}$ must be a limit point of $A$.\\
+
+Having proved that any lmiit point of $\overline{A}$ must be a limit point of $A$, we now suppose $x\in \overline{\overline{A}}$. Then either $x\in \overline{A}$ or $x$ is a limit point of $\overline{A}$. Suppose $x$ is a limit point of $\overline{A}$. Then $x$ is also a limit point of $A$, hence by definition of the closure of $A$, $x\in \overline{A}$. So in either case $x\in \overline{A}$. Since $x$ was arbitrary in $\overline{\overline{A}}$, it follows that all elements in $\overline{\overline{A}}$ are also elements of $\overline{A}$, hence $\overline{\overline{A}}\subseteq \overline{A}$. Furthermore, since by definition of the closure $\overline{\overline{A}}$ is the set $\overline{A}$ together with the limit points of $\overline{A}$, $\overline{A}\subseteq \overline{\overline{A}}$. Hence by set equality $\overline{A} = \overline{\overline{A}}$. Equivalently the closure of $A$ is closed!\\
+
+
+
+\fbox{Theorem 2.14} Let $(X, \topT)$ be a topological space. Then the set $X-A$ is open if and only if $A$ is closed.\\
+
+\fbox{proof} Let $(X, \topT)$ be a topological space and let $A$ be an arbitrary subset of $X$.
+\begin{itemize}
+    \item[$\Rightarrow$] Suppose by way of contradiction that $X-A$ is open and $A$ is not closed. Since $A$ is not closed, it does not contain all of its limit points. Hence there exists some limit point of $A$, $p$, such that $p\not\in A$. But for $p$ to be a limit point, it must be a member of $X$. So we have that $p\in X$ and $p\not\in A$. By definition of the set compliment it follows that $p\in X-A$. So $X-A$ is an open set containing $p$, as we've supposed $X-A$ to be open. Then by definition of a limit point, $((X-A) - \{p\})\cap A \ne \emptyset$. Since this is not the empty set it follows that there exists some $a\in ((X-A) - \{p\})\cap A$. By definition of the intersection it follows that $a\in (X-A) - \{p\}$ and $a\in A$. By definition of the set compliment $ a\in X-A$ and $a\not \in \{p\}$. Once again by definition of the set compliment, $a\in X$ and $a\not \in A$. Then we have $a\in A$ and $a\not\in A$: a contradiction. Hence if $X-A$ is open, $A$ must be closed.
+    \item[$\Leftarrow$] Suppose that $A$ is close. Let $x$ be an arbitrary element in $X-A$. Then by definition of set difference, $x\in X$ and $x\not \in A$. Since $A$ is closed, any element outside of $A$ cannot be a limit point of $A$. Since $x\not\in A$, we know that $x$ is not a limit point of $A$. Then it is not the case that for all open sets $U$ containing $x$, $(U-\{x\})\cap A\ne\emptyset$. So, negating this, there exists some open set $U$ containing $x$ such that $U-\{x\}\cap A = \emptyset$. Keep in mind that $x\in U$ and $U$ is open. We now want to show that $U\subseteq X-A$. To do so, let $a$ be an arbitrary element of $U$. Since $(U-\{x\})\cap A$ is empty, it follows that $a\not \in (U-\{x\})\cap A$. So by definition of the intersection, either $a\not \in (U-\{x\})$ or $a\not\in A$ (refer to this as fact #1). Since $a$ is either $x$ or it isn't, we have two cases.
+    \begin{itemize}
+        \item[Case 1: ] Suppose $x = a$. Then as we have already shown shown, $x\not \in A$.
+        \item[Case 2: ] Suppose $x\ne a$. Since by construction of $a$, $a\in U$, and since $a\ne x$ hence $a\not\in \{x\}$, it follows by definition of the set difference that $a\in U-\{a\}$. So by the aforementioned fact #1 it follows that $a\not\in A$. 
+    \end{itemize}
+    Having shown that in either case $a\not\in A$, we conclude that $a\not\in A$. Furthermore, $a\in X$, since $a\in U$ and $U$ is a subset of $X$ by definition of an open set and a topology. Since $a\in X$ and $a\not \in A$, it follows by definition of the set difference that $a\in X-A$. Since $a$ was arbitrary in $U$, it follows that all elements of $U$ are also in $X-A$, so $U\subseteq X-A$. Keep in mind that $U$ is an open set containing $x$ such that $U\subseteq X-A$. Since $x$ is arbitrary in $X-A$, it follows that for each element $x$ in $X-A$, there exists some open set $U_x$ such that $x\in U \subseteq X-A$. Hence by theorem 2.3 it follows that $X-A$ is open.
+\end{itemize}
+Having shown that in the case that $X-A$ is open $A$ must be closed; and that in the case that $A $ is closed $X-A$ must be open, we conclude that $X-A$ is open if and only if $A$ is closed. Q.E.D.\\
+
+
+
+
+\fbox{exercise 2.18} Give examples of a topological space $(X,\topT)$ and a set $A\subseteq X$ that is
+\begin{enumerate}
+    \item closed but not open
+    \item open but not closed
+    \item both open and closed
+    \item neither open nor closed
+\end{enumerate}
+
+\fbox{solution}
+\begin{enumerate}
+    \item Consider the set $[1,2]$ on the real line (that is, the closed interval from 1 to 2 as in calculus), in the topological space $(\R, \standtop)$. This set is closed. In fact, it is the closure of $(1,2)$, but it is not open. To verify that it isn't open, consider the point $1$. Then there does not exist some $\epsilon_1 > 0$ such that $(1- \epsilon_1, 1 + \epsilon_1)\subseteq [1,2]$, hence $[1,2]$ is not open in the standard topology.
+    \item Consider the set $(1,2)$ in the topological space $(\R,\standtop)$. Then $(1,2)$ is open, but the limit points 1 and 2 are not in $(1,2)$, hence $(1,2)$ is not closed.
+    \item Consider an arbitrary topological space $(X,\topT)$, and the set $X$. $X$ contains all of its limit points. To verify this, take some arbitrary limit point $p$. Then $p\in X$, otherwise it would not be a point in our topological space. So any limit point of $X$ must be in $X$. Furthermore, $X$ must be an element of $\topT$, as required by the second axiom of the definition of a topology. So $X$ is both open and closed.
+    \item Consider $S = \{1,2\}$ and $1$ in the indiscrete topology on the natural numbers. Then every point is a limit point, but only $1$ and $2$ are in $S$. So $S$ is not closed. Furthermore, $S \ne \{1,2\}$ and $S\ne \emptyset$, so $S$ is not in the indiscrete topology either, hence $S$ is not open. So $S$ is neither open nor closed.
+\end{enumerate}
+\end{document}

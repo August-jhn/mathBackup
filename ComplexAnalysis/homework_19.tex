@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\thm}{\fbox{theorem}}
+\newcommand{\infsum}{\sum_{n = 0}^{\infty}}
+\newcommand{\pf}{\fbox{proof}}
+\newcommand{\cor}{\fbox{corollary}}
+\newcommand{\psum}{\sum_{n = 0}^N}
+\newcommand{\prop}{\fbox{proposition}}
+
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+\newcommand{\ab}[1]{\color{red}{#1}\normalcolor}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+\fbox{problem 2} Find a representation for the function $$
+f(z) = \frac{1}{1+z} = \frac{1}{z}\frac{1}{1+(1/z)}$$ in negative powers of $z$ that is valid when $z < |z| < \infty$.\\
+
+\fbox{solution} First, note that $$\frac{1}{1+1/z}$$ is an analytic function of $1/z$ whenever $|1/z| < 1$. Hence it can be written as the taylor expansion 
+$$\frac{1}{1+(1/z)} = \frac{1}{1-(-1/z)} = \infsum (-1/z)^n = \infsum \frac{(-1)^n}{z^n}$$ valid whenever $|1/z| < 1$. The restrictions are equivalent to $1 < |z|$ by properties of the complex modulus. $f(z)$ has a singularity, but it is at the origin, hence its singularity is outside of the region for which the taylor expansion is valid. Hence, substituting, and moving $1/z$ inside the sum (which is valid since $1/z$ is not a variable being summed over, and can be treated as a constant), and also translating the index of the series forward by 1,
+$$f(z) = \frac{1}{z}\frac{1}{1+(1/z)} = 1/z\infsum \frac{(-1)^n}{z^n} = \infsum \frac{(-1)^n}{z^{n+1}}  = \sum_{n=0}^\infty\frac{(-1)^{n+1}}{z^n}$$  whenever $1< |z| < \infty$.\\
+
+\cs{5/5}
+
+\fbox{problem 4} Give two Laurent series expansions in powers of $z$ for the function $$
+f(z) = \frac{1}{z^2(1-z)}$$ and specify the regions in which those expansions are valid.\\
+
+\fbox{solution 1} First, notice that $f(z)$ has two singularities: one at the origin, and one when $z = 1$. Hence there are two annular disks on which the function is analytic. Call the first one $D_1 : 0 < |z| < 1$, and call the second one $D_1: 1 < |z| < \infty$. In the first solution we will find the Laurent series valid within $D_1$.\\ \cs{Which $D_1$?}
+
+Since $g(z) = (1/(1-z))$ is an analytic function of $z$ for all $z\in D_1$, we can express it as it's Taylor expansion $\infsum z^n$ for all $z\in D_1$. Since $f(z) = 1/z^2g(z)$, and since $1/z^2$ can be treated as a constant over the sum, we can write $f(z) = 1/z^2\infsum z^n = \infsum z^n/z^2 = \infsum z^{n-2}$. Evaluating the first two terms and translating the index forward by one we find $f(z) = 1/z^2 + 1/z + \sum_{n = 2}^\infty z^{n-2} = 1/z^2 + 1/z + \infsum z^n$ for all $z\in D_1$.\\
+
+\fbox{solution 2} Now we move into the region $D_2$. In this case, we have to do some algebraic trickery. Notice that $f(z) = \frac{1}{z^2(1-z)} = \frac{-1}{z^3}\frac{1}{1-(1/z)}.$ Since $\frac{1}{1-(1-z)}$ \cs{Check that.} is an analytic function of $1/z$ whenever $|1/z| > 1$, we can write it as the infinite series $\infsum (1/z)^n = \infsum \frac{1}{z^n}$ whenever $|1/z| > 1$, or equivalently, whenever $1 < |z|< \infty$ (or whenever $z\in D_2$). Since $-1/z^3$ is defined everywhere in $D_2$, we can write $f(z) = -1/z^3\infsum 1/z^n = -\infsum 1/z^{n-3} = -\sum_{n = 3}z^n$ for all $z\in D_2$.
+
+\cs{10/10}
+
+\cs{15/15}
+
+\end{document}

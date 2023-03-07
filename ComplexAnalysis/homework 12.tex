@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+\newcommand{\ab}[1]{\color{red}{#1}\normalcolor}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+\fbox{2: proposition} Let $C$ be the line segment on the complex plain from $z = i$ to $z = 1$.\\
+Then $$\Big|\int_C\frac{dz}{z^4}\Big| \le 4\sqrt{2}.$$\\
+
+\fbox{proof} First, note that by a previous theorem it follows that $$\Big|\int_C\frac{dz}{z^4}\Big| \le \int_C\Big|\frac{1}{z^4}\Big|dz.$$ Hence it suffices to show that $\int_C\Big|\frac{1}{z^4}\Big|dz\le 4\sqrt{2}$. Since the smallest possible value of $|z|$ on $C$ is $\sqrt{2}/2$ (since $|z|$ can be seen as the distance form the origin, which is minimized when $z$ is the midpoint of $C$.) It follows then that $|z|\ge \sqrt{2}/2$. Furthermore, since $\Big|\frac{1}{z^4}\Big| = \frac{1}{|z^4|}$, the integrand is maximized when $z$ is the midpoint of $C$ (since $|z^4| = |z|^4$) is in the denominator. Hence $|1/z^4|\le 1/((\sqrt{2}/2)^4) = 4 = M$. Furthermore, notice that the length of $C$ is given by the hypotenuse of a right triangle with legs of length $1$, so the length of $C$, $L = \sqrt{2}$. Then by another previously proven theorem, it follows that 
+$$\int_C\Big|\frac{1}{z^4}\Big|dz\le [ML = 4\sqrt{2}].$$
+Q.E.D.\\
+
+\cs{5/5}
+
+\fbox{proposition} Let $C_R$ denote the upper half of the circle $|z| = R$, where $R$ is greater than $2$, in the counterclockwise direction. Then 
+$$\Big|\int_R\frac{2z^2 - 1}{z^4  + 5z^2 + 4}dz\Big|\le \frac{\pi R(2R^2 + 1)}{(R^2-1)(R^2-4)}.$$
+\fbox{proof}
+
+First, we need to establish some inequalities concerning the integrated. Using a form of the triangle inequality and properties of moduli, it follows that $|2z^2 - 1| \le [|2z^2| + |1| = 2|z|^2 + 1]$. Furthermore, note that the denominator factors into $z^4 + 5z^2 + 4 = (z^2+5)(z^2+1).$ \cs{Factorization error! :)} Using another form of the triangle inequality, we find that $|z^2 + 5|\ge |z|^2 - 5$ and $|z^2 + 1| \ge |z|^2 - 1$. Hence by another property of moduli it follows that $|z^4 + 5z^2 + 4| = |(z^2 + 1)(z^2 + 5)| \ge ||z|^2 - 1|||z|^2 - 4|.$ \cs{This would have been a 5, not a 4...which gives something smaller...} Taking the reciprocal of this and multiplying by the modulus of the numerotr, we obtain the inequality:
+$$\Big|\frac{2z^2 - 1}{z^4  + 5z^2 + 4}\Big| = \frac{|2z^2 - 1|}{|z^4 + 5z^2+ 4|} \le \frac{2|z^2| + 1}{||z|^2 - 1|||z|^2 - 4|}.$$
+But since on $C_R$, $R = |z|$, we can establish the following uperbound of the integrand:
+$$\Big|\frac{2z^2 - 1}{z^4  + 5z^2 + 4}\Big|\le \Big[M = \frac{2R^2 + 1}{(R^2-1)(R^2-4)}\Big].$$
+Furthermore, by definition of circumference, and since this is the upper half of a circle of radius $R$, the length of $C_R$ is $L = \pi R$. Multiplying, $$ML = \frac{\pi R(2R^2 + 1)}{(R^2-1)(R^2-4)}.$$ Hence by the theorem it follows that 
+$$\Big|\int_R\frac{2z^2 - 1}{z^4  + 5z^2 + 4}dz\Big|\le \Big[ML = \frac{\pi R(2R^2 + 1)}{(R^2-1)(R^2-4)}\Big].$$ Q.E.D.\\
+
+\\
+
+\fbox{proposition} Furthermore, as $R$ tends to infinity, the integral tends towards zero. Furthermore, let $f(R)$ denote the upperbound for the integral as shown in the previous proof.\\
+
+\fbox{proof} Dividing the numerator and denominator by $R^4$,
+we have 
+$$\begin{array}{cc}
+     & f(R) = \frac{\pi R(2R^2 + 1)}{(R^2-1)(R^2-4)} = \frac{\pi R(2R^2 + 1)/R^4}{(R^2-1)(R^2-4)/R^4}  \\
+     &  = \frac{\pi(2/R + 1/R^3)}{(1/R^2 - 1/R^4)(R^2 - 4)} \\
+\end{array}  $$
+Hence the denominator's highest degree coefficient of $R$ is 1, and the numerots is $1/R$. Equivalently, the denominators highest degree coefficient is $R^2$ and the numerators is $1$. Hence $f(R) = O(1/R^2) = 0$ (pretty sure I've forgotten how to use this notation) as $R$ approaches infinity. But since $f(R)$ is an upperbound for the integral, the integral also approaches zero as $R$ goes to infinity.
+
+\cs{The terminology is a bit off -- the coefficient is the number multiplying the $R^2$ (or whatever it may be). The coefficients don't have degrees; the terms do. It's simpler to see the numerator as looking like $(2/R+1/R^2)$ and the denominator like $(1-1/R^2)(1-4/R^2).$ Then as $R\rightarrow \infty,$ the numerator approaches 0 and the denominator approaches 1.}
+
+\cs{5/5}
+
+\cs{10/10}
+\end{document}
+
+

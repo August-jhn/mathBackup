@@ -1,0 +1,205 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate, diagbox, tcolorbox, esvect, tikz, adjustbox}
+
+
+\graphicspath{{./images/}}
+
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+
+%geometry/topology
+\newcommand{\bndry}{\partial}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\theoremstyle{definition}
+
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+\newtheorem{lameobservation}{Lame Observation}
+
+\title{Real Analysis}
+\author{August Bergquist}
+
+\begin{document}
+
+\maketitle
+
+
+\section{The Set of Limit Points Is Closed}
+
+Remember that we presented, at one point, on problem 3.5.6, which in particular says that $x$ has a sequence converging to it in a set $S\subset X$ ($X$ a metric space) if and only if every open ball around $x$ contains a point in $S$. Even though I'm pretty sure we proved this in class, I was at one point studying in the millstream ('twas quite inducive to mathematical thoughts) and accidentally dropped my notebook therein. The ink smudged on the pages that didn't rip upon opening the notebook, and the other pages were ripped to the point of unreadability (note the structure of this dilemma, for it resembles the structure of the proof I'm about to give after the lemma). As a result of this tragedy, I don't have any notes from this time. So, just to be safe, I'll prove the result here.
+
+\begin{lemma}
+Let $S$ be a subset of a metric space $X$, and let $x$ be a point of $X$. Then there is a sequence in $S$ which converges to $x$ if and only if for all $\epsilon > 0$, the open ball $B_\epsilon(x)$ has a nonempty intersection with $S$.
+\end{lemma}
+
+\begin{proof}
+First suppose we have some sequence $\sigma$ in $S$ which converges to $x$. Let $\epsilon > 0$. By convergence of $\sigma$, there must exist some natural number $N$ such that for natural numbers $n$ which are larger than $N$, $ d(\sigma(n) , x) < \epsilon $. Well certainly there is a natural number $n$ greater than $N$. Whence we have $\sigma(n)\in S$, and by construction of $n$ being larger than $N$, we have that $d(\sigma(n) , x) < \epsilon$. In other words (by definition of an open ball), we have that $\sigma(n)\in B_\epsilon(x)$. Since $\sigma(n)\in S$ as well, we have that $\sigma(n)\in B_\epsilon(x)\cap S$, so the intersection is non-empty.\\
+
+
+Now suppose for the contrapositive that we have an open ball about $x$, of radius $\epsilon > 0$, such that $B_\epsilon(x) \cap S = \emptyset$. Let $\sigma$ be any sequence in $S$. Let $N$ be any natural number. By the archimedian principle there is some $n> N$ in the naturals. Since $\sigma(n)\in S$, we have that $\sigma(n) \not\in B_\epsilon(x)$ (for otherwise it would be in the intersection which is empty). By definition of an open ball (the negation thereof), we have that $d(\sigma(n), x) \ge \epsilon$. Generalizing, there exists an $\epsilon> 0$ such that for all natural numbers $N$, there is some natural number $n > N$ such that $ d(\sigma(n), x) \ge x $. This is the negation of the definition of the convergence of a sequence, so it follows that $\sigma$ does not converge to $x$. Since $\sigma$ was an arbitrary sequence in $S$, and since it does not converge to $x$, no sequence in $S$ can converge to $x$. In other words, there does not exist a sequence in $S$ which converges to $x$. This concludes the proof.
+\end{proof}
+
+\begin{proposition}
+Let $X$ be a metric space, and let $S\subset X$. Let $L$ denote the set of limit points of $S$. Then $L$ is closed (in other words, it contains all of it's limit points)
+\end{proposition}
+
+\begin{proof} Unfortunately, the proof is by contradiction. Suppose by way of contradiction that we have some $x\in X$ which is a limit point of $L$, but which is not in $L$. By construction of the set $L$, $x$ is not a limit point of $S$. By the lemma above, there exists some $\epsilon > 0$ such that the the intersection of $B_\epsilon(x)$ with $S$ is empty. Since $x$ is a limit point, there is a sequence in $L$ (which does not include $x$, but it can't anyway because $x$ is not in $L$), such that $\sigma$ converges to $x$. Since $\epsilon > 0$, it is also true that $\epsilon/2 > 0$. By convergence of the sequence $\sigma$ to $x$, there exists a natural number $N$ such that for all natural numbers $n > N$, $d(\sigma(n), x) < \epsilon /2$. Moreover, there is some such $n$. Since $\sigma(n)$ is in $L$ (the limit points of $S$), there exists some sequence $\kappa$ in $S$ which converges to $\sigma(n)$ (in particular one which does not include $x$ at all; this time it may be the case that $x\in S$). By convergence of $\kappa$ to $x$, there must exist some natural number $M$ such that for all natural numbers $m$ greater than $M$, $ d(\kappa(m), \sigma(n) ) < \epsilon /2 $. In fact, there is a natural number $m > M$, and for this natural number $d(\kappa(m), \sigma(n)) < \epsilon/2$. Note that $\kappa(m)\in S$, for $\kappa$ is a sequence in $S$. By the triangle inequality, we have $d(\kappa(m), x) \le d(\kappa(m), \sigma(n)) + d(\sigma(n), x) < \epsilon/2 + \epsilon/2 = \epsilon$. So $ d(\kappa(m), x) < \epsilon $. By definition of an open ball, $ \kappa(m) \in B_\epsilon(x) $. But, as noted, $\kappa(m)\in S$, so $\kappa(m)\in S\cap B_\epsilon(x)$, contradicting that it is empty.\\
+
+So it cannot be the case that $L$ has a limit point which is not in $L$. In other words, $L$ is closed.
+\end{proof}
+
+\section{Inverses to Continuous Injective Real Valued Functions with Closed and Bounded Domains}
+
+\begin{proposition}
+
+Let $K\subset \R$ be closed and bounded. Let $f:K\to \R$ be injective and continuous. Since $f$ is injective, since it's constriction to $f(K)$ is (by construction) surjective, the inverse $\inv{f}: f(K)\to \R$ is uniquely determined. It is claimed that $\inv{f}$ must also be continuous. 
+
+\end{proposition}
+
+\begin{proof}
+To prove this, we begin by considering any point $y\in f(K)$. Suppose we had a sequence $\sigma:\N\to f(K)$ which converged to $y\in f(K)$. By definition of the image (or "range," if we must), there is some $x\in K$ such that $f(x) = y$. By definition of the inverse function, $x = \inv{f}(y)$. We aim to show that the composition $\inv{f}\sigma$ converges to $x$. \\
+
+Consider any subsequence induced by some strictly increasing natural number sequence $\tau$, $\inv{f}\sigma\tau$ (in other words, an arbitrary subsequence in my notation). We must construct a subsequence of this subsequence, induced by some strictly increasing natural number sequence $\kappa$, such that $\inv{f}\sigma\tau\kappa$ converges to $x$. Since $K$ is bounded, and since $\inv{f}\sigma\tau$ is a sequence in $K$, and since $K$ is a subset of $\R$, we can view $\inv{f}\sigma\tau$ has a bounded sequence in $\R$. We have proven that bounded real valued sequences have convergent sub-sequences (this is Problem 3.4.7, which we proved, and which in my opinion belongs as a theorem in the textbook). Therefore there exists some subsequence of $\inv{f}\sigma\tau$, induced by some strictly increasing natural number sequence $\kappa$, such that $\inv{f}\sigma\tau\kappa$ converges to some $x'\in \R$. Since $K$ is closed, it follows that $x'\in K$, so $f(x')$ is defined. By continuity of $f$, we have that $f\inv{f}\sigma\tau\kappa$ converges to $f(x')$ (this is Theorem 4.3.3 of the textbook). By definition of the inverse, it follows that $f\inv{f} = 1_{f(K)}$, so by associativity of function composition and a basic fact from foundations we have that $f\inv{f}\sigma\tau\kappa = \sigma\tau\kappa$, which is a subsequence of $\sigma$. Since $\sigma$ converged to $y$, and since every subsequence of $\sigma$ must also converge to $y$ (this is Problem 3.3.6 of the textbook), it follows that $\sigma\tau\kappa$ converges to $y = f(x)$. Since the limit of a sequence is unique, $f(x) = f(x')$ (this is also somewhere in the textbook, and we proved it). By injectivity of $f$, $x = x'$. So we have that $\inv{f}\sigma\tau\kappa$ converges to $x$. In other words, $\inv{f}\sigma\tau$ has a subsequence, namely $\inv{f}\sigma\tau\kappa$, which converges to $x$. Since $\inv{f}\sigma\tau$ was an arbitrary subsequence of $ \inv{f}\sigma $, it follows every subsequence of $\inv{f}\sigma$ has a convergent subsequence to $x$. Once again, by Problem 3.3.6 of the textbook, $ \inv{f}\sigma $ converges to $x = \inv{f}(y)$. Since $\sigma$ was an arbitrary sequence in $f(K)$ which converged to $y$, it follows that for all sequences in $f(K)$ which converge to $y$, the composition $\inv{f}\sigma$ also converges to $\inv{f}(y)$. So (by one of the definitions of continuity, Theorem 4.3.3), we have that $\inv{f}$ is continuous at $y$. Since $y$ was arbitrary in $f(K)$, it follows that $\inv{f}$ is continuous on $f(K)$. This is what we set out to show.
+\end{proof}
+
+\section{uniform continuity and arithmetic}
+
+\begin{proposition}
+
+Let $X$ be any metric space, and let $f,g:X\to \R$ be uniformly continuous. Then the pointwise sum $f+g : X\to \R$ is uniformly continuous.  
+\end{proposition}
+
+\begin{proof}
+Instantiate $f$, $g$, $X$, as above, if we must. Anyway, let $\epsilon > 0$. Then $\epsilon /2 > 0$. So by uniform continuity of $f$ and $g$, there must exist $\delta_f$ and $\delta_g$ such that for all $x_1$ and $x_2$ in $X$, $d(x_1, x_2)< \delta_f$ only when $ |f(x_1) - f(x_2)| < \epsilon/2 $ and $ d(x_1, x_2) < \delta_g $ only when $ |g(x_1) - g(x_2)| < \epsilon /2 $. Consider $\delta = \min(\delta_f,\delta_g)$. Suppose $d(x_1, x_2) < \delta$. Now let $x_1,x_2\in X$ be such that $ d(x_1, x_2) <\delta $. By construction of $\delta$, $ d(x_1, x_2) < \delta_f $ and $ d(x_1, x_2) < \delta_g $. By construction of both $\delta_f$ and $\delta_g$, it follows that $ |f(x_1) - f(x_2)| < \epsilon/2 $ and $ |g(x_1) - g(x_2)| < \epsilon/2 $. So then, by the triangle inequality we have $ |(f+g)(x_1) - (f+g)(x_2)| = |(f(x_1) + g(x_1)) - (f(x_2) + g(x_2))| = | (f(x_1) - f(x_2)) + (g(x_1) - g(x_2)) | \le |f(x_1) - f(x_2)| + (g(x_1) - g(x_2)| < \epsilon /2 + \epsilon /2 = \epsilon$. \\
+So then, for all $\epsilon > 0$ there "exists" a $\delta> 0$ (once again troubled by this word without construction) such that for all $x_1$ and $x_2$ in $X$, whenever $ d(x_1, x_2) < \delta $ we have $ |(f+g)(x_1) - (f+g)(x_2)| < \epsilon $. Hence $f+g$ is uniformly continuous as desired.
+
+\end{proof}
+
+So uniform continuity behaves nicely with addition. I personally think the craziest bit of this is that this holds for any maps from the strangest metric spaces you could come up with into the reals. Now we turn to multiplication, which actually doesn't quite behave nicely with arithmetic, though it does if the functions are both bounded. First we need an annoying lemma about arithmetic. I'd usually just take this for granted, but this is a final, so I'd better cover all my bases. 
+
+
+\begin{lemma}
+In any commutative ring $R$ with elements $f_1, f_2,g_1,g_2\in R$, the following identity holds:
+\[ 2(f_1g_1 - f_2g_2) = (f_1 - f_2)(g_1 + g_2) + (f_1 + f_2)(g_1 - g_2) \]
+\end{lemma}
+
+The verification of this identity is trivial yet a bit tedious. Just foil things and combine like terms, and it goes how I claim it does.
+
+\begin{proposition}
+Let $X$ be a metric space, and let $f$ and $g$ be bounded, uniformly continuous, real valued functions. Then $fg$ (defined pointwise, and I don't mean function composition, I mean multiplication) is uniformly continuous. 
+\end{proposition}
+
+\begin{proof}
+Since $f$ and $g$ are bounded in the reals, there exist $M_f$ and $M_g$ such that for all $x\in X$, $|f(x)| \le M_f$ and $|g(x)| \le M_g$. Let $M'$ be the maximum of the two, so that they are also bounds for both $|f(x)|$ and $|g(x)|$. Moreover certainly $M'$ must be non-negative (since $X$ is non-empty and $|\cdot|$ has non-negative range, so then $M' + 1 = M$ is positive. This is important, for we will need it to be positive.\\
+
+Let $\epsilon > 0$. Then certainly since $2M$ is positive (as $M$ is positive), we have that $\frac{\epsilon}{2M}$ is positive. From this it follows by uniform continuity of $f$ and $g$ we have $\delta_f$ and $\delta_g$ such that for any $x_1$ and $x_2$ in $X$, we have that $d(x_1, x_2)  < \delta_f$ only when $ |f(x_1) - f(x_2)| < \frac{\epsilon}{2M} $ and $ d(x_1, x_2) < \delta_g $ only when $ |g(x_1) - g(x_2)| < \frac{\epsilon}{2M} $. Consider $\delta = \min(\delta_f, \delta_g)$. Suppose we have $ d(x_1, x_2) < \delta $ for any $x_1 ,x_2\in X$. Clearly by construction of $\delta$, $d(x_1, x_2) < \delta_f,\delta_g$, whence $ |f(x_1) - f(x_2)|, |g(x_1) - g(x_2)| < \frac{\epsilon}{2M} $ by construction of both $\delta_f$ and $\delta_g$. Moreover by construction of $M$, $|f(x_{1,2}|, |g(x_{1,2})| < M$. Upon applying a tedious string of applications of the triangle inequality as well as the identity stated in the above lemma, we have
+
+\[
+\begin{array}{c}
+|fg(x_1) - fg(x_2)| = |f(x_1) g(x_1) - f(x_2)g(x_2) |\\
+= \Big| \frac{1}{2}\big( (f(x_1) - f(x_2))(g(x_1) + g(x_2)) + (f(x_1) + f(x_2))(g(x_1) - g(x_2)) \big) \Big|\\
+=  \Big| \frac{1}{2}(f(x_1) - f(x_2))(g(x_1) + g(x_2)) + \frac{1}{2}(f(x_1) + f(x_2))(g(x_1) - g(x_2))  \Big|\\
+\le \frac{1}{2}|f(x_1) - f(x_2)||g(x_1) + g(x_2)| + \frac{1}{2}|f(x_1) + f(x_2)||g(x_1) - g(x_2)|\\
+\le \frac{1}{2}|f(x_1) - f(x_2)|(|g(x_1)| + |g(x_2)|) + \frac{1}{2}(|f(x_1)| + |f(x_2)|)|g(x_1) - g(x_2)|\\
+\le \frac{1}{2}|f(x_1) - f(x_2)|(2M) + \frac{1}{2}(2M)|g(x_1) - g(x_2)| = |f(x_1) - f(x_2)|(M) + |g(x_1) - g(x_2)|(M) \\
+< \frac{\epsilon}{2M}(2M) = \epsilon
+\end{array}
+\]
+
+Since $x_1 $ and $x_2$ were arbitrary members of $X$ which were a distance of less $\delta$ appart, and since $ |fg(x_1) - fg(x_2)| < \epsilon $, it follows that for any $x_1$ and $x_2$ in $X$ of distance less than $\delta$, $|fg(x_1) - fg(x_2)| < \epsilon$. Since $\epsilon > 0$ was arbitrary, it follows that for all $\epsilon > 0$, there exists a $\delta> 0$ such that for any $x_1$, $x_2\in X$, if $d(x_1, x_2) < \delta$, then $ |fg(x_1) - fg(x_2)| < \epsilon  $. In other words, $fg$ is uniformly continuous on $X$ as desired.
+\end{proof}
+
+\section{Uniform Convergence and Sequences}
+
+\begin{proposition}
+
+Let $X$ and $Y$ be metric spaces. Let $S$ be a subspace of $X$. Let $\sigma:\N \to S$ converge to $x\in S$. Let $f_n$ be a uniformly convergent sequence of continuous functions $S\to Y$. Then the sequence defined $f_n(\sigma(n))$ for all $n\in \N$ converges to $f(x)$ in $Y$.
+\end{proposition}
+
+\begin{proof}
+We have shown that limit of a uniformly convergent sequence of continuous functions is continuous (we showed this in class). Therefore the function $f$, as described in the proposition, is continuous. Since continuous functions preserve limits of sequences (Theorem 4.3.3 of the textbook) and since $x\in S$ and $f:S\to Y$ is continuous, it follows that the sequence $f\sigma$ converges to $f(x)$.\\
+
+Let $\epsilon > 0$. Then $\epsilon/2 > 0$. By convergence of a sequence, there must exist some natural number $N'$ such that for all $n> N'$, $d(f\sigma(n), f(x) ) < \epsilon /2$. Similarly, by uniform convergence of $f_n$, there must exist some natural number $N''$ such that for all $n> N''$, and for all $s\in S$, $d(f(s), f_n(s)) < \epsilon/2$. Let $N = \max(N',N'')$.\\
+
+By the archimdedian principle (lol) there is some natural number $n> N$. Then $n> N'$, and $n> N''$, by construction of $N$. Then for any $s\in S$, $d(f(s), f_n(s)) < \epsilon /2$. Particularly, notice that $x\in S$ and $\sigma(n)\in S$, so $ d(f(\sigma(n)), f_n(\sigma(n)) < \epsilon /2$. By the triangle inequality we have that 
+\[ d(f(x), f_n(\sigma(n))) \le d(f(\sigma(n)), f_n(\sigma(n)) < \epsilon/2 + \epsilon/2 = \epsilon. \]
+
+So, to reiterate, $d(f(x), f_n(\sigma(n))) < \epsilon$. Since $n$ was an arbitrary natural number greater than $N$, it follows that for all such natural numbers, $n > N$,  $d(f(x), f_n(\sigma(n))) < \epsilon/2$. Since $\epsilon > 0$ was arbitrary, it follows that for all $\epsilon > 0$ there exists a natural number $N$ such that for all $n> N$, $d(f(x), f_n(\sigma(n))) <\epsilon/2$. This of course is the definition of convergence.
+\end{proof}
+
+A cute name for this condition on convergence could be called "diagonal convergence" since we're going $n$-$n$. Kind of cool aye!?
+
+
+\section{Completeness as a topological invariant}
+
+Every introduction to topology starts with the joke that the topologist can't tell the difference from a coffee mug and a doughnut. But, if the coffee mug has sharp edges, and if the topologist happens to specialize in differential topology, they very much can tell the difference. A doughnut is a tasty snack. To the differential topologist, a sharp edged coffee mug is both painful to drink from and not a doughnut. My point is that sometimes stricter equivalences (or looser equivalences) are useful in topology. Topological invariants are invariants \textit{with respect to} a certain equivalence, and \textit{on} a certain class of spaces to which that equivalence applies. Another example is knot theory with the equivalence induced by ambient isotopy on embeddings of the circle in some three dimensional space.
+
+Anyway, this is an exploration into whether or not completeness is an invariant of any kind, and if so, where. It turns out that an easy yet profoundly lame example presents itself immediately.
+
+\begin{lameobservation}
+For any complete metric space $X$, we say another space $Y$ is equivalent to $X$ if and only $X = Y$. In this case, this is an equivalence, and completeness, as well as everything else about $X$, is an invariant. If we wanted to keep up the trend of making equivalences be induced by maps, we say that a superduper homeomorphism between metric spaces is a homeomorphism that's also the identity map.
+\end{lameobservation}
+
+Okay, so we can both agree that that was not worth saying, and that I said it anyway.
+
+Now for something interesting,
+
+\begin{proposition}
+Completeness is \textit{not} an invariant under homeomorphism on metric spaces.
+\end{proposition}
+
+\begin{proof}
+Consider $\R$, and consider the interval $(0,1)$. It's a well known fact that these are homeomorphic spaces (a transformation of the tangent function's restriction will do the trick). As I explained in my true or false questions, $(0,1)$ is not complete, while $\R$ is complete (as we have proven in this class). Therefore completeness is \textit{not} an invariant under homeomorphisms of metric spaces.
+\end{proof}
+
+So that was a bit disappointing. I have something not so disappointing, but then I'll make it a little bit more disappointing.
+
+I have a proposed other equivalence, which only makes sense on metric spaces.
+\begin{definition}
+Let $X$ and $Y$ be metric spaces. We say that $X$ is uniformly homeomorphic to $Y$ if and only if there exists a uniformly continuous bijection $h:X\to Y$ such that $\inv{h}$ is also uniformly continuous. Such maps could be called \textit{uniform} homeomorphisms. 
+\end{definition}
+
+Since uniform homeomorphisms are also homeomorphisms, uniform homeomorphism is a stricter requirement than homeomorphism. The proof that this is an equivalence relation exactly mirrors the proof that homeomorphism is an equivalence relation.
+
+\begin{proposition}
+Let $X$ be a metric space, and let $Y$ also be a metric space. Let $X$ be uniformly homeomorphic to $Y$. Suppose $X$ is complete. Then $Y$ is complete.
+\end{proposition}
+
+\begin{proof}
+Since $X$ and $Y$ are uniformly homeomorphic, there exists a uniform homeomorphism $h:X\to Y$. Since $h$ is a uniform homeomorphism, $h:X\to Y$ is uniformly continuous and a bijection, and so is $\inv{h}:Y\to X$.\\
+
+Now let $\sigma : \N\to Y$ be Cauchy. Since $\sigma$ is Cauchy and $\inv{h}$ is uniformly continuous, it follows that $\inv{h}\sigma$ is a Cauchy sequence in $X$ (this is problem 6.3.1 of the textbook.) Since $\inv{h}\sigma$ is Cauchy and $X$ is complete, there must exist some $x\in X$ such that $\inv{h}\sigma\to x$ (by definition of completeness). Since $x\in X$, which is the domain of the function $h$, $h(x)\in Y$ is defined. By continuity of $h$, we have that the sequence $h\inv{h}\sigma$ converges to $h(x)$. By associativity of functions, and the fact that composing with the identity doesn't do anything to the function, we have
+
+\[h\inv{h}\sigma = (h\inv{h})\sigma = 1_Y\sigma = \sigma.\] 
+
+Upon substitution, we have that $\sigma\to h(x)\in Y$, so $\sigma$ converges. Since $\sigma$ was an arbitrary Cauchy sequence, any Cauchy sequence $\sigma$ in $Y$ converges. This is the definition of completeness: $Y$ is complete.
+\end{proof}
+
+In fact, in this case, all that we needed was that $\inv{h}$ was a uniformly continuous (and hence preserving Cauchy sequences). This gives us the
+
+\begin{corollary}
+Let $h:X\to Y$ be an injective and uniformly continuous, so that at least one of it's 
+\end{corollary}
+
+It may feel like I've nailed down completeness, but I haven't. I think there are homeomorphic spaces, such that both are complete, and which are not uniformly homeomorphic (by my definition of the word). 
+
+An even more elegant fact about \textit{compact} metric spaces is mentioned in my True False problems.
+
+\end{document}

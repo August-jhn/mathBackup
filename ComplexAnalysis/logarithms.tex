@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+\newcommand{\Log}{\mbox{Log}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+\begin{document}
+ 
+\fbox{solve} $w = e^z$ for $z\in \C$.\\
+
+\fbox{solution} By definition, $w = re^{i\theta}$ for some $\theta$. Then $re^{i\theta} = e^xe^{iy}$. Then $r = e^x$ and $\theta = y + 2\pi k$ for some $k\in \Z$.\\
+
+If we let the $x$ component be $\ln r$ And also $y = \theta + 2\pi k$. So $z = \ln|w| = i\arg(w)$ which is a set.\\ 
+$z = \log w = \ln |w| + i\arg w$.\\
+
+\fbox{definition} The principal value of $\log z$ is $\Log z = \ln |z| + \Arg z$.\\
+
+\fbox{thoughts} Suppose $\theta \in (\alpha,\alpha + 2\pi)$. Then $\log z = \ln r + i\theta, r> 0, \theta \in (\alpha,\alpha+2\pi)$ is a funcion.\\
+
+\fbox{theorem} $\log z$ is continuous.\\
+\fbox{proof} $u = \ln r$ which is continuous. $v = \theta$ which is continuous. Hence $u + iv = \log z$ is continuouss. In fact, $u_r,u_{\theta}, v_r, v_{\theta}$ exist and are continuous. Hence by polar Reimann equations $f$ is analytic on its domain.\\
+
+\fbox{thoughts} $f'(z) = f'(re^{i\theta}) = e^{i\theta}(u_r+iv_r) = e^{i\theta}(1/r + i*0) = 1/z$.\\
+
+\fbox{corollary} $\deriv \Log z = 1/z$.\\
+
+\fbox{definitoin}. A branch of a multiple valued function $f$ is a single valued function, call it $F$, that is analytic on osme domain $D$, $F(z)\in f(z)$ for all $z\in D$. \\
+
+\fbox{definition} A branch cut is a curve deleted from $\C$ to define the domain of some branch $F$ of $f$. If there is a point on all branch cuts of $f$, it is called a branch point. $\theta = \pi$ is a branch cut for $\Log z$.\\
+
+\fbox{theorem} $\log(z_1 + z_2) = \log z_1 + \log z_2$.\\
+
+\fbox{theorem} If $z \ne 0$, then $z^n = e^{n\log z}$ for all $n\in \Z$ and $z^{1/n} = e^{1/n \log z}$.\\
+\fbox{proof} Write $z=re^{i\theta}$. Then $z^n = r^n e^{in\theta} = e^{n(\ln r + i\theta)} = e^{n\log z}$. So the first identity holds.
+
+\end{document}

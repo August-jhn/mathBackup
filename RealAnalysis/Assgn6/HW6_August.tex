@@ -1,0 +1,110 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate, diagbox, tcolorbox, esvect, tikz, adjustbox}
+
+
+\graphicspath{{./images/}}
+
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+
+%geometry/topology
+\newcommand{\bndry}{\partial}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\theoremstyle{definition}
+
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+
+\title{Real Analysis}
+\author{August Bergquist}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Problem 3.3.5}
+
+\begin{proposition}
+Let $X$ be a metric space, and let $x\in X$ be an isolated point. Then any sequence that eventually converges to $x$ is constant. 
+\end{proposition}
+
+
+\begin{proof}
+Since $x$ is isolated, it follows that $\{x\}$ is an open set. Hence there exists some open ball (Theorem 3.1.7) around $x$, corresponding to some real radius $r>0$, such that $ B_r(x) \subset \{x\} $. Since open balls are non-empty (it's an easy proof, following immediately from the positive definiteness property of a metric and the definition of an open ball), it follows that $B_r(x) = \{x\}$. Now suppose that $\sigma:\N\to X$ is a sequence converging to $X$. Then since $r>0$, there exists some $N\in \N$ such that for all $n>N\in \N$ $d(\sigma(n), x) < r$. In other words, that $\sigma(n) \in B_r(x) = \{x\}$ for all $n> N$. In other words, $\sigma(n) = x$ for all $n> N$. In other words, $\sigma$ is eventually constant. Q.E.D.
+\end{proof}
+
+\begin{proposition}
+Let $X$ be a discrete metric space. Then the only convergent sequences are eventually constant. 
+\end{proposition}
+
+\begin{proof}
+Let $\sigma$ be any sequence, and suppose that it converges. Then there exists some point $x\in X$ to which it converges. But $x$ is in a discrete metric space, hence $x$ is isolated, from which it follows by the last proposition that $\sigma$ is eventually constant. But $\sigma$ was an arbitrary convergent sequence in $X$, hence any convergent sequence in $X$ must be eventually constant. Q.E.D.
+\end{proof}
+
+\begin{remark}
+This is another reason why discrete metric spaces are lame! :)
+\end{remark}
+
+\section{Problem 3.3.6}
+
+\begin{proposition}
+The following are equivalent for a sequence $\sigma:\N\to X$, with $X$ a metric space, and $x$ a point within it.
+\begin{itemize}
+\item $\sigma$ converges to $x$
+\item Every subsequence of $\sigma$ converges to $x$.
+\item Every subsequence of $\sigma$ has a subsequence which converges to $x$.
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+\begin{itemize}
+\item
+First suppose that $\sigma$ converges to $x$, and let $\tau : \N\to \N$ be a strictly increasing natural number sequence. We need only show that $\sigma\circ \tau$ converges to $x$. \\
+
+Let $\epsilon > 0$. Then since $\sigma$ is convergent to $x$, there exists some $N\in \N$ such that for any $n>N$, $d(\sigma(n), x) < \epsilon.$ Now let $n$ be any such $n$. Recall from a previous exercise that, for a strictly increasing sequence such as $\tau$ on the natural numbers, it's term cannot exceed it's index, hence $\tau(n) > n$. But then $\tau(n) > N$ by transitivity. Hence by definition of function composition it follows that $\sigma\circ \tau(n) = \sigma(\tau(n))$ so by construction of $N$ it follows that $d(\sigma\circ\tau(n), x) < \epsilon$. So then, for all $\epsilon > 0 $ there exists some $N\in \N $ such that for all $n> N \in \N$ $ d(\sigma\circ\tau(n),x) < \epsilon $. BY definition of convergence, $\sigma\circ \tau$ converges to $x$. But $\sigma\circ \tau$ was an arbitrary subsequence, hence any subsequence converges. This fulfills the first chain of implication needed to prove the proposed equivalence.
+
+\item 
+Now we suppose that every subsequence of $\sigma$ converges to $x$, and need to show that every subsequence of $x$ has a convergent subsequence. But recall from the random generalization from my last assignment that the subsequence relation is transitive. Hence any subsequence of a subsequence of $\sigma$ is also a subsequence of $\sigma$, and therefore must converge to $x$ by assumptino.
+
+\item 
+Finally, for our last implication, we proceed by contrapositive. Suppose that $\sigma$ does not converge to $x$. It suffices to construct a subsequence of $\sigma$ which does not have a subsequence which converges to $x$. \\
+
+Since $\sigma$ does not converge to $x$, it follows that there exists some $\epsilon> 0 $ such that for all natural number $N$ there exists some $n > N$ such that $d(x, \sigma(n)) \ge \epsilon$. We shall construct a sequence with no converging subsequence inductively, with the property that each of it's terms stays $\epsilon$ away from $x$. \\
+
+\begin{itemize}
+\item As our base case, let us consider the $\tau(1) = n_1$ where $n_1$ is that natural number whose existence is guaranteed to us such that $d(x, \sigma(n_1)) \ge \epsilon $. Clearly then $\sigma\circ \tau (1) = \sigma(n_1)$, so that it is $\epsilon$ away from $x$. 
+\item Now suppose that we have defined $\tau$ thus far, so that $d(\sigma\circ \tau(n), x ) \ge \epsilon$. 
+\item Now define $\tau(n+1) = m_{\tau(n)}$ where $m_{\tau(n)}$ is that natural number greater than $\tau(n)$ such that $d(\sigma(m_{\tau(n)}), x) \ge \epsilon $. This construction fulfills the induction step.
+
+
+\end{itemize}
+We have constructed a subsequence $\sigma\circ \tau$ with the property that each of it's terms is $\epsilon$ away from $x$. Consider any subsequence. This subsequence's terms must also stay $\epsilon$ away to $x$, hence by definition of convergence, it does not converge to $x$. Hence no subsequence of $\sigma\circ \tau$ converges to $x$. \\
+This fulfills the third implication, 
+that non-converrgence to $x$ means that there is a subsequence which has no subsequence which converges to $x$. \\
+
+\end{itemize}
+Having shown each of the necessary implications, it follows that that these properties are equivalent.
+
+Q.E.D.
+\end{proof}
+
+
+\end{document}

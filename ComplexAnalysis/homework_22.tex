@@ -1,0 +1,109 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{mathtools}
+\usepackage{polynom}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\thm}{\fbox{theorem}}
+\newcommand{\infsum}{\sum_{n = 1}^{\infty}}
+\newcommand{\pf}{\fbox{proof}}
+\newcommand{\cor}{\fbox{corollary}}
+\newcommand{\psum}{\sum_{n = 0}^N}
+\newcommand{\prop}{\fbox{proposition}}
+
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+\newcommand{\ab}[1]{\color{red}{#1}\normalcolor}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+\fbox{problem 1c} Show that any singular point of the function is  hole. Furthermore, determined the order m of each pole as well as its corresponding residue, B.
+$$f(z) = \Big(\frac{z}{2z+1}\Big)^3$$
+\\
+
+\fbox{solution} First, we re-arrange the function a bit. 
+$$f(z) = \frac{z^3}{(2z+1)^3}.$$ Let $\phi(z) = z^3$. The only place in which this function is undefined is $z_0 = -1/2$. Consider the function $\phi(z) = z^3/8$. Clearly, as this is entire, $\phi(z)$ is analytic at $z_0 = -1/2$, and nonzero. Furthermore, the function $f(z)$ can be written as $\phi(z)/(z+1/2)^3 = z^3/8/(z + 1/2)\cs{^3} = z^3/(2z + 1)\cs{^3}$. Hence by the theorem in this section, $z_0 = -1/2$ is a pole of order $3$, and the residue is $\phi^{(2)}(-1/2)/(2)! = 6*(-1/2)/2/8 = -3/16$.\\
+
+\cs{5/5}
+
+\fbox{problem 2c} Show that $Res_{z = i}{z^{1/2}}/((z^2+1))^2 = \frac{1+ i}{\sqrt{2}}$ for $|z| > 0 $ and $0 < \arg z < 2\pi$.\\
+
+\fbox{solution} First, we note that the only singularity of the expression is at $z=\cs{-}i$ and $+i$. We want to find the singularity around $z_0 = i$. To find this, we first re-arange things a bit,
+$$\frac{z^{1/2}}{(z^2 + 1)^2} = \frac{z^{1/2}}{((z+i)(z-i))^2} = \frac{\frac{z^{1/2}}{(z+i)^2}}{(z-i)^2}.$$ Now we let $\phi(z) = \frac{z^{1/2}}{(z+i)^2}$, and notice that this function is analytic at $z_0$, and also defined on the branch cut. Evaluating at $z_0$ we have $i^{1/2}/(2i)^2$, which is not zero. Taking the first derivative of $\phi$ and applying the theorem in the section, we find
+$$Res_{z = i}\frac{z^{1/2}}{(z^2 + 1)^2} = \phi'(i)/(2-1)! = (1/2i^{-1/2}/(2i)^2 -2i^{1/2}/(2i)^3).$$ The two second roots of $i^{1/2} = e^{(\pi/2 i + 2\pi ki)/2}$ . Since we are on the branch where the angle of the arguments must be between 0 and 2$\pi$, $k = 0$. Hence we have $i^{1/2} = e^{\pi/4 i} = (1+i)/\sqrt{2}$ on this branch. Likewise, we have $e^{-\pi/4i} = i^{-1/2} = (1-i)/\sqrt{2}$. Plugging this back into the formula for the residue, we have $Res_{z = i}\frac{z^{1/2}}{(z^2 + 1)^2} = \frac{1+ i}{\sqrt{2}}$, the desired result. \cs{It isn't quite the desired result... There is some error in the simplifying of that messy expression.}\\
+
+\cs{4.5/5}
+
+\fbox{problem 7b} Evaluate
+$$\int_C\frac{z^3e^{1/z}}{1+z^3}dz$$ where $C$ is the positively oriented circle defined $|z| = 2$.\\
+
+\fbox{solution} First, note that there are four singularities of this function. These are the third roots of negative one, and zero. Because all of these points, which are finite in number, are contained within the interior of $C$, it follows by the theorem in section 77 that 
+$$\int_C\frac{z^3e^{1/z}}{1+z^3}dz = 2\pi iRes_{z = 0}\Big[\frac{1}{z^2}\frac{(\frac{1}{z})^3e^{z}}{1+(\frac{1}{z})^3} =\frac{1}{z^2}\frac{e^z}{1 + z^3}\Big].$$ Notice that the new expression can be written as $\phi(z)/(z-0)^2$ where $\phi(z)  = \frac{e^z}{1+z^3}$, which is analytic everywhere besides the third roots of negative one, none of which are zero. Furthermore, $e^0$ is not zero, hence $\phi(z_0)$ is nonzero. From the theorem in this section it follows that the residue is $\phi'(0)/1! = e^0 - 3(0)[...] = 1$. \cs{I cant tell what's going on in that $...$.} Plugging this into the value for the integral, we find the value of the integral to be equal to $2\pi i$.\\
+
+
+\cs{4.5/5}
+
+\cs{Sec 81: 14/15}
+
+\fbox{proposition 3b} Show that 
+$$Res_{z = \pi i} \frac{\exp(zt)}{\sinh z} + Res_{z = \pi i}\frac{\exp(zt)}{\sinh z} = -2\cos(\pi t)$$.
+
+\fbox{solution} $\sinh z = 0$ whenever $z = ni\pi$ for some $n\in \Z$. Furthermore, its derivative, $\cosh z$, is never equal to zero at these points. Hence there is a zero of order 1 at both positive and negative $i\pi$. Hence by theorem 2 of section 83, since $\exp(-\pi it)$ is a nonzero function, and also entire, it follows that 
+$$Res_{z = \pi i} \frac{\exp(zt)}{\sinh z} = e^{\pi i t}/\cosh (\pi i) = e^{\pi i t}/\cos(\pi) = -e^{\pi it}.$$
+
+Likewise, $$Res_{z = -\pi i} \frac{\exp(zt)}{\sinh z} = e^{-\pi i t}/\cosh (-\pi i) = e^{-\pi i t}/\cos(-\pi) = -e^{-\pi it}.$$
+
+Adding these together, and using the definition for cosine using exponential, we obtain 
+$$ Res_{z = \pi i} \frac{\exp(zt)}{\sinh z} + Res_{z = \pi i}\frac{\exp(zt)}{\sinh z} = -(e^{\pi it} + e^{-\pi it}) = -2\cos(\pi t). $$\\
+
+\cs{5/5}
+
+\fbox{problem b} Show that $Res_{z = z_n}(\tanh z) = 1$ where $z_n = \Big(\frac{\pi}{2}+ n\pi\Big)i$ for integers $n$.\\
+
+\fbox{solution} First, note that $\tanh z = \frac{\sinh z}{\cosh z}$. The denominator has a zero at $\pi i$, but the derivative, $\sinh z$, is nonzero there. Furthermore, $\sinh z$ is not zero at $\pi i$. Hence we can use the theorem from this section, finding $Res_{z = z_n}(\tanh z) = \sinh(\pi i)/\sinh(\pi i) = 1$. \\
+
+\cs{5/5}
+
+\fbox{problem 5b} Show that $\int_C dz/\sinh(2z) = 3/2$ \cs{$3/2$?} where $C$ is a positively oriented circle $|z| = 2$.\\
+
+\fbox{solution} First, notice that $\sinh(2z)$ has zeros whenever $2z = ni\pi$ for some integer $n$. Of modulus less than $2$ there are three such $z$: $-1/2$, $0$, and $1/2$. Furthermore, as we have repeatedly shown, each zero of $\sinh z$ are of degree 1. Furthermore, the denominator, the constant function $1$, is analytic everywhere. Also, $\cosh z = 1$ for each $\pi i2n$ and -1 for  each $\pi (2n+1) $, hence at two of these singularities the value of $\cosh z$ is $-1$, and for one of them it is $1$. Hence by a theorem in this section, the residue around each of these singularities should be 1 divided by the derivative of the first evaluated at these points, hence we have $Res_{z = z_{odd}}1/\sinh 2z = 1/2\cosh z_k = -1/2$ and $Res_{z = z_{even}}1/\sinh 2z = 1/2\cosh z_k = 1/2$. Since there are three singularities contained within $C$, and by the Cauchy residue theorem, $\int_Cdz/\sinh z = 2\pi i(-1/2 + 1/2 -1/2 = -1/2) = -\pi i$.
+
+\cs{5/5}
+
+\cs{Sec 83: 15/15}
+
+\end{document}

@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+\fbox{sec 10} Suppose $z^n = z_0$. Let $ z = re^{i\theta}$ and $z_0 = r_0 e^{i\theta_0}$. Then $r^ne^{in\theta} = r_0e^{i\theta}.$ Hence $r^n = r_0$ Hence $r = \sqrt{n}{r_0}$ (fix later). Furthermore, $n\theta = \theta_0 + 2k\pi $ for some $k$. Thus $z$ has $n$ distinct $n$th roots: $e^{in(\theta_0+ek\pi/n)} = ...= e^{i\theta_0}$. This'll rotate around at 90 degrees for each, but I can't draw here lol\\
+
+\fbox{notation} We write $z_0^{1/n}$ to be the set of $n$th roots of $z_0$.\\
+
+\fbox{The principle root} is the root with $\theta_0= Arg z_0$. These are super important (confusingly not this but the roots in general).\\
+
+\fbox{sec 12}\\
+
+\fbox{defn} An $\epsilon$-neighborhood of $z_0$ on the complex plain is a set of the form $|z-z_0|<\epsilon$.\\
+
+\fbox{defn} The set of $z$ such that $0<|z-z_0|<\epsilon$ not including $z_0$ is a deleted neighborhood of $z_0$. \\
+
+\fbox{defn} Let $S\in \C$ be a set. An \textbf{interior point} of $S$ is a point, $z_0\in S$ such that there exists a neighborhood $N$ of $z_0$ such that $N\subseteq$ S.\\
+
+\fbox{defn} An exterior point of $S$ is a point $z_0\in S$ such that there exists a nieghborhood of $z_0$ with $N\downcup S = \emptyset$. \\
+
+\fbox{defn} A boundary point of $S$ is a point $z_0$ such that every neighborhood of $z_0$ contains a point in $S$ and a point not in $S$. \\
+
+\fbox{defn} S is said to be open if it contains none of its boundary points. $S$ is closed if it contains all of its boundary points. \\
+
+\fbox{defn} The set $bndS$ is the set of all boundary points of $S$.
+
+\fbox{defn} The closure of $S$ is $\bar{S} = S\cup bnd S$.\\
+
+\fbox{thm} A set $S$ is open iff every pt of $S$ is an interior point.\\
+\fbox{pf} Assume $S$ is open. If $S = \emptyset$, then were done, so assume $z\in S$. Then $z$ is not a boundary ponit, so there exists a neighborhood $N$ of $z$ contianing only interior pts or only exterior points. But $z\in N\upcup S$, so $N\subseteq S$.  So $S$ is open.\\
+Assume every point of $S$ is interior to $S$. Then for all $z\in S$, there is a neighborhood $N$ of $z$ such that $N\subseteq S$, so no point of $z$ is a bountary opint. So $S$ is open.\\
+
+\fbox{thm} The closure of a set is closed.\\
+
+\fbox{defn} An open set $S\subseteq \C$ is \textbf{connected} if between any $z_1,z_2\in S$ there is a polygonal path $P$ from $z_1$ to $z_2$ such that $P\subseteq S$.\\
+
+
+\fbox{defn} A \textbf{domain} is an open, connected set. A region is a domain with part of its boundary. \\
+\fbox{defn} A set $S\subseteq \C$ is boudned if there exists some set $R\in \R$ such that $S$ lies inside of $|z| = R$.\\
+
+\fbox{defn} Let $z_0\in S\subseteq \C$. Then $z_0$ is called an \texbtf{accumulation point} of $S$ iff every deleted neighborhood of $z_0$ contains a point of $S$.\\
+
+\fbox{theorem} A set is closed iff it contains all of its accuulation points.
+
+
+\end{document}

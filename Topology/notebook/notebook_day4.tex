@@ -1,0 +1,98 @@
+
+\documentclass{article}
+\usepackage{listings}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{ stmaryrd }
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\cc}{\mathcal{C}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+
+\title{Topology}
+\author{August bergquist}
+
+
+\begin{document}
+
+
+\fbox{theorem 2.20} For any set $A$ in a topological space $X$, the closure of $A$ equals the intersection of all closed sets containing $A$, that is 
+$$\overline{A} = \bigcap_{B\supset A, B\in \cc}B,$$
+where $\cc$ is the collection of all closed sets in $X$.
+
+\fbox{proof} This will amount to two subset proofs. 
+\begin{itemize}
+    \item[$\subseteq$] Let $x$ be an arbitrary element in $\overline{A}$. Then by definition of $\overline{A}$ there are two (not mutually exclusinve) cases: Either $x\in A$ or $x\in \lim(A)$.
+    \begin{itemize}
+        \item Suppose $x\in A$. We pretty much get this one for free! Since $ \bigcap_{B\supset A, B\in \cc}$ is the intersection of sets containing $A$, it follows that $A\subseteq B$ for each $B$ being intersected over. Hence $x\in B$ for each $B$, and by definition of the itnersection of a collection of sets $x \in \bigcap_{B\supset A, B\in \cc}$.
+        \item Suppose $x\in \lim(A)$. Let $B$ be an arbitrary closed superset of $A$. Since $x$ is a limit point of $A$, we know that for any open set $U$ containing $x$ $(U-\{x\})\cap A \ne \emptyset$. Let $W$ be an arbitrary open set containing $x$. Then $(W- \{x\})\cap A \ne \emptyset$, hence there's some element $y\in (W- \{x\})\cap A$. Furthermore $y\in (W-\{x\})$ and $y\in A$ by intersection. Since $y\in A$ it follows that $y\in B$ since $A\subseteq B$. Since $y\in (W-\{x\})$ and $y\in B$, it follows by definition of the intersection that $y\in (W-\{x\})\cap B$, so $(W-\{x\})\cap B \ne \emptyset$. Since $W$ is an arbitrary open set containing $x$, it follows that any for empty open set $V$ containing $x $, $(V-\{x\}) \cap B \ne \emptyset$. By definition of a limit point, $y\in \lim (B)$. Furthermore, since $y$ is a limit point of $B$, and since $B$ is closed, it follows by definition of a closed set that $y\in B$. Since $B$ was an arbitrary closed superset of $A$, it follows that for any closed superset $B$ of $A$, $x\in B$. Hence the intersection of all such sets also contains $x$,
+        $$x\in \bigcap_{B\supset A, B\in \cc}B.$$
+    \end{itemize}
+    Since in either case $x\in \bigcap_{B\supset A, B\in \cc}B$, and since $x$ was arbitrary in $\overline{A}$, it follows that $\overline{A} \subseteq\bigcap_{B\supset A, B\in \cc}B.$
+    \item[$\supseteq$] Let $x$ be an arbitrary element in $ \overline{A} = \bigcap_{B\supset A, B\in \cc}B$. Then by definition of the intersection of a family of sets, for any ol' closed set $B$ such that $A\subseteq B$, $x\in B$. Well, $\overline{A}$ contains $A$, and by theorem 2.13 we know it's closed. Hence by definition of the inteserciton of an indexed family of sets, it follows that $x\in \overline{A}$. Since $x$ was arbitrary in $\bigcap_{B\supset A, B\in \cc}$, it follows that all elements in $\bigcap_{B\supset A, B\in \cc} $ are also in $\overline{A}$. Hence $\bigcap_{B\supset A, B\in \cc} \subseteq \overline{A}. $
+\end{itemize}
+Since $\bigcap_{B\supset A, B\in \cc} \subseteq \overline{A}$ and vice versa, it follows that $\overline{A} = \bigcap_{B\supset A, B\in \cc}B .$\\
+
+
+\fbox{theorem 2.26} Let $A$ be a subset of a topological space $X$, then a point $p$ is an interior point of $A$ if and only if there exists a neighborhood $U$ of $p$ such that $p\in U\subseteq A$.\\
+
+\fbox{proof}
+\begin{itemize}
+    \item[$\Rightarrow$] Suppose that $p\in Int A$. Then by definition of $Int A$ $p\in \bigcup_{U\subset A,U\in \topT}U$. Hence by definition of the union of a family of sets there exists some $U$ such that $U\subseteq A$ and $U\in \topT$ and $p\in U$. In other words, there exists some nieghborhood $U$ of $p$ such that $p\in U\subseteq A$ 
+    \item[$\Leftarrow$] Suppose that there exists some nieghborhood $U$ of $p$ such that $p\in U\susbeteq A$. Since neighborhoods are open, $U$ is a set such that $U\subseteq A$ and $U\in \topT$. Hence by definition of the union of a family of sets, $p\in \bigcup_{U\subseteq A, U\in \topT}U = Int A$.
+\end{itemize}
+
+\fbox{exercise/theorem 2.27} A set $U$ is open in a topological space $X$ if and only if every point of $U$ is an interior point of $U$. 
+
+\fbox{proof}
+\begin{itemize}
+    \item[$\Rightarrow$] Suppose that $U$ is a open in a topological space $X$. Let $p$ be an arbitrary point in $U$. Since $U$ is open, and $U$ is a subset of itself, it follows that there is some neighborhood of $p$, namely $U$ such that $p\in U\susbeteq U$. By theorem 2.26 it follows that $p\in Int U$. Since $p$ was arbitrary, it follows that every point of $U$ is in the interior of $U$.
+    \item[$\Leftarrow$] Suppose that every point in a subset $U$ of $X$ is an interior point of $U$. Let $p$ be an arbitrary point in $Int U$. Then, since every interior point in $U$ is also in $U$, we know that $p\in U$. Since $p$ was arbitrary in $Int U$, all points in $Int U$ are also in $U$, hence $Int U\susbeteq U$. Furthermore, let $x$ be an arbitrary point in $Int U$. Since $U$ is itself an open set such that $U\subseteq U$, it follows by definition of the union of a family of sets that $x\in \bigcup_{V\in \topT, V \subseteq U}V = Int U$. Since $x$ was arbitrary in $U$, it follows that all elements in $U$ are also in $Int U$, hence $U\susbeteq Int U$. Since $U\susbeteq Int U$ and $Int U \subseteq U$, it follows that $U = Int U$. Since $Int U = \bigcup_{V\in \topT, U \subseteq V} V$ is the union of open sets in $\topT$, it follows by definition of a topology that $U = Int U$ is also in $\topT$, hence $U$ is open.
+    \end{itemize}
+
+
+\fbox{exercise 2.29} Pick several diferent subsets of $\R$ and for each one, find its interior and boundary using
+\begin{enumerate}
+    \item the discrete topology
+    \item the indiscrete topology
+    \item the finite compliment topology
+    \item the standard topology.
+\end{enumerate}
+\fbox{solution} Let's consider $(1,2), \N, [1,2], \Q$.
+\begin{enumerate}
+    \item In the discrete topology,
+the boundary of $(1,2)$ should be $\emptyset$. The interior should be the union of all susbets contained within $(1,2)$ and closed. Every set in the discrete topology is closed, so this is just the union of every open set, that is, every subset. In other words, this is just $(1,2)$.\\
+
+Every set should be the same way in the discrete topology.
+\item In the indiscrete topology, the closrure of $(1,2)$ is $\R$. Hence the boundary is $\R \cap \R-\R = \R \cap \emptyset = \emptyset$. Likewise for $\N$, $\Q$, and $[1,2]$
+\item In the finite compliment topology, there are no non-empty open sets contained within any of the sets listed above. This is because it would leave out an infinite amount of points, after which the set compliment would still be infinite. Hence the interior of $(1,2), \N,\Q, [1,2]$ is just $\emptyset$. The boundary is a different story. Since all of these sets are infinite, a set containing only one element of these sets could not be open. Hence every point in these sets is a limit point. Furthermore, every other point is a limit point, because every open set other than the empty set in the finite compliment topology must include some points in each of these sets (in fact an infinite number of them). Hence the closure of each of these sets is $\R$. This means that the boundary is the empty set for each of these sets, because $(\R-\R)\cap \R = \emptyset$. 
+\item In the standard topology $\lim (1,2) = [1,2]$. Hence $\parital (1,2) = [1,2]\cap\overline{(\R-91,2))} = [1,2]\cap ((-\infty,1]\cup [2,\infty)) = \{1,2\}$. The interior of $(1,2)$ is just $(1,2)$, because $(1,2)$ is itself open. For $\N$, the interior is $\emptyset$, as no non-empty open set in the standard topology could every be contained within $\N$, because $\N$ contains a set of discrete points. Furtherore, no elements of $\N$ are limit points, hence the closure of $\N$ is just $\N$ and the boundary of $N$ is $\emptyset$.
+\end{enumerate}
+
+\end{document}
+

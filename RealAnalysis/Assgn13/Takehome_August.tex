@@ -1,0 +1,74 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate, diagbox, tcolorbox, esvect, tikz, adjustbox}
+
+
+\graphicspath{{./images/}}
+
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+
+%geometry/topology
+\newcommand{\bndry}{\partial}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\theoremstyle{definition}
+
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+\newtheorem{lameobservation}{Lame Observation}
+
+\title{Real Analysis}
+\author{August Bergquist}
+
+\begin{document}
+
+\maketitle
+
+\section{9.4.6}
+
+In all that follows, let $K$ be a "D"-domain. Recall that an antiderivative of a function $f:K\to \R$ is a function $F:K\to \R$ (which is then differentiable on $K$), such that $F'(x) = f(x)$ for all $x\in K$.
+
+\begin{proposition}
+Suppose that $f$ is a function $K\to \R$, where $K$ is a D-domain and $f$ differentiable on $K$, such that there exists some constant $a\in \R$ such that $f'(x) = a$ for all $x\in K$. Then there exists some constant $b\in \R$ such that $f(x) = ax + b$ for all $x\in K$.
+
+\end{proposition}
+
+\begin{proof}
+First, we have already shown that antiderivatives differ by a constant. Therefore, it suffices to show that the function defined $g(x) = ax $ for all $x\in K$ is an antiderivative of the constant function $a$. This is obvious, for when the difference quotient is taken, we find that the difference quotient is constant at $a$. \\
+
+Since $g(x)$ is an antiderivative for the constant function $a$, and since by definition of an antiderivative, so is $f$, it follows $f$ and $g$ differ by some constant $b\in \R$. In other words, $f(x) = g(x) + b = ax + b$ for all $x\in K$, which was what we wanted to show.
+\end{proof}
+
+\section{Strict monotonicity and derivatives}
+
+\begin{proposition}
+Let $f:K\to \R$ be differentiable on $[a,b]\subset K$ with $a < b$, such that $f'(x) < 0$ for all $ x\in [a,b]$. Then $f$ is strictly decreasing on $[a,b]$. 
+\end{proposition}
+
+\begin{proof}
+Since $f'(x) < 0$ on all $[a,b]$, it follows by Theorem 9.5.2 of the textbook that $f$ is decreasing. The only issue we could run into is that $x < y$ in $[a,b]$ while $f(x) = f(y)$ in $\R$. This possibility is ruled out by Theorem 9.5.3, for $f'(x) < 0$ implies $f'(x)\ne 0$, for all $x\in (a,b)$. Hence $f$ is one-to-one.
+\end{proof}
+
+The converse is false. To see this, consider the map 
+
+$[-1,1]\to \R$ defined $f(x) = -x^3$ for all $x\in [-1,1]$. This function is strictly decreasing, since $x^2>0$ when $x>0$, hence if $x, y\in [-1,1]$ if we have $x< y$, then $-x^3 = -x(x^2) < -y(y^2)$. Moreover, it's derivative is zero (which is obvious if we assume the power rule, and even if we don't).
+
+To make sure it actually does have zero derivative at zero, notice for any $x$ and $y$, $y^3 - x^3 = (y - x)(y^2 + xy + x^2) $, hence the difference quotient is 
+$(y^3 - x^3)/(y-x) = (y^2 + xy + x^2)$. Fixing $x = 0$, the difference quotient becomes $y^2$, hence the derivative is $\lim_{y\to 0}y^2$, which is $0$ since $y^2$ is continuous and $0^2 = 0$. 
+\end{document}

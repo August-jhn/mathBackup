@@ -1,0 +1,101 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\title{Abstract Algebra}
+\author{August, Evelyn}
+\date{11/02/2021}
+
+\begin{document}
+\maketitle
+%#7
+
+\fbox{proposition: 11} Let $G=\Z_4 \bigoplus U(4)=\{(0,1),(0,3),(1,1),(1,3),(2,1),(2,3),(3,1),(3,3)\}, H=<(2,3)>=\{(2,3), (0,1)\}$, and $K=<(2,1)>=\{(2,1), (0,1)\}$. Show that $G/H$ is not isomorphic to $G/K$. \\
+
+\fbox{proof} Let $G, H$ and $K$ be defined as above. Consider the function $\phi: G/H \longrightarrow G/K$, such that $G/H=\{aH|a \in G\}$ and $G/K=\{bK|b \in G\}$. \\
+Finding the factor groups, we have $G/H = \{[(0,1)H= (2,3)H= \{(2,3),(0,1)\}],[(0,3)H = (2,1)H =  \{(2,1),(0,3)\}], [(1,1)H = (3,3)H \{(3,3),(1,1)\}],[(1,3)H =(3,1)H =  \{(3,1),(1,3)\}]\}$. Furthermore, $G/K = \{[(0,1)K = (2,1)K = \{(2,1),(0,1)\}], [(0,3)K = (2,3)K = \{(2,3),(0,3)\}], [(1,1)K = (3,1)K = \{(1,1),(3,1)\}],[(1,3)K = (3,3)K = \{(1,3),(3,3)\}]\}$.\\
+
+Notice that $[(3,1)K][(3,1)K] = [(3,1)(3,1)]K = (2,1)K = K$. Hence the element order $(3,1)K$ is $2$. Likewise, $((1,1)K)^2 = (2,1)K = K$, $[(1,3)K]^2 = (2,1)K = K $, $K$ is the identity hence its order is one, hence the orders of these elements are $2, 2,$ and $1$ respectively. Note that there are no elements of order $4$.\\
+
+Luckily, we only need to type one calculation to finish the proof. Notice that $[(1,1)H]^4 = H$. Also, none of the elements in the cycle for $(1,1)$ are in $H$, besides $(0,1)$ which is the identity. Hence for all elements in this cycle other than the identity $aH \ne H$. Hence the order of $H$ is also the order of $(1,1)$, which is four.\\
+
+Since there is an element in $G/H$ of order four, and since there isn't one in $G/K$, it follows since isomorphisms preserve element order that $G/H$ is not isomorphic to $G/K$.
+Q.E.D.
+\\
+\newpage
+\fbox{proposition 55} In $D_4$, let $K=\{R_0, D\}$ and let $L=\{R_0, D, D', R_{180}\}$. Show that $K$ is normal in $L$ and $L$ is normal in $D_4$, but $K$ is not normal in $D_4$, hence normality is not transitive.\\
+
+\fbox{proof} Let us first show that $K$ is normal in $L$. Let $K \and L$ be defined as above. We have to show that $xKx^{-1} \subseteq K$, for all $x \in L$. We are thus going to look at all the elements separately. Obviously, for $R_0$, it follows that $xR_0x^{-1}=xx^{-1}=R_0 \in K$ for all elements in $L$. Let us therefore consider $D$. The cases $x=R_0$ and $x=D$ are clear and follow by properties of closure and inverses. Furthermore, by analyzing the caley table for $D_4$ we see that $D'DD'^{-1}=D'DD'=D \in K$ and $R_{180}DR_{180}^{-1}=R_{180}DR_{180}=D \in K$. Thus, $K$ is normal in $L$.\\
+
+Let us now show that $L$ is normal in $D_4$. Again, $xR_0x^{-1}=xx^{-1}=R_0 \in L$ for all $x \in D_4$. We have already looked at the cases $x \in \{R_0, D, D', R_{180}\}$ in $xDx^{-1}$. It remains to show the cases such that $x \in \{R_{90}, R_{270}, V, H\}$. Therefore, consider $R_{90}DR_{90}^{-1}=R_{90}DR_{270}=D' \in L$, $R_{270}DR_{90}=D' \in L$, $VDV^{-1}=VDV=D' \in L$ and $HDH^{-1}=HDH=D' \in L$. Analogously, by replacing $D$ by $D'$, it follows that $xD'x^{-1}=y \in L$ for all $x \in D_4$. Lastly, we still need to consider $xR_{180}x^{-1}$ for all $x \in D_4$. Again, $x=R_0 \and x=R_{180}$ follow by group properties. Consider:  $R_{90}R_{180}R_{270}=R_{90}R_{180}R_{270}=R_{180} \in L$, and $xR_{180}x^{-1}xR_{180}x=R_{180} \in L$, for $x \in \{V, H, D, D'\}$. Hence, it follows that $xLx^{-1} \subseteq L$ for all $x \in D_4$ and L is normal in $D_4$. \\
+
+In order to show that $K$ is not normal in $D_4$, consider, for example, $R_{90}DR_{270}=D'$, which is not in $K$. Thus, $K$ is not normal in $D_4$ and normality is not transitive.\\
+
+\fbox{proposition 68} If $N$ is a characteristic subgroup of $G$, show that $N$ is a normal subgroup of $G$. \\
+
+\fbox{proof} Let $G$ and $N$ be defined as above. Consider the inner automorphism of $G$ induced by $a \in G$: $\phi_a(y)=aya^{-1}$. Since $\phi_a$ is an automorphism, it follows by properties of characteristic subgroups that $\phi_a(N)=aNa^{-1}=N$ for some $a \in G$. Since this is exactly the definition of a normal subgroup, it follows that $N$ is normal in $G$. qed. \\
+
+\end{document}

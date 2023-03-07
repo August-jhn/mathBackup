@@ -1,0 +1,85 @@
+\documentclass{article}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\title{isomorphisms}
+
+
+\begin{document}
+\maketitle
+Given $A,B$ sets with operations $*,+$ respectively, we say that the ordered pairs $(A,*)$ and $(B,+)$ are isomorphic if there exists some bijective function $\phi : A\rightarrow B$ such that for all $a,b\in A$ $\phi(a*b) = \phi(a+b)$\\
+
+\fbox{theorem} ( Fundamental theorem of cyclic gorups ) \\
+\begin{itemize}
+    \item Every subgroup of a cyclic group is a cyclic group.
+    \item Morevoer, if the order of $G$ is $n$, then the order of every subgroup of $G$ divides $n$. 
+    \item And for each positive divisor of $K$ there exists exactly one subgroup of order $k$.
+\end{itemize}\\
+
+\defn (permutation) A permutation, $\sigma$ on a nonempty set $S$ is a bijection $\sigma: S\rightarrow S$. \\
+
+\fbox{theorem} Every goup is isomorphic to a group of permuations.
+
+\\
+\fbox{proof} Let $G$ be a group. \\
+
+For ever element in $a$, define $\sigma_a :G\rightarrow G$ by $\sigma_a(x) = ax$ for all $x\in G$. To show that $\sigma_a$ is well defined, we invoke the closure of $G$. We wish to show that $\sigma_a$ is a permutation. To do this, we merely need to show that $\sigma_a$ is a bijection. This follows from the fact that $\sigma_a$ is a map from $G\rightarrow G$, hence it must be bijective if it is injective. Let $x,y\in G$. By the left cancelation rule if $ax = ay$, hence $x = y$, hence $\sigma_a$ is bijective, and hence it is a permutation. Let $H = (\{\sigma_a : a\in G\}, *)$, where $*:G\rightarrow G$ is function composition. We need to show that $H$ is a group. Clearly it is nonempty, as $G$ is a group hence it cannot be empty, so there exists some $a\in G$, so we have $\sigma_a\in H$. Now to show that there is an identity, consider $\sigma_e$ for the identity $e\in G$. Let $\sigma_a$ be an arbtirary element in $G$. We can show that $\sigma_e$ is the identity by showing $\sigma_e$ doesn't do anything to $\sigma_a$. Next we prove they are isomorphic, but I can do this and I'm hungry/thirsty/tired.
+
+Q.E.D.\\
+
+\fbox{definition} Given a group $G$, and an element $a\in G$, the inner automorphism induced by $a$ is th automoprhism $\phi_a:G\rightarrow G$ defined $\phi_a(x) = ax$ for all $x\in G$. The set of all inner automorphisms is denoted $Inn(G)$\\
+
+\fbox{theorem} Given a group $G$, the set $\Aut(G)$ with composition forms a group. Furthermore, $Inn(G)$ with function composition is a subgroup of $Aut(G).$
+\end{document}

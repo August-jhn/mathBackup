@@ -1,0 +1,107 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\thm}{\fbox{theorem}}
+\newcommand{\infsum}{\sum_{n = 1}^{\infty}}
+\newcommand{\pf}{\fbox{proof}}
+\newcommand{\cor}{\fbox{corollary}}
+\newcommand{\psum}{\sum_{n = 1}^N}
+\newcommand{\lemma}{\fbox{Lemma}}
+
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+\newcommand{\ab}[1]{\color{red}{#1}\normalcolor}
+
+\title{Abstract Algebra: final celebration of knowledge}
+\author{August, Evelyn}
+\date{12/16/2021}
+
+\begin{document}
+\maketitle
+
+\fbox{problem 1} Given a field $F$ of order $p^n$, and $p$ is prime, determine the additive group structure of $F$ up to isomorphism.\\
+
+\fbox{solution} $F \cong \Z_p\oplus...(\mbox{n})...\oplus\Z_p$.\\
+
+\fbox{proof} Let $a,b\in F$ such that $ab = 0$ and $a\ne 0$. Since $a\ne 0\in F$, $a$ is a unit, hence there exists some $a^{-1}\in F$ such that $a^{-1}a = 1$. Hence $a^{-1}(ab) = (a^{-1}a)b = 1b = b = a^{-1} 0 = 0$, so we have $b = 0$. Hence $a$ is not a zero divisor. Hence $F$ is an integral domain. Having shown $F$ to be an integral domain, it follows by theorem $13.4$ that the characteristic of $F$ is either zero or prime. Since $F$ is finite, the characteristic cannot be zero. Hence the characteristic of $F$ is prime. Let $q$ be the prime number which is the characteristic of $F$.\\
+
+Now let $a\in F$ be some arbitrary nonzero (zero meaning the additive identity) element in $F$. Since the elements in $F$ form an Abelian group under addition (as follows from the field axioms), it follows by a corollary to Lagrange's theorem that $|a|$ divides $F$. Furthermore, by definition of characteristic $q\cdot a = 0$. This being the additive identity element, it follows by corollary 1 of theorem 4.1 that $|a|\big | q$. Since $q$ is prime, it follows that $|a| = 0$ or $|a| = q$. But by a corollary to Lagrange's theorem it follows that $|a| = q \big | |F| = p^n$. The only prime number that divides $p^n$ is $p$, hence $q = p$. So we have established that $|a| = p$. Since $a$ is arbitrary, this applies to all nonzero elements in $F$.\\
+
+Now we have enough information to apply the greedy algorithm for Abelian groups of order $p^n$. We know that the elements of all $p^n$ elements of $F$ have order $p$, besides the identity which is of order $1$. So we choose one of the elements of order $p$, call it $a_1$. Then, if $|G_1|\ne p^n$ (otherwise we're done and $F \cong \Z_p$) we let $G_1 = <a_1>$, and chose an element of order less than or equal to $|G|/|G_1| = p^{n-1}$, call it $a_2$. We let $G_2 = G_1\times <a_2>$. Then we continue this process over again until we arrive at $|G_i| = p^n$. Since each element in $F$ other than the additive identity has order $p$, and since the order of the internal direct product is equal to the product of the orders of the groups in the product, the order of $G_i$ will be $p^i$. Hence we shall repeat this process $n$ times, arriving at $F = <a_1>\times ...(n) ...\times <a_n>$, where each $a_i$ has order $p$. Since each of these $<a_i>$ is a cyclic group of order $p$, $<a_i>\cong \Z_p$ for each $a_i$. Hence $F \cong \Z_p\oplus...(\mbox{n})...\oplus\Z_p$\\
+
+\fbox{problem 2} Given a finite group $G$ with more than one element and no proper non-trivial subgroups, the order of $G$ is prime.\\
+
+\fbox{proof} It is given that there are more than one element in $G$. Since the identity is necessarily in $G$ by the group axioms, and since that identity is unique, it follows that there is some other element in $G$ that is not the identity: call it $a$. Since only the identity can have order $1$, $|a| = |<a>| \ne 1$. But by a corollary of Lagrange's theorem, the order of the element must divide the order of the group. Since $<a>$ cannot be the trivial subgroup by virtue of $|a| \ne 1$, and by the construction of $G$ as having no non-trivial proper subgroups, it follows that $<a>$ is $G$ itself. Hence $|G| = |<a>| = |a|$, and $a$ is a generator of $G$, implying that $G$ is cyclic by definition of a cyclic group. Furthermore, by the fundamental theorem of finite cyclic groups it follows that for each positive divisor of $|G|$ there exists exactly one subgroup of $G$ of that order. Since there are only two subgroups of $G$ (the trivial subgroup of order 1, and $G$ of order $|G|$), it follows that the only positive divisors of $|G|$ are $1$ and $|G|$. Hence by definition of a prime number $|G|$ is prime.\\
+
+
+\fbox{problem 3} Prove there is no homomorphism from $\Z_{32}\oplus \Z_2$ onto $\Z_8\oplus\Z_4$.\\
+
+\fbox{solution} Let $\phi: \Z_{32}\oplus \Z_2 \longrightarrow \Z_8\oplus \Z_4$ be an arbitrary homomorphism. Suppose that $\phi$ is onto $\Z_8 \oplus \Z_4$. Then, by the First Isomorphism Theorem it follows that $\Z_{32}\oplus \Z_2/Ker(\phi)$ is isomorphic to $\phi(\Z_{32}\oplus \Z_2)$. The subgroups of $\Z_{32}\oplus \Z_2$ will all be normal, as the group is Abelian. Since $\phi$ is onto, it follows that $\phi(\Z_{32}\oplus \Z_2) = \Z_8\oplus \Z_4$. We know that $|\Z_{32}\oplus \Z_2| = |32|\cdot|2| = 64$ and $|\Z_8\oplus \Z_4| = |8|\cdot|4| = 32$. Thus, for $(\Z_{32}\oplus \Z_2)/Ker(\phi)$ to be isomorphic to $\Z_8\oplus \Z_4$, the orders of the domain and codomain have to be equal, which implies that the order of $Ker(\phi)$ needs to be $2$. \\
+
+Since $\Z_{32}$ and $\Z_2$ are both cyclic, it follows by the Fundamental Theorem of Cyclic Groups that there should be exactly one cyclic subgroup of each order for each divisor of $32$ and $2$, respectively. Hence, we find the following subgroups of order 2 of $\Z_{32}\oplus \Z_2$, namely $<(16, 1)>, <(16, 0)> \and <(0, 1)>$. Consider now the order of $(1, 0) + Ker(\phi)$ in $\Z_{32}\oplus \Z_2/Ker(\phi)$. For $Ker(\phi)=<(16, 1)>$ or $<(16, 0)>$, the highest possible element order of $(1, 0) + Ker(\phi)$ is $16$. This is lower than the highest possible order in $\Z_8\oplus \Z_4$, which is 24, hence $(\Z_{32}\oplus\Z_2)/Ker(\phi)$ cannot be isomorphic to $\Z_8\oplus \Z_4$, as isomorphism preserves element order. Moreover, in $(\Z_{32}\oplus \Z_2)/<(0,1)> $ the element $(1,0) + <(16,1)>$ would have order $32$, as $1$ must be added to itself $32$ times to be a multiple of 32. However, in $\Z_8\oplus \Z_4$, the highest possible order we can reach is $\lcm(8, 3) = 24$. Thus, element order is not preserved, which implies that $\Z_{32}\oplus \Z_2/<(16,0)>$ is not isomorphic to $\phi(\Z_{32}\oplus \Z_2)$. Then, by the First Isomorphism Theorem it follows that no homomorphic image of $\Z_{32}\oplus \Z_2$ is isomorphic to $\Z_8\oplus \Z_4$. In other words, there is no homomorphism that maps onto $\Z_8\oplus\Z_4$. QED.\\
+
+
+\fbox{problem 4} Every ideal of $\Z$ can be expressed as a principle ideal.\\
+
+\fbox{lemma 1} Every set of integers has a greatest common divisor.\\
+
+\fbox{lemma 2} If $S$ is a set of integers such that $\gcd(S) = d$, then any linear combination of the elements in $S$ is a multiple of $d$.
+
+\fbox{proof} Let $d$ be the gcd of all of the elements in an arbitrary ideal $I$ of $\Z$, as we are guaranteed its existence by lemma 1. Let $a_1$ be some arbitrary element in $I$, and let $S = \{a_1,\dots,a_k\}$ be a finite subset of $I$ such that $\gcd(a_1,\dots,a_k)= d$. Then by the extended Bezout's identity it follows that there exists integers $x_1,\dots,x_k$ such that $d = x_1\cdot a_1+ \dots x_k\cdot a_k$. By closure it follows that $d\in I$. Hence by associativity of addition, $d = (x_1 - 1)a_1 + a_1 + \dots + x_k\cdot a_k$, and by re-arranging this equation we receive:
+$a_1 = -(x_1 - 1)a_1 - x_2\cdot a_2 - \dots - x_k \cdot a_k + d$. But by lemma $2$ $-(x_1 - 1)a_1 - x_2\cdot a_2 - \dots - x_k \cdot a_k = m\cdot d$ for some integer $m$. Hence, substituting, we have $a_1 = m\cdot d + d$. But since $m$ is itself an integer, we can apply the distributive property of rings, hence $a_1 = d(m+1)$. Hence, by definition of the principle ideal, $a_1 \in <d>$. Since $a_1$ is arbitrary in $I$, it follows that for all $a\in I$, $a\in <d>$. Hence $I\subseteq <d>$.\\
+
+Since $<d> = \{ad: a\in \Z\}$, $d\in I$, hence each element of $<d>$ is necessarily also in $<d>$, it follows that $<d>\subseteq I$. Since $<d>\subseteq I$ and $I\subeteq <d>$, it follows that $<d> = I$.
+\\
+
+Since $I$ is arbitrary, it follows that for all principle ideals $I$ of $\Z$, there exists some element $d\in I$ such that $I = <d>$. Hence, since $\Z$ is an integral domain where each ideal is a principle ideal, it follows that $\Z$ is a principle domain.\\
+
+\fbox{problem 5} Let $F$ be a field. Then the only ideals of $F$ are $F$ and $\{0\}$, where zero is taken to be the additive identity. Furthermore, a homomorphism from $F$ onto a ring $R$ containing more than one element must be an isomorphism from $F$ to $R$.\\
+
+\fbox{proof} The first part of this proof will be a set-equality proof, proving that any ideal containing an element other than $0$ must be equal to $F$.\\
+Let $I$ be an arbitrary ideal of $F$. 
+
+Suppose $a\in I$ for some ideal $I$ of $F$, and let $a\ne 0$. 
+By definition of an ideal, $I$ is a subring, hence a subset, of $F$. It remains to be shown that $F\subseteq I$.
+By definition of a field, $a$ has some multiplicative inverse, $a^{-1} \in F$. By definition of an ideal and by definition of the multiplicative inverse, $a^{-1}a = 1\in F$ as well, where $1$ is taken to be the multiplicative identity in $F$. Let $b$ be an arbitrary element in $F$. By definition of an ideal and by definition of the multiplicative identity, $1b = b\in F$. Since $b$ is arbitrary, it follows that for all $b\in F$, $b$ is also in $I$. Hence $F\subseteq I$.\\
+Since $F\subseteq I$ and $I\subseteq F$, it follows that $F = I$ whenever there exists some element in $I$ other than $0$.\\
+
+Now suppose that there does not exist an element other than zero in $I$. Since $0$ "subtracted" with itself is still zero, and since $0$ "multiplied" with itself is still zero, by definition of $0$ in a ring or field, it follows that $0$ is a subring of $F$. Moreover, given any element $a\in F$, by the field axioms $0a = 0 \in I$. Hence $\{0\}$ is an ideal of $F$.\\
+
+Having shown that the only ideals of a field $F$ are $\{0\}$ and $F$ itself, we can use this result to show that a homomorphism from a field onto a ring with more than one element must be an isomorphism. Let $\phi: F \longrightarrow R$ be such a homomorphism. By Theorem 15.4 it follows that $Ker(\phi)$ is an ideal of the domain of $\phi$, which is $F$. By the results shown above, it follows that $Ker(\phi)$ is either $F$ or $\{0\}$. This means that $\phi$ either maps every element in $F$ or only $0$ in $F$ to $0$ in the ring $R$. Since $\phi$ is onto and $R$ has more than one element by construction, $\phi(R) \ne \{0\}$. Thus, it has to be the case that only $0$ is mapped to $0$, which by property 7 of Theorem 15.1 implies that $\phi$ is an isomorphism. QED.\\
+
+
+
+\end{document}

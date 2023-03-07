@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+\newcommand{\ab}[1]{\color{red}{#1}\normalcolor}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+\fbox{lemma} If $|f(z)|$ is constant on a domain $D$, then $f$ is constant on $D$. \\
+
+\fbox{proof} Since $|f(z)|$ is constant in $D$, there exists some $c\in \R$ such that $|f(z)| = c$ in $D$, $c\ne 0$.\\
+
+Hence $|f(z)|^2 = c^2 = f(z)\overline{f(z)}$. Thus $\overline{f(z)} = c^2/f(z)$ is analytic in $D$. Hence $f$ is constant in $D$.\\
+
+\fbox{lemma} Let $N:|z-z_0| < \epsilon$ be a neighborhood of $z_0$ in which $f$ is analytic. If $|f(z)|\le |f(z_0)|\forall z\in N$. then $f(z) = f(z_0)$ in $N$.\\
+
+\fbox{proof} By the Cauchy integral formula we have 
+$$|f(z_0)| = \Big | \frac{1}{2\pi i}\int_C\frac{f(z)dz}{z-z_0}\Big |\le \frac{1}{2\pi}\int_C\frac{|f(z)|}{|z-z_0|}dz \le \frac{1}{2\pi \rho}|f(z_0)|2\pi \rho = |f(z_0)|.$$
+But by the previous lemma it follows that $f(z)$ is $f(z_0)$. But if $|f(z)| < |f(z_0)|$ at some $z\in C$ then by continuity $|f(z)|<|f(z_0)|$ on some arc of $C$. This would give $|f(z_0)|< |f(z_0)|$. This is a contradiction. Thus $|f(z)|$ is constant on that circle. Since $\rho < \epsilon$ is arbitarry, we can expand throughout $N$. By the previous lemma, $f$ is constnat. \\
+
+\fbox{Maximum modulus principle} If $f$ is nonconstant and analytic on a domain $D$, then $|f(z)|$ has no max in $D$. 
+\end{document}

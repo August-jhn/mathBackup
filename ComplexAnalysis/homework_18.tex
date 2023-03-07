@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\thm}{\fbox{theorem}}
+\newcommand{\infsum}{\sum_{n = 0}^{\infty}}
+\newcommand{\pf}{\fbox{proof}}
+\newcommand{\cor}{\fbox{corollary}}
+\newcommand{\psum}{\sum_{n = 0}^N}
+\newcommand{\prop}{\fbox{proposition}}
+
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+\newcommand{\ab}[1]{\color{red}{#1}\normalcolor}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+
+\cs{Sec. 65}
+
+\prop (3) The function $f(z) = \frac{z}{z^4 + 4} = \frac{z}{4}\cdot\frac{1}{z+(z^4/4)}$ has the Maclaurin series representation 
+$$f(z) = \infsum \frac{(-1)^n}{2^{2n + 2}}z^{4n + 1}$$ throughout the region $R$ defined $R = \{z\in \C:|z|<\sqrt{2}\}$ is the largest region in which this representation holds.\\
+
+\pf[3] Since the maclaurin series for $1/(1-z)$ is known to be $\infsum z^n$ whenever $|z| < 1$, we can substitute $z$ for $-z^4/4$ \cs{substitute $-z^4/4$ for $z$} to obtain $$
+\frac{1}{1+(z^4/4)} = \frac{1}{1-(-z^4/4)} = \infsum (-z^4/4)^n = \infsum (-1)z^{4n}/2^{2n}$$ when $|-z^4/4| < 4$ \cs{Do you mean $<1$?} (equivalently when $|z|< \sqrt[4]{4} = \sqrt{2}$). Since $z$ is not a variable being summed over, we can treat it like a constant. Hence by previoulsy proven theorems about sequences and series, 
+$$\frac{z}{z^4 + 1} = \frac{z}{4}\cdot \frac{1}{1-(-z^4/4)} = \frac{z}{2^2}\infsum (-1)z^{4n}/2^{2n} = \infsum (-1)z^{4n+1}/2^{2n+2}$$ whenever $|z|< \sqrt{2}.$\\
+
+\cs{5/5}
+
+
+\fbox{10a} Derive that $\frac{\sinh z}{z^2} = \frac{1}{z} +\sum_{n = 1}^\infty \frac{z^{2n+1}}{2n+3}$. ($0 < |z|<\infty$)\\
+
+\fbox{solution} Given the macalurin expanxion $\sinh z = \infsum \frac{z^{2n+1}}{(2n+1)!}$ for $|z| < \infty$, we divide the whole thing by $z^2$ to get $\sinh z / z^2 = z^{-2}\infsum \frac{z^{2n+1}}{(2n+1)!} = \infsum \big[z^{-2}\frac{z^{2n+1}}{(2n+1)!} = \insum \frac{z^{2n - 1}}{(2n+ 1)!}\big]$ Translating $n$ back by one and evaluating the first term, we have the equivalent series $\frac{\sinh z}{z^2} = \sum_{n = -1}^\infty \big[\frac{z^{2n-1+2(1)}}{(2n+1+2(1))!} = \frac{z^{2n+1}}{(2n+3)!}\big] = 1/z + \infsum\frac{z^{2n+1}}{(2n+3)!}$.\\
+
+\cs{5/5}
+
+\fbox{10b} Derive that 
+
+$$\frac{\sin(z^2)}{z^4} =  \infsum (-1)^n\frac{z^{4n-2}}{(2n+1)!}.$$
+
+\fbox{solution} Given that $\sin z = \infsum (-1)^n\frac{z^{2n+1}}{(2n+1)!}$ for $|z|<\infty$, we can substitute $z$ for $z^2$ \cs{substitute $z^2$ for $z$} as $|z^2| = |z|^2<\infty$ whenever $|z|<\infty$. Hence we have $\sin(z^2) = \infsum \big[(-1)^n\frac{(z^2)^{2n+1}}{(2n+1)!} = (-1)^n\frac{z^{4n-2}}{(2n+1)!}\big]$. \cs{Should that be $4n+2$?} Furthermore, substituting and taking into account the fact that $1/z^4$ is defined whenever $|z| \ne 0$, and since $z^4$ is a constant in the series so by the theorem in section 61 we can commute it into the sum, we have 
+$$\sin(z^2)/z^4 = z^{-4}\infsum(-1)^n\frac{z^{4n+2}}{(2n+1)!} = \infsum(-1)^nz^{-4}\frac{z^{4n+2}}{(2n+1)!}  = \infsum(-1)\frac{z^{4n-2}}{(2n+1)!}$$ for all $z\in \C$ such that $0 < |z| < \infty$.
+
+\cs{5/5}
+
+\cs{15/15}
+
+\end{document}

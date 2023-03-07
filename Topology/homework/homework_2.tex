@@ -1,0 +1,73 @@
+
+\documentclass{article}
+\usepackage{listings}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{ stmaryrd }
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+
+
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\topT}{\mathcal{T}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\title{Topology}
+\author{August bergquist}
+
+
+\begin{document}
+\fbox{Lemma: some useful facts from foundations} Given a set $X$ and sets $U$ and $A$ such that $U\subseteq X$ and $A\subseteq X$, the following are true:
+\begin{enumerate}
+    \item $(X-A)\cup U = X-(A-U)$;
+    \item $(X-A)\cap U = U -A$.
+\end{enumerate}
+
+
+\fbox{2.15: proposition} In a topological space $(X,\topT)$, and given a closed subset $A\subseteq X$ and an open set $U\in \topT$, $A-U$ is closed and $U-A$ is open. \\
+
+\fbox{proof} Let $(X,\topT)$ $A$ and $U$ be instantiated as in the proposition. From the first part of the lemma it follows that $X-(A-U) = (X-A)\cup U$. Furthermore, sense $A$ is closed, it follows by theorem 2.14 that $X-A$ is closed. Since $X-A$ is open and so is $U$, it follows from the definition of a topology that the union $(X-A)\cap U = X-(A-U)$ is also open. Since $X-(A-U)$ is open, it follows from theorem 2.14 that $A-U$ is closed.\\
+
+Furthermore, since $X-A$ is open and so is $U$, it follows from the definition of a topology that the intersection $(X-A)\cap U$ must also be open. From the second part of the lemma it follows that $(X-A)\cap U = U-A$, hence $U-A$ is open. Q.E.D.\\
+
+
+\fbox{definition} Let $\lim A$ denote the set of all limit points of $A$. Define the closure of $A$ as $\overline{A} = A\cup \lim A$\\
+
+\fbox{theorem 2.13} The closure of the closure is closed. That is, given a subset $A\subseteq X$ in a topological space $(X,\topT)$, $\overline{A} = \overline{\overline{A}}$.\\
+
+\fbox{proof} Since what we're really trying to prove here is a set equality proof, this will be broken up into two subset proofs.
+\begin{itemize}
+    \item[$\subseteq$] We get this one for free. Since $\overline{\overline{A}} = \overline{A} \cup \lim{\overline{A}}$, it follows that $\overline{A}\subseteq \overline{\overline{A}}$.
+    
+    \item[$\supseteq$] Suppose by way of contradiction that there exists some $x\in \overline{\overline{A}}$ such that $x\not\in \overline{A}$. Then by definition of the closure it follows that $x$ must be a limit point of $\overline{A}$ (since the closure is the set along with its limit points).\\
+    
+    Furthermore, $x$ cannot be a limit point of $A$, for if it were, it would be in $\overline{A}$ by definition of the closure. Hence $x\not\in \overline{A}$. Since $x$ is not a limit point of $A$, it follows by negating the definition of a limit point that there exists some open set $U$ containing $x$ such that $(U-{x})\cap A = \emptyset$. Furthermore, $x\not\in A$ either, as if it were, it would be in $\overline{A}$. Hence $U\cap A = \emptyset$.\\
+    
+    Since $U$ is an open set containing $x$, and since $x$ is a limit point of $\overline{A}$, it follows by definition of a limit point that $(U-\{x\})\cap \overline{A}\ne \emptyset$. Since $(U-\{x\})\cap \overline{A}$ is not the open set, there must be something in it, call it $z$. By intersection it follows that $z\in U-\{x\}$ and $z\in \overline{A}$, and by the set compliment $z\in U$.\\
+    
+    Now suppose by way of contradiction (this only applies on this paragraph)that $z\in A$. Then since $z\in A$ and $z\in U$, it follows that $z\in U\cap A$, but we have supposed $U\cap A$ to be empty. Hence we arrive at a contradiction and conclude that $z\not\in A$. Since $z\not\in A$ and $z\in \overline{A}$ it follows that $z$ is a limit point of $A$.\\
+    
+    Since $z$ is a limit point of $A$, and since $U$ is an open set containing $z$, it follows by definition of a limit point that $(U-\{z\})\cap A \ne \emptyset$. Hence there must be some $y$ such that $y\in (U-\{y\})\cap A$. By intersection and the set compliment it follows that $y\in U$ and $y\in A$, hence $y\in U\cap A$, which we have supposed to be empty, arriving us at a contradiction. So there cannot be any element in $\overline{\overline{A}}$ that is not in $\overline{A}$, so $\overline{\overline{A}}\subseteq \overline{A}$.
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,260 @@
+\documentclass[12pt, letterpaper]{article}
+
+\parindent0pt
+\parskip10pt
+
+\usepackage{amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate, diagbox, tcolorbox, esvect, tikz, adjustbox, xcolor}
+
+
+\graphicspath{{./images/}}
+
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+% Analysis
+
+\newcommand\norm[1]{\lVert#1\rVert} %for norms and meshes
+\newcommand\rsum[2]{\mathcal{R} (#1,#2)} %R(f,P) for Reimann sums
+
+%geometry/topology
+\newcommand{\bndry}{\partial}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\theoremstyle{definition}
+
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+
+\title{Real Analysis}
+\author{August Bergquist}
+
+\begin{document}
+
+    \maketitle
+
+    \section{Translation Invariance of the Reimann Integral}
+
+    \begin{theorem}
+        Let $f:K\to \R$ be any function, with $K\subseteq \R$. Let $a < b$ with $[a,b]\subseteq K$. Suppose $f$ is Reimann integrable on $[a,b]$. Let $k\in \R$. Let $K - k$ denote the set $ \{k' - k : k'\in K\}$, which is called the translation of the set $K$ by $k$. Obviously $ [a - k, b- k] = [a,b] - k \subseteq K + k' $. The \textbf{translation} of $f$ by $k$ is the function $ f_k:K-k \to \R $ defined $f_k(x) = f(x + k)$ for all $x\in K - k$. Then
+        \[
+            \int_{a - k}^{b - k} f_k = \int_{a}^{b} f. 
+            \]
+        Of course, in this equality it is implicit that the integral $\int_{a - k}^{b - k} f_k$ is even defined!
+    \end{theorem}
+
+
+    \begin{proof}
+        Let $\epsilon > 0$. By Reimann integrability of $f$ on $[a,b]$, there must exist some $\delta > 0$ such that for any partition $P$, with $ \norm{P} < \delta $, and for any choice of Reimann sum $\rsum{f}{P}$, the inqueality holds:
+        \[\left|\rsum{f}{P} - \int_{a}^{b} f\right| < \epsilon.\]
+
+        So consider any partition $P = \{x_i\}_{i \in \mathbf{n}}$ for some $n\in \N$, of $[a-k,b-k]$, with $\norm{P} < \delta$. Consider the set $P+k = \{x_i + k = y_i\}_{i \in \mathbf{n}}$. I claim $P+k$ is a partition of $[a,b]$. For note that since $x_i\le x_{j}$ for all $i < j \in \mathbf{n}$ (since $P$ is a partition), we have that $y_i = x_i + k \le x_j + k = y_j$. Moreover, since $x_0 = a-k$, $y_0 = a - k + k = a$, and similarly for $y_n$. So $P+k$ is indeed a partition of $[a,b]$. 
+
+        Similarly, it's obvious that $\norm{P+k} = \norm{P} < \delta$, since $x_i - x_{i-1} = (x_i + k) + (x_{i-1} + k) = y_i - y_{i - 1}$ for all $i \ge 1\in \mathbf{n}$. 
+
+        Now consider any choice of sample points $\{x_i^*\}_{i\in \mathbf{n}}$ for $ P $, and construct the Reimann sum
+        \[
+            \rsum{f_k}{P} = \sum_{i = 1}^n f_k(x_i^*)(x_i - x_{i-1}). 
+            \]
+
+        Now construct a set of sample points $\{y_i^*\}_i = \{x_i^* + k\}$ for $P + k$. These really are sample points, for since $x_i\le x_i^* \le x_{i-1}$, we have
+        $ y_i = x_i + k \le x_i^* + k = y_i^* \le x_{i-1} + k = y_{i-1}$ for all $1 \le i \le n$. Hence we can construct the Reimann sum, 
+        \[\rsum{f}{P+k} = \sum_{i = 1}^n f(y_i^*)(y_i - y_{i - 1}).\] 
+
+        By construction of $\delta$, and by our observation that $ \norm{P + k} < \delta $, it follows that
+        \[\left|\rsum{f}{P + k} - \int_{a}^{b} f\right| < \epsilon.\]
+
+        But note that for all $i$, and by definition of the translation $f_k$, we have 
+        \[
+            f_k(x_i^*) = f(x_i^*) = f(y_i^*)
+            \]
+        for all $ 1\le i \le n $. Moreover, we have already noted $y_i - y_{i -1} = x_i - x_{i -1}$. By direct substitution, we have
+        \[
+            \rsum{f_k}{P} = \rsum{f}{P+k}. 
+            \]
+
+        Substuting into our last inequality, we have
+        \[
+            \left| \rsum{f_k}{P} - \int_{a}^{b} f \right| < \epsilon.
+            \]
+        So we have constructed a $\delta > 0$, such that whenever we have a partition of $[a-k, b-k]$ with mesh less than $\delta$, any Reimann sum with that partition is within $\epsilon$ of $\int_{a}^{b} f $. By definition of a Reimann integral, we have
+
+        \[
+            \int_{a-k}^{b-k}f_k = \int_{a}^{b}f
+            \]
+            as desired.
+    \end{proof}
+
+    \section{Integrals, or Lack Thereof, of Various Charactaristic Maps}
+
+    Remember that we have already proven that the charactaristic function on the rationals is not integrable on $[0,1]$. We have also seen how an easy adaptation of the proof makes this apply to arbitrary intervals $ [a,b] $ with $ a  <b $. We can use this, and the fact that integrals behave nicely with arithmetic that the charactaristic function on the rationals is \textit{also} not Reimann integrable on intervals of the same form.
+    
+    \begin{theorem}
+        The charactaristic function on the irrationals, $\chi_{\R\setminus \Q}$, is not integral on $[a,b]$ for $a < b$. 
+    \end{theorem}
+
+    \begin{proof}
+        Our first step is to prove the somewhat obvious identity $1 - \chi_{\Q} = \chi_{\R\setminus \Q}$, where $1$ is the constant map and subtraction of functions is pointwise. For let $x\in \R$. If $x$ is rational, then $\chi_\Q(x) = 1$, hence $(1-\chi_{\Q})(x) = 1- \chi_{\Q}(x) = 1-1 = 0$,  which is indeed $ \chi_{\R\setminus \Q}(x) $, since $x$ isn't irrational. The case in which $x$ is irrational follows almost the same. As an obvious consequence of this identity, $1 - \chi_{\R\setminus\Q} = \chi_{\Q}$. 
+
+        Now suppose by way of contradiction that $ \chi_{\R\setminus \Q} $ Reimann integrable. We have already proven that $ \int_a^b k = k(b-a) $ for any $k\in \R$, hence $ \int_a^b 1 = (b-a)$. The important part is, however, that the constant function $1$ is Reimann integrable! Since the difference of two functions is Reimann integrable on $ [a,b] $(which we have proven in class), it follows that so is $\chi_\Q$. But we have proven it isn't!
+    \end{proof}
+    
+    Our first interesting result on charactaristic maps is for a single point.
+
+    \begin{theorem}
+        Consider the charactaristic function $\chi_c:[a,b]\to \R$ ($a<b$), with $c\in [a,b]$. Then 
+        \[
+            \int_{a}^{b} \chi_c = 0
+            \]
+    \end{theorem}
+
+    \begin{proof}
+        We will prove that for any $\delta$, and for any partition $P$ with $\norm{P} < \delta$, and for any Reimann sum $\rsum{f}{P}$, we have the inequality
+        \[
+            0\le \rsum{f}{P} < \delta.
+            \]
+        The rest of the proof will follow almost immediately.
+
+        Let $\delta$ be given. Then consider any partition $P$ with $\norm{P} < \delta$. Only one of the intervals $[x_i, x_{i-1}] = I_i$ of the partition contain $c$, and one of them certainly does. Let it be $ I_j$, for $j$. Now chose any set of sample points, $ \{x_i^*\} $ for $P$. Then for the Reimann sum, we have 
+        \[\rsum{f}{P} = \sum_{i = 1}^n\chi_c(x_i^*)(x_i - x_{i-1}) = \chi_c(x_j^*)(x_j - x_{j - 1}) < \chi_c(x_j^*)\delta \le \delta\]
+        since $\chi_c(x_j^*)$ is either $1$ or $0$. 
+
+        Now let $\epsilon > 0$. Then consider $\delta = \epsilon$. Suppose we have a mesh $P$ with $\norm{P} < \delta$. Then for any Reimann sum $\rsum{f}{P}$ for $P$, it is bounded by the inequality $ 0 \le R(f,P) < \delta  = \epsilon$, hence $|R(f,P) - 0| < \epsilon$. So by definition of the Reimann integral,
+        
+        \[
+            \int_{a}^{b} \chi_c = 0.
+            \]
+    \end{proof}
+
+    Next, we consider charactaristic maps for open intervals. 
+
+    
+    \begin{theorem}
+        Let $I = (c - \eta, c + \eta) \subset [a,b]$. Consider the function $ \chi_I:[a,b] \to \R$. Then 
+        \[
+            \int_a^b \chi_I = 2\eta.
+            \]
+    \end{theorem}
+
+    \begin{lemma}\label{sumBounded}
+        Given a partition $P$ with $\norm{P} < \delta$, and for any Reimann sum, we have
+        \[
+            2\eta - 2\delta < \rsum{\chi_I}{P} < 2\eta + 2\delta.
+            \]
+    \end{lemma}
+
+    \begin{proof}
+        Consider any such partition $P$, with $\delta$ given. Let $I_i = [x_i - x_{i - 1}]$ for all $1\le i\le n$. Let $\mathbf{n} = \{1,\dots, n\}$. Construct the sets
+        \[ S = \{i\in \mathbf{n} : I_i\subset I\}, S' = \{i\in \mathbf{n}: I_i\cap I \ne \emptyset\}\subset \N\cup \{0\}.
+            \]
+
+        Note that it's obvious from the definition of the mesh that 
+        \[
+            \bigcup_{i \in \mathbf{n}}I_i = [a,b].
+            \]
+
+        Let $M = \max S$, $m = \min S$, $M' = \max S'$, $m' = \min S'$. I claim the following inequalities hold:
+        \begin{itemize}
+            \item $2\eta - 2\delta < x_M - x_m$,
+            \item $x_{M'} - x_{m'} < 2\eta + 2\delta$.
+        \end{itemize}
+
+        First, suppose by way of contradiction that $ x_M \le c + \eta - \delta $. Then $(c+ \eta) - x_M > \delta$. There exists a real number $ x_M < r< c - \eta$. By the fact that the $I_i$s cover $[a,b]$, $r\in I_i$ for some $i\in \mathbf{n}$. Clearly the left endpoint of $I_i$ is less than $x_M$, so by construction of $M$ as $\max S$, $I_i\not\subseteq I$. If the right endpoint of $I_i$ is $x_M$, then, we have $x_i - x_{i - 1} > \delta$, which cannot happen, since $\delta$ is an upper bound for the mesh of $P$. On the other hand, suppose that $x_i\ne x_M$. Then there must exist at least one $I_j$ with left endpoint greater than or equal to $x_i$, and right endpoint less than or equal to $x_M$. Any such intervals would be contained within $I$, and the indices of their endpoints would be less than $M$. This cannot happen by construction of $M$. Either way, we get a contradiction, hence $x_M > c + \eta - \delta$.
+
+        Next, suppose by way of contradiction that $ x_m \ge c - \eta + \delta $. Then $ x_m - (c - \eta) \ge \delta $. Since $\delta > 0$, there exists some $c- \eta<r<x_m$, and $r\in I_i$ for some $i$, where $I_i = [x_{i-1}, x_i]$. Suppose $x_{i-1} > c - \eta$. Then $I_i\subset I$, whence $i\in S$. Moreover, since $r\not\in I_m$ (it's less than the left endpoint), it follows that $i < m$. This contradicts the assumption that $m$ is the minimum of $S$. So then it follows that $ x_{i-1} \le c - \eta $. Now we go on to consider the right endpoint of $I_i$, $x_i$. There are two cases, either $x_i = x_m$ or otherwise. If $x_i = x_m$, then by assumption that $x_m\ge c - \eta + \delta$, and by our proven fact that $x_{i-1} \le c - \eta$, we have $ \ell(I_i) = x_i - x_{i - 1} \ge c - \eta + \delta - (c - \eta) = \delta$, which contradicts the assumptoin that $\norm{P} < \delta$. So then $x_m\ne x_i$, hence $x_i < x_m$. So there exists some $x_i< s<x_m$, which is in $I_j$ for some $j$. But $x_i\le x_{j-1}\le x_j \le x_m$, whence $I_j\subset I$. Hence $j\in S$. But since $x_j < x_m$, $j < m$ by properties of a partition, contradicting the assumption that $m  = \min S$. In all cases, we arrive at a contradiction, hence $ x_m < c - \eta + \delta $. 
+        
+        Having established that $ x_M> c + \eta - \delta $ and $x_m < c - \eta + \delta $, we find \[2\eta - 2\delta = c + \eta - \delta - (c - \eta + \delta) < x_M - x_m, \]
+        which was the first inequality we set out to show. 
+
+        Now we move on to prove the second inequality.
+
+        First, to prove that $x_{M'} < c + \eta + \delta$, suppose the contrary: that $x_{M'} \ge c + \eta + \delta$. Since $M'\in S'$, by construction of $S'$, we must have $I_{M'} = [x_{M'-1} , x_{M'}]$ with $ I_{M'}\cap I \ne \emptyset $. So there is some $r\in I_{M'}\cap I$. If it were the case that $ x_{M'-1} \ge c + \eta $, then the intersection would be empty, hence $ x_{M' - 1} < c + \eta $. So $\ell(I_{M'}) = x_{M'} - x_{M' - 1} \ge c + \eta + \delta - x_{M' - 1} > c + \eta + \delta - (c + \eta) = \delta$. But this contradicts the assumption that $\norm{P} < \delta$! Hence $ x_{M'} < c + \eta + \delta $ as desired. 
+
+        Finally, we will now show that $x_{m'} > c - \eta - \delta$. For suppose $x_{m'} \le c - \eta - \delta$. Since $m'\in S'$, by construction of $S'$ we must have some $ r\in I_{m'}\cap I $. Using an almost identical argument as in the last portion of this proof, we find $ x_{m'- 1} > c - \eta $. This cannot happen, however, for it would imply $x_{m'- 1} > x_{m'}$, and we wouldn't even have a partition. Hence $x_{m'} > c - \eta - \delta$. 
+
+        Subtracting, an substituting our previously obtained inequalities, we have 
+        \[
+            x_{M'} - x_{m'} < (c + \eta + \delta) - (c - \eta - \delta) = 2\eta + 2\delta,
+            \]
+            which is the second inequality we set out to prove.
+
+        Now we turn our attention to any Reimann sum, $\rsum{\chi_I}{P}$, for the same $P$, and for some choice of sample points $\{x_i^*\}$. Clearly for some $i$, $x_i^*$ must be contained within $I$ if $i\in S$. Similarly, for any $i$, $x_i^*$ can \textit{only} by contained within $I$ if $i\in S'$. Hence for our Reimann sum, we have
+
+        \begin{equation}
+            \begin{split}
+                2\eta - 2\delta \\
+             < x_M - x_m\\
+             = \sum_{i = m}^{M}(x_i - x_{i - 1})\\
+             \le \sum_{i\in S}\chi_I(x_i^*)(x_i - x_{i-1}) \\
+             \le \rsum{\chi_I}{P}  \\
+             = \sum_{i \in S'}\chi_I(x_i^*)(x_i - x_{i -1}) \\
+             \le \sum_{i = m'}^{M'}(x_i - x_{i - 1}) \\
+             = x_{M'} - x_{m'}\\
+             < 2\eta + 2\delta,
+            \end{split}
+        \end{equation}
+
+        where we have noted that the first and last sums which appear in this derivation are telescoping, and applied our previously obtained inequalities. This is the desird sandwich of the lemma!
+    \end{proof}
+
+
+    Now we can actually prove the theorem.
+
+    \begin{proof}
+        Let $\epsilon > 0$. Consider $\delta = \frac{\epsilon}{4}$. Let $P$ be any partition of $[a,b]$, with $\norm{P} < \delta$, and consider any Reimann sum $\rsum{\chi_I}{P}$. By Lemma \ref{sumBounded}, we have 
+        \[
+            2\eta - \epsilon/2 = 2\eta - 2\delta < 
+            \rsum{\chi_I}{P} < 2\eta + 2\delta = 2\eta + \epsilon/2 ,
+            \]
+        hence
+        \[
+            \left| \rsum{\chi_I}{P} - 2\eta \right| < \epsilon/2 + \epsilon/2 = \epsilon.
+            \]
+        So by definition of the Reimann integral,
+        \[
+            \int_a^b \chi_I = 2\eta
+            \]
+        as desired.
+    \end{proof}
+
+    \begin{corollary}
+    As an interesting corollary, we can show that for continuous functions $ f,g:K\to \R,$ if $f(x) > g(x)$ for all $x\in [a,b]$, and if there exists some $c\in [a,b]$ such that $f(c) > g(c)$, then 
+    \[
+        \int_a^b f > \int_a^b g.
+        \]
+    \end{corollary}
+    \begin{proof}
+        First, we will show that we can assume that the point $c$ described above is in the interior of $[a,b]$. For since $k = f(c) - g(c) > 0$, we have $k/2 = \frac{f(c) - g(c)}{2} > 0$. Since the difference of continuous functions is continuous, it follows that there exists some $\delta > 0$ such that whenever $ x\in [a,b] $ with $ |x-c| < \delta $, then $ |f(x) - g(x) - k| < k/2 $. Certainly the interval $ (c - \delta, c + \delta) $ has non-empty intersection with the interior of $ [a,b] $, so select some point $d$ therein. Hence $|f(d) - g(d) - k| < k/2$, so $ 0 < k/2 < f(d) - g(d) < 3k/2 .$
+
+        Now forget the previously defined variables. The point is that we have shown that there exists some point $d\in (a,b)$ such that $k = f(d) - f(c) > 0$. Since $d$ is in the interior, there exists some $\delta_1$ such that if $|x - d| < \delta_1$, $ x\in (a,b) $. Once again by continuity, there exists some $\delta_2$ such that if $|x - d| < \delta_2$, then $ 0 < k/2 < f(d) - f(c) < 3k/2$. Let $\eta = \min{\delta_1, \delta_2}$. Hence the function 
+        $\phi:[a,b]\to \R$, which is $k/2$ if $ x\in (d - \eta, d+\eta) = I$, and zero elsewhere, is a lower bound for the function $f - g$ on $[a,b]$. Moreover, notice that $\phi = k/2\chi_I$, hence by the constant multiple rule (which we have proved), it follows that
+        \[
+            \int_a^b \phi = k/2(2\eta) = k\eta > 0
+            \]
+        Since $f-g$, $f$, and $g$ are continuous, by a previous exercise each of them are Reimann integrable. Since Reimann integrals respect inequalities and subtraction, and since the integral of the constant function at $0$ is $0$, we have
+        \[
+            0 = \int_a^b 0 = \int_a^b \phi = k\eta < \int_a^b (f-g) = \int_a^b f - \int_a^b g,
+        \]
+        hence $ \int_a^b f > \int_a^b g $ as desired.
+    \end{proof}
+
+    Note that this result really does rely on continuity:
+
+    \begin{corollary}
+        As we have shown, the charactaristic function of a single point has an integral of zero. It is greater than or equal to zero everywhere, but is strictly greater than zero at the specified point. 
+    \end{corollary}
+
+\end{document}

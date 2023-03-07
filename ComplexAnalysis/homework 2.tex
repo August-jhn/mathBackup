@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\documentclass{article}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+\begin{document}
+
+\fbox{5}
+\fbox{proposition}\\ 
+
+Given complex numbers $z_1$ and $z_2$, with $z_2 \ne 0$, we have
+$$ |\frac{z_1}{z_2}| = \frac{|z_1|}{|z_2|}.$$
+\fbox{proof} Since a complex number multiplied by its conjugate (call this property A) is the square of its modulus, we have $\frac{z_1}{z_2}\overline{(\frac{z_1}{z_2})} = |\frac{z_1}{z_2}|^2.$ Furthermore, by previously proven results, $\overline{(\frac{z_1}{z_2})} = \frac{\overline{z_1}}{\overline{z_2}}.$ Substituting and applying property (A), we have $|\frac{z_1}{z_2}|^2 = \frac{z_1\overline{z_1}}{z_2\overline{z_2}} = \frac{|z_1|^2}{|z_2|^2} = (\frac{|z_1|}{|z_2|})^2.$ Since these are all \sout{\cs{complex}} \cs{nonnegative real} numbers, we can take the square root of both sides,
+$$\sqrt{|\frac{z_1}{z_2}|\cs{^2}} = \sqrt{(\frac{|z_1|}{|z_2|})^2} = \frac{|z_1|}{|z_2|} = |\frac{z_1}{z_2}|.$$
+Q.E.D.\\
+\vspace{0.5cm}
+
+\cs{5/5}
+
+\fbox{10a}\\
+\fbox{proposition} A complex number $z$ is purely real if and only if $z_1 = \overline{z_1}.$\\
+\fbox{proof} Let $z$ be an arbitrary complex number. By definition of a complex number, $z = a+bi$ for real numbers $a$ and $b$. \\
+($\Rightarrow$) Suppose $z$ is purely real. Then $b = 0$, and we have $z = a$. Furthermore, by definition of the conjugate of a complex number, $\overline{z} = a = z.$\\
+($\Leftarrow$) Suppose $z = \overline{z}$. Then we have by substitution $a+bi = a-bi.$ By definition of equality of complex numbers, the real and imaginary parts must be equal. Hence $b = -b$, so $b$ must be zero and $z$ must be purely real.\\
+Q.E.D.
+\\
+
+\cs{5/5}
+
+\vspace{0.5cm}
+
+
+\fbox{11a}\\
+\fbox{proposition} For all integers $n\ge 2$, and for all complex numbers $z_1,\dots,z_n$, 
+$$\overline{z_1+z_2+\dots+z_n} = \overline{z_1} + \dots + \overline{z_n}.$$
+\fbox{proof} For the base case, let $n = 2$. Then we have $z_1 = a_1+b_1i$ and $z_2 = a_2+b_2 i$. By definition of conjugates and the commutative and associative properties of complex numbers over addition, $\overline{z_1}+\overline{z_2} = a_1 -b_1 i + a_2 - b_2 i = (a_1+a_2) - (b_1+b_2)i = \overline{z_1+z_2}.$ Hence the base case holds.\\
+For the induction hypothesis, suppose that there exists some integer $n\cs{\ge 2}$ such that 
+$$ Z = \overline{z_1+\dots+z_n} = \overline{z_1} + \dots + \overline{z_n}$$ \cs{for any $n$ complex numbers $z_1, \ldots, z_n$}.
+Since $Z$ is a complex number, by definition there exists $a,b\in \R$ such that $Z = a+bi$. Now, for the induction step, let $z_{n+1}$ be a complex number, where $z_{n+1} = c+di$. Adding these, it is clear that $Z + z_{n+1} = (a+bi) + (c+di) = (a+c)+(b+d)i$. By definition of the conjugate, $\overline{Z+z_{n+1}} = (a+c)-(b+d)i.$ Furthermore, observe that $\bar{Z} + \overline{z_{n+1}} = (c-di) + (a-bi) = (a+c)-(b+d)i.$ \cs{Or you could call on the base case since there are only two terms here.} By substitution, $\overline{z_1+\dots+z_{n+1}} = \overline{z_1}+\dots+\overline{z_{n+1}}.$\\
+By way of induction it follows that $\overline{z_1+z_2+\dots+z_n} = \overline{z_1} + \dots + \overline{z_n}$ for all $n\in \N$
+\\
+Q.E.D.
+
+\cs{Great! 5/5}
+
+\cs{15/15}
+
+\vspace{0.5cm}
+
+
+\fbox{5c} Verify that $(\sqrt{3}+i)^6 = -64$.\\
+\fbox{solution}\\ Let $z = \sqrt{3} + i$. Finding the principle argument of $z$, we have $Argz =  \arctan{\frac{\sqrt{3}}{1}} = \pi/6$. \cs{$\arctan \sqrt{3}=\pi/3.$ But you need $\arctan(1/\sqrt{3}),$ which is $\pi/6.$} Furthermore, the modulus of $z$ is $r = |z| = \sqrt{\sqrt{3}^2+ 1} = 2.$ Converting $z$ to exponential form, we have $z = 2e^{\pi/6i}$ Using DeMoivre's formula \cs{You're actually bypassing it by just sticking with the exponential form (which is dandy!).}, $z^6 = (2e^{\pi/6i})^6 = 2^6e^{6\pi/6i} = 64e^{\pi i} = -64.$\\
+
+\fbox{6} If $Rez_1 >0$ and $Rez_2 > 0$, then $Arg(z_1z_2) = Arg(z_1)+Arg(z_2).$\\
+\fbox{proof} By previously proven properties, we already know that $\arg(z_1z_2) = \arg(z_1)+\arg(z_2)$. It remains to be shown that the unique value, $Arg(z_1)+ Arg(z_2) = A$, is such that $-\pi < A \le \pi$.\\
+Since $Rez_1, Rez_2 > 0$, we know that $z_1$ and $z_2$ must exist in the rightmost quadrants of the complex plane. Hence their principle arguments must be strictly between $\pi/2$ and $-\pi/2$. So we have
+$$[(-\pi/2) + (-\pi/2) = \pi]\cs{$<$}Arg(z_1) + Arg(z_2) < [\pi/2 + \pi/2 = -\pi].$$ Thus the principle argument, $Arg(z_1z_2)$ is $Arg(z_1)+ Arg(z_2).$\\
+Q.E.D.
+
+\cs{5/5}
+
+\cs{10/10}
+
+\end{document}

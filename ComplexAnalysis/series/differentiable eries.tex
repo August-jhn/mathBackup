@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\thm}{\fbox{theorem}}
+\newcommand{\infsum}{\sum_{n = 0}^{\infty}}
+\newcommand{\pf}{\fbox{proof}}
+\newcommand{\cor}{\fbox{corollary}}
+\newcommand{\psum}{\sum_{n = 0}^N}
+\newcommand{\lemma}{\fbox{Lemma}}
+
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+\newcommand{\ab}[1]{\color{red}{#1}\normalcolor}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+
+
+\thm Let $C$ be a contour interior to the C of C of $S(z) = \infsum a_n(z-z_0)^n$ and let $g$ be continuoius on $C$. Then $\int_Cg(t)S(z)dz = \infsum a_n\int_C(g())$\\
+
+\defn A singular point $z_0$ is called isolated if there exists some $\epsilon > 0$ such that $f$ is analytic on $0<|z-z_0|<\epsilon$. \\
+
+Since $f$ is analytic on this disk, it has a laurant series on $0<|z-z_0| < \epsilon$. This will look like $f(z) = \infsum a_n(z-z_0)^n + \infsum \frac{b_n}{(z-z_0)^n}$. Where $b_n = \frac{1}{2\pi i}\int_C\frac{f(z)}{(z-z_0)^{-n+1}}dz$. If $n = 1$ we have $2\pi i b_1 = \int_Cf(z)dz$.\\
+
+\defn The residue of $f$ at the isolated singular point $z_0$ is residue $ Resf(z) = b_n$.
+
+
+\end{document}

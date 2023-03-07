@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+\hfill August Bergquist
+
+\fbox{5}
+\fbox{proposition} The $2$nd roots of $i$ are $e^{i\pi/4}$ and $e^{i5\pi/4}$.\\
+
+\fbox{proof} Let $z_0 = i$. Then $r_0 = |i| =1$ and $\arg i = \pi/2 + 2\pi k$. Using previoulsy proven results in section 10, we have the 2nd roots of $i$ as
+$c_k = \sqrt{1}\exp{i(\frac{\pi/2}{2} + \frac{2k\pi}{2}) = \exp{[\pi/4 + k\pi i= \frac{\pi + 4k}{4}i] }}$. When $k\equiv n \pmod{2}$ \cs{What is $n$?} the argument of $c_k$ is added by a multiple of $2\pi$, hence there are only two distinct possibilities: odd and even. If $k$ is even, we have $c_k = c_0 = \exp{\pi/4}$. Otherwise, $c_1 = \exp{5\pi/4}$.\\
+
+\fbox{proposition} Let $z = e^{\pi/4i}$. For all $n\in \Z$, $\log(e^{i\pi/4i}) = i\arg{z} = \{\pi i(\frac{1}{4}i + 2n) : n\in \Z\}$. \\
+\fbox{proof} Since $z$ is written in polar form, the only real part to its power is zero. Hence $|z| = r= 1$. Furthermore, by definition of argument $\arg{z} = \{\pi/4 + 2\pi n : n\in \Z\}$. Furthermore, by definition of the complex logarithm, 
+$$\log e^{\pi/4 i} =  \ln|z| + i\arg{z} = \ln(1) + i\{\pi/4 + 2\pi n: n\in \Z\} = \{i\pi(2n+\pi/4) : n\in \Z\},$$
+where by adding and multiplying by a set is meant adding and multiplying to each element in the set.\\
+
+\fbox{proposition} Let $z = e^{5\pi/4 i}$. Then $\log z = \{i\pi(2n+1+1/4) : n\in \Z\}$\\
+
+\fbox{proof}By definition of complex logarithms and arguments we have,
+$$\log z = \ln |z| + i\arg{z} = \ln(1) + i\{5\pi/4 + 2\pi n: n\in \Z\} = \{i\pi(2n + 1 + 1/4) : n\in \Z\}.$$ Alternatively, we can say that $\log{e^{5\pi/4i}}$ is the set of all $i\pi(1/4 + n)$ such that $n$ is odd. 
+
+\fbox{proposition} Let for all values in $i^{1/2}$ $\log{i^{1/2}} = i\pi(n + \pi/4)$ for $n\in \Z$. Furthermore, $\log{i^{1/2}} = 1/2\log{i}$\\
+
+\fbox{proof} Since $i^{1/2}$ can be either $e^{\pi/4 i}$ or $e^{5\pi/4 i}$, we have $\log{i^{1/2}} = \log{e^{\pi/4i}}\cup \log{e^{5\pi/4i}}$. But this is just the union of $\pi i(n + 1/4)$ where $n$ is either even or odd. But since the odd and even integers partition the integers, it follows that $\log{i^{1/2}} = \{i\pi(n + 1/4): n\in \Z\}$. \cs{Great!} \\ 
+Note that by definition of the complex logarithm, we have $\log{i} = \ln 1 + i\arg{i} = \{\pi i(1/2 + 2n)\}.$ Then for each specific $n$, the corresponding element in $\log{i}$ is twice the corresponding element in $\log{i^{1/2}}$. Hence $\log{i^{1/2}} = 1/2\log{i}$. Q.E.D.\\
+
+\cs{10/10}
+
+\fbox{conjecture} For all $n\in \N$ and for all $z\in \C$, if $z$ is either purely real or purely imaginary, then $1/n\log{z} = \log{z^{1/2}}$. \cs{Is that a $z^{1/n}$?} I think I could use modular equivalence classes to prove this, but that'll have to wait until this afternoon.
+
+
+\end{document}
+

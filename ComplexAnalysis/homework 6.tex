@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+\begin{document}
+  
+\fbox{proposition} Let $f$ be analytic throughout a domain $D$. Then it follows that if $f(z)$ is real for all $z\in D$, then $f(z)$ is constant throughout $D$. \\
+
+\fbox{proof} Suppose that $f$ is an analytic function throughout an arbitrary domain $D$, and suppose that $f(z)$ is real for all $z\in D$. Let $z$ be an arbitrary point in $D$. Let $z = x + iy$ and let $f(z) = u(x,y) + iv(x,y)$. By definition of a real valued function, $v(x,y) = 0$. Hence $v_x(x,y) = v_y(x,y)= 0.$ Furthermore, by assumption that $f$ is analytic for all points in $D$ (including $z$), it also follows that $f$ must be differentiable at $z$, hence it follows that $f$ must satisfy the Cauchy Riemann equations. Hence $u_x = v_y = 0$. Since $v(x,y) =0$ for all points in $D$, $v_x(x,y) = 0$. Furthermore, since differentiability implies continuity \cs{I don't see the relevance of continuity here.} by a previously proven theorem, by another previously proven theorem (we proved it in class, and its in section 23) it follows that $f'(z) = u_x(x,y) + v_x(x,y) = 0$. Furthermore, since $z$ is arbitrary, this applies to all points in $D$. Thus by the theorem proven in section 25 and in class, it follows that $f(z)$ must be constant throughout $D$.
+
+\cs{5/5}
+
+\end{document}

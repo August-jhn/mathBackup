@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\documentclass{article}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\title{Abstract Algebra}
+\author{August, Evelyn}
+\date{August 2021}
+\begin{document}
+
+
+\fbox{definition} A permutation of a set S is a bijection from S to itself. We can use cycle notation to represent these. So $(123).$\\
+\fbox{def} A group $G = (G,*)$ is a nonempty set $G$ and an operation $*$ defined on the elements of $G$ satisfying all the following.
+\begin{itemize}
+    \item $*$ is a binary operation on $G$, that is, $*$ is closed on $G$.
+    \item There exists an element $e\in G$ such that for all elements $a$ in $G$, $e*a = a = a*e$. This is called the $*$-identity.
+    \item There are inverses. For all elements, $a$, in $G$, there exists some $a^{-1}$, called the inverse of $a$, satisfying $a*a^{-1} = e = a^{-1}*a$.
+    \item The operation $*$ is associative, that is, $a*(b*c) = (a*b)*c$ for all $a,b,c\in G$.
+\end{itemize}\\
+
+\fbox{theorem/definition} The symmetries of a regular $2n$-gon with composition form a group. This group is called the dihedral group of order $2n$.\\
+
+\fbox{definition} Given a group $(G,*)$, the cardinality of the set is denoted $|(G,*)|$.\\
+
+\fbox{theorem} Roots of unity are a group.\\
+
+\fbox{theorem: uniquenesses} The (1) inverse and (2) identity in a group are unique.\\
+\fbox{proof}
+\begin{enumerate}
+    \item Let $a\in G$ and let $x,y\in G$ be inverses of $a$. Then by definition of inverses we have $ax = ay = e = xa = ya$. Multiplying $x$ on both sides on the left, we have by the associative property $x(ax) = x(ay) = (xa)x = (xa)y = ex = ey$. By the idenity property, we have $x = y$. Hence the inverse of any element in a group is unique.
+    \item Let $e_1$ and $e_2$ be identity elements in an group $G$. Then by definition of the identity, $e_1 e_2 = e_1$, so the identity is unique. So basically the proof is trivial.
+\end{enumerate}
+\fbox{theorem: cancelation} The left and right cancelation laws hold:
+$$\begin{array}{cc}
+     & ba = ca \Rightarrow b = c, \\
+     & ab = ac \Rightarrow b = c.
+   \end{array}
+ $$
+ \fbox{proof} Suppose $ba = ca$. By definition of a group, $a$ has an inverse $a^{-1}$, so by the associative and inverse properties of groups, $c = ce = c(aa^{-1})b(aa^{-1}) = be = b$. The other way is trivially similar.
+ \\
+ 
+ \fbox{theorem} For group elements $a,b\in G$, we have $(ab)^{-1} = b^{-1}a^{-1}$.\\
+ 
+ 
+ \fbox{theorem} Given a group $G$ with order $|G| = 2n$ for some natural number $n$, it follows that there exists some element $a\in G$ such that $|a| = 2$.\\
+ 
+ \fbox{proof} Let $S =\{x\in G : x \ne x^{-1}\}$. Because this maps each element to another element, $|S| = 2n$. Now let $H = \{x\in G: x = x^{-1}\}.$ 
+ 
+\end{document}

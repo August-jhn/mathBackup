@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+\newcommand{\Re}{\mbox{Re}}
+\newcommand{\Im}{\mbox{Im}}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+\newcommand{\ab}[1]{\color{red}{#1}\normalcolor}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+\maketitle
+\fbox{proposition} Suppose that $f(z)$ is entire and that the harmonic function $u(x,y) = \Re[f(z)]$ has an upper bound $u_0$, that is, $u(x,y)\le u_0$ for all points $(x,y)$ in the $xy$ plane. Show that $u(x,y)$ must be constant throughout the plane.\\
+
+\fbox{proof} Consider the function $g(z) = e^{f(z)}$. Let $v(x,y) = \Im(f(z))$. Then we have $g(z) = e^{u}e^{vi}$. Hence the modulus of $g(z)$ is $e^{u}$. Furthermore, since $u_0$ is the upper bound of $u$, $e^{u_0}$ must be the upper bound of $e^u$, hence the upper bound to the modulus of $g(z)$. Since $g(z)$ is bounded, and since entire functions are preserved under function composition (I think that could be proven using abstract algebra), it follows that $g(z)$ is entire as well. Hence by \sout{Louisville's} \cs{Liouville's} theorem it follows that $g(z)$ is constant. This being the case, the modulus of $g(z)$ doesn't change. The only way for this to happen is for $e^u$ to be constant, hence $u$ must be constant as well.
+
+\cs{5/5}
+
+\end{document}

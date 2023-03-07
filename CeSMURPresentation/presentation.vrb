@@ -1,0 +1,25 @@
+\frametitle{Background: Adconj}
+    The functor $ \Conj:\mathbf{Grp} \to \mathbf{Quand} $ has a left adjoint (David Joyce).
+
+    \begin{definition}
+        Given a directed set $\mathcal{I}$, an inverse system of quandles is a family of quandles $ Q_i $ for $i\in \mathcal{I}$, and a family of quandle homomorphisms $ \phi_{ij}:Q_i\to Q_j $ for $i\le j$,
+        such that for all $i\le j\le k$, we have a commutative diagram
+
+        The limit of this diagram (which always exists for quandles), is the inverse limit of such an inverse system.
+        \[\begin{tikzcd}
+            Q_i & Q_j \\
+            & Q_k
+            \arrow["\phi_{ij}", from=1-1, to=1-2]
+            \arrow["\phi_{ik}"', from = 1-1, to=2-2]
+            \arrow["\phi_{jk}", from=1-2, to=2-2]
+        \end{tikzcd}.\]
+        A \textbf{profinite quandle} is the limit of an inverse system.
+    \end{definition}
+
+
+    \pause
+
+    \begin{remark}
+        As you might guess, these are a lot harder to think about.
+    \end{remark}
+

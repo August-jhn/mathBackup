@@ -1,0 +1,110 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\title{Abstract Algebra}
+\author{August, Evelyn}
+\date{11/30/2021}
+
+\begin{document}
+\maketitle
+
+\fbox{11: proposition} Given a ring $R$ and elements $a,b,c\in \R$ the following are true (in the last two, assume that $R$ is a ring with unity)
+\begin{enumerate}
+    \item[3] $(-a)(-b) = ab$
+    \item[4] $a(b-c) = ab - ac$ and $(b-c)a = ba- ca$.
+    \item[5] $(-1)a = -a$
+    \item[6] $(-1)(-1) = 1$
+\end{enumerate}\\
+
+\fbox{proof} 
+Let $R$ be a ring and let $a,b,c$ be arbitrary elements in $R$. For 5 and 6 let $R$  be a ring with unity.
+\begin{enumerate}
+
+    \item[3] We want to show that $(-a)(-b) = ab$. By property 2, $a(-b) = -(ab)$. Applying property 2 again, $(-a)(-b) = -(-(ab)).$ It remains to be shown that $-(-(ab)) = ab$. This is clearly the case, as $ab + (-ab) = ab - ab = 0$, so this follows from the definition of the additive inverse.\\
+    
+    \item[4] We want to show that $a(b-c) = ab - ac$. It follows that $a(b-c) = a(b + (-c))$ from the definition of subtraction notation. By property six of rings, this is just $ab + a(-c)$. Applying property 2, this is $ab + (-ac)$, which by the notational convention is just $ab - ac$. Likewise for $(b-c)a$.\\
+    
+    \item[5] We want to show that $(-1)a = -a$ ($1$ being the unity of $R$). To show this, consider $a + (-1)a$. By property 2, $(-1)a = -(1a)$. By definition of the multiplicative identity, $ 1a = a$. Substituting, we have $-(1a) = -a$. Substituting again, $a + (-1)a = a - (1a) = a- a$. By definition of the additive inverse, $ a - a = 0$. Hence $(-1)a$ is the additive inverse of $a$, which is $-a$.\\
+    
+    \item[6] We want to show that $(-1)(-1) = 1$, where $1$ is the unity of $R$. Consider $(-1)(-1)-1$. Then, it follows by properties of rings that $(-1)(-1)+(-1)\cdot1=(-1)(-1+1)=(-1)\cdot0=0$. Thus $(-1)(-1)$ is the additive inverse of $1$, which is $-1$. \\
+    
+\end{enumerate}\\
+
+
+\fbox{27: proposition} The units of a [commutative] ring divides every element in the ring.\\
+
+\fbox{proof}  Let $R$ be a ring and let $u\in U(R)\subseteq R$. By the properties of rings there exists some element $1\in R$ that acts as the multiplicative identity. Then by definition of the units, there exists some $u^{-1}\in R$ such that $uu^{-1} = 1$. Let $a\in R$ be arbitrary. By definition of the multiplicative identity it follows that $1a = a$. Substituting, $(uu^{-1})a = a$. By the associative law of multiplication in rings, $(uu^{-1})a = u(u^{-1}a) = a$. Since $u^{-1},a\in R$, it follows by the closure of multiplication in a ring that $q = u^{-1}a\in R$. Hence $a = uq$ for some $q\in R$, so by definition of divisibility $u|a$. Since $a$ is arbitrary in $R$ it follows that $u$ divides each element in $R$. Hence the units of a commutative ring divide every element in the ring. Q.E.D.\\
+
+\newpage
+
+\fbox{43: problem} Let $R=Z\oplus Z\oplus Z$ and $S=\{(a,b,c) \in R | a+b=c\}$. Prove or disprove that $S$ is a subring of $R$.\\
+
+\fbox{solution} Consider the following elements in $R$: $x=(1,0,1)$ and $y=(0,1,1)$. We know that $x,y \in R$, since $1+0=1$ and $0+1=1$. Consider $xy=(1,0,1)(0,1,1)=(1 \cdot 0, 0 \cdot 1, 1 \cdot 1)=(0,0,1)$. However, $xy$ is not an element in $R$, since $0+0 \ne 1$. Thus, $S$ is not a subring of $R$.
+
+\end{document}

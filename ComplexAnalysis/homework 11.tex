@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+\newcommand{\ab}[1]{\color{red}{#1}\normalcolor}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+\fbox{proposition} Given a the function $f(z) = z- 1$, the integral over the contour $C$ parametrized by $z(\theta) = 1 + e^{i\theta}$ where $\theta \in [\pi,2\pi]$,
+$$\int_Cf(z)dz = 0.$$\\
+
+\fbox{proof} Using rules of complex differentiation, we have $z'(\theta) = ie^{i\theta}$. By definition of the contour integral, we have $$\int_Cf(z)dz = \int_\pi^{2\pi}f(z(\theta))z'(\theta)d\theta = \int_\pi^{2\pi}((e^{i\theta} + 1) - 1)ie^{i\theta}d\theta = \int_\pi^{2\pi}ie^{2\pi i\theta} = i(1/(2i) e^{2\pi i\theta})\Big |_\pi^{2\pi} = 1/2[1-1] = 0.$$\\
+
+\fbox{proposition} Given the same function but integrated over another contour $C$ parametrized by $z(x) = x$ where $x\in [0,2]$, the integral is still zero.\\
+
+\fbox{proof} Taking the derivative of $z(x)$ with respect to $x$ we have $z'(x) = 1$. By definition of the contour integral,
+$$\int_Cf(z)dz = \int_0^2(x-1)1dx = [1/2x^2-x]_0^2 = 2-2 = 0.$$
+
+\cs{5/5}
+
+\end{document}
+
+

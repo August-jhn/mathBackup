@@ -1,0 +1,243 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate, diagbox, tcolorbox, esvect, tikz, adjustbox}
+
+
+\graphicspath{{./images/}}
+
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+
+%geometry/topology
+\newcommand{\bndry}{\partial}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\theoremstyle{definition}
+
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+
+\title{Real Analysis}
+\author{August Bergquist}
+
+\begin{document}
+
+\maketitle
+
+\section{A Wild Generalization}
+
+I have the craziest generalization of little ell infinity. The exercise, as well as many other results, follow immediately as a corollary.
+
+Let $(X,d)$ be a metric space, and let $A$ be any set non-empty set. We say that a function $f:A\to X$ all sets of the form $D_x(f) = \{d(f(a),x): a \in A\}$ for $x\in X$ are bounded above in the reals (positiveness of a metric ensures it is bounded below). Let $\ell(A,X)$ be the set of all such bounded functions. Now consider the function $\delta:\ell(A,X) \to \R $ defined $\delta(f,g) = \sup\{d(f(x), g(x)): x\in X\}$. This is a well-defined function, and a metric on the set $\ell(A,X)$. We'll need some lemmas before we prove this. For all the lemmas, let $X$, $A$, $d$, and $\delta$ be as above. 
+
+\begin{lemma}
+Let $f,g\in \ell(A,X)$. Then the set $\{d(f(x), g(x)): x\in X\}$ is bounded (above, though this is not ambiguous since all images under a metric must be positive or zero, and hence are bounded below by zero.)
+\end{lemma}
+
+\begin{proof}
+
+Chose any $x$ in $X$ (it must be non-empty because it is a metric space). Since $f$ and $g$ are bounded, the sets $D_x(f) = \{d(f(a), x): a\in A\}$ and $D_x(g) = \{d(g(a), x): a\in A\}$ are bounded by definition of a function's boundedness, and let $b_f$ and $b_g$ upper bounds for these sets. Now let $a$ be arbitrary within $A$. Since $b_f$ and $b_g$ are upper bounds, we have $d(f(a), x) \le b_f $ and $d(g(a), x) \le b_g$. By symmetry of metrics such as $d$, we have $d(g(a), x) = d(x,g(a))$, so $d(x,g(a))\le b_g$. By Theorem 1.3.6 of the textbook, it follows that $d(f(a), x) + d(x,g(a)) \le b_f + b_g$. Since $d$ is a metric on $X$, by the triangle inequality we have $ d(f(a), g(a)) \le d(f(a), x) + d(x,g(a))$. So by transitivity of the relation $\le$, it follows that $d(f(a), g(a))\le b_f + b_g$. Moreover, $a$ was arbitrary in $A$, hence for all elements $a\in A$, we have $d(f(a), g(a))\le b_f + b_g$. Hence $ b_f + b_g$ is an upper bound for the set $\{d(f(a),g(a)): a\in A\}$, and hence the set is bounded above as desired.
+\end{proof}
+
+\begin{lemma}
+The function $\delta:\ell(A,X)^2\to \R$ is well defined.
+\end{lemma}
+
+\begin{proof}
+Let $(f,g)\in \ell(A,X)^2$. We have shown that the sets of the form $\{d(f(a), g(a)): a\in A\}$ bounded. While it may seem trivial, we must show that all of these sets are non-empty. This is ensured from the fact that $A$ is non-empty, as is demanded in the definition of the set $A$ as above. Hence this set is non-empty. Because the set is non-empty, there must exist some supremum (note that this is a set of real numbers). Moreover, we have shown already that the supremum, should exist, is unique. In other words, every two pair of elements $\ell(A,X)^2$ is mapped to a unique image under $\delta$, namely $\sup\{d(f(a), g(a)):a\in A\}$, which we have shown to exist uniquely.
+\end{proof}
+
+
+\begin{lemma}
+$\delta$ is positive (or zero)
+\end{lemma}
+\begin{proof}
+This comes from the fact that, if we have a set of non-negative real numbers, a negative number could never be an upper bound. So the supremum must never be negative. Hence the images of $\delta$ are never negative.
+\end{proof}
+
+\begin{lemma}
+$\delta$ is positive definite. 
+\end{lemma}
+\begin{proof}
+First suppose that $f,g\in \ell(A,X)$ so that $\delta(f,g) = 0$. We aim to show that $f = g$ in this case.  By definition of $\delta$, we have $\sup\{d(f(a), g(a)) : a\in A\} = 0$.  Chose arbitrary $a\in A$. Since $0$ is the supremum, by defintion of a supremum we have $d(f(a), g(a)) \le 0$. By positivity (as verified in the previous lemma), we have $0 \le d(f(a), g(a))$. By antisymmetry of the relation $\le$, it follows that $ d(f(a), g(a)) = 0 $. Moreover, since $d$ is a metric, by positive definiteness it follows that $f(a) = g(a)$. But $a$ was arbitrary in $A$. Hence for all $a\in A$, we have $f(a) = g(a)$. Since $A$ is the domain of both $f$ and $g$, it follows by definition of function equality that $f = g$. This verifies one direction of positive definiteness. \\
+
+Now to verify the other way. Suppose that $f = g$. Then $f(a) = g(a)$ for all $a\in A$ by definition of function equality. Hence by positive definiteness of $d$ as a metric, it follows that $d(f(a),g(a)) = 0$ for all $a$, hence the set $\{d(f(a), g(a)): a\in A\}$ is just the singleton $\{0\}$. Since the supremum of a singleton is just the one element, it follows that $\delta(f(a), g(a)) = \sup\{0\} = 0 $, so this side of positive definateness works as well!
+\end{proof}
+
+\begin{lemma}
+$\delta$ is symmetric.
+\end{lemma}
+\begin{proof}
+Consider any $f,g\in \ell(A,X)$. We know that $\delta(f,g)$ and $\delta(g,f)$ exists. Symmetry is easy to show. Consider the sets $P = \{d(f(a),g(a) ):a\in A\}$, $Q = \{d(g(a), f(a)): a\in A\}$. Now suppose we have $d(f(a), g(a))$. By symmetry of $d$, we have $d(f(a), g(a) ) = d(g(a), f(a))$, which is in $Q$ by construction, so $P\subset Q$. $f$ and $g$ were arbitrary, so the other direction follows from the first. Hence $P = Q$. Since $\delta(f,g) = \sup(P)$, and since $\delta(f,g) = \sup(Q = P)$, it follows that $\delta(f,g) = \delta(g,f)$ as desired. Hence $\delta$ is symmetric.
+\end{proof}
+
+We'll need a lemma to show the triangle inequality. The textbook actually has this as an exercise problem. 
+\begin{lemma}
+Let $A = \{a_\lambda\}_{\lambda \in\Lambda}$ and $\{b_\lambda\}_{\lambda\in \Lambda}$ be sets of real numbers, indexed by a suitable set $\Lambda$, and let them both be bounded above. Then the following are true: 
+
+\begin{itemize}
+\item $a_\lambda\le b_\lambda \forall \lambda\in \Lambda$ implies $\sup A \le \sup B$
+\item $ \sup(A+ B) = \sup A + \sup B $ where $A + B = \{a_\lambda + b_\lambda\}_{\lambda\in \Lambda}$
+\end{itemize}
+
+\end{lemma}
+\begin{lemma}
+$\delta$ satisfies the triangle inequality.
+\end{lemma}
+
+\begin{proof}
+Suppose we have $f,g,h\in \ell(A,X)$. Consider $\delta(f,g)$. We must show that $\delta(f,g) \le \delta(f,h) + \delta(h,g)$. Notice that the sets $S = \{d(f(a), g(a)) : a\in A\},  T = \{d(f(a), h(a)) : a\in A\}$ and $U = \{d(h(a), g(a)) : a\in A\}$ are sets of real numbers indexed over $A$ which are bounded above. Moreover, $\sup (T + U) = \sup (T) + \sup (U)$ by the lemma. Now for any $a\in A$, notice $d(f(a), g(a)) \le d(f(a), h(a)) + d(h(a), g(a))$ by the triangle inequality for $d$. Hence for each $a\in A$ (since $a$ was arbitrary), we have $S_a = d(f(a), g(a)) \le d(f(a), h(a)) + d(h(a), g(a)) = (T + U)_a$, so by the lemma it follows that $\sup S \le \sup (T+U)$. But it also follows that $\sup(T + U) = \sup T + \sup U $. Also, $\delta(f,g) = \sup S$, $\delta(f,h) = \sup T$, and $\delta(h,g) = \sup U$. Hence $\delta (f,g) \le \delta(f,h) + \delta(h,g)$ as desired. 
+\end{proof}
+
+\begin{theorem}
+$(\ell(A,X), \delta)$ is a metric space.
+\end{theorem}
+
+\begin{proof}
+The set $\ell(A,X)$ is non-empty. Consider the constant map $f(a) = x$ for some $x\in X$, and for all $a\in A$ (such a map must exist, for both $A$ and $X$ are supposed non-empty. Now chose $y\in X$. Then certainly the distance $d(x,y)$ exists in the reals. Moreover, for all $a\in A$, we have $d(f(a), y) = d(x,y)$. So the set $D_x(f) = \{d(x,y)\}$ for all $y\in X$. Each such set is finite, and hence bounded above. So $f$ is bounded, and hence $f\in \ell(A,X)$, and so $\ell(A,X)\ne \emptyset$. \\
+
+We have shown that we have a non-empty set $\ell(A,X)$, along with a function $\delta:\ell(A,X)^2 \to \R$ satisfying the positivity, positive definiteness, symmetry, and triangle inequality. It follows then that $(\ell(A,X), \delta)$ is a metric space.
+\end{proof}
+
+\section{Problem 2.2.9}
+Now we can use this generalization for the homework. First, I have a cute little lemma that will help to make one of my answers rigorous.\\
+
+\begin{lemma}
+Let $q,p\in \R^+$ such that $p< q$, and let $\epsilon\in \R^+$. Then $\frac{p}{q} < \frac{p+ \epsilon}{q+ \epsilon}$. Moreover, the set $\{\frac{n-1}{n+1}: n\in \N\}$ has $1$ as it's supremum. 
+\end{lemma}
+
+\begin{proof}
+Chose any natural $n$. Let $p,q$ be as stated in the lemma. Since $n> 0$, it follows that $p + n < q + n$, hence $\frac{p + n}{q+n} < 1$. So $1$ is certainly an upper bound for the set described above. It remains to show that it is the least such. First we must make do a sidequest: proving the first half of the lemma. \\
+
+Let $\epsilon > 0$. Then $p\epsilon < q\epsilon.$ Hence $p(q + \epsilon)= pq + p\epsilon < pq + q\epsilon = q(p+ \epsilon)$. By closure of the positives, it follows that $q(q + \epsilon) > 0$, hence, dividing by this and applying previous results, we obtain
+$$ \frac{p}{q} < \frac{p +\epsilon}{q + \epsilon} $$ as we claimed. \\
+
+Now suppose by way of contradictino that the $r< 1$ is an upper bound. Since each $(n-1)/(n+1) \ge 0$, and some are positive, we must also have $r> 0$. But since the rationals are dense within the reals, it follows that there exists some $s\in \Q$ so that $r< s< q$, so we must also have $s$ as an upper bound. Moreover, since $s$ is rational and positive, there must exist natural $m, n$ so that $s = m/n$. But since $s< 1$, it follows that $m < n$. Hence $m + 1 \le n$. From this and the irst half of the proof, it follows that $s = \frac{m}{n} \le \frac{m}{m+ 1} < \frac{m }{}$
+
+\end{proof}
+
+Consider the set $S$ of all bounded sequences of real numbers. For each pair $\mathbf{x},\mathbf{y}\in S$ the distance between them is defined $d(\mathbf{x},\mathbf{y}) = \sup\{|x_i - y_i|: i\in \N\}$.
+\begin{itemize}
+\item The distance between the sequences $\mathbf{x} = (1,0,\dots)$ and $\mathbf{y} = (0,1,0,\dots)$ is $1$. This is because for all $i>2$, we have $ x_i = y_i = 0$ so $|x_i - y_i|= |0-0| = 0$. For $i = 1$, we have $x_1 = 1$, $y_1 = 0$, so $|x_1-y_1| = |1-0| = |1| = 1$. Similarly, we find $|x_2-y_2| = |0-1| = |-1| = 1$. So we only have two elements in our set of distances between terms, in which case the supremum is just the maximum of them: not very interesting. $d(\mathbf{x},\mathbf{y}) = 1$ in this case.
+
+\item Now for the sequences $(1,0,1,0,\dots)$ and $(0,-1,0,-1,\dots)$, we have the distance between them as $1$. This is because the elements of the set of distances between terms is even smaller! For the even terms of the first sequence are all $0$, and the even terms of the second are all $-1$, so the distance between these terms is $|0-(-1)| = 1$. Similarly, for the odd terms of the first sequence are all $1$, and the odd terms of the second are all $0$, so the distance between each of these terms is $|1-0| = 1$. So we have the set of distances between terms as $\{1\}$. There is only one element; obviously the supremum is $1$. These sequences might be even less interesting than the last, because the set of distances is as small as it can be.
+
+\item Now how about the sequences $(1,2,3,1,2,3,\dots)$ and $(-1,-2,-3,-1,-2,-3)$. Here, we only have a finite number of differences between terms, and the greatest of these distances is $6$. Hence the supremum of these distances is $6$. 
+\item How about $(1/2.1/3,1/4,\dots)$, $(1/2,2/3,3/4,\dots)$? This one is nice. We show that $\sup\{|1/n - ((n-1)/n\} = 1$. This could be done by a proof by contradiction, which I am currently too tired to complete.
+
+\item Since a sequence is a function $\N\to \R$, and since $\ell_\infty$ is all bounded such sequences, by the previous lemmas it follows that $\ell_\infty$ is just $\ell(\N,\R)$ as defined above. Hence it is a metric space, in the positivity, positive definiteness, symmetry, and the triangle inequality all hold.
+\end{itemize}
+
+
+
+\section{Some more generalizations and remarks}
+
+I wasn't feeling so great about the square root function. I won't prove it's well defined (on the positive reals, it definately isn't well defined on the complex numbers). I will however show it's monotonic, as well as quickly generalize what monotonic means. 
+
+\begin{definition}
+The square root function 
+\end{definition}
+
+\begin{lemma}
+Let $(X,\le_1),(Y,\le_2)$ be a poset. A morphism of order (which could be called a monotonic function from $X$ to $Y$) could be defined as a map $f:X\to Y$ so that $x\le_1 y$ implies $f(x)\le_2 f(y)$ for all $x,y \in X$. (The reals are a poset, and a totally ordered set, under the relation $\le$, as is every subset of $\R$ under the same restricted order relation). Then $\sqrt{\cdot}:\R^+\cup \{0\}\to \R$ is a morphism of order $(\R^+\cup \{0\}, \le')\to (\R,\le)$, where $\le'$ is the restriction relation of $\le $ to $(\R\cup \{0\}^2$.
+\end{lemma}
+
+\begin{proof}
+Suppose by way of contradiction that there exist some $x,y\in \R^+\cup \{0\}$ so that $ x\le y $ while $\sqrt{x} > \sqrt{y}$. Then (by theorem 1.3.6 of the textbook that multiplication respects the order relation), we have $\sqrt{x}^2 > \sqrt{y}^2$. By definition of the square root, we have $x > y$, contradicting our assumption that $x\le y$. Hence $\sqrt{\cdot}$ is a morphism of order. 
+\end{proof}
+
+
+\begin{lemma}
+Let $\mathbf{x} = (x_1,\dots,x_n), \mathbf{y} = (y_1,\dots,y_n)\in \R^n$. Then for $i\in \mathbf{n}$, $|x_i - y_i|\le d(\mathbf{x},\mathbf{y})$, where $d$ is the euclidean metric on $\R^n$
+\end{lemma}
+\begin{proof}
+By definition of the euclidean metric, we have $d(\mathbf{x},\mathbf{y}) = \sqrt{\sum_{k = 1}^n (x_k-y_k)^2}$. Hence, by defintion of the square root, we have  $ d(\mathbf{x},\mathbf{y})^2 = \sum_{k = 1}^n (x_k-y_k)^2 $, hence $(x_i-y_i)^2 = d(\mathbf{x},\mathbf{y})^2 -  \sum_{k\ne i}(x_k-y_k)^2$. Now since $\sum_{k\ne i}(x_k-y_k)^2$ is at least zero, and since it is at most equal to $d(\mathbf{x},\mathbf{y})^2$, it follows that $0\le d(\mathbf{x},\mathbf{y})^2 -  \sum_{k\ne i}(x_k-y_k)^2\le d(\mathbf{x},\mathbf{y})^2$. By positive or zero-ness, it follows that $\sqrt{d(\mathbf{x},\mathbf{y})^2 -  \sum_{k\ne i}(x_k-y_k)^2}$ is defined. Since we have shown that the square root function is monotonic, it follows that 
+\[
+\begin{array}{c}
+|x_i-y_i| = \sqrt{(x_i-y_i)^2}\\
+= \sqrt{d(\mathbf{x},\mathbf{y})^2 -  \sum_{k\ne i}(x_k-y_k)^2} \\
+\le \sqrt{d(\mathbf{x},\mathbf{y})^2} \\
+= d(\mathbf{x},\mathbf{y})
+\end{array}
+\] as desired.
+\end{proof}
+
+This should be enough for a clean and tidy proof for the next exercise.\\
+
+
+
+\fbox{b}
+\begin{proposition} Let $n\in \N$. Let $r> 0$. Let $i\in \mathbf{n}$. Let $\mathbf{x} \in \R^n$. Let $K_{i,r}(\mathbf{x}) = \{\mathbf{a} = (a_1,\dots, a_i, \dots, a_n): |x_i - a_i| < r \}\subset \R^n$. Then $K_{i,r}(\mathbf{x})$ is open. 
+\end{proposition}
+\begin{proof}
+Instantiate all variables as in the statement of the proposition. Consider any $\mathbf{a} = (a_1,\dots, a_n) \in K_{i,r}(\mathbf{x})$. Fix $\epsilon = r - |x_i - a_i|$. Select $\mathbf{y} = (y_1,\dots, y_n)\in B_\epsilon(\mathbf{a})$. By definition of an open ball, we have $d(a,y)< \epsilon $Since $|\cdot|$, the distance function on $\R$, is a metric, we have by the triangle inequality and symmetry, and by the previous lemma, \[|x_i - y_i|\le |x_i - a_i| + |a_i - y_i| < |x_i-a_i| + \epsilon = |a_i - y_i| + d - |a_i - y_i| = d.
+\]
+So by definition of the set $K_{i,r}(\mathbf{x}) $, we have $\mathbf{y}\in K_{i,r}(\mathbf{x})$. But $\mathbf{y}$ was arbitrary in $B_\epsilon(\mathbf{a})$, so $B_\epsilon (\mathbf{a})\subset K_{i,r}(\mathbf{x}) $. But $\mathbf{a}$ was arbitrary, so it is possible for each element of $K_{i,r}(\mathbf{x})$ to construct a ball around it which sits entirely within the set. By a previous theorem, it follows that $K_{i,r}(\mathbf{x})$ is open.
+\end{proof}
+
+
+\fbox{a.i}
+I can't really draw this in LaTeX (except for using tedious and awful graphics from paint). What the i-th r-cell of radius 1/2 about a point in $\R^2$ would look like would be an infinite with either horizontal or vertical borders (depnding on whether $i = 1,2$), and centered at the horizontal/vertical line crossing through the point $a$, where the boundaries are the horizontal lines crossing through $a + (1/2,0)$, $a-(1/2,0)$ in the case where $i = 1$, and $a + (0,1/2)$, $a-(0,1/2)$. 
+
+
+\fbox{a.ii}
+
+\begin{proposition}
+Let the $r$-cell about $\mathbf{x}\in \R^n$ be the set 
+$K_r(\mathbf{x}) = \{\mathbf{a} = (a_1,\dots, a_n) \in \R^n : |x_i - a_i|< r \forall i\in \mathbf{n}\}$. Then 
+\[
+K_r(\mathbf{x}) = \cap_{i\in \mathbf{n}}K_{i,r}(\mathbf{x})
+\]
+\end{proposition}
+
+\begin{proof}
+This is pretty much trivial from the way the sets are constructed. Anyway, suppose first that we have $\mathbf{y}\in K_r(\mathbf{x})$. Then for each $i\in \mathbf{n}$, we have $|y_i - x_i| < r$, so for each such $i$, we have $ \mathbf{y} \in K_{r,i}(\mathbf{x})$, so it must be in the intersection of all of them. Simiarly, if $\mathbf{y}$ is in the intersection of all of them, it must be the case that $|y_i - x_i| < r$ for each $i$. Hence $\mathbf{y}\in K_r(\mathbf{x})$, for that is how the set is defined.
+
+ \end{proof}
+
+\fbox{c}
+\begin{proposition}
+Any cell $K_r(\mathbf{a})$ is open in $\R^n$, for any $\mathbf{a}\in \R^n$
+\end{proposition}
+\begin{proof}
+Instantiate $n\in \N$, $a\in \R^n$ and $r\in \R^+$. We have shown that the sets $K_{i,r}(\mathbf{a}) $ intersect over $i\in \mathbf{n}$ to form the set $K_r(\mathbf{a})$, and that each of them is open. Since $\mathbf{n}$ is a finite set, it follows by 3.1.8 of the textbook that the intersection $\cap_{i\in \mathbf{n}}K_{i,r}(\mathbf{a}) = K_r(\mathbf{a})$ is open as desired.
+\end{proof}
+
+
+\begin{proposition} Let $B_r(\mathbf{a})$ be open around $\mathbf{a}$ in $\R^n$ for some $r>0$. Then there exists some $s>0$ so that $K_s(a)\subset B_r(\mathbf{a})$. There also exists a $t>0$ so that $B_t(a) \subset K_r(\mathbf{a})$.
+\end{proposition}
+
+\begin{proof}
+Consider $s = r/n$, and the cell $K_s(\mathbf{a} = (a_1,\dots,a_n))$. Suppose $y = (y_1,\dots,y_n)\in K_s(\mathbf{s})$. Then we must have $|y_i-a_i| < r/n$ for each $i\in \mathbf{n}$. Then we must have 
+
+$d^2(\mathbf{y}, \mathbf{a}) = \sum_{i\in \mathbf{n}}|y_i - a_i|^2  < n(r/n)^2 = r^2/n$. Now since $1/n \le 1$, it follows that $r^2/n \le r^2$. Hence $d^2(\mathbf{y}, \mathbf{a}) < r^2$. Thus $d(\mathbf{y},\mathbf{a}) < r$, hence $\mathbf{y}\in B_r(a)$ as desired. Since $\mathbf{y}$ was arbitrary, we have $B_r(a) \subset K_r(\mathbf{a})$.\\
+ 
+ Now consider the open cell $K_r(\mathbf{a})$. We claim that $B_r(\mathbf{a}) \subset K_r(\mathbf{a})$. For suppose $ \mathbf{y} = (y_1,\dots,y_n)\in B_r(\mathbf{a})$, and let $i\in \mathbf{n}$. Then $ d(\mathbf{y},\mathbf{y}) < r $Then by Lemma 9 and transitivity of $<$, it follows that $|y_i - a_i| < r$. So by definition of $K_{i,r}(\mathbf{a})$, it follows that $\mathbf{y}$ is a member therein. Since $i\in \mathbf{n}$ was arbitrary, a , it follows that $\mathbf{y}\in \cap_{i\in \mathbf{n}}K_{i,r}(\mathbf{a}) = K_r(\mathbf{a})$. So since $\mathbf{y}$ was arbitrary, we have $ B_r(\mathbf{a}) \subset K_r(\mathbf{a}) $, which is what we wanted to show.
+\end{proof}
+
+\begin{proposition}
+A set $U\subset \R^n$ is open if and only if for each $\mathbf{u}\in U$ there exists some $r>0$ such that $K_r(\mathbf{x})\subset U$.
+\end{proposition}
+
+\begin{proof}
+Suppose first that $U$ is open, and let $\mathbf{x}\in U$. Well then, by Theorem 3.1.7 of the textbook, it follows that there must exist some $t>0$ such that $B_t(\mathbf{x})\subset U$. But by the previous proposition there exists some $r>0$ such that $K_r(\mathbf{x})\subset B_t(\mathbf{x})$. By the transitivity of the subset relation, it follows that $K_r(\mathbf{x})\subset U$. Hence for any $\mathbf{x}\in U$, we can find $r>0$ so that $K_r(\mathbf{x})\subset U$.\\
+ 
+Now suppose that for each $\mathbf{x}\in U$ there exists some $r>0$ so that $K_r(\mathbf{x})\subset U$. By the previous result, it follows that there exists some $s> 0$ (in fact $r$ will do) so that $B_s(\mathbf{x})\subset U$. Hence for all $\mathbf{x}\in U$ we can find an open ball around $\mathbf{x}$ contained therein. So by Theorem 3.1.7 it follows that $U$ is open.
+\end{proof}
+
+\end{document}

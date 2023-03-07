@@ -1,0 +1,35 @@
+\documentclass[12pt]{article}
+
+\title{Enter Title Here}
+\author{August Bergquist}
+\date{Enter Date} %comment out if auto
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+
+\graphicspath{{images/}}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\H}{\mathbb{H}}
+\newcommand{\C}{\mathbb{C}}
+
+\begin{document}
+The proof is by induction. First, let $n = 2$. 
+Then $(1 + h)^2 = 1 + 2h + h^2$. Since $h > 0$, so is $h^2$, hence $1 + 2h > (1 + h)^2$.
+
+Now suppose the inequality holds for any $n > 1$ and less than $N\in \N$.
+Then by the induction step we have
+
+\begin{equation}
+    \begin{split}
+        (1 + h)^N = (1+h)^{N - 1}(1 + h) \\
+        = (1 + h)^{N - 1} + h(1 + h)^{N - 1}\\
+        > 1 + (N-1)h + h + (N-1)h^2 \\
+        > 1 + (N-1)h + h = 1 + Nh.
+    \end{split}
+\end{equation} 
+Hence, by induction, the inequality holds for all $N$ as desired. 
+\end{document}

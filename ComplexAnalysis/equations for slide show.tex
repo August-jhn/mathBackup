@@ -1,0 +1,117 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\thm}{\fbox{theorem}}
+\newcommand{\infsum}{\sum_{n = 1}^{\infty}}
+\newcommand{\pf}{\fbox{proof}}
+\newcommand{\cor}{\fbox{corollary}}
+\newcommand{\psum}{\sum_{n = 0}^N}
+\newcommand{\prop}{\fbox{proposition}}
+
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+Consider the product
+$$
+\prod_p\frac{1}{1-p^{-1}}.
+$$
+This just means the product of all such ratios for all prime numbers. Intuitively speaking, if this product is infinite, then there must be an infinite number of prime numbers. So that's what we'll try to show.
+\\
+
+\fbox{definition}(Reimann Zeta Function) In the half plane $1< \Re z$, we define the Reimann Zeta Function to be $$\zeta(s) = \infsum \frac{1}{n^s}.$$\\
+
+\fbox{theorem} For $|s| > 1$, $\zeta(s)$ converges absolutely.\\ 
+
+\fbox{corollary} For all $|s|> 1$, $\zeta(s)$ converges.
+\\
+
+
+\fbox{theorem} (Euler) For all $s\in \C$ such that $\Re s > 1$ $$\zeta(s) = \prod_p\frac{1}{1-p^{-s}}$$\\
+\fbox{Weierstrauss M test} If $|f_n(z)| < M_n$ for some $M_n > 0$ for all $z\in A$ where $A$ is the region on the complex plane where each $f_n$ is defined, then the convergence of $\infsum M_n$ implies that $\infsum f_n(z)$ converges absolutely and uniformly on $A$.\\
+
+
+
+\fbox{proof} (wikipedia)\\
+
+\theorem{theorem} The zeta function $\zeta(s) = \infsum n^{-s}$ is absolutely convergent throughout $A = \{s\in\C:\Re s > 1\}$
+
+\fbox{theorem} The zeta function $\zeta(s) = \infsum n^{-s}$ is analytic throughout $A = \{s\in\C:\Re s > 1\}$.\\
+
+\fbox{proof} (UCLA) Consider an arbitrary closed contour $C \subseteq A$. Then there exists some $\epsilon > 0$ such that $\Re z \le 1 + \epsilon$\\
+
+
+
+Let $\gamma\subset\C^{>1}$ be an arbitrary closed contour in the region. Consider the integral 
+$$\int_\gamma\zeta(z)dz.$$ We want to show that this is zero.\\
+
+To show this, notice that since $\gamma\in \C^{>1}$, each point in $\gamma$ is has a real part greater than or equal to $\epsilon +1$ for some $\epsilon > 0$. Furthermore, notice that since $z = x + iy$ and taking the principle branch
+$$\zeta(z) = \infsum n^{-(x+iy)} = \infsum n^{-x}n^{-iy} = \infsum n^{-x}e^{-iy\Log n}.$$
+Hence the modulus of each term in the series is $n^{-x}$. Furthermore, since $x$ corresponds to $z$ which is a point on $\gamma$ it follows that $x \ge \epsilon  + 1$, hence $n^{-x} \le n^{-(\epsilon + 1)}$.\\
+
+Having shown that $$|\zeta(z)|= n^{-x} \le n^{-(\epsilon + 1)}$$ for all $n$ and all $z \in \gamma$, we now recall from calculus that the series $\infsum n^{-(\epsilon + 1)}$ converges. Hence by the Weierstrass M test it follows that $\infsum n^{-z} = \zeta(z)$ converges uniformly and absolutely throughout $\gamma$. Since each term of the series is itself continuous, it follows from a mysterious theorem from analysis that $\zeta(z)$ is continuous throughout $\gamma$. Also, since each point in the interior of $\gamma$ is also subject to the constraint $\Re z > \epsilon + 1$, the same applies for all points interior to $\gamma$. Hence by theorem 1 of section 71 in the book, 
+$$\int_\gamma \zeta(z)dz = \infsum \int_\gamma n^{-z}dz.$$
+Since $n^{-s}$ is analytic throughout the principle branch we have chosen, it follows by the Cauchy Gorsat theorem that $\int_\gamma n^{-z} = 0$. Hence $\int_C\gamma\zeta(z) = 0$. Since $\gamma\subset \C^{>1}$ is arbitrary, it follows that for all $\gamma$ the integral is zero. Hence by Morera's theorem it follows that $\zeta(z)$ is analytic throughout $\C^{>1}.$
+
+
+
+\newpage
+
+\defn (Gamma function) The gamma function, $\Gamma(z)$, can be defined by the integral
+$$\Gamma(z) = \int_0^\infty x^{z-1}e^{-x}dx: (\Re z > 0).$$\\
+
+
+\fbox{cool fact} Notice that by integrating by parts, we find the indefinite integral $$\int x^{z-1}e^{-x}dx = -e^{-x}x^{z-1} + 1/(z-1)\int e^{-x}x^{z-2}dx + C.$$
+Hence, evaluating the integral at infinity and zero and re-arranging a bit, we have $z\Gamma(z-1) =\Gamma(z).$ If we let $z = n$ for some $n\in \N$, we have
+$$\Gamma(n) = n\Gamma(n-1) = n(n-1)\Gamma(n-2)=...= n!\Gamma(1).$$
+Evaluating $\Gamma(1)$ at $1$, we find it is equivalent to the integral $\int_0^\infty e^{-z}dz = -(0-1) = 1$. Hence $\Gamma(n) = n!$ for $n\in \N$ :). 
+
+
+
+\newpage
+
+
+
+\thm (Euler product)
+Given $\Re s > 1$, $$\infsum \frac{1}{n^s} = \prod_p \frac{1}{1-p^{-s}}.$$\\
+\fbox{proof} (Courtesy of the Wolfram Alpha) Notice that for all $p_i^{-s}$, the  Write 
+$$\prod_p = \Big(\frac{1}{1-p_1^{-s}}\Big)...\Big(\frac{1}{1-p_k^{-s}}\Big)...$$\\
+
+$\pi(x) \sim \frac{x}{\log x}$
+ \end{document}
+

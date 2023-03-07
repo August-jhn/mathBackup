@@ -1,0 +1,208 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\title{Topology}
+\author{August bergquist}
+
+
+\begin{document}
+
+\maketitle
+
+\fbox{Theorem 12.10} Given a topological space $X$ with points $p$ and $q$ connected by path  $\gamma$ from $p$ to $q$, the fundamental groups $\pi(X,p)$ and $\pi(X,q)$ are isomorphic. Moreover, if $X$ is path connected, then $\pi(X,x_0)\cong \pi(X,x_1)$ for all $x_0,x_1\in X$.\\
+
+\fbox{prof} To prove this, we will need to find an isomorphism $\phi:\pi(X,p)\rightarrow \pi(X,q)$. Consider the map $\phi:\pi(X,p)\rightarrow \pi(X,q)$ defined $\phi([\alpha]) = \phi[(\inv{\gamma}\cdot\alpha)\cdot\gamma]$ for all $[\alpha]\in \pi(X,p)$. Of course, we will need to first verify that this function actually makes sense. That is, we will need to show that the concatenation $(\inv{\gamma}\cdot \alpha)\cdot \gamma$ is well defined, $(\inv{\gamma}\cdot \alpha)\cdot \gamma$ really is a loop based at $q$. \\
+
+To verify the first of these claims, notice that $\inv{\gamma}(1) = p$, since $\inv{\gamma}(1) = \gamma(0) = p$. Since $\alpha(1) = p$, and since $\alpha(0) = p$ as well, the concatenation $\inv{\gamma}\cdot \alpha$ is well defined. Furthermore, $\inv{\gamma}\cdot\alpha(0) = \inv{\gamma}(0) = q$, by definition of the inverse path and concatenation. Since $\gamma(1) = q$ as well, the concatenation $(\inv{\gamma}\cdot \alpha)\cdot \gamma$ really is well defined. \\
+
+Furthermore, to verify that $(\inv{\gamma}\cdot \alpha)\cdot \gamma$ really is a loop based at $q$, notice that by definition of concatenation, 
+$(\inv{\gamma}\cdot \alpha)\cdot \gamma(0) =  \inv{\gamma}\cdot \alpha(0) = \inv{\gamma}(0) = q$, and $(\inv{\gamma}\cdot \alpha)\cdot \gamma(1) = \gamma(1) = q$. Hence $(\inv{\gamma}\cdot \alpha)\cdot \gamma$ really is a loop based at $q$. This means that $[(\inv{\gamma}\cdot \alpha)\cdot \gamma] = \phi([\alpha])$ really is an equivalence class of loops based around $q$. In other words, $(\inv{\gamma}\cdot \alpha)\cdot \gamma \in \pi(X,q)$. Since $[\alpha]$ was an arbitrary element of $\pi(X,p)$, and since it's image was shown to be in $\pi(X,q)$, it follows that $\phi$ really does map elements of $\pi(X,p)$ to elements in $\pi(X,q)$.\\
+
+Having shown that $\phi$ is a function with the desired domain and codomain, remains to be shown that $\phi$ is an isomorphism. We must show that $\phi$ is operation preserving and bijective.\\
+
+To show that $\phi$ is operation preserving, consider arbitrary $[\alpha],[\beta]\in\pi(X,p)$. Consider $\phi([\alpha]\cdot[\beta]).$ Then as we have defined $\phi$ and by definition of the operation $\cdot$ and also Theorem 12.6, 
+\begin{multline*}
+    \phi([\alpha]\cdot[\beta]) = \phi([\alpha\cdot \beta]) =  [\gamma\cdot(\alpha\cdot\beta)\cdot\inv{\gamma}] = [(\gamma\cdot\alpha)\cdot\beta\cdot \inv{\gamma}] = [(\gamma\cdot\alpha)\cdot(\beta\cdot \inv{\gamma})].
+\end{multline*}
+Furthermore, by Theorems 12.8 and 12.7, and once again applying Theorem 12.6, and by definition of $\phi$ and the operation $\cdot$, it follows that 
+\begin{multline*}
+    \phi([\alpha]\cdot[\beta]) = \phi([\alpha\cdot \beta]) =  [\gamma\cdot(\alpha\cdot\beta)\cdot\inv{\gamma}] = [(\gamma\cdot\alpha)\cdot\beta\cdot \inv{\gamma}] = [(\gamma\cdot\alpha)\cdot(\beta\cdot \inv{\gamma})]= \\
+    [(\gamma\cdot\alpha)\cdot\epsilon_{q}\cdot(\beta\cdot \inv{\gamma})]=
+    [(\gamma\cdot\alpha)\cdot(\inv{\gamma}\cdot \gamma)\cdot(\beta\cdot \inv{\gamma})]=[((\gamma\cdot\alpha)\cdot\inv{\gamma})\cdot( \gamma\cdot\beta)\cdot \inv{\gamma})] =\\ [(\gamma\cdot\alpha)\cdot\inv{\gamma}]\cdot[( \gamma\cdot\beta)\cdot \inv{\gamma}] = \phi(\alpha)\cdot\phi(\beta).
+\end{multline*}
+Since $[\alpha]$ and $[\beta]$ are arbitrary elements of $\pi(X,p)$, it follows that $\phi$ preserves the operation $\cdot$ for all elements of $\pi(X,p)$.
+\\
+
+To show that $\phi$ is bijective, consider the inverse function $\inv{\phi}:\pi(X,q)\rightarrow (X,p)$ defined $\inv{\phi}([\beta]) = (\gamma\cdot\alpha)\cdot\inv{\gamma}$. \\
+
+We must show that $\inv{\phi}$ is both the left and right inverse of $\phi$. To show that $\inv{\phi}$ is the left inverse of $\phi$, let $[\alpha]$ be arbitrary in $\pi(X,p)$. Consider $\inv{\phi}\circ\phi(\alpha)$. By definition of $\phi$ and $\inv{\phi}$, and applying Theorem 12.8 and 12.6, we have 
+\begin{multline*}
+    \inv{\phi}\circ\phi([\alpha]) = \inv{\phi}(\phi([\alpha])) = \inv{\phi}([(\inv{\gamma}\cdot\alpha)\cdot \gamma]) =\\ [\gamma\cdot((\inv{\gamma}\cdot\alpha)\cdot \gamma)\cdot\inv{\gamma}] = [(\gamma\cdot\inv{\gamma})\cdot \alpha \cdot (\inv{\gamma}\cdot \gamma)] = [\epsilon_q\cdot \alpha\cdot \epsilon_p] = [\alpha\circ \epsilon_p] = [\alpha] = 1_{\pi(X,p)}([\alpha])
+\end{multline*}
+where $1_{\pi(X,p)}$ denotes the identity map on $\pi(X,p)$. Since $[\alpha]$ was arbitrary in $\pi(X,p)$, it follows that for all $[\alpha]\in \pi(X,p)$, $\inv{\phi}\circ \phi([\alpha]) = 1_{\pi(X,p)}(\alpha)$. Hence $\inv{\phi}\circ \phi = 1_{\pi(X,p)}$. Hence $\inv{\phi}$ is the left inverse of $\phi$.\\
+
+Now to show that $\inv{\phi}$ is the left inverse of $\phi$, consider some $[\beta]$ in $\pi(X,q)$, and consider the composition $\phi\circ\inv{\phi}([\beta])$. Then by definition of $\phi$, $\inv{\phi}$, and Theorems 12.6, 12.7, and 12.8, it follows that
+\begin{multline}
+   \phi\circ\inv{\phi}([\beta]) = \phi(\inv{\phi}([\beta])) = \phi([(\gamma\cdot \beta)\cdot \inv{\gamma}]) = 
+   \\
+   [\inv{\gamma}\cdot((\gamma\cdot\beta)\cdot \inv{\gamma})\cdot \gamma] = [(\inv{\gamma}\cdot \gamma)\cdot \beta \cdot (\gamma\cdot \inv{\gamma})] =
+   \\ [\epsilon_p\cdot \beta\cdot \epsilon_q] = [\beta\cdot \epsilon_q] = [\beta] = 1_{\pi(X,q)}([\beta]).
+\end{multline}
+Since $[\beta]$ was arbitrary in $\pi(X,q)$, we know that $\phi\circ \inv{\phi}([\beta]) = [\beta] = 1_{\pi(X,q)}([\beta])$ for all $[\beta]\in \pi(X,q)$. Hence $ \phi\circ \inv{\phi} = 1_{\pi(X,q)}$, and $\inv{\phi}$ is the right inverse of $\phi$.\\
+
+Having shown that $\inv{\phi}$ is the left and right inverse of $\phi$, and that $\phi$ is operation preserving from $\pi(X,p)$ to $\pi(X,q)$, it follows that $\phi$ is in fact an isomorphism. Hence $\pi(X,p)\cong\pi(X,q)$.\\
+
+Now for the second part of the theorem, suppose that $X$ is a path-connected topological space. Let $x_0$ and $x_1$ be arbitrary points in $X$. Since $X$ is path connected, it follows that $x_0$ and $x_1$ are connected by a path. Hence by the first part of this proof $\pi(X,x_0)\cong\pi(X,x_1)$.\\
+Q.E.D.
+
+
+\end{document}

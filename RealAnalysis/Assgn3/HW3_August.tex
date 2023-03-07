@@ -1,0 +1,78 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate, diagbox, tcolorbox, esvect, tikz, adjustbox}
+
+
+\graphicspath{{./images/}}
+
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+
+%geometry/topology
+\newcommand{\bndry}{\partial}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\theoremstyle{definition}
+
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+\newtheorem{problem}{Problem}
+
+\title{Real Analysis}
+\author{August Bergquist}
+
+\begin{document}
+
+\maketitle
+
+\begin{theorem} Let $(a_i)$, $(b_i)$ be sequences of real numbers such that 
+\end{theorem}
+\begin{itemize}
+\item $a_i \le b_i \forall i\in \N$
+\item $a_i \le a_{i+1}$ and $b_i \ge b_{i+1}$ $\forall i \in \N$.
+\end{itemize}
+Then
+$$\bigcap_{i= 0}^{\infty}[a_i,b_i]\ne \emptyset.$$
+
+
+\begin{proof}
+We first establish that $\{a_i\}$ (the set of images of the sequence) is bounded above, and $\{b_i\}$ is bounded below.\\
+
+For an upper bound of $\{a_i\}$, consider $b_1$. We proceed by induction on $i$. The base case clearly holds, as this is the first condition. Now suppose we have $a_i\le b_1$ for some $i$. Then $a_{i+1} \le a_{i}$. By the induction step, we have $a_{i}\le b_1$. Then $a_{i+1}\le b_1$ by the transitivity of the relation $ \le$. Hence for all $i$, we have $a_i\le b_1$.\\
+
+We can similarly show that $a_1$ is a lower bound for $\{b_i\}$. Also, by induction, we can show that for all $i\in \N$, we have $b_i \le b_1$. So by transitivity of the order relation, we have $a_i\le b_1 \le  b_j$ for all $i,j\in \N$, since we have shown $b_1$ to be an upper bound for $\{a_i\}.$  \\
+
+Since $\{a_i\}$ is bounded above, $\{a_i\}$ must have a supremum; call it $a$. Moreover, since $\{b_i\}$ is bounded below, so it must have an infimum. Call it $b$. We now claim that $a\le b$. For suppose it weren't, that is, that $a > b$. Since $a > b$, and since $b$ is the greatest lower bound of the set $\{b_i\}$, it follows that $a$ is not a lower bound for $\{b_i\}$. So there must exist some element of $\{b_i\}$, and consequently (since it is an indexed set) some $i\in \N$ such that $b_i < a$. Moreover, since $b_i$ is less than $a$, and since $a$ is the supremum of the set $ \{a_i\}$, it follows that $b_i$ cannot be an upper bound of the set $\{b_i\}$. So there must exist some $b_j$, and consequently some $j\in \N$ such that $b_j< a_i$. But we have shown that for all $i,j\in \N$, $b_i\ge a_i$. So this is a contradiction. \\
+
+The definition of the supremum gives us $a_i \le a$ for all $i\in \N$. The definition of the infimum gives us $b\le b_i$ for all $i\in \N$. We have shown that $a\le b$. Hence by transitivity of the relation $\le$, we have $a_i\le a\le b_i$ for all $i\in \N$. Hence $a\in [a_i,b_i]$ for all $i\in \N$. Hence 
+$$a\in \bigcap_{i = 0}^\infty[a_i,b_i].$$ This, of course, shows the set is non-empty.  
+\end{proof}
+
+\begin{remark}
+I had tried to prove that the nested interval theorem worked in any metric space, but it actually fails in $\Q$, under the absolute value restricted to it as the metric. There is something special about $\R$ as a metric space. The nested interval theorem does not generalize easily.
+\end{remark}
+
+\begin{problem}(2.2.4)
+
+Let $\R^\R$ be the set of all real valued functions. Consider some $d\in (\R^\R)^\R$ (lol!) such that $d(f,g) = |f(0) - g(0)|$. Is $d$ a metric?
+\end{problem}
+It isn't!
+\begin{proof}
+Consider $f$ defined $f(x) = x$ for all $x\in \R$, and $g$ defined $g(x) = x^2$. Obviously $f(0) = g(0) = 0$, hence $|f(0)- g(0)| = 0$. This would violate positive definiteness, since $f$ and $g$ are as distinct as they can be! (well, that's a hyperbole of magnitude greater than $x^2$ !)
+\end{proof}
+\end{document}

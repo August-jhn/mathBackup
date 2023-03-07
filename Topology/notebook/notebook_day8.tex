@@ -1,0 +1,128 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\title{Topology}
+\author{August bergquist}
+
+
+\begin{document}
+\fbox{Theorem 4.7} \begin{itemize}
+    \item A $T_2$ space is a $T_1$ space.
+    \item A $T_3$ space is a $T_2$ space.
+    \item A $T_4$ space is a $T_3$ space.
+\end{itemize}
+\fbox{proof} 
+\begin{enumerate}
+    \item Suppose a space $X$ is $T_2$. Let $p$ and $q$ be distinct points in $X$. Then since $X$ is $T_2$ it follows by definition of $T_2$ spaces that there exist disjoint open sets $U$ and $V$ such that $p\in U$ and $q\in V$. Since $q\in V$ and $U$ and $V$ are disjoint, it follows that $q\not\in U$. Likewise, by a similar argument $p\not\in V$. Hence there exists two open sets, namely $U$ and $V$, such that $p\in U$ but $p\not\in V$ and $q\not\in U$ and $q\in V$. Since $p$ and $q$ are arbitrary, it follows that $X$ is $T_1$.
+    \item Suppose $X$ is $T_3$. Then $X$ is $T_1$ and regular. Let $p$ and $q$ be distinct elements in $X$. Since $X$ is $T_1$, it follows by definition of $T_1$ that there exist open sets $U$ and $V$ such that $p\in U$ but not $V$, and $q\in V$ but not $U$. Since $p\in U$, it follows that $p\not\in X-U$. Furthermore, since $U$ is open, it follows by a tweek to theorem 2.14 that $X-U \equiv A $ is closed. Since $X$ is $T_3$, and since $p\not\in A$, it follows that there exist disjoint open sets $M$ and $N$ such that $A\subseteq M$ and $p\in N$. Since $A = X- U$ and $q\in X$ and $q\not\in U$, it follows that $q\in A$. Hence there are disjoint open sets $M$ and $N$ such that $p\in N$ and $q\in M$. And since $p$ and $q$ are arbitrary distinct points in $X$, this applies to all distinct points, hence $X$ is $T_2$.
+    \item Now suppose that $X$ is $T_4$. Then $X$ is normal and $T_1$. Let $x$ be an arbitrary point in $X$, and let $A$ be an arbitrary open set of $X$ not containing $x$. Suppose $A$ is empty. Well then there is an open set that its a subset of, namely the emptyset, which is disjoint with everything. Suppose then that $A$ is not empty, and that there's some $y\in A$, where $y$ is arbitrary. Since $x$ is not in $A$, we know that $y\ne x$. Since $y\ne x$ and $X$ is $T_1$, there must exist open sets $ U_y $ and $V_y$ such that $y\in V_y$ and $x\not \in V_y$ and $x\in U_y$ and $x\not\in V_y$. Since $y$ was arbitrary in $A$, it follows that for all $y$ in $A$ there is some $V_y$ such that $y\in V_y$ but $x\not\in V_y$. Then the union of all such $V_y$, 
+    $$V = \bigcup_{y\in A}V_y$$ is open as follows by the axioms of a topology, and since $x$ is not in any such $V_y$, it isn't in the union of all of them, $V$, either. Hence by theorem 2.14 it follows that $X- V + B$ is closed. \\
+    
+    Furthermore, suppose by way of contradiction that there is some element $a\in A\cap B$. Somehow $A\cap B = \emptyset$\\
+    
+    Since $A$ and $B$ are disjoint it follows since $X$ is normal that there are open sets $W$ and $M$ such that $W\cap V = \emptyset$ and $A\susbeteq W$ and $A\subseteq M$. Since $x$ is an element in $A$ it follows by definition of a subset that $x\in W$. Hence $X$ is regular. Since $X$ is also $T_1$ , it follows that it's $T_3$.
+    \end{enumerate}
+    
+    
+\newpage
+
+
+\fbox{Theorem 4.8} A topological space $X$ is regular if and only if for every point $p\in X$ and for every open set $U$ containing $p$ there exists some open set $V$ such that $p$ is also in $V$ and the closure of $V$ is contained within $U$.\\
+
+\fbox{proof} 
+\begin{itemize}
+    \item[$\Rightarrow$] Suppose that $X$ is regular. Let $p$ be arbitrary in $X$ and let $U$ be an arbitrary open set containing $p$. Then by theorem 2.14 it follow that $X-U \equiv A$ is closed. Since $A$ is closed, and since $p$ is not in $A$ as follows by set difference, we know by definition of regular that there exist disjoint open sets $M$ and $N$ such that $A\subseteq M$ and $p\in N$. Since $N$ contains no points in $X$ not in $U$, it follows that $N\subseteq U$. \\
+    
+    Now to show that $\overline{N}\susbeteq U$, suppose by way of contradictino that there exists some limit point $x$ of $N$ that is not in $U$. Since $x$ is not in $U$, it follows by set difference that $x\in A$, which is a susbet of $M$, hence $M$ is an open set containing $x$. Hence, since $x$ is a limit point of $N$, it follows that $(M-\{x\})\cap N$ is not empty. Hence $M\cap N$ is not empty, contradicting that they are disjoint.\\
+    
+    Since all elements of $N$ are elements of $U$, and also all limit points, it follows that $\overline{N}\subseteq U$. Since $p$ and $U$ are arbitrary, it follows that for all $p\in X$, and for all open sets $U$ contianing $p$, there exists an open set $V$ cointaining $p$ such that it's closure is entirely containied within $U$.
+    \item[$\Leftarrow$] Now suppose that for all $p\in X$ and for all open sets $U$ containing $p$, there exists an open set $V$ containing $p$ such that it's closure is entirely containied wihtin $U$.\\
+    
+    Let $x$ be arbitrary in $X$ and let $A$ be an arbitrary closed set of $X$ which does not contain $x$. Since $x\in X$ and $x\not\in A$, it follows that $x\in X- A = U$ which is open as follows by theorem 2.14. Since $U$ is an open set containing $x$. Since $x\in X$ and $x\not\in A$, hence $x\in X-A$. Furthermore, since $A$ is closed, by a slight adjustment to theorem 2.14 it follows that $X-A = U$ is open. Since $U$ is open and contains $x$, it follows by the supposition that there exists some open set $V$ such that $x\in V$ and $\overline{V}\subseteq U$. Since $\overline{V}$ is closed, it follows that $U-\overline{V}$ is open. Furthermore, since any element in $A$ must be in $X-\overline{V}$ it follows that $A\subseteq X-\overline{V}$. Since $x\in U$ and $x\not\in A$, we know that there exists disjoint open sets, namely $X-\overline{V}$ and $U$, such that $x\in U$ and $A\susbeteq X-\overline{V}$. Since $x$ and $A$ are arbitrary, it follows that $X$ is regular.
+    \end{itemize}
+
+
+\fbox{6.1} Every finite set is compact.\\
+
+\fbox{proof} Let $X$ be a finite topological space. Every cover for a set must be a set of subsets of $X$, hence any cover $\mathcal{C}$ must be a subset of $2^X$. Since $X$ is finite, there exists some $n\in \N$ such that $|X| = n$. Furthermore, the powerset must be finite as well, it's cardinality being $2^n$. Since every sub-cover of $\mathcal{C}$ must be a subset of $\mathcal{C}$, it's cardinality must be less than or equal to $2^n$, hence each sub-cover must be finite. Since $\mathcal{C}$ was an arbitrary cover, every cover of $X$ has a finite subcover, namely every subcover. Hence $X$ is compact.\\
+
+\fbox{6.2} Every compact subset of $\R_{std}$ has a maximum.\\
+
+\fbox{proof} Suppose by way of contradiction that $A$ is a compact subset that doesn't have a max. Consider the cover $\mathcal{C} = \{\{a\}:a\in A\}$. The union of all elements in $\mathcal{C}$ is $A$ itself, hence $\mathcal{C}$ is a cover. Furthermore, $\mathcal{C}$ is the only subcover of $\mathcal{C}$ because each of its elements would have contain some $\{a\}$ in order for the union to contain $X$.\\
+
+Since $A$ doesn't have a max, it follows that for all $a\in A$, there is some $a'\in A$ such that $a' > a$. Applying this to all points, we see that $\mathcal{C}$ is infinite, and it's the only subcover of $\mathcal{C}$ Hence $A$ cannot be compact: a contradiction.
+
+\end{document}

@@ -1,0 +1,123 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate, diagbox, tcolorbox, esvect, tikz, adjustbox, xcolor}
+
+
+\graphicspath{{./images/}}
+
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+
+
+
+%geometry/topology
+\newcommand{\bndry}{\partial}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\theoremstyle{definition}
+
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+
+\title{Real Analysis}
+\author{August Bergquist}
+
+\begin{document}
+
+\maketitle
+
+\begin{proposition} (1.2.5) Fields are integral domains.
+\end{proposition}
+
+\begin{proof}
+Suppose for the sake of contradiction that there is a field $(F,+,\cdot)$ which is not an integral domain. In other words, that there exists elements $a,b\in F$, both distinct from the additive identity $0$, and such that $a\cdot b = 0$. Since $F$ is a field, and since $b\ne 0$ as specified in the definition of a field provided in the textbook, there must exist some multiplicative inverse $\inv{b}\in F$. Moreover, by the well-definedness of the multiplicative operation (its a function $\cdot : F^2\to F$), it follows that $a\cdot b \cdot \inv{b} = 0 \cdot \inv{b}$. By Theorem 1.2.5 (this holds generally for any field), $0 \cdot \inv{b} = 0$. By associativity and the definition of the multiplicative inverse of $b$ and multiplicative identity, we have $a\cdot b\cdot \inv{b} = a\cdot (b\cdot \inv{b}) = a\cdot 1 = a$, where $1$ denotes multiplicative identity. Hence $a = 0$. But we have supposed the contrary.
+\end{proof}
+ \begin{corollary}
+ Since $\R$ is a field (by the Field Axiom), it follows that $\R$ is an integral domain.
+ \end{corollary}
+ 
+ There is a better, yet equivalent, definition of a field.
+ 
+ \begin{definition} (Thanks to Algebra by Maclane and Birkhoff, as well as professor McNicholas)
+ A field is a set $F$, along with two binary operations $+, \cdot$ on $F$, formally $(F, + , \cdot)$ and two distinct nullary operations "select 1" and "select 0", so that 
+ \begin{itemize}
+     \item $(F, +)$ is an abelian group,
+     \item $(F^*, \cdot)$ is an abelian group, where $F^* = F \setminus \{0\}$
+     \item $x(y + z) = xy + zx$ for all $x, y, z\in F$.
+ \end{itemize}
+ \end{definition}
+ 
+ This definition allows us to import everything we know from groups into fields. For example, the statements that $-(-a) = a$ for all $a\in F$ and that $\inv{(\inv{a})} = a$ for all nonzero $F$, are actually one statement, which can be proven abstractly in groups. We might as well prove it here. 
+ 
+
+\begin{proposition}
+Let $G$ be a group, and let $g\in G$. Then $\inv{(\inv{g})} = g$. 
+\end{proposition} 
+\begin{proof}
+The meaning of the sentence $ \inv{(\inv{g})} = g$, in the language of group theory (be it true or false), is that $g$ is the element of $G$ such that, when $\inv{g}$ is operated either on the right or left of $g$, the result is the identity element. By definition of the inverse of $g$ (the existence of which is guaranteed by definition of a group), is exactly that. Moreover, we can unambiguasly refer to \textit{the} inverse because the inverse is unique. For suppose we had $h_1$ and $h_2$ both inverses of $g$. Then $h_1g = 1$, so by well definedness of the group operation, we have $h_1gh_2 = 1h_2 = h_2$ (by identity). But $h_2$ is an inverse for $g$, and by associativity and identity we have $h_1 g h_2 = h_1(gh_2) = h_1(1) = h_1$. So $h_1  = h_2$.
+\end{proof}
+ 
+ \begin{corollary}
+ By the field axioms, and the previous proposition, we see that $-(-a) = a$ for all $a\in \R$ and $\frac{1}{\frac{b}{b}} = b$ for all nonzero $b\in \R$. 
+ \end{corollary}
+ 
+ 
+ \begin{lemma}
+ There exists a positive number in $\R$, namely $1$.
+ \end{lemma}
+ 
+ \begin{proof}
+ In a field, $1\ne 0$. This is because $1$ is the identity element of the group $(\R\setminus \{0\}, \cdot)$. By the Order Axiom, there are two mutually exclusive options then for $1$: either $1\in \R^+$ or $-1 \in \R^+$. Suppose by way of contradiction that $1\not\in \R^+$. Then $-1\in \R^+$. (The \textit{existence} of $-1$ follows from the Field Axiom) But by Theorem 1.2.8 (of the textbook) and Corollary 2 of this, $-(-1) = (-1)(-1) = 1$. By the closure part of the Order Axiom, and since $-1\in \R^+$, we have $(-1)(-1) = 1\in \R^+$. So it cannot be the case that $-1 \in \R^+$. Thus $1\in \R^+$.
+ \end{proof}
+ 
+
+\begin{lemma}
+Let $a\in \R$. If $a\in \R^+$, then $\frac{1}{a}\in \R^+$. (note that by the order axiom $a\in \R^+$ implies that $a\ne 0$, and hence by the field axiom $\frac{1}{a}$ exists)
+\end{lemma}
+\begin{proof}
+Obviously, since $a\ne 0$, and since by the Field axiom $\R^* = \R \setminus \{0\}$ is a group under the multiplicative operation, and since $\frac{1}{a}$ is defined to be the multiplicative inverse of $a$ in the group $\R^*$, we have $\frac{1}{a} \ne 0$. Suppose then by way of contradiction that $\frac{1}{a} \not \in \R^+$. By the Axiom of Order we have only one option: $-\frac{1}{a}\in \R^+$ (What a sentence! "The addative inverse of the multiplicative inverse is positive") Recall that, by a previous problem (or a quick application of multiplicative identity, the distributive property, the previously proven result that anything times zero is zero, and the definition of an additive inverse; that or the shorter method of applying the other previously proven result that $a(-b) = -(ab)\forall a,b\in \R$), we can easily show that $a(-\frac{1}{a}) = -(a\frac{1}{a}) $. But by multiplicative inverse, we have $a(-\frac{1}{a}) = -(1)$. Moreover, $-(a\frac{1}{a} \in \R^+$ by the closure part of the Order Axiom. From this we see immediately that $-1\in \R^+$. But we have shown $1\in \R^+$. This violates the "exactly one" part of the Order Axiom. 
+\end{proof}
+
+\begin{proposition}
+$ 1 > \frac{1}{2}$.
+\end{proposition}
+
+\begin{proof}
+We interpret the symbol $2$ to have the meaning $1 + 1$ in the language of real analysis, thus constructed. The symbol $\frac{1}{2}$ is defined to be the multiplicative inverse of $2$ (which is not zero, since the map $i$ is an injection). Having noted all of this, we now actually do the proof.\\
+
+Applying the definition of subtraction, the distributive part of the Field Axiom, problem (), multiplicative identity, the definition of multiplicative inverse, associativity of addition, additive inverse, and additive identity, we obtain the following sequence of equalities:
+
+\[
+\begin{array}{c}
+2(1 - \frac{1}{2}) \\
+= 
+2(1 + (-\frac{1}{2}))\\
+= 2(1) + 2(- \frac{1}{2})\\
+= 2 + 2(-\frac{1}{2})\\
+= 2 + (- (2(\frac{1}{2}))) \\
+= 2 + (-1) \\
+= 1 + 1 + (-1) \\
+= 1 + (1 + (-1)) \\
+= 1 + 0 = 1.
+\end{array}       \]
+We have previoulsy shown that $1\in \R^+$. By the closure part of the Order Axiom, we have $2 = 1 + 1 \in \R^+$. Moreover, our string of equalities has established that $ 1- \frac{1}{2}$ is the multiplicative inverse of $2$. Therefore by Lemma 2 it follows that $1-\frac{1}{2}\in \R^+$. So by definition of the relatoin $>$, $1> \frac{1}{2}$ as desired.
+
+\end{proof}
+
+While it seems on the surface that what we are doing is "verifying" that the properties we already know about the reals are true, I think that something far more interesting is going on. Through these axioms we have made the real numbers independent of meaning by modelling them through meaningless symbolic manipulation. This, in turn, gave meaning to the meaningless symbols. Something very interesting is going on here: a symphony of syntax and semantics, of names and the things to which the names belong.
+\end{document}

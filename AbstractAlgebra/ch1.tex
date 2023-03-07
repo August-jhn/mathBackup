@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\documentclass{article}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\title{Abstract Algebra}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+\fbox{Binary Operation} Let $G$ be a set. A binary operation on $G$ is a function that assings each ordered par of elements of $G$ to an element of $G$.\\
+
+\fbox{def} A group $G = (G,*)$ is a nonempty set $G$ and an operation $*$ defined on the elements of $G$ satisfying all the following.
+\begin{itemize}
+    \item $*$ is a binary operation on $G$, that is, $*$ is closed on $G$.
+    \item There exists an element $e\in G$ such that for all elements $a$ in $G$, $e*a = a = a*e$. This is called the $*$-identity.
+    \item There are inverses. For all elements, $a$, in $G$, there exists some $a^{-1}$, called the inverse of $a$, satisfying $a*a^{-1} = e = a^{-1}*a$.
+    \item The operation $*$ is associative, that is, $a*(b*c) = (a*b)*c$ for all $a,b,c\in G$.
+\end{itemize}\\
+
+\end{document}

@@ -1,0 +1,280 @@
+\documentclass[13pt]{article}
+\usepackage{amscd,amssymb,hyperref,color,amsthm,amsmath,amsfonts,setspace,graphicx}
+\usepackage[all]{xy}
+
+\usepackage[all]{xy}
+\topmargin-0.3truein 
+\textwidth6.2in  
+\textheight8.7in
+\oddsidemargin 0in
+
+%the following defines theorem environments for Theorems, Corollaries, and Definitions.
+\theoremstyle{remark}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{hw}{{\bf Homework Problem}}
+\newtheorem{rdq}{Reading \& Discussion Question}
+
+
+%the following commands are for the special sets R, Z, C, N, Q.  They will appear in blackboard bold (bb). 
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+%a nice ones to have
+\newcommand{\inv}[1]{{#1}^{-1}}
+\newcommand{\topT}{\mathcal{T}}
+
+
+%here are some shorthand commands for some of the commonly used longer commands in LaTeX.
+%make up your own shorthand for the commands you use the most!
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\yp}{\bfrac{dy}{dx}}
+\newcommand{\la}[1]{\displaystyle{\cal{L}}\left\{{#1}\right\}}
+\newcommand{\li}[1]{\displaystyle{\cal{L}}^{-1}\left\{{#1}\right\}}
+\newcommand{\lb}{\left[}
+\newcommand{\rb}{\right]}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\bd}{\begin{defn}}
+\newcommand{\ed}{\end{defn}}
+\newcommand{\ov}{\overline}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\f}[2]{\displaystyle \frac{#1}{#2}}
+\newcommand{\series}[3]{\displaystyle \sum_{{#1}={#2}}^{#3} }
+
+\begin{document}
+\noindent
+\textbf{\Large MATH 470, Topology \hfill  Exam \# 2}
+
+\
+
+\textbf{\Large March 30, 2022 }
+
+
+\
+
+
+\textbf{\Large NAME:}\underline{\hspace{3in} (please print)}
+
+\
+
+\
+
+\begin{center}
+\begin{tabular}{||c|c|c||}\hline \hline
+&&\\
+Part & Points & Score \\ \hline
+&&\\
+I. & 20 &  \\\hline
+&&\\
+II. Choice 1 & 20 & \\ \hline
+&&\\
+II. Choice 2 & 20 & \\ \hline
+&&\\
+III. Choice 1& 20 & \\ \hline
+&&\\
+III. Choice 2 & 20 & \\ \hline
+&&\\
+total & 100 & \\ \hline\hline
+\end{tabular}
+\hspace{1in}
+\end{center}
+
+Instructions:
+\bi
+\item You may use your textbook, Topology Through Inquiry by Su and Starbird, after turning in solutions to Problem 1.1 and 1.2.
+
+\item Use the textbook for verification, but don't spend hours mining the textbook for tricky new ideas.  I'm not asking you to produce tricky new ideas.  I'm asking you to use ideas that we have previously discussed in class and apply them in a new/newish setting.  
+
+\item Use the textbook only.  No notes, no online sources from WISE,  no referencing sources from elsewhere.  Just you, pencil/pen, book, and paper.  No personal notes.
+
+\item You may email me questions about the exam.  If the question is a clarification question that everyone would benefit from, then I will update this document on WISE and make an announcement that the document has been updated.  
+
+\item You may handwrite your solutions on paper.  You do not need to copy the problem statements, but please clearly label your solutions by problem number. 
+
+\item {\bf Submitting your work.} Please scan your work and email me your solutions by Friday, April 1 at 9pm.   Please write your solutions on only one side of the paper.  Please {\bf do not write your name on each page.}  
+Instead, put your name in the title of the scanned file, for example Inga-Exam2Solutions.pdf  Additionally, please slide a stapled hardcopy of your work under my office door by 9pm Friday with your name on the back of the last page of your work.
+
+\item Theorem: You are awesome.  You got this!
+
+\ei
+
+
+\begin{center}
+\includegraphics[scale=0.4]{plane-model.eps}
+\end{center}
+
+\vfill
+
+\newpage
+
+
+%DEFINITIONS
+\noindent \textbf{Part I:  Definitions, Short Answer \& True/False.} \hfill[20pts]
+
+{\bf Statements of Theorems and Definitions.} 
+\be
+\item[(1.1)] Give a precise statement of the Classification of 2-manifolds.
+
+\item[(1.2)] State the definition of $\pi_1(X, x_0)$, the fundamental group of a topological space $X$ with base point $x_0$, by defining the following things:
+\bi \item State the definition of {\bf homotopic loops} in $X$ based at $x_0$. 
+\item State the definition of {\bf the elements} in $\pi_1(X, x_0)$.
+\item State the definition of {\bf the group operation} in $\pi_1(X, x_0)$.
+\item State the definition of {\bf the properties} that must be satisfied to know that $\pi_1(X, x_0)$ is a {\bf group}.
+\ei
+
+\ee
+
+
+{\bf Short Answer. }
+
+\begin{enumerate}
+\item[(1.3)] Identify the happy 2-manifold whose polygonal presentation is shown on the front page.  Which 2-manifold on the list of the Classification of 2-manifolds Theorem is it?
+
+ 
+\item[(1.4)] Consider the set $X = \{a, b, c \}$ with the topology $\mathcal{T} = \{ \emptyset, X, \{a\}, \{a, b\} \}$.  Let $f: X \rightarrow X$ be defined by $f(a) = a$, $f(b)=c$ and $f(c)=b$.   Determine whether or not the function $f$ is continuous.  Show work to justify your answer.
+
+ \item[(1.5)]  Group the letters below into homeomorphism classes.   Select a pair of letters that are not homeomorphic and give an argument explaining why they are not homeomorphic. (You may assume each letter is made of line segments (some curved) and all segments have no thickness.)
+
+\begin{center}
+\includegraphics[scale=1]{HomeomorphismClasses.eps}
+\end{center}
+
+\end{enumerate}
+
+
+\hspace{-0.3in} \textbf{ True/False questions.} Determine whether each statement is true or false. For each question provide a counterexample or a short justification.  
+
+\begin{enumerate}
+
+\item[(1.6)] The function $f: [0,6] \rightarrow [-2,8]$ given by 
+\begin{center} $f(x) = \left\{
+\begin{tabular}{lcl}
+$ 8-x$ && \textrm{ if } $x \in [0,3]$ \\
+ $-2x+11$ && \textrm{ if } $x \in [3,6]$
+\end{tabular} \right.$ \end{center}
+ is a homeomorphism.   
+ 
+ \vfill
+ 
+\item[(1.7)]  The spaces $\mathbb{R}P^2\#\mathbb{T}^2 $ and $\mathbb{R}P^2\#\mathbb{R}P^2\#\mathbb{R}P^2$ are homeomorphic.
+
+\vfill
+
+\item[(1.8)]    If $f: X\rightarrow Y$ is a continuous function and $Y$ is path connected, then $X$ is path connected.
+
+\vfill
+
+\item[(1.9)]   The real numbers with the finite complement topology, $(\R, \T_{FC})$, is compact.
+
+\vfill
+
+
+\end{enumerate}
+
+
+\newpage
+
+
+\noindent \textbf{Part II.} Do \textbf{TWO} of the following three problems.  Clearly indicate which problems you are NOT attempting. Some of these problems are directly from your textbook.  Do not cite the result, prove it. \hfill [20pts each]
+\begin{enumerate}
+
+
+\fbox{lemma 1} If $X$ and $Y$ are sets, and $f:X\rightarrow Y$ is a surjective function, and if $U\subseteq Y$, then $f(\inv{f}(U)) = U$.\\
+
+\fbox{proof} Let $y$ be an arbitrary element of $U$. Since $y$ is an element of $Y$, and $f$ is surjective, it follows that $f(x) = y$ for some $x\in X$. But since $y = f(x)\in U$, and since $\inv{f}(U) = \{x\in X: f(x) \in U\}$, it follows that $x\in \inv{f}(U)$. Furthermore, since $f(\inv{f}(U)) = \{y : y = f(x), x\in \inv{f}(U)\}$, it follows that $y = f(x)\in f(\inv{f}(U))$. Since $y$ was arbitrary, all elements of $U$ are also in $f(\inv{f}(U))$. Hence $U\subseteq f(\inv{f}(U))$.\\
+
+Now let $z$ be arbitrary in $f(\inv{f}(U))$. By definition of the image, there is some $x\in X$ (different $x$) in $\inv{f}(U)$ such that $f(x) = z$. Furthermore, since $ x\in \inv{f}(U)$, it follows by definition of the preimage that $f(x) \in U$. But $f(x) = z$, hence $z\in U$. Since $z$ was arbitrary, it follows that $f(\inv{f}(U))\subseteq U$.\\
+
+Finally, since we have shown that both $f(\inv{f}(U))\subseteq U $ and $U\subseteq f(\inv{f}(U))$, we know that $U= f(\inv{f}(U))$. Q.E.D.\\
+
+
+\item[(2.1)]  Let $X$ and $Y$ be topological spaces and $f:X \rightarrow Y$ be a continuous function. 
+Prove that if $X$ is compact and $f$ is surjective, then $Y$ is compact.\\
+
+
+
+
+\fbox{proof} Suppose that $X$, $Y$, and $f$ are as stated above. Suppose also that $X$ is compact and $f$ is surjective. Let $\mathcal{C}$ be an arbitrary open cover for $Y$. Consider the set $\mathcal{C}_X$ defined $\mathcal{C}_X = \{\inv{f}(U):U\in \mathcal{C}\}$. We shall show that $\mathcal{C}_X$ is an open cover for $X$.\\
+
+First we will show that every element of $\mathcal{C}_X$ is open. Let $V$ be an arbitrary element of $\mathcal{C}_X$. By definition of $\mathcal{C}_X$, there is some $U$ in $\mathcal{C}$ such that $\inv{f}(U) = V$. Since $U\in \mathcal{C}$, which is an open cover, it follows that $U$ is open. Furthermore, by definition of continuity, $V = \inv{f}(U)$ is also open. Since $V$ was arbitrary in $\mathcal{C}_X$, we know that every element of $\mathcal{C}_X$ is open. 
+
+Now we will show that $\mathcal{C}_X$ is a cover for $X$. Well, let $x\in X$ be arbitrary. Since $f(x)\in Y$, and since $\mathcal{C}$ forms a cover for $Y$, it follows that $f(x)\in \bigcup_{U\in \mathcal{C}}U$. Hence by definition of the union there is some $U\in \mathcal{C}$ such that $f(x)\in U$. Recall from foundations that $\inv{f}(U) = \{x\in X: f(x)\in U\}$. From this definition it follows that $x\in \inv{f}(U)$. Furthermore, by construction of $\mathcal{C}_X$ it follows that $\inv{f}(U)\in \mathcal{C}_X$. From this we know that there is some element of $\mathcal{C}_X$ which contains $x$, and hence the $x$ is in the union of all elements in $\mathcal{C}_X$. Since $x$ was arbitrary in $X$, all elements of $X$ are also in $\bigcup_{V\in \mathcal{C}_X}V$. Hence
+$$X\subseteq\bigcup_{V\in \mathcal{C}_X}V.$$
+So by definition of a cover, $\mathcal{C}_X$ is a cover for $X$. \\
+
+Having shown that $\mathcal{C}_X$ is a cover for $X$, and that each of its members are open in $X$, it follows that $\mathcal{C}_X$ forms an open cover for $X$. Since $X$ is compact, it follows that $\mathcal{C}_X$ must have an finite subcover, call it $\mathcal{S}_X$. Construct the collection of sets $\mathcal{S} = \{f(V):V\in \mathcal{S}_X\}$. Since there are a finite number of elements in $\mathcal{S}_X$, and since there is at most one element in $\mathcal{S}$ for each $V\in \mathcal{S}$, it follows that $\mathcal{S}$ is finite. We will now show that $\mathcal{S}$ is a subcover of $\mathcal{C}$. This entails showing that (1) $\mathcal{S}\subseteq \mathcal{C}$, and (2) $\mathcal{S}$ actually covers $Y$. \\ 
+
+
+In order to show that $\mathcal{S}\subseteq \mathcal{C}$, we will consider any element $W$ in $\mathcal{S}$. Then by construction of $W$ as an element of $\mathcal{S}$, there must be some $V\in \mathcal{S}_X$ such that $W = f(V)$. Furthermore, by construction of $V$ as an element in $\mathcal{S}_X$, there must exist some $U\in C$ such that $V = \inv{f}(U)$. Substituting, we have $W = f(\inv{f}(U))$. Since $f$ is surjective, it follows by Lemma 1 that $ W = f(\inv{f}(U)) = U$, and by construction $U$ is an element of $\mathcal{C}$. Since $W$ was arbitrary in $\mathcal{S}$, it follows that $\mathcal{S}\subseteq \mathcal{C}$.
+\\
+\\
+
+
+\item[(2.2)]  Let $A$ be a compact subspace of a Hausdorff space $X$.  Prove that $A$ is closed.\\
+
+\fbox{proof} If $A$ has no limit points, then $A$ is closed. Suppose then that there is a limit point of $A$, and let $p$ be one such limit point. We will show that $p$ is in $A$. Suppose by way of contradiction that $p$ is not in $A$. Let $q$ be an arbitrary element of $A$. Since $q$ is in $A$, and $p$ is not, it follows that $p\ne q$. Since $X$ is Hausdorff, there must exist disjoint open sets $U_q$ and $V_q$ such that $p\in V_q$. Furthermore, since $q$ was arbitrary in $A$, we can define a family of sets $\mathcal{F} = \{V_q\}_{q\in A}$ where each $V_q$ is defined in the same way as we have just defined the particular case. We can similarly define the family of all such $U_q$, $\mathcal{C}$. 
+
+\item[(2.3)]  Let $X$ and $Y$ be topological spaces and $f:X \rightarrow Y$ be a continuous function. \\
+Prove that if $f$ is surjective and $X$ is connected, then $Y$ is connected.
+\end{enumerate}
+
+\
+
+\noindent \textbf{Part III.} Do \textbf{TWO} of the following three problems.  Clearly indicate which problems you are NOT attempting.  \hfill [20pts each]
+\begin{enumerate}
+
+\item[(3.1)]  Let $X$ and $Y$ be topological spaces. \\
+Prove that $f: X \rightarrow Y$ is continuous if and only if for all $A \subseteq X$, $f(\overline{A}) \subseteq \overline{f(A)}$.  (Don't use Th 7.1 on this problem.)\\
+
+\fbox{proof} Suppose that $p$ is a limit point of $A$. We must show that $f(p)$ is a limit point of $f(A)$. Suppose by way of contradiction that $f(p)$ is not a limit point of $f(A)$. Then negating the definition of a limit point, there exists some open set $U$ of $Y$ which contains $p$, such that $(U- \{f(p)\})\cap f(A) = \emptyset$. Since $U$ is open in the space $Y$, and since $f$ is a continuous function from $X$ to $Y$, it follows by definition of a continuous function that $\inv{f}(U)$ is open in $X$. Furthermore, since $f(p)\in U$, it follows by the definition of an inverse image that $p\in \inv{f}(U)$. Recall from foundations that $\inv{f}((U- \{f(p)\})\cap f(A)) = \inv{f}(U-\{f(p)\})\cap \inv{f}(f(A)) = (\inv{f}(U) - \inv{f}(\{f(p)\})\cap\inv{f}(f(A)) = \emptyset$. Furthermore, recall also that $\inv{f}(f(A))\supseteq A$, and that $\inv{f}(U)-\inv{f}(\{f(p)\})\susbeteq \inv{f}(U)$. This implies that $ $
+\\
+Now suppose that $f(\overline{A})\subseteq \overline{f(A)}$. Let $U$ be an arbitrary open set in $Y$. Consider $X- \inv{f}(U)$. By Theorem 2.14, showing that $X-\inv{f}(U)$ is closed will suffice to prove that $\inv{f}(U)$ is open. To show this, let $p$ be an arbitrary limit point of $X- \inv{f}(U)$. Then $p\in f(X - \inv{f}(U))$.
+
+\item[(3.2)]
+
+    [a. ] Let $f: X \rightarrow Y$ be a homeomorphism.  Prove that if $X$ is Hausdorff, then $Y$ is Hausdorff.\\
+    [b. ] Prove or disprove.  If $f: X \rightarrow Y$ is continuous and $X$ is Hausdorff, then $Y$ is Hausdorff.\\
+
+
+
+    [a. ] To prove this, let $p$ and $q$ be arbitrary, distinct points in $Y$. Since $f$ is a homeomorphism, it is bijective and hence surjective. Hence there exists points $p_0$ and $q_0$ in $X$ such that $f(p_0) = p$ and $f(q_0) = q$. Furthermore, substituting, and since $p$ and $q$ are distinct, $f(p_0) \ne f(q_0)$. Since $f$ is bijective, it is also injective, hence $p_0\ne q_0$. Moreover, since $p_0$ and $q_0$ are distinct in $X$, which we have supposed to be Hausdorff, it follows that there exist disjoint open sets $U$ and $V$ of the space $X$, such that $p_0\in U$ and $q_0\in V$. \\
+    
+    Since $f$ is a homeomorphism, it has an inverse (since it's bijective), and that inverse is continuous. For ease of notation, let $h:Y\rightarrow X$ be the inverse of $f$. Since $U$ and $V$ are continuous, it follows that the $\inv{h}(U) = f(U)$ and $ \inv{h}(V) = f(V)$ are open in $Y$. Furthermore, since by definition of the inverse function $h(p_0) = p$ and $h(q_0) = q$, and since $p_0\in U$ and $q_0\in V$, it follows that $p\in \inv{h}(U)$ and $q\in \inv{h}(V)$. It remains to be shown that $\inv{U}$ and $\inv{V}$ are distinct. In order to verify this, recall from foundations that since $f$ is injective, $\inv{h}(U\cap V) = f(U\cap V) =  U\cap V$. Hence \\
+    
+    \\
+    
+    
+    [b. ] No, this is not true. To provide a counterexample, consider the set $A = \{a,b\}$ under the indiscrete topology $\topT = \{A, \emptyset\}$. Consider the map $f:\R\rightarrow A$ defined $f(x) = a$, where $\R$ is the reals with the standard topology. Then $\inv{f}(\emptyset) = \emptyset$, which is open in $\R_{std}$ (since nothing maps to nothing), and $\inv{f}(A) = \R$, which is also open in $\R_{std}$. Since these are the only elements of $\topT$, and hence the only open sets of $A$, each of whose preimage under $f$ is open in $\R_{std}$, it follows that $f$ is continuous.\\
+    
+    Furthermore, we have shown previously (I hope) that $\R$ is Hausdorff. (If we haven't, the proof is easy. Given two distinct points, consider the open interval from negative infinity to the midpoint between the two, and the open interval from the midpoint to positive infinity). Furthermore, $\{a,b\}$ is not Hausdorff. We can verify this by noticing that the only pair of distinct points, namely $a$ and $b$, fit into only one set, namely $A$ itself. But $A$ contains both points! Hence $A$ is not a Hausdorff space. Since $f$ is a continuous map from a Hausdorff space to a non-Hausdorff space, we have a counterexample to the proposition that if $X$ is a Hausdorff space, and $f:X\rightarrow Y$ is continuous, then $Y$ is Hausdorff. Phwew!
+
+
+\item[(3.3)]  Give an explicit homeomorphism between the two spaces shown below.
+
+\begin{center}
+\includegraphics[scale=1]{ExplicitHomeo2.eps}
+\end{center}
+
+\end{enumerate}
+
+\end{document}

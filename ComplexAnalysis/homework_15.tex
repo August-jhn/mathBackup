@@ -1,0 +1,94 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+\newcommand{\ab}[1]{\color{red}{#1}\normalcolor}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+\fbox{problem 2} Find $\int_Cg(z)dz$ for $g(z)$ where $C$ is a positively oriented circle defined $|z-i| = 2$, when $g(z)$ is defined as following:\\
+\begin{itemize}
+    \item[a] When $g(z) = \frac{1}{z^2+4}$.\\
+    \fbox{solution} Notice that $\frac{1}{z^2+4} = \frac{1}{(z+2i)(z-2i)} = \frac{\frac{1}{z+2i}}{z-2i}$. Let $f(z) = \frac{1}{z+2i}$. Then $$g(z) = \frac{1}{z^2 + 4} = \frac{f(z)}{z-2i}$$. We shall let $z_0 = 2i$. This puts the integral into the desired form: $\int_C\frac{f(z)}{z-z_0}dz$\\
+    Notice that $f(z)$ is analytic besides at its singularity, which is $z = -2i$. Since $|-2i-i| = 3$, which is greater than $2$, it follows that this singularity is outside of $C$. Hence $f(z)$ is analytic on every point on and inside of $C$.\\
+    Since $f(z)$ is analytic on and inside $C$, which is a positively simple closed curve (as all positively oriented circles are), it follows that we can apply the Cauchy integral formula, obtaining:
+    $$f(z_0) = f(2i) = -i/4 = \frac{1}{2\pi i}\int_C\frac{f(z)dz}{z-z_0} = \int_Cg(z)dz.$$
+    Solving for $\int_Cg(z)dz$, we have $\int_Cg(z)dz = -1/4i(2\pi i) = \pi/2$.
+    
+    \cs{5/5}
+    
+    \item[b] When $g(z) = \frac{1}{(z^2+4)^2}$.\\
+    \fbox{solution} Notice that $$g(z) = \frac{1}{[(z+2i)(z-2i)]^2} = \frac{\frac{1}{(z+2i)^2}}{(z-2i)^2}.$$ Let $f(z) = \frac{1}{(z+2i)^2}$. Then $f(z)$ is analytic everywhere besides its singularity, which is at $z= -2i$, as with the last one. As shown for the last value of $g$, this is outside of $C$. Hence $f(z)$ is analytic on and inside $C$, its derivative being $f'(z) = \frac{d}{dz}(z+2i)^{-2} = -2(z+2i)^{-3}$. Hence we can put $\int_Cg(z)dz$ into the form $\int_C\frac{f(z)dz}{\cs{(}z-z_0\cs{)^2}}$, where $z_0 = 2i$. Now, just as in part a, we can apply the extended Cauchy integration formula, obtaining the equation:
+    $$f'(z_0) = f'(2i) = -2(4i)^{-3} = \frac{-1}{32}i = \frac{[1!=1]}{2\pi i}\int_Cg(z)dz.$$ Solving for $\int_Cg(z)dz$, we have $\int_Cg(z)dz = (2\pi i)(\frac{-1}{32}i) = \pi/16$.
+    
+    \cs{5/5}
+\end{itemize}
+
+\fbox{problem 5} Suppose $f$ is analytic within and on a simple closed contour $C$, and $z_0\not \in C$. Then $$\int_C\frac{f'(z)dz}{z-z_0} = \int_C\frac{f(z)dz}{(z-z_0)^2}.$$\\
+
+\fbox{proof} First, note that by theorem 1 of section 57 it follows that $f'$ is analytic whenever $f$ is analytic. Hence $f'$ is analytic within and on $C$.\\
+
+Since $z_0\not\in C$, there are two cases. Either $z_0$ is exterior to $C$, or interior to $C$.\\
+
+Suppose that $z_0$ is exterior to $C$. Then $g(z) = f'(z)/(z-z_0)$ and $h(z) = f'(z)/(z-z_0)^2$ are both analytic on all points interior to $C$ (as differentiable functions are closed under function multiplication). Hence both $f$ and $h$ are differentiable, hence continuous, hence piecewise continuous for all points interior to $C$. \cs{That last sentence is unnecessary -- analyticity is what you need. The piecewise continuous refers to the curve, not the function.} By this it follows from the antiderivative theorems that the integrals are both equal to zero, and hence equal to each other.\\
+
+Suppose that $z_0$ is interior to $C$. Then since $f'$ is analytic for all points interior to $C$, we can apply the Cauchy integral formula (solving for the integral) to get $\int_C\frac{f'(z)}{(z-z_0)}dz = 2\pi i (f'(z_0))$. Furthermore, since $f$ is analytic for all points interior to $C$, we can apply the extended Cauchy integral formula (once again solving for the integral) to get 
+$\int_C\frac{f(z)}{(z-z_0)^2} = 2\pi i f'(z_0)$. Then the two integrals are equal and the proposition holds when $z_0$ is interior to $C$.\\
+
+Since the equality holds when $z_0$ is exterior to $C$ or exterior to $C$, the proposition holds for all $z_0$ not on $C$.\\
+
+\cs{5/5}
+
+
+\fbox{proposition 7} The integral $\int_{0}^\pi e^{a\cos\theta}\cos(a\sin\theta)d\theta = \pi$, for all constants $a$.\\
+
+\fbox{proof} First, we want to show that $\int_C\frac{e^{az}}{z}dz = 2\pi i$, where $C$ is the curve. The function $f(z) = e^{az}$ is entire, as it is an exponential function which is always so. Hence, writing the integral in the form $\int_C\frac{e^{az}}{z}dz = \int_C\frac{f(z)}{z-z_0}dz$ where $z_0 = 0$, and $C$ is the same unit circle, we can use the Cauchy integral formula to find that $$\int_C\frac{f(z)}{z-z_0}dz = 2\pi i(f(0)) = 2\pi i(e^{a(0)}) = 2\pi i$$. Hence $\int_C\frac{e^{az}}{z}dz = 2\pi i$. \\
+
+Now let $z = re^{i\theta} = r(\cos\theta + i\sin\theta)$. Since we are dealing with the unit circle, we can ignore $r$ since it is one. Notice that $z'(\theta) = ie^{i\theta} = i(\cos\theta + i\sin\theta)$. Parametrizing the integral in terms of $\theta$, we have $$\begin{array}{cc}
+     & \int_{-\pi}^\pi\Big[f(z(\theta))/z(\theta)z'(\theta)d = \frac{e^{a(\cos\theta+i\sin\theta)}}{\cos\theta+i\sin\theta}i(\cos\theta + i\sin\theta) \\
+     & =  i\big\{e^{a\cos\theta}e^{ia\sin\theta} = e^{a\cos\theta}(\cos(a\sin\theta) + i\sin(a\sin\theta) )\big\}\Big ]d\theta.
+\end{array} = \int_Cf(z)dz = 2\pi i  $$
+Seperating the integral over the sum and factoring out $i$, we have
+$$2\pi i = i\int_{-\pi}^\pi e^{a\cos\theta}\cos(a\sin\theta)d\theta -\int_{-\pi}^\pi e^{a\cos\theta}\sin(a\sin\theta). $$ Since the value of this integral, $2\pi i$, is purely imaginary, the integral of the second term (which is real valued), must be zero by definition of equality for complex numbers. Hence, by definition of equality for complex numbers, $2\pi = \int_{-\pi}^\pi e^{a\cos\theta}\cos(a\sin\theta)d\theta$. Finally, since the integrand is even, we can write this as $\int_{-\pi}^\pi e^{a\cos\theta}\cos(a\sin\theta)d\theta = 2\int_0^\pi e^{a\cos\theta}\cos(a\sin\theta)d\theta$. Dividing on both sides, we obtain that $\int_0^\pi e^{a\cos\theta}\cos(a\sin\theta)d\theta = \pi$, which is the desired result.
+
+\cs{Whew! 5/5}
+
+\cs{20/20}
+
+\end{document}

@@ -1,0 +1,194 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\title{Topology}
+\author{August bergquist}
+
+
+\begin{document}
+
+\maketitle
+
+\fbox{8.2} Which are connected:
+\begin{itemize}
+    \item $\R$ with the discrete topology?
+    \item $\R$ with the indiscrete topology?
+    \item $\R$ with the finite compliment topology?
+\end{itemize}
+\fbox{solution}
+\begin{itemize}
+    \item For the discrete topology, take any non-empty set $A\subseteq X = \R$, as well as its compliment $X-A$. Then $X-A$ and $X$, both being subsetes of $X$, are open disjoint sets such that $A \cap X-A = X$. Hence $X$ is not conneted under the discrete topology.
+    \item $\R$ must be connected in the indiscrete topology, because there is only one non-empty open set (namely $\R$), so there aren't two of them.
+    \item $\R$ is conneted under the finite compliment topology. Suppose by way of contradiction that $A$ and $B$ are disjoint non-empty sets such that $A\cap B = \emptyset$. Then by definition of the finite compliment topology it follows that $\R-A$ and $\R- B$ are both finite, since neither are empty. Since $\R$ is infinite, $A$ must contain an infinite amount of points. Furthermore, by definition of the set compliment, and sine $A$ and $B$ are disjoint, $\R-A$ contains all of the points in $A$, which is infnite, contraditing the assumption that $\R-A$ is finite.
+\end{itemize}
+
+\fbox{Theorem 8.9} Let $f: X\rightarrow Y$ be a continuous surjective function. Then the connetedness of $X$ implies the connetedness of $Y$.\\
+
+\fbox{proof} Suppose by way of the contrapositive that $Y$ is not connected. Then there exists nonempty disjoint open sets $A$ and $B$ such that $Y = A\cap B$. Furthermore, since $f$ is continuous, it follows that $\inv{f}(A)$ and $\inv{f}(B)$ are open. Furthermore, since $f$ is surjective, and since $A$ and $B$ are non-empty, by definition of surjectivity $\inv{A}$ and $\inv{B}$ are non-empty. Furthermore, recall from foundations that the inverse image of the union of two sets in the codomian is the unoin of the inverse images, hene $\inv{A}\cup \inv{B} = \inv{A\cup B} = \inv{Y} = X$.\\
+
+It remains to be shown that $\inv{A}$ and $\inv{B}$ are disjoint. Suppose by way of contradition that there is some $x\in \inv{A}\cap \inv{B}$. Then by definition of the intersection it follows that $x\in \inv{A}$ and $x\in \inv{B}$. By definition of the inverse image this means that $f(x)\in A$ and $f(x)\in B$, contraditing the fact that $A$ and $B$ are disjoint.\\
+
+Having shown that $f(A)$ and $f(B)$ are non-empty disjoint open sets such that $f(A)\cup f(B) = X$, it follows that $X$ is not connected.\\
+
+Q.E.D.\\
+
+
+\fbox{Theorem 3.35} A path connected space is connected.\\
+
+\fbox{lemma 1} $\R$ with the standard topology is connected. Furthermore, given a closed interval $[a,b]$, the subspace topology induced by $[a,b]$ is connected.\\
+
+\fbox{proof} The first part of this is Theorem 8.3, not sure how to prove it yet. Suppose by way of contradiction that $U$ and $V$ are open sets in the subspace topology that partition $[a,b]$. These will have the form $[a,c)$, $(c,b]$, which can't contain $c$. I'm not sure exactly how to formalize this, but I believe this is a contradiction.\\
+
+\fbox{proof} Suppose by way of contradiction that $X$ is a path connected space that is not connected. Since $X$ is not connected, there exists disjoint and non-empty open sets $A$ and $B$ such that $A\cup B = X$. Since $A$ and $B$ are non-empty, there exists $x\in A$ and $y\in B$. Furthermore, by definition of path connectedness, there exists some continuous map $f: [0,1] \rightarrow X$ such that $f(0) = x$ and $f(1) = y$, where $[0,1]$ is the closed interval from 0 to 1 in the subspace topology of the standard topology on $\R$.  Since $A$ is open in the codomain of $f$, and since $f$ is continuous, it follows by definition of a continuous map that $\inv{f}(A)$ is open in the subspace topology of the standard topology on $\R$. Likewise, $\inv{f}(B)$ is open. Neither of these are empty, for $0$ is mapped to $x\in A$ and $1$ is mapped to $y\in B$, hence $0\in \inv{f}(A)$ and $1\in \inv{f}(B)$
+
+
+\end{document}

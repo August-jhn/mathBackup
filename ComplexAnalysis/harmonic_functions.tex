@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+
+\fbox{theorem} A function $u:\R^2\rightarrow \R$ is called \textbf{harmonic} in a domain $D\subseteq\R^2$ if its first and second partials are continuous on $D$ and $u_{xx} + u_{yy} = 0$ (Laplaces equation). \\
+
+\fbox{theorem} A fucntion $f(z) = u(x,y) + v(x,y)$ is analytic on a domain $D$, then $u$ and $v$ are harmonic.\\
+
+\fbox{theorem}(Clairaut's theorem) If $u$ has continuous second partial derivatives $u_xy$ and $u_yx$ at $(x_0,y_0)$, then $u_{xy}(x_0,y_0)$\\
+
+\fbox{theorem} (this proof uses not yet proven theorems) We know $u_x = v_y$ and $u_y = -v_x$. Thus $u_{xx} = v_{yx}$ and $u_{yy} = -v_{xy}$. These are also continuous, so by Clairaut's theorem we have $v_{xx} + u_{yy} = v_{xy} - v_{xy} = 0$, hence $u$ is harmonic.\\
+
+\fbox{definition} Let $u$ and $v$ be harmonic in a domain $D$, and assume that their partial derivatives satisfy C-R equations. Then $v$ is a harmonic conjugate of $u$.\\
+
+\fbox{theorem} A function $f(z) = u(x,y)+ i v(x,y)$ iff $v$ is a harmonic conjugate of $u$.\\
+\fbox{proof} ($\Rightarrow$) This follows directly.\\
+($\Leftarrow$) We've already done this.\\
+\fbox{proof} This proof is postponed until later
+\\
+
+\fbox{lemma} Suppose $D$ is a domain, and (1) $f$ is analytic on $D$, (2) $f(z) = 0$ on a line segment in $D$ or a domain in $D$. Then $f(z) = 0$ on $D$.\\
+\fbox{corollary} If $f$ and $g$ are analytic in the domain $D$, and $f(z) = g(z)$ on a line segment in $D$ or on a domain in $D$, then $f(z) = g(z)$.\\
+\fbox{proof} Consider $h(z) = f(z) - g(z)$. \\
+
+\fbox{definition} Analytic Continuation: Say $f_1$ is analytic on $D_1$ and $f_2$ is analytic on $D_2$, and $D_1\cap D_2 \ne \emptyset$, and $f_1(z) = f_2(z)$
+
+ 
+\end{document}
+

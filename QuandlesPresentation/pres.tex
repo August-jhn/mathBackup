@@ -1,0 +1,546 @@
+\documentclass[10pt]{beamer}
+\usepackage[utf8]{inputenc}
+
+\usepackage{mathtools, amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate, diagbox, tcolorbox, esvect, xcolor, soul, tikz, xeCJK, utopia, adjustbox} %utopia font
+\usetikzlibrary{cd}
+\usetheme{Boadilla}
+%\usecolortheme{dolphin}
+% custom colors
+\definecolor{myNewColorA}{RGB}{12,12,110}
+\definecolor{myNewColorB}{RGB}{16,85,154}
+\definecolor{myNewColorC}{RGB}{150,158,197}
+\setbeamercolor*{palette primary}{bg=myNewColorC}
+\setbeamercolor*{palette secondary}{bg=myNewColorB, fg = white}
+\setbeamercolor*{palette tertiary}{bg=myNewColorA, fg = white}
+\setbeamercolor*{titlelike}{fg=myNewColorA}
+\setbeamercolor*{title}{bg=myNewColorA, fg = white}
+\setbeamercolor*{item}{fg=myNewColorA}
+\setbeamercolor*{caption name}{fg=myNewColorA}
+\usefonttheme{default}
+\usepackage{natbib}
+\usepackage{hyperref}
+
+%------------------------------------------------------------------------
+
+% Fields
+\newcommand{\Z}{\mathbb{Z}} 
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\cI}{\mathcal{I}}
+
+\newcommand{\cL}{\mathcal{L}}
+
+% Groups
+\newcommand{\gen}[1]{\langle#1\rangle} % generated group
+\newcommand{\Aut}{\mathrm{Aut}} % automorphism group
+\newcommand{\mult}[1]{(\Z/#1\Z)^{\times}} % easy quotient group
+\newcommand{\Syl}[1]{\mathrm{Syl}_{#1}} % Sylow subgroup
+\newcommand{\triv}[1]{\{e_{#1}\}} % trivial subgroup {e}
+
+% Group operations
+\newcommand{\stab}{\mathrm{stab}} % stabilizer
+\newcommand{\orb}{\mathrm{orb}} % orbit
+\newcommand{\normal}{\trianglelefteq} % normal subgroup
+\newcommand{\subnormal}{\trianglerighteq} % subnormal subgroup 
+\newcommand{\actson}{\curvearrowright} % left group action
+\newcommand{\hitby}{\curvearrowleft} % right group action
+\newcommand{\ncl}{\mathrm{ncl}} % normal closure
+\newcommand{\Fix}{\mathrm{Fix}} % set of elements fixed by action
+
+% Quandles
+\newcommand{\qgen}[1]{\langle\langle#1\rangle\rangle}
+\newcommand{\Conj}{\mathrm{Conj}} % conjugate quandle
+
+% Quandle operations
+\newcommand{\sq}{\preccurlyeq} % subquandle
+\newcommand{\thru}{\rhd} % through
+\newcommand{\bthru}{\inv{\thru}} % backthrough
+\newcommand{\Inn}{\mathrm{Inn}} % inner automorphism group
+\newcommand{\Trans}{\mathrm{Trans}} % transvection group
+\newcommand{\Adconj}{\mathrm{Adconj}} % adconj group
+\newcommand{\bigthru}{\scalebox{1.5}{$\rhd$}} % big through
+\newcommand{\psq}{\prec} %subquandle 
+% Other 
+\newcommand{\inv}[1]{#1^{-1}}
+\newcommand{\im}{\text{im}} % image
+\DeclareMathOperator*{\restrict}{\upharpoonright} % restriction
+\newcommand{\Id}{\mathrm{Id}} % identity map
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)} % mod
+\renewcommand{\phi}{\varphi}
+
+% Environments
+\theoremstyle{plain}
+\newtheorem{remark}{Remark}
+\newtheorem{proposition}{Proposition}
+\newtheorem{claim}{Claim}
+\newtheorem{subclaim}{Subclaim}
+\newtheorem{tool}{Tool}
+\newtheorem{conjecture}{Conjecture}
+
+%------------------------------------------------------------------------
+
+
+\setbeamerfont{title}{size=\large}
+\setbeamerfont{subtitle}{size=\small}
+\setbeamerfont{author}{size=\small}
+\setbeamerfont{date}{size=\small}
+\setbeamerfont{institute}{size=\small}
+\title[Subquandle Lattices]{Subquandle Lattices}
+\author[Amsberry, Bergquist, Horstkamp, Lee ]{Kieran Amsberry, August Bergquist, Thomas Horstkamp, Meghan Lee \\ \vspace{0.15in} Mentor: Dr. David Yetter}
+
+
+
+
+\institute[ ]{Kansas State University REU}
+\date[August 5, 2022]
+{August 5, 2022}
+
+\titlegraphic{
+ \includegraphics[width=1.25cm]{images/BC_logo.png}
+    \hspace{0.5cm}
+    \includegraphics[width=1.25cm]{images/WU_logo.png} 
+    \hspace{0.5cm}
+    \includegraphics[width=1.25cm]{images/cmu_logo.png}
+    \hspace{0.5cm}
+    \includegraphics[width=1.25cm]{images/oxy_logo.png} 
+    \hspace{0.5cm}
+    \includegraphics[width=1.25cm]{images/kansas-state-university-seal.png}
+  % \begin{tikzpicture}[overlay,remember picture]
+%\node[left=0.2cm] at (current page.30){
+   % \includegraphics[width=1.5cm]{images/kansas-state-university-seal.png}
+%};
+%\end{tikzpicture}
+
+}
+
+\logo{
+\includegraphics[width=1cm]{images/NSF LOGO.png}
+
+ 
+}
+
+
+
+
+
+%------------------------------------------------------------
+%This block of commands puts the table of contents at the 
+%beginning of each section and highlights the current section:
+%\AtBeginSection[]
+%{
+%  \begin{frame}
+%    \frametitle{Contents}
+%    \tableofcontents[currentsection]
+%  \end{frame}
+%}
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+%------------------------------------------------------------
+
+
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Motivation}
+\begin{itemize} %Maybe add application to Topology
+    \item Quandles are useful in knot theory, expressing a complete invariant of unoriented knots; they also have interesting properties as an algebraic structure.
+    \vspace{0.25in}
+    \item As with other algebraic structures such as groups and rings, quandles have sub-objects called subquandles.%emphasize that we're looking at subquandles; buzz words are nice 
+    \vspace{0.25in}
+    \item We consider inner automorphism groups, lattice structure, and complemented properties of subquandles.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Definitions} % ADD CITATIONS
+    \begin{definition} 
+    A \textbf{quandle} is a set $Q$ equipped with binary operations $\thru$ and $\bthru$ satisfying the following conditions for all $x,y,z\in Q$:
+    \begin{enumerate}
+    \item[Q1.] Idempotence: $x \thru x = x$.
+    \pause
+    \item[Q2.] Inversion: $(x \thru y) \bthru y = x = (x \bthru y) \thru y$.
+    \pause
+    \item[Q3.] Distributivity: $(x \thru y)\thru z = (x\thru z)\thru(y\thru z)$.
+    \end{enumerate}
+   \end{definition}
+    \pause
+    \vspace{0.2in}
+    We say $Q'\subseteq Q$ is a \textbf{subquandle} of $Q$ if it closed under $\thru$ and $\bthru$. Denote this by $Q'\sq Q$, or $Q'\psq Q$ if $Q'\neq Q.$
+\end{frame}
+
+\begin{frame}{Definitions}
+    \begin{definition}
+\begin{itemize}
+    \item If $(Q,\thru)$ and $(R,\thru_1)$ are quandles, a \textbf{quandle homomorphism} $f:Q\to R$ is a function satisfying $f(a\thru b)=f(a)\thru_1 f(b)$ for every $a,b\in Q$.
+    \pause
+    \item A bijective quandle homomorphism is a quandle \textbf{isomorphism}.
+    \pause
+    \item A quandle isomorphism with equal domain and codomain is a quandle \textbf{automorphism}.
+    \pause
+    \item The quandle automorphisms form the \textbf{automorphism group}, $\Aut(Q)$.
+\end{itemize}
+\end{definition}
+\pause
+\begin{definition}
+Given a quandle $Q$ and an element $y\in Q$, the \textbf{symmetry} at $y$ is the automorphism of $Q$ of the form $S_y : x \mapsto x\thru y$. \\
+\vspace{0.1in}
+The \textbf{inner automorphism group} of $Q$ is $\Inn(Q)= \gen{\{S_q \mid q \in Q\}}.$ Note that $\Inn(Q)\normal \Aut(Q)$ \cite{Joyce1982}.
+\end{definition}
+
+In fact, if $Q'\sq Q$, $\Inn(Q)$ acts on $Q'$ by functional application. \\
+This action also induces an action on the subquandle lattice.
+\end{frame}
+
+\begin{frame}{Multiplication Tables For Finite Subquandles}
+
+\begin{example}
+The Tait quandle $(\mathbf{T}_3,\thru)$ with underlying set $\{1,2,3\}$ has operation multiplication table
+\begin{center}
+    \begin{tabular}{c|c c c} 
+        $\thru$ &$1$ &$2$ &$3$ \\
+        \hline
+         $1$ & $1$ & $3$ & $2$\\
+         $2$ & $3$ & $2$ & $1$ \\
+         $3$ & $2$ & $1$ & $3$
+    \end{tabular}
+\end{center}
+\end{example}
+
+    
+\end{frame}
+
+\begin{frame}{Subquotient Theorem} %State that WE proved this theorem! last names
+    \begin{theorem}
+    Suppose $Q'\sq Q$. Then, $\Inn(Q')$ is a subquotient of $\Inn(Q)$. That is, there is some subgroup $S_{Q'}\leq \Inn(Q)$ and some normal subgroup $K_{Q'}\normal S_{Q'}$, such that $\Inn(Q') \cong S_{Q'}/K_{Q'}$. 
+    \end{theorem}
+    \vspace{0.25in}
+    \pause
+    \begin{proof}
+    Define $S_{Q'}=\gen{S_x \mid x \in Q'} \leq \Inn(Q).$ Note that $\tau:S_{Q'}\to \Inn(Q')$ via $\tau(f)=f|_{Q'}$ is a well-defined surjective homomorphism with image $\Inn(Q')$. Hence, $\Inn(Q')\cong S_{Q'}/\ker(\tau).$
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Complemented Subquandle Lattices}
+
+\begin{definition}
+The set of subquandles of any quandle $Q$ under inclusion forms a lattice \cite{SakiKiani2021}, which we denote as $\cL(Q)$. 
+\end{definition}
+\pause
+
+\begin{definition}
+Given two subquandles $Q_1, Q_2\sq Q$, their \textbf{meet} is $Q_1\wedge Q_2 = Q_1\cap Q_2$ and their \textbf{join} is $Q_1\vee Q_2 =  \qgen{Q_1\cup Q_2}$.
+\end{definition}
+\pause
+
+\begin{definition}
+A subquandle $Q_1\sq Q$ is \textbf{complemented} in $Q$ if there is some $Q_2\sq Q$ such that $Q_1 \wedge Q_2 = \emptyset$, and $Q_1\vee Q_2 = Q$. The subquandle lattice $\cL(Q)$ is complemented if every subquandle is complemented.
+\end{definition}
+\end{frame}
+
+
+\begin{frame}{Saki And Kiani's Paper}
+
+Saki and Kiani \cite{SakiKiani2021} showed that the subrack lattice of a finite rack is complemented. Since quandles are racks, this holds for quandles as a corollary.
+
+\begin{corollary}
+The subquandle lattice of every finite quandle is complemented.
+\end{corollary}
+\vspace{0.2in}
+\pause
+
+\begin{theorem}[Saki and Kiani]
+Consider the quandle $\Q$ with the dihedral structure, $x\thru^* y = 2x-y$, $\forall x,y\in \Q$. The subquandle $\{0\}$ is not complemented.
+\end{theorem}
+\end{frame}
+
+
+
+\begin{frame}{Ind-finite Quandles}
+% Investigate whether Saki and Kiani's results about finite quandles specializes to certain classes of infinite quandles that are more similar to finite quandles: ind-finite quandles and profinite quandles.
+
+\begin{definition}
+A nonempty quandle $Q$ is \textbf{ind-finite} if there is a family of finite subquandles $\{Q_i\}_{i \in \cI}$ indexed by a directed set $\cI$ such that each $Q_i\sq Q$, $|Q_i|<\infty$, $Q_i\psq Q_{i+1}$, and $Q=\bigcup_{i\in\cI} Q_i.$ 
+\end{definition}    
+\pause
+
+\begin{lemma}
+Suppose $Q$ is a quandle. Then, $Q$ is ind-finite if and only if every finitely generated subquandle of $Q$ is finite.
+\end{lemma}
+\pause
+
+\begin{example}
+Let the quandle operation $\thru^*$ be given by $x\thru^* y = 2x-y$.\\
+\begin{itemize}
+\item Neither $(\Q,\thru^*)$ nor $(\Q/\Z,\thru^*)$ has a complemented sublattice.
+\item $(\Q / \Z, \thru^*)$ is ind-finite but $(\Q, \thru^*)$ is not.
+\end{itemize}
+\end{example}
+\end{frame}
+
+\begin{frame}{Strongly Complemented Subquandles}
+\begin{definition}
+A subquandle $Q'\sq Q$ is \textbf{strongly complemented} if $Q\setminus Q'\sq Q$.
+\end{definition}
+
+\begin{example}
+In the quandle $Q$ represented by the matrix \[M_Q =\begin{bmatrix}
+1 & 1 & 1\\
+3 & 2 & 2\\
+2 & 3 & 3
+\end{bmatrix}.\]
+The subquandles
+\[\begin{bmatrix}2 & 2\\
+3 & 3\end{bmatrix}, [1]\] are strongly complemented.
+
+\end{example}
+\end{frame}
+
+
+\begin{frame}{Semidisjoint Union}
+\begin{definition}[Ehrman et al.]<1->
+Given a sequence of quandles $Q_1, \dots , Q_n$ and a $nxn$ matrix of group homomorphisms $(M)_{ij} = g_{ij} : $, Ehrman et al. \cite{EGTY2008} defined the \textbf{semidisjoint union} as follows:
+\begin{align*}
+    \#(Q_1, \dots, Q_n, M) = \Big(\coprod_{i = 1}^nQ_i, \thru\Big).
+\end{align*}
+\end{definition}
+\pause
+\begin{itemize}
+    \item Each entry of the matrix $g_{ij}:\Adconj (Q_i)\to \Aut(Q_j)$ is a group homomorphism. 
+    
+    \item $\thru$ is defined as $x\thru y = x\cdot g_{ij}(|y|_{Q_i})$ for $x\in Q_i$ and $y\in Q_j$.
+    
+    \item Note that we are not guaranteed that the semidisjoint union is a quandle. If the matrix $M$ gives rise to a quandle, it is called a \textbf{mesh}.
+    \item Ehrman et al. provided a necessary and sufficient condition for $M$ to be a mesh.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Orbit Decomposition Theorem}
+
+\begin{theorem}<1->[Ehrman et al.]
+Let $Q$ be a quandle, and let $Q_1,\dots, Q_n$ be its orbits under the inner automorphism group. Then we can construct a mesh $M$ such that 
+\[Q = \#(Q_1, \dots, Q_n, M).\]
+\end{theorem}
+\vspace{0.15in}
+\begin{itemize}
+  
+    \item<2-> Note that the orbits need not be connected. Hence the orbits themselves may be decomposable via the previous theorem. 
+
+\end{itemize}
+%     \begin{definition}<3->
+% Given a quandle $Q$, the \textbf{decomposition depth}, $D(Q)$, is the number of iterations it takes to decompose $Q$ into a semidisjoint union of connected quandles.
+% \end{definition}
+
+    
+\end{frame}
+
+
+\begin{frame}{Two Actions}
+
+\begin{itemize}
+    \item We've shown how $\Inn(Q)$ acts on $Q$ by functional application.
+    \item This action allows us to construct an action of $\Inn(Q)$ upon $\mathcal{L}(Q)$.
+\end{itemize}
+
+\vspace{0.5cm}
+\begin{definition}
+The action of $\Inn (Q)$ on Q' is also given by functional application, denoted $Q'\cdot \Inn(Q)$. \\
+\vspace{0.15in}
+The action of $\Inn(Q)$ upon $\mathcal{L}(Q)$ is defined $Q'\sigma = \sigma(Q')$ for all $Q'\in \mathcal{L}(Q)$, and for all $\sigma\in \Inn(Q)$.
+The orbit of $Q'$ under this action is denoted by $[Q']\cdot \Inn(Q) = \{ Q'\sigma: \sigma \in \Inn(Q)\}$.\\
+\end{definition}
+\end{frame}
+
+\begin{frame}{Strongly Complemented Classification}
+Using both of these group actions, we managed to classify strongly complemented subquandles using the following theorem:
+
+
+\begin{theorem}
+Let $Q$ be a quandle, and let $Q'\sq Q$. Denote the subquandle lattice of $Q$ by $\mathcal{L}(Q)$. The following are equivalent:
+\begin{itemize}
+    \item $Q\setminus Q'\sq Q$,
+    \item $Q'$ is a union of orbits under the action of $\Inn(Q)$ on $Q$,
+    \item $Q'$ is a fixed point of the action of $\Inn(Q)$ on $\mathcal{L}(Q)$,
+    \item $Q = \#(Q',Q\setminus Q', M)$ for a mesh $M$ as constructed in the orbit decomposition theorem of Ehrman et al.
+\end{itemize}
+\end{theorem}
+
+\end{frame}
+
+\begin{frame}{Strongly Complemented Within Strongly Complemented}
+
+
+\begin{lemma}[1]
+Let $Q''\sq Q' \sq Q$ such that $Q''$ is strongly complemented within $Q'$, and $Q'$ is strongly complemented within $Q$. Then for any $\gamma\in \Inn(Q)$, $Q''\gamma$ is strongly complemented within $Q'$.
+\end{lemma}
+\pause
+\begin{lemma}[2]
+Let $Q''\sq Q' \sq Q$ be as in Lemma (1). Then for all $\sigma\in \Inn(Q)$, there exists some $\sigma'\in \langle S(Q\setminus Q')\rangle$ such that $Q''\sigma = Q''\sigma'$.
+\end{lemma}
+\begin{proof}
+\begin{itemize}
+    \item Suppose $\sigma = S_{x_1}^{\epsilon_1}\dots S_{x_n}^{\epsilon_n}$ for each $x_j\in Q$, $\epsilon_j \in \{-1,1\}$.
+    \item Suppose $\exists x_i \in Q'$ whose symmetry appears in $\sigma$ which we cannot remove without changing the action.
+    \item By Lemma 1, $Q''$ acted upon by the string of $\sigma$ up until $x_i$, denote it by $\gamma$, is strongly complemented in $Q'$.
+\end{itemize}
+\end{proof}
+\end{frame}
+
+\begin{frame}{Strongly Complemented Within Strongly Complemented}
+
+\begin{proof}[Proof (\textit{continued})]
+
+\begin{itemize}
+    \item Since $x_i\in Q'$, $S_{x_i}|_{Q'}$ acts the same upon $Q'$ as $S_{x_i}$
+    \item Then, $Q''\gamma S_{x_i} = Q''\gamma$ by the equivalence theorem. Hence, removing $S_{x_i}$ won't change anything, so there never was a counterexample.
+    \item Thus, we can construct $\sigma'$ by removing symmetries represented by elements in $Q'$.
+\end{itemize}
+ 
+\end{proof}
+
+
+\begin{lemma}[3]
+
+Suppose that $Q''$ is strongly complemented within $Q$, while $Q''\sq Q'\sq Q$. Then, $Q''$ is strongly complemented within $Q'$.
+
+\end{lemma}
+
+\end{frame}
+
+\begin{frame}{Strongly Complemented Within Strongly Complemented}
+
+\begin{theorem}
+Suppose $Q$ is a quandle, with subquandles $Q''\sq Q'\sq Q$, such that $Q''$ is strongly complemented within $Q'$, while $Q'$ is strongly complemented within $Q$. Then $Q''$ is complemented within $Q$ by the subquandle $Q\setminus Q''\cdot \Inn(Q)$.
+\end{theorem}
+\pause
+
+\begin{proof}
+\begin{itemize}
+    \item By Lemma 3 and the equivalence theorem, $Q''$ is strongly complemented within $Q''\cdot \Inn(Q)$, which in turn is strongly complemented within $Q$.
+    \item $Q''\wedge Q\setminus Q''\cdot \Inn(Q) = \emptyset$
+    \item Using Lemmas 2 and 1, we show that $Q''\cdot \Inn(Q) \subset Q''\vee Q\setminus Q''\cdot \Inn(Q)$, hence $Q''\vee Q\setminus Q''\cdot \Inn(Q) = Q$.
+    \item Hence $Q''$ has $Q\setminus Q''\cdot \Inn(Q)$ as a complement.
+\end{itemize}
+\end{proof}
+    
+\end{frame}
+
+\begin{frame}{Profinite Quandles}
+
+\begin{enumerate}
+    \item We consider the dual to ind-finite quandles:
+    \vspace{0.1in}
+    \pause
+    \item A quandle $Q$ is \textit{profinite} it is the inverse limit of an inverse system composed of a family of finite quandles and their morphisms.
+    \vspace{0.1in}
+    \begin{itemize}
+        \pause
+        \item Proved profinite quandles are quandles under coordinatewise operations.
+        \vspace{0.1in}
+        \pause
+        \item Proved profinite abelian groups are profinite Takasaki quandles ($x\thru y=2y-x$) under coordinatewise operations.
+    \end{itemize}
+    \vspace{0.2in}
+    \pause
+    \item Are the subquandle lattices of profinite quandles complemented?
+\end{enumerate}
+\end{frame}
+
+
+%I don't think we'll want this in the presentation since we killed it
+
+% \begin{frame}{Quandle multiplication tables}
+
+% \end{frame}
+
+% \begin{frame}[fragile]{Span}
+%     Suppose $Q'\sq Q$. Using the previous subquotient theorem, we obtain a span of $Q'$: 
+%     \begin{center}
+%     \begin{tikzcd}[row sep=tiny]
+%                      &        & S_{Q'} \arrow[dl, hook', "\subseteq"] \arrow[dr, two heads, "\tau"] \\
+%     Q \arrow[r,hook, "\ell"]  & \Inn(Q) & & \Inn(Q')
+%     \end{tikzcd}
+%     \end{center}
+%     \pause
+%     When is $Q'$ uniquely determined by its span?
+%     \pause
+%     \begin{definition}
+%         $Q$ is \textbf{behaviorally distinct} if the map $\ell:Q\to\Inn(Q)$ via $\ell(q)=S_q$ is injective.
+%     \end{definition}
+% \end{frame}
+
+
+
+% \begin{frame}{Complemented subquandles}
+
+
+% \begin{definition}
+%     $Q'\sq Q$ is \textbf{complemented} if there exists some subquandle $Q'' \sq Q$ such that $Q'\vee Q''=Q$ and $Q'\wedge Q'' = \O$. Note that $Q'\vee Q''=\gen{Q'\cup Q''}$, and $Q'\wedge Q'' = Q'\cap Q''.$ \\
+%     \vspace{0.1in}
+%     We denote this as $Q'\sq_{c} Q.$
+% \end{definition}
+
+% \vspace{0.25in}
+% A central goal of our project was to characterize when subquandles are complemented. It turns out that all finite subquandles are complemented \cite{SakiKiani2021}. 
+
+
+% \end{frame}
+    
+\begin{frame}{Acknowledgments}
+   We would like to thank Dr. David Yetter for his mentorship and support, as well as  Dr. Marianne Korten, Dr. Kim Klinger-Logan, and Kansas State University for making this research experience possible.
+   
+   \vspace{0.25in}
+   
+   This research was conducted under the support of NSF grant DMS-1659123.
+ \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{References}
+\begin{frame}{References}
+\begin{thebibliography}{10}
+
+\bibitem{Joyce1982}
+    David, Joyce. ``A classifying invariant of knots, the knot quandle." \emph{Journal of Pure and Applied Algebra}, vol. 23, pp. 37-65, 1982.
+
+\bibitem{EGTY2008}
+    G. Ehrman, A. Gurpinar, M. Thibault, D.N. Yetter. ``Toward a classification of finite quandles." \emph{Journal of Knot Theory and Its Ramifications}, vol. 17, pp. 511-520, 2008.
+
+\bibitem{SakiKiani2021}
+    A. Saki and D. Kiani, ``Complemented Lattices of Subracks." \emph{Journal of Algebraic Combinatorics}, vol. 53, pp. 455-468, 2021.
+\end{thebibliography}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+    \huge Questions?
+\end{center}
+   
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \subsection{Acknowledgements}
+%     \begin{frame}{Acknowledgments}
+%         Insert NSF support thing later, \\
+%         NSF grant #DMS-1659123
+%     \end{frame}
+
+
+
+
+\end{document}
+
+
+

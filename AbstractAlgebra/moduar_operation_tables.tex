@@ -1,0 +1,72 @@
+\documentclass{article}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\title{Abstract Algebra}
+\author{August, Evelyn}
+\date{5/9/2021}
+\maketitle
+\begin{document}
+\fbox{theorem} Given some $n\in \N$, $\Z_n$, the set of equivalence classes under $\mod n$ equivalence relation and addition form a group.\\
+
+\fbox{theorem} The set $U(n) = (\{[a]\in \Z_n:\gcd(n,a) = 1\},x)$ forms a group.\\
+
+
+\fbox{notation} \textbf{Additive groups} use $a+b$ for the operation and $e = 0$ as the identity, $-a$ for inverses, $na$ for multiplie times \textbf{Multiplicative groups} use $axb = ab$ for the operation, $e = 1$ for the identity, and $a^{-1}$ for inverses, $a^n$ for multiple times.
+\\
+
+\fbox{isomorphism} Given two groups $(G,*)$ and $(H,+)$, we say that $G$ and $H$ are isomorphic (denoted $G\cong H$) iff there exists a bijection $\phi:G\rightarrow H$ such that $\phi(a*b) = \phi(a)+\phi(b)$\\
+
+\fbox{theorem} Given a group $G$, and a nonempty subset of $H\subseteq G$, 
+\begin{enumerate}
+    \item H is closed under $*$,
+    \tiem For all elements $h\in H$, there exists some $h^{-1}$ in $H$.
+\end{enumerate},
+Then $H\le G$.
+\end{document}

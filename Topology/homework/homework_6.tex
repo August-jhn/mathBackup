@@ -1,0 +1,191 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\title{Topology}
+\author{August bergquist}
+
+
+\begin{document}
+
+\maketitlea
+\fbox{Theorem 7.29} Suppose $f:X\rightarrow Y$ is a continuous bijection where $X$ is compact and $Y$ is Hausdorff. Then $f$ is a homeomorphism. \\
+
+\fbox{proof} We know already that $f$ is bijective, and that it is continuous. In showing that $f$ is a homeomorphism, it remains to be shown that  $\inv{f}:Y\rightarrow X$ is continuous.\\
+
+To show that $\inv{f}$ is continuous, let $U$ be open in $X$. Noting that $\inv{(\inv{f})} = f$, consider $f(U)$. We need to show that $f(U)$ is open in $Y$. \\
+
+Since $f$ is continuous and surjective, and since $X$ is compact, it follows by Theorem 7.15 that $Y$ is compact. \\
+
+Since $U$ is open and $X$ is open in $X$, it follows by Theorem 2.15 that $X-U$ is a closed map. \\
+
+Since $X$ is compact and $Y$ is Hausdorff, and since $f$ is continuous from $X$ to $Y$, we know by Theorem 7.24 that $f$ is closed. \\
+
+Because $f$ is closed, and since $X-U$ is closed, it follows by definition of a closed map that $f(X-U)$ is closed. By properties of functions, $f(X-U) = f(x) - f(U)$, hence $f(X)-f(U)$ is closed. Furthermore, since $f$ is bijective, it is surjective, and by definition of surjectivity, $f(X) = Y$. Substituting, we have $f(X) - f(U) = Y-f(U)$, hence $Y-f(U)$ is closed.\\
+
+Since $Y-f(U)$ is closed, and since $Y$ is open in $Y$, it follows by Theorem 2.15 that $f(U) = \inv{(\inv{f})}(U)$ is open.\\
+
+Since $U$ was an arbitrary open set in the codomain of $\inv{f}$, and since its inverse image is open in the domain of $\inv{f}$, it follows that all open sets in $X$ are mapped to by open sets in $Y$ under $\inv{f}$. So by definition of a continuous map, $\inv{f}$ is continuous.\\
+
+Since $f:X\rightarrow Y$ is a continuous bijection whose inverse is also continuous, it follows by definition of a homeomorphism that $f$ is a homeomorphism.
+
+\newpage
+
+\fbox{exersize 6.7} If $A$ and $B$ are compact subsets f $X$, then $A\cup B$ is compact. Suggest and prove a generalization.\\
+
+
+\fbox{generalization} Given a finite collection of compact subsets $\{S_i\}_{i < n}$ of $X$ for some $n\in \N$, the union $\bigcup_{i = 1}^nS_i$ is also compact.\\
+
+\fbox{proof}\\
+Let $\mathcal{C}$ be an open cover for $\bigcup_{i = 1}^nS_i$. Let $S_j$ be an arbitrary member of $\{S_i\}_{i < n}$. Notice that since each $S_j\subseteq \bigcup_{i = 1}^nS_i$, and since by definition of a subcover, $ \bigcup_{i = 1}^nS_i\subseteq \bicup_{U\in \mathcal{C}}U$, it follows by the transitivity of subsets that $ S_j \subseteq \bicup_{U\in \mathcal{C}}U$. Hence $\mathcal{C}$ forms an open cover for $S_j$ as well. Since $\mathcal{C}$ forms a cover for $S_j$, and since $\mathcal{C}$ is open, we know by definition of compactness and the construction of $S_j$ as a member of a collection of compact sets that $ \mathcal{C}$ has a finite subcover for $S_j$, call it $\mathcal{C}_j$. Since $S_j$ was arbitrary, it follows that for each element $S_k$of $\{S_i\}_{i< n}$ there is some finite subcover $\mathcal{C}_k\subseteq \mathcal{C}$ that covers $ S_k$. For convenience, let the union of the elements of all such $\mathcal{C}_k$ be denoted as $U_k$. Let $\mathcal{S}$ be the union of all such $\mathcal{C}_k$. Then since each $S_k$ is a subset of its corresponding $U_k$, it follows from a theorem in foundations that $\bigcup_{i = 1}^nS_{i}\subseteq \bigcup_{i\in A}U_i = \bigcup_{C\in \mathcal{S}}C$. Hence by definition of a cover, $\mathcal{S}$ forms a cover for $ \bigcup_{i = 1}^nS_{i}$. Furthermore, since the union of a finite collection of finite sets is finite, $\mathcal{S}$ is finite. So we have a finite subcover for $\mathcal{C}$ of $\bigcup_{i = 1}^nS_{i}$. Since $\mathcal{C}$ was an arbitrary open cover for $\bigcup_{i = 1}^nS_{i}$, it follows that each open cover for $\bigcup_{i = 1}^nS_{i}$ has a finite subcover. Hence by definition of compactness, $\bigcup_{i = 1}^nS_{i}$ is compact.
+
+
+\end{document}

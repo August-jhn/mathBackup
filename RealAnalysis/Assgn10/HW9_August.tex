@@ -1,0 +1,78 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate, diagbox, tcolorbox, esvect, tikz, adjustbox}
+
+
+\graphicspath{{./images/}}
+
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+
+%geometry/topology
+\newcommand{\bndry}{\partial}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\theoremstyle{definition}
+
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+
+\title{Real Analysis}
+\author{August Bergquist}
+
+\begin{document}
+
+\maketitle
+
+\section{problem 4.4}
+
+\begin{proposition}
+Let $f:K\to Y$ be Lipchitze, and let $K$ be bounded. Then $f$ is bounded.
+\end{proposition}
+
+\begin{proof}
+Since $K$ is bounded, $K$ has finite diameter, say $D$. Since $f$ is Lipchitze, it satisfies a lipchitze condition for some $k\in \R^+$. I claim that $kD$ is an upper bound for the diameter of $f_*(K)$ (which would mean it's bounded). Suppose we have $x_1,x_2\in K$. By definition of a Litpitche condition and the diameter (as an upper bound, assuming $K$ non-empty for otherwise it's lame) $d(f(x_1), f(x_2) ) \le  kd(x_1, x_2) \le kD$. But $x_1$ and $x_2$ were arbitrary, and all elements of $f_*(K)$ are of the form $f(x)$ for some $x\in K$, hence $kD$ is an upper bound for $\{d(\alpha,\beta)\}_{(\alpha,\beta)\in f_*(D)^2}$, so this set has a supremum, and that supremum is by definition the diameter. Hence the diameter of the range of $f$ is finite, so by definition of boundedness $f$ is bounded.
+\end{proof}
+
+\section{Problem 4.5}
+
+\begin{proposition}
+Let $K\subset \R$ be bounded, and suppose that $f:K\to \R$ is uniformly continuous. Then $f$ is bounded. 
+\end{proposition}
+
+
+\begin{proof}
+
+Suppose that $f$ is unbounded, and that $K$ is a bounded set of real numbers. Let $r> 0$.\\
+
+ Since $f$ is unbounded, it is either unbounded above or below. Suppose without too much loss of generality that it's unbounded above. If it isn't, then it's unbounded below, and we can basically do the same proof but replacing $f$ by $-f$, defined point wise, which will be unbounded above. We will use this to inductively define a sequence $\sigma: \N \to X$ and the composition $f\sigma$ with the property that for $n\ne m\in \N$, $|f\sigma(n)-f\sigma(m)| > r$. 
+ 
+ For the base case, by unboundedaboveness it follows that there exists some $x_1\in X$ such that $f(x_1) > r$. Let $\sigma(1) = x_1$. Once again by unboundedness, it follows that there must exist some $x_2\in X$ such that $f(x_2) > f(x_1) + r$. Let us set $\sigma(2) = x_2$. Clearly then $|f\sigma(n) - f\sigma(m)| > |r + f(x_1) - f(x_1)| = |r| = r$ for $n\ne m \in \{1,2\}$. Clearly also $f\sigma$ is strictly increasing up to $2$.
+ 
+ For the induction hypothesis, let us assume that up to $n\in \N$, $|f\sigma(i)-f\sigma(j) | > r$, and that $f\sigma$ has been strictly increasing up to $n$. Since $f$ is unbounded above, there must exist some $x_{n+1}\in K$ such that $f(x_{n+1}) > r + f\sigma(n)$. Let us set $\sigma(n+1) = x_{n+1}$. Clearly $f\sigma(n+1) > f\sigma(n) > f\sigma(m)$ for any $m>n$, hence $f\sigma$ is strictly increasing up to $n+1$. Now if we let $m< n + 1$, consider $f\sigma(n+1) - f(m)$. If $m = n$, it clearly follows that $f\sigma(n+1) - f\sigma(n) > r$. If $m < n$, then $f\sigma(n + 1) - f\sigma(m) > r + f\sigma(n) - f\sigma(m) > r + r> r$ by the induction hypothesis. Moreover this difference is positive by assumption that $r> 0$, hence it is equal to it's absolute value.\\
+ 
+ 
+ So we have construted a sequence $\sigma$ in $K$ so that $f\sigma$ is striclty increasing in $ \R$, and such that the the distances between distinct terms of $f\sigma$ are greater than $r$. 
+ 
+ This sequence $\sigma$ is bounded, for it is contained within the bounded set $K$. Since $\sigma$ is a bounded sequence of real numbers, by Problem 3.7 it follows that $\sigma$ has a convergent subsequence $\sigma\tau$, hence $\sigma\tau\to x$ for some $x\in \R$. Let $\delta > 0$. So $\delta/2 > 0$. Then by convergence of the sequence $\sigma\tau$ to $x$ there exists $N \in \N$ so that for any $m > N$ $ |\sigma\tau(n) - x| < \delta/2 $. Now chose distinct $m,n > N$, Then $|\sigma\tau(n)-x|, |\sigma\tau(m)-x| < \delta/2$. By the triangle inequality we have $|\sigma\tau(n) - \sigma\tau(n)| \le |\sigma\tau(n)-x| + |\sigma\tau(m)-x| < \delta/2 + \delta/2 = \delta$, so $|\sigma\tau(n) - \sigma\tau(m)| < \delta$. Moreover, $n\ne m$, and $\tau$ is strictly increasing (by definition of a subsequence) hence injective, from which it follows that $\tau(n)\ne \tau(m)\in \N$. But as we have shown in general for all distinct natural numbers, we have $ |f(\sigma\tau(n)) - f(\sigma\tau(n) ) | > r $. Since $\delta$ was an arbitrary positive number, it follows that there exists some $r> 0 $ such that for any $\delta > 0$ there exist $x_m$ and $x_n$ in $K$ such that $ |f(x_n) - f(x_m)| < r $ while $|x_m - x_n| < \delta$. Hence $f$ is not uniformly convergent on $K$. \\
+ 
+ By contrapositive, it follows that if $f$ is uniformly convergent, then it is bounded. This completes the proof.
+
+\end{proof}
+
+\end{document}

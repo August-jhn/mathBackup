@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{mathtools}
+\usepackage{polynom}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\thm}{\fbox{theorem}}
+\newcommand{\infsum}{\sum_{n = 1}^{\infty}}
+\newcommand{\pf}{\fbox{proof}}
+\newcommand{\cor}{\fbox{corollary}}
+\newcommand{\psum}{\sum_{n = 0}^N}
+\newcommand{\prop}{\fbox{proposition}}
+
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+\newcommand{\ab}[1]{\color{red}{#1}\normalcolor}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+\fbox{problem 1} Classify the singular point of $f(z) = \frac{\cos z}{z},$ and find the residue, $B$, around it.\\
+
+\fbox{solution} The singular point is a pole, of order 1. To see this, notice that the Maclaurin series for $\cos z$ is $\cos z = \infsum (-1)^nz^{2n}/(2n)! = 1/z(1-)$ \cs{What?}, valid for all $|z| < \infty$. Hence, excluding the point where the function is undefined, we have $1/z\cos z = 1/z(1-z^2/2 + z^4/24 -z^6/720 + z^8/40320-z^{10}/3628800+...) = 1/z - ...$ $0< |z| < \infty$. The first term of -1st power is $1/z$, and this is the only such therm. Hence the principle part of the Laurent series is $1/z$. Hence we have here a pole of order $1$ of residue $1$.\\
+
+\cs{5/5}
+
+\fbox{problem} Classify the singular point of $f(z) = \frac{1-e^{2z}}{z^4}$, and find the resudue around it.\\
+
+
+\\
+\fbox{solution} See how $f(z) = \frac{1-e^{2z}}{z^4}$ has a singular point at zero, and this is the only one. Using the maclaurin expansion for $e^{z} = \infsum z^n/n!$ we have $1-e^{2z} = 1- \infsum(2z)^n/n! = 1/z^4(-2z - 2z^2 - 4/3z^3 - 16z^4/24...) =  -2/z^3 - 2/z^2 - 4/3/z - 16/24 -...$. The principle part of this has three terms, hence we have here a pole of order 3. The term of -1st power has a coefficient of -4/3, hence the residue around the singular point of $f(z)$ is -4/3.\\
+
+\cs{5/5}
+
+\cs{Sec 79: 10/10}
+
+
+\end{document}
+

@@ -1,0 +1,134 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate, diagbox, tcolorbox, esvect, tikz, adjustbox}
+
+
+\graphicspath{{./images/}}
+
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+
+%geometry/topology
+\newcommand{\bndry}{\partial}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\theoremstyle{definition}
+
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+
+\title{Real Analysis}
+\author{August Bergquist}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Problem 3.6.4}
+
+\begin{proposition}
+Closed balls are closed.
+\end{proposition}
+\begin{proof}
+Let $X$ be a metric space, and let $x$ be a point in it. Let $\epsilon > 0$. Suppose by way of contradiction that $C_\epsilon(x)$ is not closed. Then there exists some limit point which is not in it, let that limit point be $p$. By definition of an open ball, since $p\not \in C_\epsilon(x)$, it follows that $d(x,p) > \epsilon$, hence $ \epsilon'= d(x,p) - \epsilon > 0 $. Moreover, since $p$ is a limit point, it follows by definition of a limit point (one of them at least) that there exists a sequence $\sigma : \N \to C_\epsilon(x)$ which converges to $p$. Since $\epsilon'> 0$, it follows by definition of convergence that there exists some natural number $N$ such that for all $n>N\in \N$, $d(\sigma(n), p) < \epsilon'$. By the triangle inequality it follows that $d(x,p) \le d(x,\sigma(n)) + d(\sigma(n), p)$, whence by symmetry of a metric it follows that $d(x,p) - d(\sigma(n), p) \le d(x,\sigma(n))$. Since $d(\sigma(n), p) < \epsilon'$, we have $\epsilon = d(x,p) - \epsilon' < d(x,p)- d(\sigma(n), p) \le d(x,\sigma(n)).$ But since $\sigma(n)$ is in the closed ball of radius $\epsilon$, it follows that $d(\sigma(n), x) \le \epsilon$: a contradiction. From this it follows that $C_\epsilon(x)$ contains all of it's limit points. So any closed ball is closed.
+\end{proof}
+
+\section{Theorem 3.7.10}
+
+\begin{theorem}
+Let $X$ be a metric space, and $S$ a subset of it. The following hold:
+\begin{itemize}
+\item $\partial(S)$ is closed.
+\item For any $x\in X$, $x\in \partial(S)$ if and only if for all $r > 0$, $B_r(x) \cap S \ne \emptyset$ and $B_r(x) \cap X\setminus S \ne \emptyset$. 
+\item $S$ is closed if and only if $\partial(S) \subset S$.
+\item $S$ is open if and only if $S$ and $\partial(S)$ are disjoint.
+\end{itemize}
+
+\end{theorem}
+
+\begin{proof}
+
+
+Before jumping in, I shall point out that for any $S\subset X$ a metric space,  $\partial(S) = \partial(X\setminus S)$. This follows immediately from the definition of the boundary, and the fact that intersection is a commutative operation on sets.
+\begin{itemize}
+\item
+
+Recall that the closure of a set is closed (this is exercise 3.7.4, but it also follows immediately from Theorem 3.7.2 and the definition of a closed set, since closedness is preserved under arbitrary intersection, and the closure is defined as an intersection over closed sets). Now since the boundary $\partial(S) = \overline{S}\cap \overline{X\setminus S}$, and since $\overline{S}$ and $\overline{X\setminus S}$ are closed, and since closure is preserved under intersection, it follows that $\partial(S)$ is closed.
+
+\item 
+
+To make things simpler, notice 1) that $X\setminus (X\setminus S) = S$, and 2) that $x\in S$ if and only if $x\not\in X\setminus S$. Let $x\in \partial(S)$.\\
+
+Without loss of generality (by 1 and 2), let us suppose that $x\in S$, and hence that $x\not\in X\setminus S$. By definition of the closure and intersection, we have that $x\in \overline{S}$ and that $x\in \overline{X\setminus S}$. By Theorem 3.7.5, it follows that $x\in X\setminus S \cup \mbox{lp}(X\setminus S)$. Since $x\in S$, $x\not\in X\setminus S$, hence $x\in \mbox{lp}(X\setminus S)$. Now let $r>0$. Since $x\in B_r(x)$, and since $x\in S$, we have $x\in S\cap B_r(x)$, whence $S\cap B_r(x) \ne \emptyset$. Moreover, since $x$ is a limit point of $X\setminus S$, it follows (Theorem 3.5.1) that $(X\setminus S)\cap B_r(x)$ is infinite, hence it is non-empty.\\
+
+Now for the converse, suppose by way of contrapositive that $x\not\in \partial(S)$. Then there are two cases: either $x\not\in \overline{S}$ or $x\not\in \overline{X\setminus S}$. Without loss of generality (by 2, and since clearly $\partial(S) = \partial(X\setminus S)$, as intersection is commutative), let us suppose that $x\not\in \overline{S}$. Then (by Theorem 3.7.5 [and DeMorgan and intersection if absolutely necessary]), it follows that $x\not\in S$, and that $x\not\in \mbox{lp}(S)$. Since $x$ is not a limit point of $S$, it follows (by the converse of Theorem 3.5.1) that there exists some $r>0$ such that $B_r(x) \cap (S\setminus \{x\})  = \emptyset$. Since $x\not\in S$ either, it follows that $B_r(x) \cap S= \emptyset$. So the converse is also true.
+
+\item 
+
+
+Now suppose that $S$ is closed. Then $ S = \overline{S}$ (part 4 of Theorem 3.7.4), and since the intersection is contained within all of it's intersectees (recall from foundations), it follows that $\partial(S) = \overline{S} \cap \overline{X\setminus S} = S\cap \overline{X\setminus S} \subset S$. For the converse, suppose that $S$ is not closed. We shall construct boundary point which is not contained therein. Since $S$ is not closed, there exists a limit point of $S$ which is not in $S$, and call it $p$. Since $p\not\in S$, we have $p\in X\setminus S$. By Theorem 3.7.5, we have $p\in \overline{X\setminus S}$. Moreover, by the same theorem, since $p$ is a limit point of $S$, it follows that $p\in \overline{S}$. So $p\in \overline{S}\cap \overline{X\setminus S} = \partial(S)$. Hence there exists a point (namely $p$), in the boundary of $S$, which is not contained within $S$. 
+
+\item 
+
+Now suppose that $S$ is open. Then by Theorem 3.7.1 it follows that $X\setminus S$ is closed. From this it follows that $\partial(X\setminus S)\subset X\setminus S$, hence no points of $S$ are shared with $\partial(X\setminus S)$, that is, $S\cap \partial(X\setminus S) = \emptyset$. But as previously remarked, $\partial(X\setminus S) = \partial(S)$, hence it follows that $S\cap \partial(S) = \emptyset$.\\
+
+For the converse, suppose that $S\cap\partial(S) = \emptyset$. Then no points of $\partial(S)$ are contained within $S$ (otherwise they would be in the intersection, which is empty). So $\partial(S)\subset X\setminus S$. But as previously remarked, $\partial(S) = \partial(X\setminus S) $, so $\partial(X\setminus S)\subset X\setminus S$. As shown in an earlier part of this proof, it follows from this that $X\setminus S$ is closed. So by Theorem 3.7.1 it follows that $S$ is open as desired.
+\end{itemize}
+Q.E.D.
+\end{proof}
+
+
+\section{3.5.1}
+
+\begin{theorem}
+Let $X$ a metric space, and let $S\subset X$. let $x\in X$. The following are equivalent.
+
+\begin{itemize}
+\item There exists a sequence $\sigma : \N\to X$, whose range is contained entirely within $S$, which converges to $x$. 
+\item All open balls around $x$ contain points of $S$. 
+\item For each open $U\subset X$ with $x\in U$, $U\cap S \ne \emptyset$.
+\end{itemize}
+
+
+\end{theorem}
+
+\begin{proof}
+
+\begin{itemize}
+\item First we show that the first condition implies the second. Suppose that there exists some $\sigma:\N\to X$ whose range is entirely contained within $x$, and such that $\sigma$ converges to $x$. Now let $\epsilon> 0$, and we wish to show that $ B_\epsilon(x) \cap S \ne \emptyset $. Since $\sigma$ converges to $x$, it follows that there exists a natural number $N$, such that for all $n>N$ in the natural numbers, $d(\sigma(n), x ) < \epsilon$. Since $N+1 > N$, it follows that $d(\sigma(N+1) , x) < \epsilon$, so by definition of an open ball it follows that $\sigma(N+1)\in B_\epsilon(x)$. Moreover, by construction of the sequence $\sigma$, we have that $\sigma(N+1)\in S$. So $\sigma(N+1)\in B_\epsilon(x) \cap S$, hence $B_\epsilon(x)\cap S \ne \emptyset$. Since $\epsilon $ was arbitrary greater than $0$, it follows that for all radii about $x$, the open ball around $x$ shares some points with $S$, which is what we set out to show.
+
+\item Now suppose that all open balls about $x$ contain points of $S$. Suppose we have an open $U\subset X$ such that $x\in U$. Since $U$ is open, and $x$ a point within it, it follows by a previous theorem that there exists some $\epsilon > 0$, such that $x\in B_\epsilon(x)\subset U$. By assumption, it follows that there exists some point $p\in B_\epsilon(x)$ such that $p\in S$. Moreover, since $B_\epsilon(x)\subset U$, we have $p\in U$. So $p\in U\cap S$, hence $U\cap S\ne \emptyset$ as desired.
+
+\item Finally, let's suppose that for all open $U\subset X$ which contain $x$, $U\cap S\ne \emptyset$. Let $r>0$. Then for all $n\in \N$, $r/n > 0$, hence we can construct the open ball $B_{r/n}(x)$ about $x$. I shall now construct by induction a sequence $\sigma:\N\to X$, whose range is entirely contained within $S$, and which converges to $x$. 
+
+\begin{itemize}
+\item Since $r>0$, we have the open ball $B_r(x)$, which contains $x$. Since open balls are open, our assumption tells us that $B_r(x) \cap S\ne \emptyset$. So there must exist some $p\in B_r(x)\cap S$, so $p\in B_r(x)$, and $p\in S$. Let $\sigma(1) = p$.
+\item Now suppose that $\sigma(n)$ has been defined for all $n < N$ for some natural $N$, and such that $\sigma(n) \in B_{r/n}(x)$ for all such $n$. Since $\frac{r}{N+1}> 0$, we can construct the open ball $ B_{\frac{r}{N+1}}(x) $, which clearly contains $x$, so by our assumption $B_{\frac{r}{N+1}}(x)\cap S \ne \emptyset$, so there must exist some $p\in B_{\frac{r}{N+1}}(x)\cap S$, hence $p\in B_{\frac{r}{N+1}}(x)$ and $p\in S$. Define $\sigma(N+1) = p$. This is already shown to be in $B_{\frac{r}{N+1}}(x)$, and it is clearly in $p$.
+
+\end{itemize}
+Hence by induction we have a sequence $\sigma:\N \to X$ such that each of it's terms are contained within $S$, and such that for all $n\in \N$, $\sigma(n)\in B_{r/n}(x)$. We now show that this sequence converges to $x$. Let $\epsilon > 0$. Since $\epsilon > 0$, and since $r > 0$, it follows that $r/\epsilon \in \R$ (we aren't dividing by $0$. By the archimedian principle, it follows that there exists some natural number $N$ such that $r/\epsilon < N$, hence by previously shown results about the reals we have that $ r/N < \epsilon $. Since for $n> N$, we have $r/n < r/N$, it follows by transitivity that for all natural $n> N$, we have $r/n < \epsilon$. Let $n$ be any such $n>N$. By construction of the sequence $\sigma$, it follows that $\sigma(n)\in B_{r/n}(x)$. Hence $d(x, \sigma(n)) < r/n$. Since $r/n < \epsilon$, we have $d(x,\sigma(n) < \epsilon$. So for all natural numbers $n>N$, $d(x,\sigma(n)) < \epsilon$. Since $\epsilon $ was arbitrary greater than $0$, it follows that for all $\epsilon > 0$, there exists a natural number $N$ such that for all $n>N$ in the naturals, $d(x,\sigma(n)) < \epsilon$. By definition of convergence, it follows that $\sigma$ converges to $x$. So we have constructed a sequence of points, whose range is entirely contained within $S$, which converges to $x$.
+
+\end{itemize}
+
+Having shown that each of these properties implies the other in a cycle, it follows that each of them is equivalent. 
+
+Note that this does not necessarily mean that $x$ is a limit point. In fact, suppose that $\{x\} = S$. In the last assignment, it was shown that singletons have no limit points (in showing that singletons are closed). Hence $x$ is not a limit point of $S$. However, the constant sequence converges to $x$, and is contained within $S$. By the last theorem, all of these equivalent properties follow immediately. But since it is not a limit point, by Theorem 3.5.1 (it's an equivalence) it follows that there must exist some $r>0$ such that $B_r(x) \cap S$ contains only finitely many points, and open balls are open. Indeed, the intersection of any set with $S = \{x\}$ can have at most one point, so we didn't even need to go this far.
+\end{proof} 
+
+\end{document}

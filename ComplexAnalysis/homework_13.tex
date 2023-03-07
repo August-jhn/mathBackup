@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\cis}{\mbox{cis}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vo}{\ensuremath{\vec{0}}}
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\ve}{\ensuremath{\vec{e}}}
+\newcommand{\deriv}{\frac{d}{dz}}
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+\newcommand{\ab}[1]{\color{red}{#1}\normalcolor}
+
+\title{Complex Analysis}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+\fbox{problem 4} Given a curve $C_2$ that extents from 3 to -3 and that is entirely on or below the real-axis, evaluate the ingetral 
+$$\int_Cz^{1/2}dz$$.\\
+\fbox{solution} As in the last problem, the integrand is a multi-valued function, so we must chose a branch cut. But since the requirements for our theorem include the function being continuous on every point in a domain containing $C_2$, the branch cut in the last requirement would not work, as there would be a point where the fucntion would be undefined, hence non-coninuous. Rewriting the integrand in polar form, we have $z^{1/2} = \sqrt{r}e^{i\theta}, r> 0$. Chose the branch cut to be the positive vertical axis, that is, the ray $\alpha = \pi/2$. So our branch cut will be  $f_2(z) = \sqrt{r}e^{i\theta/2}, r> 0,x\in(\pi/2,5\pi/2)$. An anti-derivative on this branch will be $F_2(z) = 2/3r\sqrt{r}e^{3/2\theta i}$.\\
+
+First, note that $3 = 3e^{2\pi i}$ where $2\pi \in (\pi/2,5\pi/4)$. Hence $F_2(3) = 2\sqrt{3}e^{3\pi i} = i2\sqrt{3}$. Also, $-3 = 3e^{2\pi i}$ \cs{No 2 this time.}, which is also in the branch cut. Hence $F(-3) = 2\sqrt{3}e^{3/2\pi i} = -2\sqrt{3}i.$\\
+
+Since the ray $\theta = \alpha = \pi/2$ starts at zero and extends in the positive imaginary direction, and since the the curve is defined by $r > 0$. hence it \cs{What is ``it''?} cannot ever be zero, on all points $f_2(z)$ in a domain containing $C$ is defined and has an antiderivative. Hence we can use the theorem \cs{Which theorem?}:
+$$\int_{C_2}f_2(z)dz = 2\sqrt{3}(-1 + i).$$
+
+\cs{And around the full circle?}
+
+\cs{5/5}
+\end{document}

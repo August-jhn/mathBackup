@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Abstract Algebra}
+\author{ajbergquist }
+\date{August 2021}
+
+\begin{document}
+
+\fbox{symmetry} An "entity" (a set, shape, or sphere, so a set). The entity has symmetry if its components can be rearranged in some way way without changing its overall structural properties. In other words, there is a transformation under which the entity is invariant.\\
+\\
+Every object has symmetry under the transformation of identity. The symmetry is the property of the shape, not the transformation. The transformation is simply a way of looking at the symmetries. It doesn't matter how you get to the final configuration, only that we get to the final configuration while preserving some property of the shape. Is existence a type of symmetry?\\
+\\
+\fbox{definition} A permutation of a set S is a bijection from S to itself. We can use cycle notation to represent these. So $(123).$\\
+\fbox{def} A group $G = (G,*)$ is a nonempty set $G$ and an operation $*$ defined on the elements of $G$ satisfying all the following.
+\begin{itemize}
+    \item $*$ is a binary operation on $G$, that is, $*$ is closed on $G$.
+    \item There exists an element $e\in G$ such that for all elements $a$ in $G$, $e*a = a = a*e$. This is called the $*$-identity.
+    \item There are inverses. For all elements, $a$, in $G$, there exists some $a^{-1}$, called the inverse of $a$, satisfying $a*a^{-1} = e = a^{-1}*a$.
+    \item The operation $*$ is associative, that is, $a*(b*c) = (a*b)*c$ for all $a,b,c\in G$.
+\end{itemize}\\
+
+\fbox{theorem/definition} The symmetries of a regular $2n$-gon with composition form a group. This group is called the dihedral group of order $2n$.\\
+
+\fbox{definition} Given a group $(G,*)$, the cardinality of the set is denoted $|(G,*)|$.\\
+
+\fbox{theorem} Roots of unity are a group.
+
+\end{document}

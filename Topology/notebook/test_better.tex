@@ -1,0 +1,269 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\ii}{{\bf i}}
+\newcommand{\jj}{{\bf j}}
+\newcommand{\kk}{{\bf k}}
+\newcommand{\id}{{\bf 1}}
+\newcommand{\hur}{\frac{\id+\ii+\jj+\kk}{2}}%The "Hurwitz point"
+\newcommand{\hurwitz}{\Z\left[\hur,\ii,\jj,\kk\right]}%The set of Hurwitz integers
+\usepackage{wrapfig}
+\usepackage{calligra}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{euscript}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\newcommand\mybar{\kern1pt\rule[-\dp\strutbox]{.8pt}{\baselineskip}\kern1pt}
+
+\usepackage{ulem}
+\usepackage{xcolor}
+\newcommand{\cs}[1]{\color{blue}{#1}\normalcolor}
+
+%Matrix commands
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bmat}{\left[\begin{array}}
+\newcommand{\emat}{\end{array}\right]}
+\newcommand{\bdet}{\left|\begin{array}}
+\newcommand{\edet}{\end{array}\right|}
+\newcommand{\inv}[1]{#1^{-1}}
+
+%Environment commands
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bt}{\begin{thm}}
+\newcommand{\et}{\end{thm}}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bl}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newcommand{\bc}{\begin{cor}}
+\newcommand{\ec}{\end{cor}}
+\newcommand{\lcm}{\mbox{lcm}}
+\newcommand{\defn}{\fbox{definition}}
+\newcommand{\prop}{\fbox{proposition}}
+\newcommand{\stab}{\mbox{stab}}
+\newcommand{\Aut}{\mbox{Aut}}
+\newcommand{\orb}{\mbox{orb}}
+
+\newcommand{\norm}{\righttriangle}
+
+\newcommand{\and}{\wedge}
+\newcommand{\or}{\vee}
+
+
+
+%sets of numbers
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\topT}{\mathcal{T}}
+\newcommand{\standtop}{\mathcal{T}_{STD}}
+\newcommand{\cc}{\mathcal{C}}
+
+
+\title{Topology}
+\author{August bergquist}
+
+
+\begin{document}
+
+\maketitle
+
+\fbox{lemma 1} If $X$ and $Y$ are sets, and $f:X\rightarrow Y$ is a surjective function, and if $U\subseteq Y$, then $f(\inv{f}(U)) = U$.\\
+
+\fbox{proof} Let $y$ be an arbitrary element of $U$. Since $y$ is an element of $Y$, and $f$ is surjective, it follows that $f(x) = y$ for some $x\in X$. But since $y = f(x)\in U$, and since $\inv{f}(U) = \{x\in X: f(x) \in U\}$, it follows that $x\in \inv{f}(U)$. Furthermore, since $f(\inv{f}(U)) = \{y : y = f(x), x\in \inv{f}(U)\}$, it follows that $y = f(x)\in f(\inv{f}(U))$. Since $y$ was arbitrary, all elements of $U$ are also in $f(\inv{f}(U))$. Hence $U\subseteq f(\inv{f}(U))$.\\
+
+Now let $z$ be arbitrary in $f(\inv{f}(U))$. By definition of the image, there is some $x\in X$ (different $x$) in $\inv{f}(U)$ such that $f(x) = z$. Furthermore, since $ x\in \inv{f}(U)$, it follows by definition of the preimage that $f(x) \in U$. But $f(x) = z$, hence $z\in U$. Since $z$ was arbitrary, it follows that $f(\inv{f}(U))\subseteq U$.\\
+
+Finally, since we have shown that both $f(\inv{f}(U))\subseteq U $ and $U\subseteq f(\inv{f}(U))$, we know that $U= f(\inv{f}(U))$. Q.E.D.\\
+\\
+
+
+\fbox{lemma 2} Let $X$ and $Y$ be sets and let $f:X\rightarrow Y$ be an injective function. Also let $U$ and $V$ be subsets of $Y$ then $\inv{f}(U\cap V) = \inv{f}(U)\cap \inv{f}(V)$.
+
+\fbox{proof} Let $y$ be an element of $\inv{f}(U\cap V) $. Then by definition of the inverse image, $f(y)\in U\cap V$. Hence $f(y)\in U$ and $f(Y)\in V$. Then by definition of the inverse image $y\in \inv{f}(U)$ and $y\in \inv{f}(V)$. Hence by definition of the intersection $y\in \inv{f}(U)\cap \inv{f}(V)$. Since $y$ was arbitrary in $\inv{f}(U\cap V)$, it follows that $\inv{f}(U\cap V) \subseteq  \inv{f}(U)\cap \inv{f}(V)$.\\
+
+Now let $x$ be arbitrary in $\inv{f}(U)\cap \inv{f}(V)$. Then $x\in \inv{f}(U)$ and $ x\in \inv{f}(V)$. Hence $f(x)\in U$ and $f(x)\in V$. Then $f(x)\in U \cap V$, hence $x\in \inv{f}(U\cap V)$. Since $x$ was arbitrary, $\inv{f}(U)\cap \inv{f}(V) \subseteq \inv{f}(U\cap V)$.\\
+
+Since $\inv{f}(U)\cap \inv{f}(V) \subseteq \inv{f}(U\cap V) $ and $\inv{f}(U\cap V) \subseteq  \inv{f}(U)\cap \inv{f}(V)$, it follows that $\inv{f}(U\cap V) \subseteq  \inv{f}(U)= \inv{f}(V)$. Q.E.D.\\
+
+
+\fbox{2.1}  Let $X$ and $Y$ be topological spaces and $f:X \rightarrow Y$ be a continuous function. 
+Prove that if $X$ is compact and $f$ is surjective, then $Y$ is compact.\\
+
+\fbox{proof} Suppose that $X$, $Y$, and $f$ are as stated above. Suppose also that $X$ is compact and $f$ is surjective. Let $\mathcal{C}$ be an arbitrary open cover for $Y$. Consider the set $\mathcal{C}_X$ defined $\mathcal{C}_X = \{\inv{f}(U):U\in \mathcal{C}\}$. We shall show that $\mathcal{C}_X$ is an open cover for $X$.\\
+
+First we will show that every element of $\mathcal{C}_X$ is open. Let $V$ be an arbitrary element of $\mathcal{C}_X$. By definition of $\mathcal{C}_X$, there is some $U$ in $\mathcal{C}$ such that $\inv{f}(U) = V$. Since $U\in \mathcal{C}$, which is an open cover, it follows that $U$ is open. Furthermore, by definition of continuity, $V = \inv{f}(U)$ is also open. Since $V$ was arbitrary in $\mathcal{C}_X$, we know that every element of $\mathcal{C}_X$ is open. 
+
+Now we will show that $\mathcal{C}_X$ is a cover for $X$. Well, let $x\in X$ be arbitrary. Since $f(x)\in Y$, and since $\mathcal{C}$ forms a cover for $Y$, it follows that $f(x)\in \bigcup_{U\in \mathcal{C}}U$. Hence by definition of the union there is some $U\in \mathcal{C}$ such that $f(x)\in U$. Recall from foundations that $\inv{f}(U) = \{x\in X: f(x)\in U\}$. From this definition it follows that $x\in \inv{f}(U)$. Furthermore, by construction of $\mathcal{C}_X$ it follows that $\inv{f}(U)\in \mathcal{C}_X$. From this we know that there is some element of $\mathcal{C}_X$ which contains $x$, and hence the $x$ is in the union of all elements in $\mathcal{C}_X$. Since $x$ was arbitrary in $X$, all elements of $X$ are also in $\bigcup_{V\in \mathcal{C}_X}V$. Hence
+$$X\subseteq\bigcup_{V\in \mathcal{C}_X}V.$$
+So by definition of a cover, $\mathcal{C}_X$ is a cover for $X$. \\
+
+Having shown that $\mathcal{C}_X$ is a cover for $X$, and that each of its members are open in $X$, it follows that $\mathcal{C}_X$ forms an open cover for $X$. Since $X$ is compact, it follows that $\mathcal{C}_X$ must have an finite subcover, call it $\mathcal{S}_X$. Construct the collection of sets $\mathcal{S} = \{f(V):V\in \mathcal{S}_X\}$. Since there are a finite number of elements in $\mathcal{S}_X$, and since there is at most one element in $\mathcal{S}$ for each $V\in \mathcal{S}$, it follows that $\mathcal{S}$ is finite. We will now show that $\mathcal{S}$ is a subcover of $\mathcal{C}$. This entails showing that (1) $\mathcal{S}\subseteq \mathcal{C}$, and (2) $\mathcal{S}$ actually covers $Y$. \\ 
+
+\begin{itemize}
+    \item In order to show that $\mathcal{S}\subseteq \mathcal{C}$, we will consider any element $W$ in $\mathcal{S}$. Then by construction of $W$ as an element of $\mathcal{S}$, there must be some $V\in \mathcal{S}_X$ such that $W = f(V)$. Furthermore, by construction of $V$ as an element in $\mathcal{S}_X$, there must exist some $U\in C$ such that $V = \inv{f}(U)$. Substituting, we have $W = f(\inv{f}(U))$. Since $f$ is surjective, it follows by Lemma 1 that $ W = f(\inv{f}(U)) = U$, and by construction $U$ is an element of $\mathcal{C}$. Since $W$ was arbitrary in $\mathcal{S}$, it follows that $\mathcal{S}\subseteq \mathcal{C}$.
+    
+    \item Now to show that $\mathcal{S}$ actually covers $Y$. To verify this, let $y\in Y$ be arbitrary. Since $f$ is surjective onto $Y$, there must exist some $x\in X$ such that $f(x) = y$. Since $\mathcal{S}_X$ covers $X$, there must exist some $U\in \mathcal{S}_X$ which contains $x$. Hence by definition of the image, $y\in f(U)$. Finally, by construction $f(U)$ is an element of $\mathcal{S}$. Hence $x\in \bigcup_{U\in \mathcal{S}}U$. Since $x$ was arbitrary in $Y$, it follows that $Y\susbeteq \bigcup_{U\in \mathcal{S}}U$, hence $\mathcal{S}$ covers $Y$. 
+\end{itemize}
+
+Having shown that $\mathcal{S}$ is a subset of $\mathcal{C}$ which also covers $Y$, it follows that $\mathcal{S}$ is a subcover for $\mathcal{C}$. Furthermore, we have shown $\mathcal{S}$ to be finite. Hence $\mathcal{C}$ has a finite subcover. Since $\mathcal{C}$ was an arbitrary open cover for $Y$, it follows that every open cover for $Y$ has a finite subcover. Hence by definition of compactness, $Y$ is compact. Q.E.D.\\
+
+
+
+\fbox{2.2} Let $A$ be a compact subspace of a Hausdorff space $X$.  Prove that $A$ is closed.\\
+If $A$ has no limit points, then $A$ is closed. Suppose then that there is a limit point of $A$, and let $p$ be one such limit point. We will show that $p$ is in $A$. Suppose by way of contradiction that $p$ is not in $A$. Let $q$ be an arbitrary element of $A$. Since $q$ is in $A$, and $p$ is not, it follows that $p\ne q$. Since $A$ is Hausdorff, there must exist disjoint open sets $U_q$ and $V_q$ such that $p\in U_q$ and $p\in V_q$. Furthermore, since $q$ was arbitrary, it follows that for all $x\in A$ there exists disjoint open sets $U_x$ and $V_x$ such that $p\in U_x$ and $q\in V_x$. Let $\mathcal{F}$ denote the collection of all such $U_x$, and let $\mathcal{C}$ denote the collection of all such $V_x$. Furthermore, let $U$ be an element of $\mathcal{F}$, and let $V$ be its corresponding element in $\mathcal{C}$. Keep these elements in mind, for they shall be important later in the proof. Also keep in mind the fact that each $V$ in $\mathcal{C}$ corresponds to some open set $U\in \mathcal{F}$ which contains $p$. \\
+
+We will now proceed to show that $\mathcal{C}$ forms an open cover for $A$. We already have the open part by construction of $\mathcal{C}$. Showing that $\mathcal{C}$ is a cover for $A$ is also fairly straightforward. Let $y\in A$ be arbitrary. As we have defined $\mathcal{C}$, there is some $V_y$ which contains $y$, and which corresponds to some $U_y$ which is disjoint with $V_y$ and contains $p$. Hence by definition of the union, $y\in \bigcup_{V\in \mathcal{C}}V$. Since $y$ was arbitrary in $A$, it follows that $A\subseteq \bigcup_{V\in \mathcal{C}}V$, hence $\mathcal{C}$ is a cover for $A$. Furthermore, since each element of $\mathcal{C}$ is open, it follows that $\mathcal{C}$ is an open cover for $A$.\\
+
+Having shown that $\mathcal{C}$ is an open cover for $A$, and since $A$ is compact, there must exist some finite subcover of $\mathcal{C}$, call it $\mathcal{S}$. Since each element of $\mathcal{S}$ is also in $\mathcal{C}$, and since each element of $\mathcal{C}$ corresponds to an element in $\mathcal{F}$, it follows that there is a finite subset of $\mathcal{F}$ whose elements correspond to elements in $\mathcal{S}$. Call this subset $\mathcal{F}'$. (Sorry about the notation, we've only done so many proofs involving compactness, and I'm just needing names for things.) Since $\mathcal{F}'$ is finite collection of open sets, it follows by definition of a topology that $M = \bigcap_{U_q\in F'}U$ is also open. Notice that each $U_q$ contains $p$ by construction, hence $p\in \bigcap_{U_q\in \mathcal{F}'}U_q$ (I have indented the following embeded proof by contradiction in order not to confuse it from the larger proof by contradiction in which it is contained)
+\begin{itemize}
+    \item Suppose now by way of contradiction that there is some element in $x\in M$ such that $x\in A$. Then since $\mathcal{S}$ covers $A$, there must be some $ V_q\in S$ such that $x\in V_q$. Furthermore, by definition of the intersection, $x\in U_y$ for all $U_y\in\mathcal{F'}$. Then $x$ is in the corresponding $U_q$ in $\mathcal{F'}$. But by construction of $\mathcal{S}$, $U_q$ and $V_q$ must be disjoint. But $x$ is in both of them: a contradiction! Hence $M$ and $A$ are disjoint.
+\end{itemize} 
+Having shown that $M$ and $A$ are disjoint, and that $M$ is an open set which contains $p$, it follows that $M\cap A$ is disjoint. Removing one element from $M$ won't add any elements to the intersection, hence $(M - \{p\})\cap A = \emptyset$. But we have supposed $p$ to be a limit point: a contradiction. We arrived at this contradiction from supposing that $p\not\in A$, hence by way of contradiction we know that $p\in A$. Since $p$ was an arbitrary limit point of $A$, it follows that every limit point of $A$ is in $A$. Hence $A$ is closed. Q.E.D.
+
+\fbox{3.1} Let $X$ and $Y$ be topological spaces. \\
+Prove that $f: X \rightarrow Y$ is continuous if and only if for all $A \subseteq X$, $f(\overline{A}) \subseteq \overline{f(A)}$.  (Don't use Th 7.1 on this problem.)\\
+
+\fbox{proof} 
+\begin{itemize}
+    \item[$\Rightarrow$]Suppose that $f:X\rightarrow Y$ is continuous. Let $A$ be any subset of $X$. We must now show that $f(\overline{A})\subseteq \overline{f(A)}$. To show this, let $y$ be arbitrary in $f(\overline{A})$. Then by definition of the image, there is some $p\in \overline{A}$ such that $f(p) = y$. There are two cases. Either $p\in A$ or $p\not\in A$. 
+    \begin{itemize}
+        \item If $p\in A$, then $f(p)\in f(A)$ by definition of the image. But then by definition of closure $f(p)\in \overline{f(A)}$. Since $f(p) = y$, it follows that $y\in \overline{f(A)}$.
+        \item Suppose then that $p$ is in $\overline{A}$, but $p\not\in A$. Then $p$ is a limit point of $A$, as follows by definition of the closure. It remains to be shown that, in this case, $f(p)$ is in the closure of $f(A)$. There are two subcases. Either $f(p) = y\in f(A)$, or $f(p) = y\not\in f(A)$.
+        \begin{itemize}
+            \item  If $f(p)\in f(A)$, then it would also follow that $f(p) = y\in \oveline{f(A)}$.
+            \item Suppose then that $f(p)$ is not an element of $f(A)$. It suffices to show that $f(p)$ is a limit point of $f(A)$.\\
+            
+            Suppose then by way of contradiction that $f(p)$ is not a limit point of $f(A)$. Then negating the definition of a limit point, there exists some open set $U$ of $Y$ which contains $p$, such that $(U- \{f(p)\})\cap f(A) = \emptyset$. Since $U$ is open in the space $Y$, and since $f$ is a continuous function from $X$ to $Y$, it follows by definition of a continuous function that $\inv{f}(U)$ is open in $X$. Furthermore, since $f(p)\in U$, it follows by the definition of an inverse image that $p\in \inv{f}(U)$. Hence by definition of a limit point $ (\inv{f}(U)- \{p\}) \cap A\ne \emptyset $. So there's got to be something in it, call it $q$. Then by intersection, $q\in \inv{f}(U)- \{p\}$ and $q\in A$. Hence by definition of the image, $f(q)\in f(A)$. By set difference, $q\in \inv{f}(U)$ while $q\not\in \{p\}$. Hence $q\ne p$, and by definition of the preimage $f(q)\in U$.\\
+            
+            Either $f(q) = f(p)$ ($f$ may not be injective), or $f(q)\ne f(p)$. Recall that we have supposed that $f(p)\not \in f(A)$. If $f(q) = f(p)$, then $f(q)\not\in f(A)$. But we have shown that it is, hence $f(q)$ and $f(p)$ must be distinct. In other words $f(q)\not \in \{f(p)\}$\\
+            
+                
+            Having shown that $f(q)\in U$ and $f(q)\not\in \{f(p)\}$, it follows by definition of the set difference that $f(q)\in U - \{f(p)\}$. Furthermore, as we have shown, $f(q)\in f(A)$. Hence by definition of the intersection $f(q)\in (U - \{f(p)\})\cap f(A)$. But $(U - \{f(p)\})\cap f(A)$ is empty: a contradiction!\\
+            
+            Hence $f(p)$ must be a limit point of $f(A)$ whenever $f(p)\not\in f(A)$
+        \end{itemize}
+        Since in either case, $f(p)\in \overline{f(A)}$, we conclude that in the case where $p\not\in A$, $f(p) = y\in \overline{f(A)}$.
+    \end{itemize}  
+    Since in all cases, $y\in \overline{f(A)}$, and since $y$ was arbitrary in $f(\overline{A})$, it follows that $f(\overline{A})\subseteq \overline{f(A)}$.\\
+    
+    
+     Since $p$ was an arbitrary limit point of $A$, it follows that the image of every limit point of $A$ under $f$ is in the closure of the image of $A$ under $f$. Furthermore, as we have shown, the image of every element of $A$ is also in the closure of the image of $A$. Hence in either case, elements of $\overline{A}$ are mapped to elements of the closure of $f(A)$. Hence $f(\overline{A})\subseteq \overline{f(A)}$.
+    \item[$\Leftarrow$] 
+    Now suppose that $f(\overline{A})\subseteq \overline{f(A)}$. Let $U$ be an arbitrary open set in $Y$. Consider $X- \inv{f}(U)$. By Theorem 2.14, showing that $X-\inv{f}(U)$ is closed will suffice to prove that $\inv{f}(U)$ is open. To show this, let $p$ be an arbitrary limit point of $X- \inv{f}(U)$. Then $p\in \overline{X - \inv{f}(U)}$, by definition of the closure. Furthermore, it follows from definition of the image set that $f(p)\in f(\oveline(X-\inv{f}(U))$. But by our supposition, $f(\overline(X-\inv{f}(U))\subseteq \overline{f(X-\inv{f}(U))}$. Hence $f(p)\in \overline{f(X-\inv{f}(U))}$.\\
+    
+    Awkwardly, more must be shown before this part of the proof can be completed. Recall from foundations that $f(X- \inv{f}(U))\subseteq f(X)-f(\inv{f}(U))$. Recall also from foundations that $U \subseteq U\subseteq f(\inv{f}(U))$, hence by another result from foundations $f(X)-f(\inv{f}(U))\subseteq f(X) - U$. Furthermore, by another theorem from foundations, $f(X)\subseteq Y$. Hence, by more theorems from foundations, $f(X)- U\subseteq Y-U$. Since the subset relation is transitive, it follows that $f(X- \inv{f}(U)) \subset Y - U$. And one more thing! Since $Y-U$ is closed, by Theorem 2.13 $Y-U = \overline{Y - U}$. All of this in mind, it follows by Theorem 2.22 that  $\overline{f(X- \inv{f}(U))}\subset Y - U$.\\
+    
+    Having shown that $f(p)\in \overline{f(X-\inv{f}(U))}$, and that $\overline{f(X-\inv{f}(U))} \subseteq Y - U $, we find that $f(p) \in Y - U $. This means by definition of set difference that $f(p)\in Y$ while $f(p)\not \in U$. Since $f(p)\not \in U$, it follows by definition of the preimage that $p\not\in \inv{f}(U)$. Also, $p$ was a point in $X$ all along, hence by definition of the set difference it follows that $p\in X - \inv{f}(U)$. Since $p$ was an arbitrary limit point of $X - \inv{f}(U)$, it follows that every limit point of $X - \inv{f}(U)$ is contained within $X - \inv{f}(U)$. Hence by Theorem 2.14 it follows that $\inv{f}(U)$ is open. Furthermore, since $U$ was an arbitrary open set in $Y$, it follows that the inverse image of every open set in $Y$ under $f$ is open in $X$. Hence $f$ is continuous.
+\end{itemize}
+\\
+
+\fbox{3.2}  \begin{itemize}
+    \item[a. ] Let $f: X \rightarrow Y$ be a homeomorphism.  Prove that if $X$ is Hausdorff, then $Y$ is Hausdorff.
+    \item[b. ] Prove or disprove.  If $f: X \rightarrow Y$ is continuous and $X$ is Hausdorff, then $Y$ is Hausdorff.
+\end{itemize}
+
+
+    \begin{itemize}
+        \item[a. ]  To prove this, let $p$ and $q$ be arbitrary, distinct points in $Y$. Since $f$ is a homeomorphism, it is bijective and hence surjective. Hence there exists points $p_0$ and $q_0$ in $X$ such that $f(p_0) = p$ and $f(q_0) = q$. Furthermore, substituting, and since $p$ and $q$ are distinct, $f(p_0) \ne f(q_0)$. Since $f$ is bijective, it is also injective, hence $p_0\ne q_0$. Moreover, since $p_0$ and $q_0$ are distinct in $X$, which we have supposed to be Hausdorff, it follows that there exist disjoint open sets $U$ and $V$ of the space $X$, such that $p_0\in U$ and $q_0\in V$. \\
+    
+        Since $f$ is a homeomorphism, it has an inverse (since it's bijective), and that inverse is continuous. For ease of notation, let $h:Y\rightarrow X$ be the inverse of $f$. Since $U$ and $V$ are continuous, it follows that the $\inv{h}(U)$ and $ \inv{h}(V)$ are open in $Y$. Furthermore, since by definition of the inverse function $h(p_0) = p$ and $h(q_0) = q$, and since $p_0\in U$ and $q_0\in V$, it follows that $p\in \inv{h}(U)$ and $q\in \inv{h}(V)$. It remains to be shown that $\inv{h}(U)$ and $\inv{h}(V)$ are distinct. In order to verify this, we apply Lemma 2 to obtain $\inv{h}(U\cap V) = \inv{h}(U)\cap \inv{h}(V)$. Since $f$ and $h$ are bijective, $\inv{h}(U) = f(U)$ and $\inv{h}(V) = f(V)$, hence $ \inv{h}(U\cap V) = f(U) \cap f(V)$. Since $h$ is bijective (as it has an inverse, namely $f$), it is surjective, hence nothing is mapped to by nothing. So $\inv{h}(U \cap V) = \inv{h}(\emptyset) = \emptyset$. But since $\inv{h}(U \cap V) = \inv{h}(U\cap V) = \inv{h}(U) \cap \inv{h}(V)$, it follows that $\inv{h}(U) \cap \inv{h}(V) = \emptyset$. Since $\inv{h}{U}$ and $\inv{h}(V)$ are disjoint open sets which contain $p$ and $q$ respectively, and since $p$ and $q$ are arbitrary distinct points in $Y$, it follows that there each pair of distinct points in $Y$ are contained within disjoint neighborhoods. Hence $Y$ is Hausdorff. Q.E.D.
+        
+        
+        \item[b. ] No, this is not true. To provide a counterexample, consider the set $A = \{a,b\}$ under the indiscrete topology $\topT = \{A, \emptyset\}$. Consider the map $f:\R\rightarrow A$ defined $f(x) = a$, where $\R$ is the reals with the standard topology. Then $\inv{f}(\emptyset) = \emptyset$, which is open in $\R_{std}$ (since nothing maps to nothing), and $\inv{f}(A) = \R$, which is also open in $\R_{std}$. Since these are the only elements of $\topT$, and hence the only open sets of $A$, each of whose preimage under $f$ is open in $\R_{std}$, it follows that $f$ is continuous.\\
+    
+        Furthermore, we have shown previously (I hope) that $\R$ is Hausdorff. (If we haven't, the proof is easy. Given two distinct points, consider the open interval from negative infinity to the midpoint between the two, and the open interval from the midpoint to positive infinity). Furthermore, $\{a,b\}$ is not Hausdorff. We can verify this by noticing that the only pair of distinct points, namely $a$ and $b$, fit into only one set, namely $A$ itself. But $A$ contains both points! Hence $A$ is not a Hausdorff space. Since $f$ is a continuous map from a Hausdorff space to a non-Hausdorff space, we have a counterexample to the proposition that if $X$ is a Hausdorff space, and $f:X\rightarrow Y$ is continuous, then $Y$ is Hausdorff. Phwew!
+    \end{itemize}
+    
+\end{document}

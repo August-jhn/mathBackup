@@ -1,0 +1,78 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate, diagbox, tcolorbox, esvect, tikz, adjustbox}
+
+
+\graphicspath{{./images/}}
+
+
+\usepackage{halloweenmath, tikzsymbols}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+
+%geometry/topology
+\newcommand{\bndry}{\partial}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\theoremstyle{definition}
+
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+
+\title{Real Analysis}
+\author{August Bergquist}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Theorem Establishing Equivalent Definitions for Continuity at a Point}
+
+\begin{theorem} Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces, and let $a\in X$, and let $f:X\to Y$. Then the following are equivalent:
+\begin{itemize}
+\item $f$ is continuous at $a$.
+\item For every $\epsilon > 0$ we can produce a positive $\delta$ so that for any $x\in X$ we have that $d_X(x,a) < \delta$ implies $d_Y(f(x) , f(a) ) < \epsilon$.
+\item For any sequence $\sigma:\N \to X$ which converges to $a$, we have $f\circ\sigma$ converges to $f(a)$.
+\end{itemize}
+\end{theorem}
+
+\begin{proof}
+
+\begin{itemize}
+\item
+First suppose that $f$ is continuous at $a$. Then there are two cases (indeed, whether or not $f$ is continuous lol), either $a$ is a limit point of $X$ or it isn't. First suppose that it is a limit point. Then by definition of continuity, it follows that $\lim_{x\to a}f(x) = f(a)$, and by definition of a limit it follows that for all $x\in X$ there is some $\delta >0$ such that $ 0 < d_X(x,a) < \delta $ implies that $ d_Y(f(a), f(a) ) \epsilon $. Indeed, if $x = a$, by positive definiteness of $d_X$ we have that the distance is zero, and $\epsilon > 0$, whence $ d(x,a) < \epsilon $, so it follows that $d_X(a,a) < \delta$ only when $d_Y(f(a), f(x) ) < \epsilon$. So then, in the case where $a$ is a limit point, it follows that for all $\epsilon > 0$ there is some $\delta > 0$ such that $d_X(x,a) < \delta$ implies $d_Y(f(x) , f(a) ) < \epsilon$.\\
+
+Now suppose that $ a $ is not a limit point. Let $\epsilon > 0$. Negating one of the equivalent definitions for a limit point, we have some $\delta > 0$ such that $$ B_\delta(a) \cap (X\setminus \{a\}) .$$ 
+From this it follows that for any $x\in X$, $x\in B_\delta ( a) $ only when $x = a$.  Then if we let $d_X(a, x) < \delta $  we have by definition of an open ball that $ x\in B_\delta (a) $, so by the last remark we have that $x = a$. By well defindendess of a function, $f(a) = f(x)$, so by positive definiteness it follows that $ d_Y(f(a), f(x) ) = 0 $, and since $\epsilon < 0$, obviously $d_Y(f(a), f(x) ) < \epsilon$. Hence, in this case as well, (2) of the equivalences holds.
+
+\item Now suppose that for every $\epsilon > 0$ we can produce a positive $\delta$ so that for any $x\in X$ we have that $d_X(x,a) < \delta$ implies $d_Y(f(x) , f(a) ) < \epsilon$. Suppose we have a sequence $\sigma : \N \to X$ which converges to $a$. We want to show that $f\sigma$ converges to $f(a)$. Let $\epsilon > 0$. By supposition we have some $\delta > 0$ such that $d_X(x, a) < \delta$ only if $d_Y(f(x), f(a) ) < \epsilon$. Since $\delta > 0$, by convergence of $\sigma$ to $a$ there must exist some $N\in \N$ such that $d_X(\sigma(n) , a ) < \delta$ for all $n > \N$. Now suppose we have $n> N$. So $d_X(\sigma(n) , a ) < \delta$, and by construction of $\delta $ it follows that $d_Y(f(\sigma(n)), f(a) ) = d_Y(f\sigma(n), f(a) ) < \epsilon$. So then for all $n> N$ it follows that $ d_Y(f\sigma(n), f(a) ) < \epsilon $. So then, since $\epsilon$ was arbitrary greater than zero, it follows that for all $\epsilon > 0$ there exists some $N\in \N$ such that for all $n > N$ $d_Y(f\sigma(n) , f(a) ) < \epsilon$. By definition of convergence, it follows that $f\sigma$ converges to $f(a)$. Since the sequence $\sigma$ as arbitrary as a sequence which converges to $a$, it follows that for any sequence which converges to $a$, the composition of that sequence with $f$ converges to $f(a)$. This is the statement (3) of the equivalence!
+\item Finally, suppose that for all sequences $\sigma:\N \to X$, convergence to $a$ implies convergence of $f\sigma$ to $f(a)$. We desire to show that $f$ is continuous. If $a$ is not a limit, we are done. So suppose it is a limit point. Then we have a coherent notion of the limit of the function $f$ to $a$. Suppose that there exist a distinct sequence $\sigma$ which converges to $a$. Well a distinct sequence is a sequence just as any other, so by our supposition it follows that $f\sigma$ converges to $f(a)$. By Theorem 4.2.4 it follows that the limit of $f$ as $x$ approaches $a$ is $f(a)$. Hence in this case as well, $f$ is continuous at $a$. In either case, (1) of the equivalence holds as desired.
+\end{itemize}
+
+\end{proof}
+
+\section{That The limit of a Function Is Unique if it Exists}
+
+\begin{theorem}
+
+Suppose that $X$ is a metric space, $K\subset X$, $Y$ a metric space, and that $a\in X$ is a limit point of $K$, and that $f:K\to Y$ so that $\lim_{x\to a} f(x) = L,L'$. Instead of using contradiction, let us directly show that $L  = L'$. Recall that a non-negative number $r = 0$ if and only for every $\epsilon < 0$, $r< \epsilon$. \\
+
+Now let consider $d_Y(L , L')$. By the triangle inequality and symmetry, $d_Y(L , L') \le d_Y(f(x), L) + d_Y(f(x) , L')$. Now let $\epsilon > 0$. Then there is some $\delta$ such that for any $x\in K$, $0 < d_X(x,a) < \delta$ implies $d_Y(f(x), L) < \epslion /2$ and  $d_Y(f(x), L') < \epsilon/2$. Now since $a$ is a limit point, it follows by our previous results that $B_\delta(a) \cap K\setminus \{x\} \ne \emptyset$, so there is some $x\in B_\delta(a)$ with $x\ne a$. By definition of an open ball, $d_X(x,a) < \delta$, so by construction of $\delta$ it follows that $d_Y(f(x), L') < \epsilon/2$ and $d_Y(f(x), L) < \epsilon/2$, from which it follows that $d_Y(f(x), L') + d_Y(f(x), L) < \epsilon$. By transitivity of the relation $<$, it follows that $d_Y(L , L') < \epsilon$. But $\epsilon > 0$ was arbitrary, hence for all $\epsilon > 0$, $d_Y(L , L') < \epsilon$. Hence $d_Y(L, L') = 0$. By positive definiteness, $L = L'$. Hence the limit is unique.
+
+\end{theorem}
+
+\end{document}
