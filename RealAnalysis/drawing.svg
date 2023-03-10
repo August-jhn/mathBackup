@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="100mm"
+   height="100mm"
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg5"
+   inkscape:export-filename="/home/august-jhn/graph.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="drawing.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.77771465"
+     inkscape:cx="421.10561"
+     inkscape:cy="221.80372"
+     inkscape:window-width="1846"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2.99167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 1.6280622,49.643524 99.600675,49.32591"
+       id="path857" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 50.004993,1.661163 0.110302,98.582717"
+       id="path859" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 1.9402384,25.890222 C 48.173727,25.762645 48.173727,25.762645 48.173727,25.762645"
+       id="path974" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 51.575789,72.097132 c 46.758415,0.06512 46.758415,0.06512 46.758415,0.06512"
+       id="path976" />
+    <ellipse
+       style="fill:#ff0000;stroke:#000000;stroke-width:0.921022;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path1080"
+       cx="16.472155"
+       cy="49.880077"
+       rx="3.6793683"
+       ry="3.3963675" />
+    <ellipse
+       style="fill:#ff0000;stroke:#000000;stroke-width:0.921022;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path1080-3"
+       cx="70.938309"
+       cy="49.235542"
+       rx="3.6793683"
+       ry="3.3963675" />
+    <ellipse
+       style="fill:#0000ff;stroke:#000000;stroke-width:0.921022;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path1080-6"
+       cx="36.263855"
+       cy="49.352489"
+       rx="3.6793683"
+       ry="3.3963675" />
+    <ellipse
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.921022;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path1080-6-6"
+       cx="49.387039"
+       cy="26.165312"
+       rx="3.6793683"
+       ry="3.3963675"
+       inkscape:transform-center-x="14.776377"
+       inkscape:transform-center-y="25.265625"
+       inkscape:export-filename="/home/august-jhn/Math/RealAnalysis/Assgn17/graph.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <ellipse
+       style="fill:#000000;stroke:#000000;stroke-width:0.921022;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path1080-6-7"
+       cx="25.596529"
+       cy="49.432224"
+       rx="3.6793683"
+       ry="3.3963675" />
+    <ellipse
+       style="fill:#000000;stroke:#000000;stroke-width:0.921022;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path1080-6-7-5"
+       cx="3.2319593"
+       cy="50.095364"
+       rx="3.6793683"
+       ry="3.3963675" />
+    <ellipse
+       style="fill:#000000;stroke:#000000;stroke-width:0.921022;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path1080-6-7-5-3"
+       cx="51.409672"
+       cy="49.74585"
+       rx="3.6793683"
+       ry="3.3963675" />
+    <ellipse
+       style="fill:#000000;stroke:#000000;stroke-width:0.921022;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path1080-6-7-5-3-5"
+       cx="95.528831"
+       cy="49.626251"
+       rx="3.6793683"
+       ry="3.3963675" />
+  </g>
+</svg>

@@ -1,0 +1,112 @@
+\documentclass[12pt]{article}
+
+\parindent0pt
+\parskip10pt
+
+\usepackage{amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate, svg}
+
+
+\graphicspath{{./images/}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+% Analysis
+
+\newcommand\norm[1]{\lVert#1\rVert} %for norms and meshes
+\newcommand\rsum[2]{\mathcal{R} (#1,#2)} %R(f,P) for Reimann sums
+
+%geometry/topology
+\newcommand{\bndry}{\partial}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\theoremstyle{definition}
+
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+
+\title{Real Analysis}
+\author{August Bergquist}
+
+\begin{document}
+
+    \maketitle
+
+    \section{Converse Part of the Cauchy Criterion Theorem}
+
+    \begin{theorem}
+        Suppose $f:[a,b]\to \R$ is Reimann integrable. Then it satisfies the Cauchy Criterion.
+    \end{theorem}
+
+    \begin{proof}
+        Let $\epsilon > 0$. Then $\epsilon/2 > 0$. By integrability, it follows that there exists some $ \delta > 0$ such that whenever $\mathcal{R}(f,P)$ is a Reimann sum for a partition $P$ of mesh less than $\delta$, we have 
+        \[
+        \left|\mathcal{R}(f,P) - \int_a^bf\right| < \epsilon/2.     
+        \]
+        Now consider any such partition $P$ with $\norm{P} < \delta$, and consider any two Reimann sums $\mathcal{R}_1(f,P)$ and $\mathcal{R}_2(f,P)$. By construction of $\delta$ and $P$, it follows that 
+        \[
+        \left|\mathcal{R}_{1,2}(f,P) - \int_a^bf\right| < \delta.    
+        \]
+        Then 
+        \begin{equation}
+            \begin{split}
+            \left|\mathcal{R}_1(f,P)-\mathcal{R}_2(f,P)\right|  \\
+            = \left|\mathcal{R}_1(f,P)- \int_a^bf + (I - \mathcal{R}_2(f,P))\right| 
+            \le \left|\mathcal{R}_1(f,P)-\int_a^bf\right| + \left|\mathcal{R}_2(f,P)-\int_a^bf\right| < \epsilon/2 + \epsilon/2 = \epsilon.
+            \end{split}
+        \end{equation}
+
+        This proves that $f$ on $[a,b]$ satisfies the Cauchy Criterion.
+        
+    \end{proof}
+
+    \section{Upper and Lower Sum Criterion}
+
+    \begin{proposition}
+        Let $f:[a,b]\to \R $ be a bounded function (boundedness is needed to make sense of upper and lower sums). Then for all $\epsilon > 0$, there exists some $\delta > 0$ such that whenever $ P $ is a partition of $[a,b]$ with $\norm{P} < \delta$, the inequality
+        \[
+        \left| \mathcal{U}(f,P) - \mathcal{L}(f,P) \right| < \epsilon    
+        \] 
+        holds, if and only if $f$ is Reimann integrable on $[a,b]$.
+    \end{proposition}
+
+    \begin{proof}
+        First suppose that $f$ is Reimann integrable. Let $\epsilon > 0$. Then $\epsilon /2 > 0$. By the converse to the Cauchy Criterion Theorem, there exists some $\delta$ such that for all $P$ with $\norm{P} < \delta$, and for any Reimann sums $\mathcal{R}_1(f,P)$ and $\mathcal{R}_2(f,P)$, we have 
+      \[
+        \left| \R_2{U}(f,P) - \R_1{L}(f,P) \right| < \epsilon/2.
+        \]   
+        Chose any such $P$. Then the above inequality holds for any Reimann sums of the above form. By Lemma 11.4.7 of the textbook, we have
+        \[
+            \left| \mathcal{U}(f,P) - \mathcal{L}(f,P) \right| \le \epsilon/2 < \epsilon.
+            \]
+
+            The partition $P$ was arbitrary with mesh size less than $\delta$, hence for any partition, the above inequality would hold. This proves the converse.
+
+        Now suppose that for all $\epsilon > 0$, there exists some $\delta > 0$ such that whenever $ P $ is a partition of $[a,b]$ with $\norm{P} < \delta$, the inequality
+        \[
+        \left| \mathcal{U}(f,P) - \mathcal{L}(f,P) \right| = \mathcal{U}(f,P) - \mathcal{L}(f,P) < \epsilon.
+        \] 
+
+        For $\epsilon$ fixed, we have one such $\delta.$ Suppose we have some parition $P$ with mesh size less that $\delta$. Let $\mathcal{R}_1(f,P)$ and $ \mathcal{R}_2(f,P)$ be Reimann sums for this partition. Since the inequality with the upper and lower sums hold for this particular $\delta$, and this particular $\epsilon$, and this particular partition, we have $\mathcal{L}(f,P)\le \mathcal{R}_1(f,P), \mathcal{R}_2(f,P)\le \mathcal{U}(f,P) $. Without loss of generality, suppose that $\mathcal{R}_1(f,P) \ge \mathcal{R}_2(f,P)$, whence $|\mathcal{R}_1(f,P) - \mathcal{R}_2(f,P)| = \mathcal{R}_1(f,P) - \mathcal{R}_2(f,P)$. Since $\mathcal{U}(f,P) \ge \mathcal{R}_1(f,P)$ and $ \mathcal{L} \le \mathcal{R}_2(f,P) $, we have 
+        \[
+        |\left|\mathcal{R}_1(f,P) - \mathcal{R}_2(f,P)\right| = \mathcal{R}_1(f,P) - \mathcal{R}_2(f,P) \le \mathcal{U}(f,P) - \mathcal{L}(f,P) < \epsilon.
+        \]
+        Since $\epsilon$ was arbitrary, and $P$ was as well, and so were the Reimann sums, it follows that $f$ satisfies the Cauchy Criterion on $[a,b]$. From this and the Caucy Criterion Theorem, it follows that $f$ is Riemann integrable on $[a,b]$.
+    \end{proof}
+
+    \section{A Refinement, and Reimann sum, that isn't better}
+
+    Consider the function $f(x)$ which is defined as $-1$ if $x>0$ and $1$ otherwise. This is Reimann integrable on $[-1,1]$, and it's integral is zero. 
+
+\end{document}
