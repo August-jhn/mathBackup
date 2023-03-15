@@ -1,0 +1,95 @@
+\documentclass[12pt]{article}
+
+\parindent0pt
+\parskip10pt
+
+\usepackage{amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate, svg}
+
+
+\graphicspath{{./images/}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+% Analysis
+
+\newcommand\norm[1]{\lVert#1\rVert} %for norms and meshes
+\newcommand\rsum[2]{\mathcal{R} (#1,#2)} %R(f,P) for Reimann sums
+
+%geometry/topology
+\newcommand{\bndry}{\partial}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\theoremstyle{definition}
+
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+
+\title{Real Analysis}
+\author{August Bergquist}
+
+\begin{document}
+
+\section{Problem 12.5.5: an interesting function} 
+
+Consider the function $f: \R\to \R$ defined 
+\[
+    f(x) = 
+    \begin{cases}
+        0 \mbox{ if $x$ is irrational }\\
+        1/q \mbox{ if $x$ is rational, where $q$ is the denominator in lowest terms. }
+    \end{cases}
+    \]
+
+Its fairly easy to see that this function is discontinuous for all rational numbers. Recall one of the equivalent definitions of continuity, which states that a function $g:X\to Y$ is continuous at some $a\in X$ iff for all $\epsilon > 0$, there exists a $\delta > 0$ such that whenever $x\in X$ with $d(x,a) < \delta$, $d(g(x), g(a)) < \epsilon$. Negating this, we must show that there is some $\epsilon > 0$ such that whenever $ \delta > 0 $, there is some $x\in X$ with $d(x,a) < \delta$ and $ d(g(x), g(a)) \ge \epsilon $. 
+
+\begin{proposition}
+    The function $f$, defined above, is discontinuous at all $s\in \Q$.
+\end{proposition}
+
+\begin{proof}
+Back to our specific function, let $s\in \Q$. Then, by definition of a rational number $s = p/q$ (in lowest terms), with $p\in \Z$ and $q\in \N$. Let $\delta > 0$. Consider the positive real number $1/q$. Using a basic property of the reals (which we proved!), there must exist some irrational $r $ with $ s < r < s + \delta$. From this it follows that $ |r - s| < \delta $. Moreover, by definition of $f$, we have $f(s) = 1/q$, and $ f(r) = 0 $. So $|f(s) - f(r)| = |1/q - 0| = 1/q \ge 1/q$. But $\delta$ was arbitrary greater than zero, so for all $\delta$, there exists some $ r\in \R $ with $ |r -s| < \delta $ and $ |f(r) - f(s) \ge \epsilon $. Hence $f$ is discontinuous at $s$!
+\end{proof}
+
+
+Now we'll take it's integral. Unfortunately (or fortunately for coolness's sake), we can't take an antiderivative, for clearly none exists (it isn't continuous on any interval, since every interval contains a rational). Along the way, we'll prove the function is continuous at every irrational number.
+
+\begin{lemma}
+    Let $t\in \R$. Let $r > 0$, and let $ n\in \N $. Construct the set $S_n = \{s\in [t - r, t + r]: f(s) = 1/n\}$. Then $S_n$ is finite.
+\end{lemma}
+
+\begin{proof}
+    Let $s\in S_n$. Then $ f(s) = 1/n $. This isn't zero, hence $s$ is rational, and by definition of $f$, $s = p/n$ for some $p\in \Z$, where the fraction $p/n$ is in reduced terms. But since $s\in [t - r, t + r]$, it must be the case that $ t - r\le s=p/n\le t + r$, and since $n $ is positive, this is equivalent to 
+    \[
+        p\in [n(t - r) , n(t + r)].
+        \]
+    But since $p$ is an integer, only finitely many such $p$ can fit within this interval. So only finitely many elements could be in $S_n$, for each would correspond to a distinct integer $p\in [n(t - r) , n(t + r)]$.
+\end{proof}
+
+This allows us to establish an important property on how "big" the function can be, and how often it can be that big. 
+
+\begin{lemma}
+    Let $K\subset \R$ be bounded. Then for all $\epsilon > 0$, the set $ A = \{s\in K: f(s) > s\} $ is finite.
+\end{lemma}
+
+\begin{proof}
+    First, note that since $K$ is bounded, it follows that it lives inside of some open interval of some radius, and hence inside the corresponding closed interval. Let that closed interval be $ [t - r, t + r] $ for some $t\in r$, and for some $r> 0$. Note that the set $ S_\epsilon = \{s\in [t - r, t + r]: f(s) < 1/n\} $
+
+    By the archimedian principle, there must exist some natural number $N$ such that $1/N < \esilon$. Note that if $  $
+\end{proof}
+
+
+
+
+\end{document}
