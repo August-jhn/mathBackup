@@ -84,9 +84,16 @@ This allows us to establish an important property on how "big" the function can 
 \end{lemma}
 
 \begin{proof}
-    First, note that since $K$ is bounded, it follows that it lives inside of some open interval of some radius, and hence inside the corresponding closed interval. Let that closed interval be $ [t - r, t + r] $ for some $t\in r$, and for some $r> 0$. Note that the set $ S_\epsilon = \{s\in [t - r, t + r]: f(s) < 1/n\} $
+    First, note that since $K$ is bounded, it follows that it lives inside of some open interval of some radius, and hence inside the corresponding closed interval. Let that closed interval be $ [t - r, t + r] $ for some $t\in r$, and for some $r> 0$. Note that the set $ M_\epsilon = \{s\in [t - r, t + r]: f(s) > k\}  $ is a subset of the set of all $s\in K$ with the same property. Therefore it suffices to prove that $M_\epsilon$ is finite. 
 
-    By the archimedian principle, there must exist some natural number $N$ such that $1/N < \epsilon$. Note that if $  $
+    By the archimedian principle, there must exist some natural number $N$ such that $1/N < \epsilon$. Note that if $ f(s) > \epsilon $, then $ f(s) \ge 1/N $. Therefore, $M_\epsilon\subset \{s\in [t - r, t + r]: f(s) > \} = M_N$, and it suffices to show that $M_N$ set is finite. 
+
+    To show that $M_N$ is finite, we note that the set $ \{n\in \N: n < N\} = I$ is finite. Moreover, by the previous lemma, each set $S_n = \{s\in [t - r, t + r]: f(s) = 1/n\}$ is finite. We will show that $ M_N \subset \cup_{i\in I}S_i $, which will prove that $M_N$ is finite, since this union is a finite union of finite sets!
+
+    So, let $s\in M_N$. Then $ f(s) > 1/N $. Moreover, by definition of $f$, $f(s) = 1/q$ for some $q\in \N$ (otherwise it would be zero, which it cannot be by assumption that $f(s) > 1/N$). Hence, for that $q$, we must have $ 1/q > 1/N$, by assumption that $ f(s) < 1/N $ and by substitution. Hence, since both $N$ and $q$ are positive, we have $ q < N $. Hence $ q\in I $, by construction of the set $I$. Hence $s\in S_q$, for $q\in I$. By definition of the union of an indexed family of sets, $ s\in \cup_{i\in I}S_i $. Since $s$ was arbitrary (the tutoring foundations has rubbed off on me here), all elements of $M_N$ are also in $\cup_{i\in I}S_i$. Hence $M_N \subset \cup_{i\in I}S_i$. 
+    
+    As stated, this sufficed to prove that the set $A$ is finite! 
+
 \end{proof}
 
 \begin{proposition}

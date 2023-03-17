@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.9.1)  16 MAR 2023 21:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.9.1)  16 MAR 2023 23:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -402,7 +402,7 @@ Here is how much of TeX's memory you used:
  24147 multiletter control sequences out of 15000+600000
  475164 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,8n,92p,723b,207s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 94i,8n,92p,731b,215s stack positions out of 10000i,1000n,20000p,200000b,80000s
 <C:/Users/augus/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/augus/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/augus/AppData/Lo
@@ -415,7 +415,7 @@ C:/Users/augus/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
 /amsfonts/cm/cmsy8.pfb><C:/Users/augus/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/amsfonts/cm/cmti12.pfb><C:/Users/augus/AppData/Local/Programs/MiKTeX/f
 onts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on HW18_August.pdf (6 pages, 133618 bytes).
+Output written on HW18_August.pdf (6 pages, 137205 bytes).
 PDF statistics:
  74 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
