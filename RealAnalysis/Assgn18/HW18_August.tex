@@ -1,0 +1,194 @@
+\documentclass[12pt]{article}
+
+\parindent0pt
+\parskip10pt
+
+\usepackage{amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate, svg}
+
+
+\graphicspath{{./images/}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+% Analysis
+
+\newcommand\norm[1]{\lVert#1\rVert} %for norms and meshes
+\newcommand\rsum[2]{\mathcal{R} (#1,#2)} %R(f,P) for Reimann sums
+
+%geometry/topology
+\newcommand{\bndry}{\partial}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\theoremstyle{definition}
+
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+
+\title{Real Analysis}
+\author{August Bergquist}
+
+\begin{document}
+
+\section{Problem 12.5.5: an interesting function} 
+
+Consider the function $f: \R\to \R$ defined 
+\[
+    f(x) = 
+    \begin{cases}
+        0 \mbox{ if $x$ is irrational }\\
+        1/q \mbox{ if $x$ is rational, where $q$ is the denominator in lowest terms. }
+    \end{cases}
+    \]
+
+Its fairly easy to see that this function is discontinuous for all rational numbers. Recall one of the equivalent definitions of continuity, which states that a function $g:X\to Y$ is continuous at some $a\in X$ iff for all $\epsilon > 0$, there exists a $\delta > 0$ such that whenever $x\in X$ with $d(x,a) < \delta$, $d(g(x), g(a)) < \epsilon$. Negating this, we must show that there is some $\epsilon > 0$ such that whenever $ \delta > 0 $, there is some $x\in X$ with $d(x,a) < \delta$ and $ d(g(x), g(a)) \ge \epsilon $. 
+
+\begin{proposition}
+    The function $f$, defined above, is discontinuous at all $s\in \Q$.
+\end{proposition}
+
+\begin{proof}
+Back to our specific function, let $s\in \Q$. Then, by definition of a rational number $s = p/q$ (in lowest terms), with $p\in \Z$ and $q\in \N$. Let $\delta > 0$. Consider the positive real number $1/q$. Using a basic property of the reals (which we proved!), there must exist some irrational $r $ with $ s < r < s + \delta$. From this it follows that $ |r - s| < \delta $. Moreover, by definition of $f$, we have $f(s) = 1/q$, and $ f(r) = 0 $. So $|f(s) - f(r)| = |1/q - 0| = 1/q \ge 1/q$. But $\delta$ was arbitrary greater than zero, so for all $\delta$, there exists some $ r\in \R $ with $ |r -s| < \delta $ and $ |f(r) - f(s) \ge \epsilon $. Hence $f$ is discontinuous at $s$!
+\end{proof}
+
+
+Now we'll take it's integral. Unfortunately (or fortunately for coolness's sake), we can't take an antiderivative, for clearly none exists (it isn't continuous on any interval, since every interval contains a rational). Along the way, we'll prove the function is continuous at every irrational number.
+
+\begin{lemma}
+    Let $t\in \R$. Let $r > 0$, and let $ n\in \N $. Construct the set $S_n = \{s\in [t - r, t + r]: f(s) = 1/n\}$. Then $S_n$ is finite.
+\end{lemma}
+
+\begin{proof}
+    Let $s\in S_n$. Then $ f(s) = 1/n $. This isn't zero, hence $s$ is rational, and by definition of $f$, $s = p/n$ for some $p\in \Z$, where the fraction $p/n$ is in reduced terms. But since $s\in [t - r, t + r]$, it must be the case that $ t - r\le s=p/n\le t + r$, and since $n $ is positive, this is equivalent to 
+    \[
+        p\in [n(t - r) , n(t + r)].
+        \]
+    But since $p$ is an integer, only finitely many such $p$ can fit within this interval. So only finitely many elements could be in $S_n$, for each would correspond to a distinct integer $p\in [n(t - r) , n(t + r)]$.
+\end{proof}
+
+This allows us to establish an important property on how "big" the function can be, and how often it can be that big. 
+
+\begin{lemma}\label{finitelyManyBig}
+    Let $K\subset \R$ be bounded. Then for all $\epsilon > 0$, the set $ A = \{s\in K: f(s) > \epsilon\} $ is finite.
+\end{lemma}
+
+\begin{proof}
+    First, note that since $K$ is bounded, it follows that it lives inside of some open interval of some radius, and hence inside the corresponding closed interval. Let that closed interval be $ [t - r, t + r] $ for some $t\in r$, and for some $r> 0$. Note that the set $ S_\epsilon = \{s\in [t - r, t + r]: f(s) < 1/n\} $
+
+    By the archimedian principle, there must exist some natural number $N$ such that $1/N < \epsilon$. Note that if $  $
+\end{proof}
+
+\begin{proposition}
+    The function $f$ is continuous at all irrationals. 
+\end{proposition}
+
+\begin{proof}
+    Let $r\in \R$ be irrational. Let $\epsilon >0$. There exists some $\eta > 0$. Form the interval $[r - \eta, r + \eta]$. Since $\epsilon/2 > 0$, by the previous lemma there are only a finite number of points $s\in [ r - \eta, r + \eta]$ with $f(s) > \epsilon/2$. Order and index each of these points to form an indexed set of finite points $\{s_i\}_{i\in \{1,\dots, n\}}$, and form the partition 
+    \[
+        P = \{x_0 = r - \eta, x_1 = s_1, \dots, x_n = s_n, x_{n+1} = r + \eta\}.
+        \]
+    Since $r$ is irrational, and each of the $s_i$ are rational (otherwise they would have $f(s_i) = 0 < \epsilon/2$!), it follows that $r$ is on the interior of one of the intervals of this partition. Let that interval be $ [x_i, x_{i+1}] $. Since the interior of this interval does not contain any of the $s_k$s, for all $x\in (x_i, x_{i +1})$, we have $f(x) \le  \epsilon < \epsilon/2$.
+    
+    Since $r$ is in $(x_i, x_{i - 1})$, and this interval is open, there exists some $\delta$ such that for all $ x \in \R$ with $|x - r| < \delta$, we must have $ x\in (x_i, x_{i - 1}) $.
+
+    Now chose any $x\in \R$ with $ |x - r| < \delta $. As just stated, it follows that $ x\in (x_i, x_{i - 1}) $. As noted, this implies that $ f(x) < \epsilon $. Note that $ f(x) $ is never neagtive by definition of $f$, hence $ |f(x)| = f(x) $. Moreover, $ r $ is irrational, so by definition of $f$, we have $ f(r) = 0 $. So 
+
+    \[
+        |f(x) - f(r)| = |f(x) - 0| = f(x) < \epsilon.
+        \]
+
+    But $\epsilon > 0$ was arbitrary, hence for all $\epsilon > 0$, there exists some $\delta > 0$ such that for all $ x\in \R $ with $ |x - r| < \delta $, we have $ |f(x) - f(r)| < \epsilon$. This is one of the equivalent definitions of continuity at a point, hence $f$ is continuous at $r$, as desired.
+    
+\end{proof}
+
+
+\begin{proposition}
+    The function $f$ is integrable, with $\int_0^1 f = 0$
+\end{proposition}
+
+\begin{proof}
+
+    Let $\epsilon > 0$. Then $\epsilon/2 > 0$. So by Lemma \ref{finitelyManyBig}, we have only finitely many points $s\in [0,1]$ with $ f(s) > \epsilon /2 $. For ease of reference, let $S$ be (finite) set of all such points. Let $L$ be the sum of all such points. Consider 
+    \[
+        \delta = \frac{\epsilon}{2L}.
+        \]
+    Let $P = \{x_0, \dots, x_n\}$ be a partition of $ [0,1] $ with $\norm{P} < \delta$. Chose some collection of sample points $x_i^*$ for $P$, to form the Reimann sum 
+    \[
+    \mathcal{R}(f,P) = \sum_{i=1}^n f(x_i^*)(x_i - x_{i - 1}).     
+    \]
+
+    Let $A$ be the (possibly empty) set of all indices $i$ of the partition, such $x_i^*\in S$, and let $B$ be the rest of the indices. Certainly $ \sum_{i\in A}f(x_i^*) \le L $. Then by associativity,
+    \[
+        \mathcal{R}(f,P) = \sum_{i \in A}f(x_i^*)(x_i - x_{i-1}) + \sum_{i\in B}f(x_i^*)(x_i - x_{i-1}).
+        \]
+
+    Since $ \norm{P} < \delta $, $ x_i - x_{i -1} < \delta$, hence 
+    \[
+    \sum_{i \in A}f(x_i^*)(x_i - x_{i -1}) < \sum_{i \in A}f(x_i)\delta \le \delta L = \frac{\epsilon}{2L}L = \epsilon/2.   
+    \]
+
+    Moreover, note that for each $i\in B$, $ f(x_i^*)\le \epsilon/2 $, and note also that $\sum_{i\in B}(x_i - x_{i-1})\le \sum_{i = 1}^n (x_i - x_{i - 1}) = 1$, since the last sum of our inequality was telescoping with $x_n = 1$ and $x_0 = 0$. Hence 
+    \[
+    \sum_{i\in B}f(x_i^*)(x_i - x_{i - 1}) \le \sum_{i\in B}\frac{\epsilon}{2}(x_i - x_{i - 1}) = \frac{\epsilon}{2}\sum_{i\in B}(x_i - x_{i - 1}) 
+    \le \frac{\epsilon}{2}.    
+    \]
+
+    Hence 
+    \[
+        \left|\rsum{f}{P} - 0\right| = \rsum{f}{P} < \frac{\epsilon}{2} + \sum_{i \in B}f(x_i^*)(x_i - x_{i - 1}) \le \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.
+        \]
+
+    Since the mesh and Reimann sum were arbitrary, and since $\epsilon$ was also arbtirary, it follows that for any $\epsilon > 0$, there is some $\delta > 0$ such that for any partition $P$ with $\norm{P} < \delta$, and for any Reimann sum $\rsum{f}{P}$ with that partition, we have 
+    \[
+    \left|\rsum{f}{P} - 0\right| < \epsilon.    
+    \]
+    By definition of the Reimann integral, 
+    \[
+    \int_0^1f = 0    
+    \]
+    as desired.
+\end{proof}
+
+\section{Products of integrable functions}
+
+First, I should state the obvious lemma,
+
+\begin{lemma}
+    Let $K\subset \R$ be compact, and let $S\subset K$. For any continuous function $f:K\to \R$, the restriction $f|_S:S\to \R$ is uniformly continuous.
+\end{lemma}
+
+This lemma is obvious because for any restriction, and for any two points $x, y\in S$ with $d(x,y) < \delta$, I would necessarily have $|(f(x)- f(y)| < \epsilon$. (Where $\epsilon$ and $\delta$ would be what they usually are in a proof.)
+
+\begin{theorem}
+    Let $f,g:[a,b]\to \R$ be Reimann integrable. Then $fg$ is Reimann integrable. 
+\end{theorem}
+
+\begin{proof}
+    The key is to recognize the purely algebraic identity $ \frac{1}{4}[(f + g)^2 - (f - g)^2] = fg $, where scalar multiplication and function addition are defined pointwise. This is obvious yet slightly tedious, so I won't write out all the steps. Once the terms are all foiled correctly, and canceled out, we find that the identity holds. 
+
+    Because $f $ and $g$ are continuous, by a previous result (which we proved), $f + g$ and $f - g$ are both Reimann integrable. We aim to show that $ (f + g)^2 $ and $ (f - g)^2 $ are Reimann integrable. We will do this by recognizing these as compositions $h\circ (f+g)$ and $h\circ (f - g)$, $h:\R\to \R$ is the function which maps $x\mapsto x^2$ for all $x\in \R$. 
+
+    We have actually proven that this function is not uniformly continuous in general. However, since continous functions from compact sets are uniformly continuous, the map $h$ will be uniformly continuous if restricted to some such compact set. By our Lemma, it will also be compact if this domain is further restricted from such a compact set. 
+
+    Since $f + g$ and $f - g$ are Reimann integrable functions $[a,b]\to \R$, both are bounded. Hence the sets $ (f + g)([a,b])$ and $ (f - g)([a,b]) $ are bounded. By the theorem which proves that a the closure of a set is closed, the closures of both sets are closed. Since both are bounded as well, by the Heine Borel theorem, both are compact, hence $h$ restricted to either of the closures of these sets is uniformly continuous. By the above lemma, the further restriction of $h$ to the range of either $f + g$ or $f - g$ is also uniformly continuous. 
+
+    So then, by Theorem 11.5.7 of the textbook, the compositions $h\circ (f + g) = (f + g)^2$ and $ h\circ (f -g) = (f - g)^2$ are both Reimann integral. By Part (3) of Theorem 11.3.1 of the textbook, their difference 
+    \[
+        (f + g)^2 - (f - g)^2
+        \]
+    is Reimann integrable on $[a,b]$. 
+    Moreover, by the second part of the same theorem, the scalar multiple $\frac{1}{4}[(f + g)^2 - (f - g)^2] = fg$ is Reimann integrable on the interval $[a,b]$, which is what we set out to prove.
+\end{proof}
+
+\end{document}
