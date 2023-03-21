@@ -3,7 +3,7 @@
 \parindent0pt
 \parskip10pt
 
-\usepackage{amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate, svg}
+\usepackage{amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate}
 
 
 \graphicspath{{./images/}}
@@ -40,6 +40,8 @@
 \author{August Bergquist}
 
 \begin{document}
+
+\maketitle
 
 \section{Problem 12.5.5: an interesting function} 
 
@@ -84,9 +86,9 @@ This allows us to establish an important property on how "big" the function can 
 \end{lemma}
 
 \begin{proof}
-    First, note that since $K$ is bounded, it follows that it lives inside of some open interval of some radius, and hence inside the corresponding closed interval. Let that closed interval be $ [t - r, t + r] $ for some $t\in r$, and for some $r> 0$. Note that the set $ M_\epsilon = \{s\in [t - r, t + r]: f(s) > k\}  $ is a subset of the set of all $s\in K$ with the same property. Therefore it suffices to prove that $M_\epsilon$ is finite. 
+    First, note that since $K$ is bounded, it follows that it lives inside of some open interval of some radius, and hence inside the corresponding closed interval. Let that closed interval be $ [t - r, t + r] $ for some $t\in r$, and for some $r> 0$. Note that $ S\subset M_\epsilon $. Therefore it suffices to prove that $M_\epsilon$ is finite. 
 
-    By the archimedian principle, there must exist some natural number $N$ such that $1/N < \epsilon$. Note that if $ f(s) > \epsilon $, then $ f(s) \ge 1/N $. Therefore, $M_\epsilon\subset \{s\in [t - r, t + r]: f(s) > \} = M_N$, and it suffices to show that $M_N$ set is finite. 
+    By the archimedian principle, there must exist some natural number $N$ such that $1/N < \epsilon$. Note that if $ f(s) > \epsilon $, then $ f(s) \ge 1/N $. Therefore, $M_\epsilon\subset \{s\in [t - r, t + r]: f(s) > \} = M_N$, and it suffices to show that the $M_N$ is finite. 
 
     To show that $M_N$ is finite, we note that the set $ \{n\in \N: n < N\} = I$ is finite. Moreover, by the previous lemma, each set $S_n = \{s\in [t - r, t + r]: f(s) = 1/n\}$ is finite. We will show that $ M_N \subset \cup_{i\in I}S_i $, which will prove that $M_N$ is finite, since this union is a finite union of finite sets!
 
@@ -101,15 +103,15 @@ This allows us to establish an important property on how "big" the function can 
 \end{proposition}
 
 \begin{proof}
-    Let $r\in \R$ be irrational. Let $\epsilon >0$. There exists some $\eta > 0$. Form the interval $[r - \eta, r + \eta]$. Since $\epsilon/2 > 0$, by the previous lemma there are only a finite number of points $s\in [ r - \eta, r + \eta]$ with $f(s) > \epsilon/2$. Order and index each of these points to form an indexed set of finite points $\{s_i\}_{i\in \{1,\dots, n\}}$, and form the partition 
+    Let $r\in \R$ be irrational. Let $\epsilon >0$. There exists some $\eta > 0$. Form the interval $[r - \eta, r + \eta]$. Since $\epsilon/2 > 0$, by the previous lemma there are only a finite number of points $s\in [ r - \eta, r + \eta]$ with $f(s) > \epsilon/2$. Order and index each of these points to form an increasing indexed set of finite points $\{s_i\}_{i\in \{1,\dots, n\}}$, and form the partition 
     \[
         P = \{x_0 = r - \eta, x_1 = s_1, \dots, x_n = s_n, x_{n+1} = r + \eta\}.
         \]
-    Since $r$ is irrational, and each of the $s_i$ are rational (otherwise they would have $f(s_i) = 0 < \epsilon/2$!), it follows that $r$ is on the interior of one of the intervals of this partition. Let that interval be $ [x_i, x_{i+1}] $. Since the interior of this interval does not contain any of the $s_k$s, for all $x\in (x_i, x_{i +1})$, we have $f(x) \le  \epsilon < \epsilon/2$.
+    Since $r$ is irrational, and each of the $s_i$ are rational (otherwise they would have $f(s_i) = 0 < \epsilon/2$!), it follows that $r$ is on the interior of one of the intervals of this partition. Let that interval be $ [x_i, x_{i+1}] $. Since the interior of this interval does not contain any of the $s_k$s, for all $x\in (x_i, x_{i +1})$, we have $f(x) \le  \epsilon/2 < \epsilon$.
     
     Since $r$ is in $(x_i, x_{i - 1})$, and this interval is open, there exists some $\delta$ such that for all $ x \in \R$ with $|x - r| < \delta$, we must have $ x\in (x_i, x_{i - 1}) $.
 
-    Now chose any $x\in \R$ with $ |x - r| < \delta $. As just stated, it follows that $ x\in (x_i, x_{i - 1}) $. As noted, this implies that $ f(x) < \epsilon $. Note that $ f(x) $ is never neagtive by definition of $f$, hence $ |f(x)| = f(x) $. Moreover, $ r $ is irrational, so by definition of $f$, we have $ f(r) = 0 $. So 
+    Now chose any $x\in \R$ with $ |x - r| < \delta $. As just stated, it follows that $ x\in (x_i, x_{i - 1}) $. As noted, this implies that $ f(x) < \epsilon $. Note that $ f(x) $ is never negative by definition of $f$, hence $ |f(x)| = f(x) $. Moreover, $ r $ is irrational, so by definition of $f$, we have $ f(r) = 0 $. So 
 
     \[
         |f(x) - f(r)| = |f(x) - 0| = f(x) < \epsilon.
@@ -126,7 +128,7 @@ This allows us to establish an important property on how "big" the function can 
 
 \begin{proof}
 
-    Let $\epsilon > 0$. Then $\epsilon/2 > 0$. So by Lemma \ref{finitelyManyBig}, we have only finitely many points $s\in [0,1]$ with $ f(s) > \epsilon /2 $. For ease of reference, let $S$ be (finite) set of all such points. Let $L$ be the sum of all such points. Consider 
+    Let $\epsilon > 0$. Then $\epsilon/2 > 0$. So by Lemma \ref{finitelyManyBig}, we have only finitely many points $s\in [0,1]$ with $ f(s) > \epsilon /2 $. For ease of reference, let $S$ be (finite) set of all such points. Let $L = \sum_{s\in S}s$. Consider 
     \[
         \delta = \frac{\epsilon}{2L}.
         \]
@@ -184,13 +186,13 @@ This lemma is obvious because for any restriction, and for any two points $x, y\
 \begin{proof}
     The key is to recognize the purely algebraic identity $ \frac{1}{4}[(f + g)^2 - (f - g)^2] = fg $, where scalar multiplication and function addition are defined pointwise. This is obvious yet slightly tedious, so I won't write out all the steps. Once the terms are all foiled correctly, and canceled out, we find that the identity holds. 
 
-    Because $f $ and $g$ are continuous, by a previous result (which we proved), $f + g$ and $f - g$ are both Reimann integrable. We aim to show that $ (f + g)^2 $ and $ (f - g)^2 $ are Reimann integrable. We will do this by recognizing these as compositions $h\circ (f+g)$ and $h\circ (f - g)$, $h:\R\to \R$ is the function which maps $x\mapsto x^2$ for all $x\in \R$. 
+    Because $f $ and $g$ are continuous, by a previous result (which we proved), $f + g$ and $f - g$ are both Reimann integrable. We aim to show that $ (f + g)^2 $ and $ (f - g)^2 $ are Reimann integrable. We will do this by recognizing these as compositions $h\circ (f+g)$ and $h\circ (f - g)$, where $h:\R\to \R$ is the function which maps $x\mapsto x^2$ for all $x\in \R$. 
 
     We have actually proven that this function is not uniformly continuous in general. However, since continous functions from compact sets are uniformly continuous, the map $h$ will be uniformly continuous if restricted to some such compact set. By our Lemma, it will also be compact if this domain is further restricted from such a compact set. 
 
-    Since $f + g$ and $f - g$ are Reimann integrable functions $[a,b]\to \R$, both are bounded. Hence the sets $ (f + g)([a,b])$ and $ (f - g)([a,b]) $ are bounded. By the theorem which proves that a the closure of a set is closed, the closures of both sets are closed. Since both are bounded as well, by the Heine Borel theorem, both are compact, hence $h$ restricted to either of the closures of these sets is uniformly continuous. By the above lemma, the further restriction of $h$ to the range of either $f + g$ or $f - g$ is also uniformly continuous. 
+    Since $f + g$ and $f - g$ are Reimann integrable functions $[a,b]\to \R$, both are bounded. Hence the sets $ (f + g)([a,b])$ and $ (f - g)([a,b]) $ are bounded. By the theorem which proves that the closure of a set is closed, the closures of both sets are closed. Since both are bounded as well, by the Heine Borel theorem, both are compact, hence $h$ restricted to either of the closures of these sets is uniformly continuous. By the above lemma, the further restriction of $h$ to the range of either $f + g$ or $f - g$ is also uniformly continuous. 
 
-    So then, by Theorem 11.5.7 of the textbook, the compositions $h\circ (f + g) = (f + g)^2$ and $ h\circ (f -g) = (f - g)^2$ are both Reimann integral. By Part (3) of Theorem 11.3.1 of the textbook, their difference 
+    So then, by Theorem 11.5.7 of the textbook, the compositions $h\circ (f + g) = (f + g)^2$ and $ h\circ (f -g) = (f - g)^2$ are both Reimann integrable. By Part (3) of Theorem 11.3.1 of the textbook, their difference 
     \[
         (f + g)^2 - (f - g)^2
         \]

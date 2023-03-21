@@ -1,0 +1,2 @@
+ N-dimensional Euclidean space is one of the most widely known and loved mathematical structures. From Group Theory to Linear Algebra, Euclidean space can be understood from many angles and it is clear that dimension plays a fundamental role. On the other hand, the fact that dimension is a topological invariant requires significant structural buildup. Using the power and properties of homology, a tool for turning topology into algebra, we will outline a proof of Invariance of Dimension.
+ 

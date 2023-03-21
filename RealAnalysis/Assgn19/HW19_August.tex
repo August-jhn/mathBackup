@@ -1,0 +1,161 @@
+\documentclass[12pt]{article}
+
+\parindent0pt
+\parskip10pt
+
+\usepackage{amsmath, amssymb, amsthm, graphicx, fancyhdr, textcomp, enumerate}
+
+
+\graphicspath{{./images/}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Arg}{\mbox{Arg}}
+\newcommand{\Log}{\mbox{Log}}
+
+% Analysis
+
+\newcommand\norm[1]{\lVert#1\rVert} %for norms and meshes
+\newcommand\rsum[2]{\mathcal{R} (#1,#2)} %R(f,P) for Reimann sums
+
+%geometry/topology
+\newcommand{\bndry}{\partial}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\theoremstyle{definition}
+
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+
+\title{Real Analysis}
+\author{August Bergquist}
+
+\begin{document}
+
+\maketitle
+
+\section{The Uniformly Convergent Limit of Continuous Functions is Continuous}
+
+\begin{proposition} Let $X$ and $Y$ be metric spaces, and let $f_n:X\to Y$ be a uniformly convergent sequence of continuous functions, which converge 
+to some function $ f:X\to Y $. Then $f$ is continuous.
+\end{proposition}
+
+\begin{proof} 
+
+Let everything be instantiated as above. Suppose for the sake of contradiction that $f$ is not continuous. Then there exists some point of discontinuity 
+$a\in X$. Hence there exists some $\epsilon > 0$ such that for all $\delta > 0$, there exists some $ x\in X $ with $ d_X(x,a) <\delta$ and
+$\epsilon \le d_Y(f(x), f(a))$. 
+
+By uniform convergence of $f_n$, there exists natural number $N$ such that for all $n> N$, and for all $x\in X$, $d_Y(f(x), f_n(x)) < \epsilon/3$. In 
+particular, $ d_Y(f_n(a),f(a))\le \epsilon/3 $.
+
+Moreover, by assumption that each $f_n$ is continuous, it is continuous in particular at $a$. Hence there exists some $\delta > 0$ such that for any $ 
+x\in X$ with $d_X(x,a) <\delta$, we must have $ d_Y(f_n(x), f_n(a)) < \epsilon/3 $.
+
+But by construction of $\epsilon$, there exists some $ b\in X $ such that $ d_X(b,a) < \delta $ and $ <\epsilon \le d_Y(f(a),f(b)) $. But $ d_Y(f(a), 
+f_n(a)) < \epsilon/3$, $ d_Y(f_n(a), f_n(x)) < \epsilon/3 $ and $ d_Y(f_n(x), f(x)) < \epsilon/3 $, Hence by the triangle inequality we have 
+\begin{equation}
+    \begin{split}
+        \epsilon \le d_Y(f(a), f_n(a)) \\
+        \le d_Y(f(a), f_n(a)) + d_Y(f_n(a), f_n(x)) + d_Y(f_n(x), f(x))  \\
+        < \epsilon/3 + \epsilon/3 + \epsilon/3 =\epsilon.
+    \end{split}
+\end{equation}
+ Hence $\epsilon < \epsilon$, which is a contradiction. \end{proof}
+
+\section{Uniform Convergence and Arithmetic}
+
+\begin{lemma}
+ Let $X$ be a metric space, and let $f_n:X\to \R$ be a uniformly convergent sequence of functions, which converge to $f:X\to \R$. Suppose 
+$f$ is bounded by $M\in \R$, such that for all $x\in X$, 
+\[
+	|f(x)| \le M.
+\]
+
+Then for all $\epsilon > 0 $ there exists a natural number $N\in \N$ such that for all $n> N$, and for all $x\in X$, 
+\[
+	|f_n(x)| \le M + \epsilon.
+\]
+
+\end{lemma}
+
+\begin{proof} Let everything be instantiated as above. Let $\epsilon > 0$. By uniform convergence of $(f_n)$, we have some natural number $N$ such 
+that for all $n > N$, $ |f(x) - f_n(x)| < \epsilon $. Take any $n> N$. Then by the Triangle Inequality, we have
+\begin{equation}
+	\begin{split}
+		|f_n(x)| = |f_n(x) - 0| \\
+		|f_n(x) - f(x)| + |f(x) - 0| = |f_n(x) - f(x)| + |f(x)|.
+	\end{split}
+\end{equation}
+But $ x\in X $, so $ |f(x)| \le M $. Moreover, since $n> N$, by construction of $N$ we have $ |f_n(x) - f(x) <\epsilon$, hence
+\[
+|f(x)| < M + \epsilon.
+\]
+
+ \end{proof}
+
+For what follows, let $X$ be a metric space, and let $f_n$ and $g_n$ be sequences of functions $ X\to \R $, which uniformly converge to functions 
+$f,g:X\to \R$ respectively.
+
+\begin{proposition}
+The sequence of pointwise defined sums, $ f_n+g_n $, converges uniformly to the pointwise sum $f+g$.
+\end{proposition}
+
+\begin{proof}
+For let $\epsilon > 0$. Then $\epsilon /2 > 0$. By uniform convergence of $ f_n $ to $f$, there exists some natural number $N_1$ such that for all 
+$n>N_1$, and for all $x\in X$, $ |f_n(x) - f(x) | < \epsilon/2 $. Similarly, there exists some natural number $N_2$ such that for all $n>N_2$, and for 
+all $x\in X $, $| g_n(x) + g(x) | < \epsilon /2$. 
+
+Consider $ N = \max(N_1, N_2)$. Let $n> N$, and let $x\in X$. Since $n> N$, $n> N_1, N_2$, hence $ |f_n(x) - f(x)| < \epsilon/2 $ and $ |g_n(x) - 
+(x)|<\epsilon /2 $. From this it follows that 
+\begin{equation}
+	\begin{split}
+		|(f_n + g_n)(x) - (f+g)(x)| = |f_n(x) + g_n(x) - (f(x) + g(x))| \\
+		= |(f_n(x) - f(x) + (g_n(x) - g(x))| \\
+		\le |f_n(x) - f(x)| + |g_n(x) - g(x)| < \epsilon/2 + \epsilon/2 = \epsilon.
+	\end{split}
+\end{equation}
+This concludes the proof.
+\end{proof}
+
+\begin{proposition}
+If, in addition, $f$ and $g$ are both bounded, then the pointwise product $f_ng_n$ converges uniformly to the pointwise product $fg$. 
+\end{proposition}
+
+\begin{proof}
+Let $\epsilon> 0$. Since $f$ and $g$ are bounded, there exist real numbers $F, G> 0$ such that for all $ x\in X $, $ |f(x)| \le F $ and $ |g(x)|\le G $. 
+Hence 
+\[
+	\eta = \frac{\epsilon}{F + G} > 0.
+\]
+
+By the above lemma, it follows that there exists some natural $N_1$ such that for all $n > N_1$, and for all $x\in X$, $ |f_n(x)|\le F + 
+\eta$. By the same lemma, there exists some natural number $ N_2 $ such that for all $n> N_2$, and for all $x\in X$, $ |g_n(x)| < G + \eta $. 
+Moreover, by uniform convergence of $f_n$ to $f$, there exists some natural number $N_3$ such that for all $n>N_3$, and for all $x\in X$, 
+$| f_n(x) - f(x) | < \eta$. By uniform convergence of $g_n$ to $g$, there exists some natural number $N_4$ such that for all $ n> N_4 $, and 
+for all $x\in X$, $ |g_n(x) -g(x)| < \eta $. Let $ N = \max\{N_1, N_2, N_3, N_4\} $, and suppose $n> N$ and $x\in X$. Then 
+\begin{equation}
+	\begin{split}
+		|(f_ng_n)(x) - fg(x)| = |f_n(x)g_n(x) - f(x)g(x)| \\
+		= |f_n(x)g_n(x) - f_n(x)g(x) + f_n(x)g(x) - f(x)g(x)|\\
+		\le |f_n(x)g_n(x) - f_n(x)g(x)| + |f(x)g(x) - f_n(x)g(x)|\\
+		= |f_n(x)||g_n(x) - g(x)| + |g(x)||f(x) - f_n(x)| \\
+		< (F + \eta)\eta + G\eta = (\eta + F + G)\eta < (F+G)\eta\\
+		= (F+G)\frac{\epsilon}{F+G} = \epsilon.
+	\end{split}
+\end{equation}
+
+Generalizing and stuff, by definition of uniform convergence, $f_ng_n$ converges uniformly to $fg$ as desired.
+
+\end{proof}
+
+\end{document}
