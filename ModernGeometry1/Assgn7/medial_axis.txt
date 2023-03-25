@@ -1,0 +1,143 @@
+from geometryFunctions import *
+import matplotlib.pyplot as plt
+import math
+
+
+def find_angle_bisector(p1,p2,p3):
+    theta = -angle(p1,p2,p3)/2
+
+    p0 = p2
+
+    x0 = p0[0]
+    y0 = p0[1]
+
+    x1 = p3[0]
+    y1 = p3[1]
+
+    x = math.cos(theta)*(x1-x0) - math.sin(theta)*(y1 - y0) + x0
+    y = math.sin(theta)*(x1-x0) + math.cos(theta)*(y1 - y0) + y0 #just use vector algebra and a rotation matrix to get these formulas
+
+    return ((x0,y0),(x,y))
+
+
+
+
+def medial_axis(P):
+    edges = [] # each edge should be of the form (outer point, inner point) towards the interior of the convex polygon
+    to_remove = {} #   {  end point(x):  start point(v)  } this is a que of edges to replace
+    #the idea is that we want to replace (v,w) with (x,w) for each of the edges which have v.
+    #we will loop through each of the edges, and if the start point 
+
+    def compute_triangle_medial_axis(triangle):
+        p1 = triangle[0]
+        p2 = triangle[1]
+        p3 = triangle[2]
+
+        b1 = find_angle_bisector(p1, p2, p3)
+        b2 = find_angle_bisector(p3, p1, p2)
+
+        x = intersect(b1[0],b1[1],b2[0],b2[1])
+
+        edges.append((p1,x))
+        edges.append((p2,x))
+        edges.append((p3,x))
+
+    
+    def next_polygon(polygon, pair,points_to_indices):
+        new_polygon = []
+        to_remove = [
+            points_to_indices[pair[0]],
+            points_to_indices[pair[1]]
+            ]
+
+        print(to_remove)
+
+        x = intersect(
+        
+            pair[0], polygon[(points_to_indices[pair[0]] - 1) % len(polygon)],
+            pair[1], polygon[(points_to_indices[pair[1]] + 1) % len(polygon)]
+            
+            )
+
+        print(pair[0], polygon[(points_to_indices[pair[0]] - 1) % len(polygon)])
+
+        for pt in points_to_indices:
+            i = points_to_indices[pt]
+            if i not in to_remove:
+                new_polygon.append(polygon[i])
+            else:
+                if i == to_remove[1]:
+                    new_polygon.append(x)
+        
+        edges.extend([(new_polygon[i], new_polygon[ (i + 1) % len(new_polygon)]) for i in range(len(new_polygon))])
+
+
+        return new_polygon
+
+
+
+    def find_medial_axis(polygon ):
+        """takes a polygon,
+        returns a list of ordered pairs of ordered pairs: ((x1,y1), (y1y2))"""
+
+        if len(polygon) > 2:
+            
+            pairs_to_squares = {} #square lengths are computationaly more efficient, as the square root function is expensive.
+            pairs_to_pairs_of_segments = {}
+
+            points_to_indices = {}
+
+            number_of_vertices = len(polygon)
+            print(number_of_vertices, "is the length")
+
+            for i in range(len(polygon)):
+                
+                p1 = polygon[i]
+                points_to_indices[p1] = i
+                p2 = polygon[(i + 1) % number_of_vertices]
+                
+                b1 =  find_angle_bisector(polygon[(i - 1) % number_of_vertices], p1, p2)
+                b2 =  find_angle_bisector(p1, p2, polygon[(i + 2) % number_of_vertices])
+
+                x = intersect(b1[0], b1[1] , b2[0], b2[1])
+                pairs_to_pairs_of_segments[(p1,p2)] = ( 
+                    (p1, x),
+                    (p2, x)
+                )
+                
+                pairs_to_squares[(p1,p2)] = max((
+                    (p1[0] - x[0])**2 + (p1[1] - x[1])**2 
+                ), ((p2[0] - x[0])**2 + (p2[1] - x[1])**2))
+            
+            minimum = list(pairs_to_squares)[0]
+
+            for pair in pairs_to_squares:
+                if pairs_to_squares[pair] < pairs_to_squares[minimum]:
+                    minimum = pair
+
+            print("removing", [points_to_indices[pt] for pt in minimum])
+            pair_of_segments = pairs_to_pairs_of_segments[minimum]
+            edges.extend(pair_of_segments)
+
+
+            if number_of_vertices > 4:
+                find_medial_axis(next_polygon(polygon, minimum, points_to_indices))
+            else:
+                compute_triangle_medial_axis(next_polygon(polygon, minimum, points_to_indices))
+
+
+    find_medial_axis(P)
+    return edges
+
+
+
+
+if __name__ == "__main__":
+    p = create_regular_ngon(7)
+    plotgraph(medial_axis(p))
+    plotpoly(p)
+
+    plt.show()
+    
+    plt.show()
+    
